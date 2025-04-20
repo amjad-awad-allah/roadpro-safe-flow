@@ -153,3 +153,28 @@
 .parallax-layer {
   transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+
+/* == Additional Styles for soft shadows, soft backgrounds, spacing, improved visuals ==*/
+@layer components {
+  .shadow-roadpro {
+    box-shadow: 0 2px 16px 0 rgba(255, 204, 0, 0.08), 0 1.5px 8px 0 rgba(0,0,0,0.08);
+  }
+  .hover\:shadow-roadpro-yellow:hover {
+    box-shadow: 0 0 24px 0 #ffcc00a0, 0 2px 16px 0 #0003;
+  }
+  /* Smooth card grow on hover for service cards is in Tailwind, but here's a util if needed */
+  .card-animated {
+    @apply shadow-lg rounded-xl transition-all duration-300 hover:shadow-2xl hover:scale-105;
+  }
+  /* Responsive, visible images utility */
+  .image-display {
+    @apply w-full max-w-lg block rounded-xl shadow-md border-8 border-white bg-white object-contain;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}

@@ -1,74 +1,79 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-
 const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-20 pb-16 bg-roadpro-lightgray overflow-hidden"
+      className="relative min-h-[80vh] flex items-center pt-[84px] pb-8 md:pb-20 bg-roadpro-lightgray overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-white to-transparent"></div>
+      {/* Background Pattern and Parallax Cone */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none">
+        {/* Large faint cone parallax left */}
         <svg
-          className="absolute top-20 right-0 h-[90%] w-1/2 text-roadpro-yellow opacity-10"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
+          className="absolute left-0 bottom-0 z-0 animate-float"
+          width="112"
+          height="120"
+          fill="none"
+          viewBox="0 0 44 48"
+          style={{ opacity: 0.08 }}
         >
-          <path
-            d="M0,0 L100,0 L100,100 L0,100 Z"
-            fill="currentColor"
-          ></path>
+          <polygon points="22,0 44,48 0,48" fill="#FFD600" />
         </svg>
         <div className="absolute bottom-0 right-0 w-full h-[40%] bg-gradient-to-t from-white to-transparent"></div>
       </div>
-
       <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div className="lg:col-span-7 space-y-6">
-          <div className="inline-block bg-roadpro-yellow px-4 py-1 rounded-full animate-fade-in-up opacity-0" style={{ animationDelay: '0.2s' }}>
-            <span className="text-sm font-medium text-roadpro-black">
-              Traffic Management Experts in Abu Dhabi
-            </span>
+        {/* IMAGE - Always visible, never covered */}
+        <div className="lg:col-span-6 w-full mb-6 lg:mb-0 flex justify-center">
+          {/* Main hero image, rounded, shadow, responsive */}
+          <img
+            src="/lovable-uploads/team.png"
+            alt="RoadPro team working on a traffic solution"
+            className="w-full max-w-lg rounded-xl shadow-2xl border-8 border-white object-cover block animate-fade-in-up"
+            style={{ minHeight: "320px", background: "#F1F0FB" }}
+          />
+        </div>
+        {/* TEXT Content */}
+        <div className="lg:col-span-6 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
+          <div
+            className="inline-block bg-roadpro-yellow px-4 py-1 rounded-full animate-fade-in-up font-poppins text-sm font-medium text-roadpro-black shadow"
+            style={{ animationDelay: "0.2s" }}
+          >
+            خبراء إدارة المرور في أبوظبي | Road Safety Experts in Abu Dhabi
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-roadpro-black leading-tight animate-fade-in-up opacity-0" style={{ animationDelay: '0.4s' }}>
-            Enhancing Public Safety & Smooth Traffic Flow
+          <h1
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-roadpro-black leading-tight animate-fade-in-up font-poppins"
+            style={{ animationDelay: "0.4s" }}
+          >
+            <span className="block">تعزيز السلامة العامة</span>
+            <span className="block">وسلاسة حركة المرور</span>
+            <span className="block text-xl font-normal text-roadpro-gray mt-1">Enhancing Public Safety & Smooth Traffic Flow</span>
           </h1>
-          <p className="text-lg md:text-xl text-roadpro-gray max-w-2xl animate-fade-in-up opacity-0" style={{ animationDelay: '0.6s' }}>
-            Innovative Solutions for Traffic Diversions, Lane Closures, and Street Safety
+          <p
+            className="text-lg md:text-xl text-roadpro-gray max-w-2xl animate-fade-in-up font-poppins"
+            style={{ animationDelay: "0.6s" }}
+          >
+            حلول مبتكرة للتحويلات المرورية، إغلاقات المسارات، وتحقيق أعلى معايير السلامة في الشوارع.<br />
+            Innovative solutions for traffic diversions, lane closures, and street safety.
           </p>
-          <div className="flex flex-wrap gap-4 animate-fade-in-up opacity-0" style={{ animationDelay: '0.8s' }}>
-            <Button className="bg-roadpro-yellow text-roadpro-black text-lg px-6 py-6 hover:bg-roadpro-black hover:text-roadpro-yellow transition-colors hover-glow animate-soft-pulse">
+          <div
+            className="flex flex-wrap gap-4 animate-fade-in-up"
+            style={{ animationDelay: "0.8s" }}
+          >
+            <Button className="bg-roadpro-yellow text-roadpro-black text-lg px-6 py-6 rounded-xl shadow-lg hover:bg-roadpro-black hover:text-roadpro-yellow transition-all hover-glow hover:scale-105 animate-soft-pulse font-poppins">
               Explore Our Services
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" className="border-roadpro-black text-roadpro-black text-lg px-6 py-6 hover:bg-roadpro-black hover:text-white transition-colors">
-              Contact Us
+            <Button
+              variant="outline"
+              className="border-roadpro-black text-roadpro-black text-lg px-6 py-6 hover:bg-roadpro-black hover:text-white transition-all rounded-xl font-poppins"
+            >
+              Contact Us Now
             </Button>
           </div>
-        </div>
-        
-        <div className="lg:col-span-5 relative animate-subtle-float">
-          <div className="relative rounded-xl overflow-hidden shadow-2xl aspect-[4/3]">
-            <div className="absolute inset-0 bg-gradient-to-r from-roadpro-black/70 to-roadpro-black/20"></div>
-            <img
-              src="/lovable-uploads/0da8014e-7a3b-4ac3-8355-f7f00bf18dbd.png"
-              alt="RoadPro Traffic Management"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <div className="flex items-center gap-2 text-white font-medium">
-                <span className="inline-block w-3 h-3 bg-roadpro-yellow rounded-full"></span>
-                <span>Trusted by government agencies across UAE</span>
-              </div>
-            </div>
-          </div>
-          
-          <div className="absolute -right-8 -bottom-8 w-40 h-40 bg-roadpro-yellow rounded-full -z-10"></div>
-          <div className="absolute -left-8 -top-8 w-24 h-24 border-4 border-roadpro-yellow rounded-full -z-10"></div>
         </div>
       </div>
     </section>
   );
 };
-
 export default HeroSection;

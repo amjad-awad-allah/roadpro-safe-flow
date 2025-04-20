@@ -3,24 +3,24 @@ import { Check } from "lucide-react";
 
 const advantages = [
   {
-    title: "Industry Experience",
-    description: "Over 15 years of specialized experience in traffic management and road safety solutions in the UAE.",
+    title: "خبرة صناعية | Industry Experience",
+    description: "أكثر من 15 سنة خبرة تخصصية وحلول سلامة طرق في الإمارات. Over 15 years of traffic management and road safety expertise in the UAE.",
   },
   {
-    title: "Regulatory Compliance",
-    description: "All our solutions strictly adhere to local and international safety standards and regulations.",
+    title: "الإلتزام التنظيمي | Regulatory Compliance",
+    description: "حلولنا متوافقة مع المعايير المحلية والدولية. All solutions strictly follow safety regulations.",
   },
   {
-    title: "Innovative Designs",
-    description: "Custom engineered solutions that address the unique challenges of each project.",
+    title: "تصاميم مبتكرة | Innovative Designs",
+    description: "تصاميم هندسية مخصصة لكل مشروع. Custom engineered solutions for every unique project.",
   },
   {
-    title: "Strong ITC Relationships",
-    description: "Established partnerships with key traffic authorities for streamlined approvals and implementation.",
+    title: "علاقات رسمية قوية | Strong ITC Relationships",
+    description: "شراكات رسمية مع الجهات المختصة لضمان سرعة التنفيذ. Established authority partnerships for streamlined approvals.",
   },
   {
-    title: "Proven Success Record",
-    description: "Hundreds of successfully completed projects across Abu Dhabi and the wider UAE region.",
+    title: "سجل حافل بالنجاح | Proven Success Record",
+    description: "مئات المشاريع المنجزة بأبوظبي والإمارات. Hundreds of completed projects across the UAE.",
   },
 ];
 
@@ -30,29 +30,30 @@ const AdvantagesSection = () => {
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4">
-              <span className="text-sm font-medium text-roadpro-black">
-                Why Choose Us
-              </span>
+            <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4 font-poppins">
+              <span className="text-sm font-medium text-roadpro-black">Why Choose Us | لماذا تختار RoadPro</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black mb-6">
-              Our Competitive Advantage
+            <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black mb-6 font-poppins">
+              Our Competitive Advantage | مميزاتنا التنافسية
             </h2>
-            <p className="text-roadpro-gray text-lg mb-8">
-              At RoadPro, we combine expertise, innovation, and dedication to deliver superior traffic management solutions. Here's what sets us apart:
+            <p className="text-roadpro-gray text-lg mb-8 font-poppins">
+              <span>
+                Experts, innovation, and dedication for superior traffic management—what sets us apart:
+              </span>
+              <br />
+              الخبرة، الابتكار، والإلتزام هي سر تفوقنا في إدارة المرور والسلامة.
             </p>
-
             <div className="space-y-4">
               {advantages.map((advantage, index) => (
                 <div key={index} className="flex gap-4">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-roadpro-yellow flex items-center justify-center">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-roadpro-yellow flex items-center justify-center shadow animate-soft-pulse">
                     <Check className="w-4 h-4 text-roadpro-black" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-roadpro-black">
+                    <h3 className="text-lg font-semibold text-roadpro-black font-poppins">
                       {advantage.title}
                     </h3>
-                    <p className="text-roadpro-gray">
+                    <p className="text-roadpro-gray font-poppins">
                       {advantage.description}
                     </p>
                   </div>
@@ -60,18 +61,19 @@ const AdvantagesSection = () => {
               ))}
             </div>
           </div>
-
-          <div className="relative">
-            <div className="rounded-xl overflow-hidden shadow-2xl aspect-square flex items-center justify-center">
+          {/* Replaced image with mg as requested, always clear on all screens */}
+          <div className="relative flex items-center justify-center">
+            <div className="rounded-xl overflow-hidden shadow-2xl aspect-square flex items-center justify-center border-8 border-white bg-white w-full max-w-md">
               <img
-                src="/lovable-uploads/d0fdedde-4d38-45a4-86f3-d6acb78b3f99.png"
-                alt="RoadPro competitive advantage visual"
-                className="w-full h-full object-contain p-6 bg-white"
+                src="/lovable-uploads/mg.png"
+                alt="RoadPro Advantage Visual"
+                className="w-full h-full object-contain p-4 bg-white"
               />
             </div>
-            <div className="absolute -right-6 -bottom-6 w-48 h-48 bg-roadpro-yellow/20 rounded-full -z-10"></div>
-            <div className="absolute -left-6 -top-6 w-32 h-32 border-4 border-roadpro-yellow rounded-full -z-10"></div>
-            <div className="absolute top-1/2 right-0 transform translate-x-1/3 -translate-y-1/2 bg-white p-6 rounded-xl shadow-xl max-w-xs">
+            <div className="absolute -right-6 -bottom-6 w-40 h-40 bg-roadpro-yellow/20 rounded-full -z-10"></div>
+            <div className="absolute -left-6 -top-6 w-24 h-24 border-4 border-roadpro-yellow rounded-full -z-10"></div>
+            {/* Card: Your Safety, Our Priority, overlays below/side for large, below for mobile */}
+            <div className="absolute top-1/2 right-0 transform translate-x-1/3 -translate-y-1/2 bg-white p-6 rounded-xl shadow-xl max-w-xs hidden xl:block">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-full bg-roadpro-yellow flex items-center justify-center">
                   <Check className="w-6 h-6 text-roadpro-black" />
@@ -79,15 +81,25 @@ const AdvantagesSection = () => {
                 <h4 className="text-lg font-bold text-roadpro-black">Your Safety, Our Priority</h4>
               </div>
               <p className="text-roadpro-gray">
-                Every solution we design prioritizes the safety of workers, drivers, and pedestrians in and around traffic zones.
+                Every solution prioritizes worker, driver & pedestrian safety.
               </p>
             </div>
           </div>
+        </div>
+        {/* Card below on mobile for accessibility */}
+        <div className="block xl:hidden max-w-sm mx-auto mt-8 bg-white p-6 rounded-xl shadow-xl">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 rounded-full bg-roadpro-yellow flex items-center justify-center">
+              <Check className="w-6 h-6 text-roadpro-black" />
+            </div>
+            <h4 className="text-lg font-bold text-roadpro-black">Your Safety, Our Priority</h4>
+          </div>
+          <p className="text-roadpro-gray">
+            Every solution prioritizes worker, driver & pedestrian safety.
+          </p>
         </div>
       </div>
     </section>
   );
 };
-
 export default AdvantagesSection;
-
