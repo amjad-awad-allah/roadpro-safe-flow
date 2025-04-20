@@ -1,7 +1,7 @@
 
 import { 
   TrafficCone, 
-  Road, 
+  Navigation, 
   Flag, 
   Car,
   ArrowRight
@@ -12,7 +12,7 @@ const services = [
   {
     title: "Traffic Diversion Solutions",
     description: "Comprehensive planning and implementation of traffic diversions that minimize disruption while maximizing safety.",
-    icon: Road,
+    icon: Navigation,
   },
   {
     title: "Road Lane Closure Equipment",
