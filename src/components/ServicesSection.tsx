@@ -1,84 +1,66 @@
-import { 
-  TrafficCone, 
-  Navigation, 
-  Flag, 
-  Car,
-  ArrowRight
-} from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const services = [
-  {
-    title: "Traffic Diversion Solutions",
-    description: "Comprehensive planning and implementation of traffic diversions that minimize disruption while maximizing safety.",
-    icon: Navigation,
-  },
-  {
-    title: "Road Lane Closure Equipment",
-    description: "State-of-the-art equipment for temporary and long-term lane closures that meet all regulatory requirements.",
-    icon: TrafficCone,
-  },
-  {
-    title: "Street Closure Management",
-    description: "End-to-end management of street closures for construction, events, or emergency situations.",
-    icon: Flag,
-  },
-  {
-    title: "Specialized Safety Equipment (TMA)",
-    description: "Truck-Mounted Attenuators and other specialized equipment to protect workers and the public in traffic zones.",
-    icon: Car,
-  },
-];
+import { Navigation, Shield, ClipboardList } from "lucide-react";
 
 const ServicesSection = () => {
+  const services = [
+    {
+      icon: Navigation,
+      title: "Traffic Diversion Solutions",
+      description: "Expert management of traffic flow during road works and events.",
+      delay: '0.2s'
+    },
+    {
+      icon: Shield,
+      title: "Safety Management",
+      description: "Comprehensive safety protocols and risk mitigation strategies.",
+      delay: '0.4s'
+    },
+    {
+      icon: ClipboardList,
+      title: "Traffic Planning",
+      description: "Detailed traffic management and optimization plans.",
+      delay: '0.6s'
+    }
+  ];
+
   return (
     <section id="services" className="section-padding bg-white">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
           <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4">
             <span className="text-sm font-medium text-roadpro-black">
-              What We Offer
+              Our Expertise
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black mb-4">
-            Professional Traffic Management Services
+            Innovative Traffic Management Services
           </h2>
           <p className="text-roadpro-gray text-lg">
-            We provide comprehensive solutions to ensure safety and efficiency in all traffic scenarios.
+            Delivering cutting-edge solutions for urban mobility and road safety.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <Card 
-              key={index} 
-              className="border-none shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 rounded-xl overflow-hidden group animate-fade-in-up"
-              style={{ animationDelay: `${0.2 * (index + 1)}s` }}
-            >
-              <div className="h-2 bg-roadpro-yellow w-full"></div>
-              <CardHeader className="pt-8">
-                <div className="w-16 h-16 rounded-full bg-roadpro-yellow/10 flex items-center justify-center mb-4 group-hover:bg-roadpro-yellow transition-colors duration-300">
-                  <service.icon className="w-8 h-8 text-roadpro-black transform group-hover:scale-110 transition-transform duration-300" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div 
+                key={index} 
+                className="bg-white rounded-xl p-6 shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl animate-fade-in-up opacity-0"
+                style={{ animationDelay: service.delay }}
+              >
+                <div className="w-16 h-16 bg-roadpro-yellow/20 rounded-full flex items-center justify-center mb-4">
+                  <Icon className="w-8 h-8 text-roadpro-yellow" />
                 </div>
-                <CardTitle className="text-xl font-bold text-roadpro-black">
+                <h3 className="text-xl font-semibold text-roadpro-black mb-3">
                   {service.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-roadpro-gray">{service.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div className="mt-16 text-center animate-fade-in-up">
-          <a 
-            href="#contact" 
-            className="inline-flex items-center text-roadpro-black font-medium border-b-2 border-roadpro-yellow pb-1 hover:text-roadpro-yellow transition-colors"
-          >
-            Request a customized solution
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </a>
+                </h3>
+                <p className="text-roadpro-gray">
+                  {service.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
