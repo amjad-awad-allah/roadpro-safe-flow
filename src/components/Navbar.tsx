@@ -36,6 +36,11 @@ const Navbar = () => {
     >
       <div className="container flex items-center justify-between">
         <a href="#" className="flex items-center space-x-2">
+          <img 
+            src="/lovable-uploads/b28ade9e-f56c-4d8f-8891-c7ba2b8b00bf.png" 
+            alt="Road Shield Logo" 
+            className="h-10 object-contain"
+          />
           <span className="text-2xl font-bold text-roadpro-black">
             Road<span className="text-roadpro-yellow">Pro</span>
           </span>
@@ -121,3 +126,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

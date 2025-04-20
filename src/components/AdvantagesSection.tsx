@@ -62,11 +62,11 @@ const AdvantagesSection = () => {
           </div>
 
           <div className="relative">
-            <div className="rounded-xl overflow-hidden shadow-2xl aspect-square">
+            <div className="rounded-xl overflow-hidden shadow-2xl aspect-square flex items-center justify-center">
               <img
-                src="https://images.unsplash.com/photo-1523674714772-4ea76dfa7af1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                alt="RoadPro team working on a traffic solution"
-                className="w-full h-full object-cover"
+                src="/lovable-uploads/d0fdedde-4d38-45a4-86f3-d6acb78b3f99.png"
+                alt="RoadPro competitive advantage visual"
+                className="w-full h-full object-contain p-6 bg-white"
               />
             </div>
             <div className="absolute -right-6 -bottom-6 w-48 h-48 bg-roadpro-yellow/20 rounded-full -z-10"></div>
@@ -90,3 +90,4 @@ const AdvantagesSection = () => {
 };
 
 export default AdvantagesSection;
+
