@@ -1,4 +1,3 @@
-
 import { 
   TrafficCone, 
   Navigation, 
@@ -35,7 +34,7 @@ const ServicesSection = () => {
   return (
     <section id="services" className="section-padding bg-white">
       <div className="container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
           <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4">
             <span className="text-sm font-medium text-roadpro-black">
               What We Offer
@@ -53,12 +52,13 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="border-none shadow-lg hover:shadow-xl transition-shadow rounded-xl overflow-hidden group"
+              className="border-none shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 rounded-xl overflow-hidden group animate-fade-in-up"
+              style={{ animationDelay: `${0.2 * (index + 1)}s` }}
             >
               <div className="h-2 bg-roadpro-yellow w-full"></div>
               <CardHeader className="pt-8">
-                <div className="w-16 h-16 rounded-full bg-roadpro-yellow/10 flex items-center justify-center mb-4 group-hover:bg-roadpro-yellow transition-colors">
-                  <service.icon className="w-8 h-8 text-roadpro-black" />
+                <div className="w-16 h-16 rounded-full bg-roadpro-yellow/10 flex items-center justify-center mb-4 group-hover:bg-roadpro-yellow transition-colors duration-300">
+                  <service.icon className="w-8 h-8 text-roadpro-black transform group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <CardTitle className="text-xl font-bold text-roadpro-black">
                   {service.title}
@@ -71,7 +71,7 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center animate-fade-in-up">
           <a 
             href="#contact" 
             className="inline-flex items-center text-roadpro-black font-medium border-b-2 border-roadpro-yellow pb-1 hover:text-roadpro-yellow transition-colors"

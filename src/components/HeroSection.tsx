@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -25,20 +24,20 @@ const HeroSection = () => {
       </div>
 
       <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div className="lg:col-span-7 space-y-6 animate-fade-in-up">
-          <div className="inline-block bg-roadpro-yellow px-4 py-1 rounded-full">
+        <div className="lg:col-span-7 space-y-6">
+          <div className="inline-block bg-roadpro-yellow px-4 py-1 rounded-full animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <span className="text-sm font-medium text-roadpro-black">
               Traffic Management Experts in Abu Dhabi
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-roadpro-black leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-roadpro-black leading-tight animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             Enhancing Public Safety & Smooth Traffic Flow
           </h1>
-          <p className="text-lg md:text-xl text-roadpro-gray max-w-2xl">
+          <p className="text-lg md:text-xl text-roadpro-gray max-w-2xl animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
             Innovative Solutions for Traffic Diversions, Lane Closures, and Street Safety
           </p>
-          <div className="flex flex-wrap gap-4">
-            <Button className="bg-roadpro-yellow text-roadpro-black text-lg px-6 py-6 hover:bg-roadpro-black hover:text-roadpro-yellow transition-colors">
+          <div className="flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+            <Button className="bg-roadpro-yellow text-roadpro-black text-lg px-6 py-6 hover:bg-roadpro-black hover:text-roadpro-yellow transition-colors hover-glow">
               Explore Our Services
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -48,7 +47,7 @@ const HeroSection = () => {
           </div>
         </div>
         
-        <div className="lg:col-span-5 relative">
+        <div className="lg:col-span-5 relative animate-float">
           <div className="relative rounded-xl overflow-hidden shadow-2xl aspect-[4/3]">
             <div className="absolute inset-0 bg-gradient-to-r from-roadpro-black/70 to-roadpro-black/20"></div>
             <img
