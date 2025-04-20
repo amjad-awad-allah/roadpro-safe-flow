@@ -1,4 +1,3 @@
-
 import { MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,7 +7,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="section-padding bg-white">
       <div className="container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
           <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4">
             <span className="text-sm font-medium text-roadpro-black">
               Get In Touch
@@ -23,7 +22,7 @@ const ContactSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
+          <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <div className="bg-roadpro-lightgray p-8 rounded-xl mb-8">
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
@@ -67,8 +66,7 @@ const ContactSection = () => {
               </div>
             </div>
             
-            <div className="rounded-xl overflow-hidden shadow-lg h-[300px]">
-              {/* This would be replaced with an actual map integration */}
+            <div className="rounded-xl overflow-hidden shadow-lg h-[300px] hover:shadow-2xl transition-shadow duration-300">
               <img
                 src="https://miro.medium.com/v2/resize:fit:1400/1*qYUvh-EtES8dtgKiBRiLsA.png"
                 alt="Map location of RoadPro office in Abu Dhabi"
@@ -77,7 +75,7 @@ const ContactSection = () => {
             </div>
           </div>
           
-          <div className="bg-white rounded-xl shadow-lg p-8">
+          <div className="bg-white rounded-xl shadow-lg p-8 animate-fade-in-up hover:shadow-2xl transition-shadow duration-300" style={{ animationDelay: '0.4s' }}>
             <h3 className="text-2xl font-bold text-roadpro-black mb-6">Send Us a Message</h3>
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -123,7 +121,7 @@ const ContactSection = () => {
                 />
               </div>
               
-              <Button type="submit" className="w-full bg-roadpro-yellow text-roadpro-black hover:bg-roadpro-black hover:text-roadpro-yellow transition-colors py-6">
+              <Button type="submit" className="w-full bg-roadpro-yellow text-roadpro-black hover:bg-roadpro-black hover:text-roadpro-yellow transition-colors py-6 hover-glow">
                 Send Message
               </Button>
             </form>
