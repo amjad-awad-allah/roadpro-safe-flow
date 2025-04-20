@@ -26,7 +26,7 @@ const Navbar = () => {
           {/* Updated logo as requested, always visible */}
           <img alt="RoadPro logo" style={{
           maxHeight: 56
-        }} src="/lovable-uploads/480795cd-6319-48a2-8143-80c77d1f2aa6.png" className="h-30 w-auto rounded-lg shadow-md bg-white p-1 border border-gray-200 object-fill" />
+        }} src="/lovable-uploads/480795cd-6319-48a2-8143-80c77d1f2aa6.png" className="h-12 w-auto rounded-lg shadow-md bg-white p-1 border border-gray-200 object-cover" />
           {/* Optional animated road cone */}
           <TrafficCone className="text-roadpro-yellow drop-shadow-md animate-float hidden sm:block" size={32} />
         </a>
