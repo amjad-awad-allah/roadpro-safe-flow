@@ -67,9 +67,7 @@ const Navbar = () => {
             <a href="#contact" className="py-2 font-medium hover:text-roadpro-yellow transition-colors" onClick={toggleMenu}>
               Contact
             </a>
-            <Button className="bg-roadpro-yellow text-roadpro-black hover:bg-roadpro-black hover:text-roadpro-yellow transition-colors">
-              Get a Quote
-            </Button>
+            
           </div>
         </div>}
     </header>;
