@@ -77,3 +77,13 @@
     min-height: 350px;
   }
 }
+
+.custom-marker {
+  cursor: pointer;
+}
+
+.marker-content {
+  transform: translateY(-100%);
+  margin-bottom: -5px;
+  white-space: nowrap;
+}
