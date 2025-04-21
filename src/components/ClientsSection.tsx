@@ -17,13 +17,16 @@ const clients = [{
   icon: MapPin
 }];
 const ClientsSection = () => {
-  return <section id="clients" className="section-padding bg-roadpro-black text-white">
+  return (
+    <section id="clients" className="section-padding bg-roadpro-black text-white">
       <div className="container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-on-dark text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block bg-roadpro-yellow px-4 py-1 rounded-full mb-4 font-poppins">
             <span className="text-sm font-medium text-roadpro-black">Who We Serve</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-poppins">Trusted by Organizations Across Abu Dhabi </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-poppins">
+            Trusted by Organizations Across Abu Dhabi
+          </h2>
           <p className="text-roadpro-gray text-lg font-poppins">
             We provide tailored traffic management solutions for various sectors and industries.
             <br />
@@ -59,6 +62,8 @@ const ClientsSection = () => {
           </a>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ClientsSection;

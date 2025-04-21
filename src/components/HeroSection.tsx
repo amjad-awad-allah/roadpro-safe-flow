@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrafficCone } from "lucide-react";
+
 const HeroSection = () => {
   // Parallax effect on image based on mouse move (desktop only)
   const imgRef = useRef<HTMLImageElement>(null);
@@ -25,7 +26,9 @@ const HeroSection = () => {
       window.removeEventListener("mouseleave", resetParallax);
     };
   }, []);
-  return <section id="home" className="relative min-h-[80vh] flex items-center pt-[100px] pb-10 bg-roadpro-lightgray transition-spacing">
+
+  return (
+    <section id="home" className="relative min-h-[80vh] flex items-center pt-[100px] pb-10 bg-roadpro-lightgray transition-spacing">
       {/* Decorative cone left */}
       <div className="absolute left-0 top-12 z-0 pointer-events-none select-none hidden md:block">
         <TrafficCone className="text-roadpro-yellow drop-shadow-xl animate-float-slower" size={54} />
@@ -35,17 +38,23 @@ const HeroSection = () => {
         {/* IMAGE - Prominent, always visible */}
         <div className="w-full flex justify-center order-2 md:order-1">
           <div className="relative w-full max-w-xl flex items-center">
-            <img ref={imgRef} alt="RoadPro team working on a traffic solution" className="w-full aspect-square max-w-xl rounded-2xl shadow-2xl border-8 border-white object-cover block bg-white 
+            <img 
+              ref={imgRef} 
+              alt="RoadPro team working on a traffic solution" 
+              className="w-full aspect-square max-w-xl rounded-2xl shadow-2xl border-8 border-white object-cover block bg-white 
                 transition-transform duration-1000 
-                animate-zoom-in-on-scroll" src="/lovable-uploads/2c60c704-4e64-4ceb-a808-2dfe5dd85255.jpg" style={{
-            minHeight: "260px",
-            background: "#F1F0FB"
-          }} />
+                animate-zoom-in-on-scroll" 
+              src="/lovable-uploads/2c60c704-4e64-4ceb-a808-2dfe5dd85255.jpg" 
+              style={{
+                minHeight: "260px",
+                background: "#F1F0FB"
+              }} 
+            />
           </div>
         </div>
         {/* TEXT Content */}
         <div className="space-y-7 text-center md:text-left flex flex-col items-center md:items-start order-1 md:order-2">
-          <div className="inline-block px-6 py-2 rounded-full animate-fade-in-bottom text-roadpro-black font-poppins text-base font-semibold shadow-lg tracking-wide mb-2 bg-cyan-400">
+          <div className="text-on-dark inline-block px-6 py-2 rounded-full animate-fade-in-bottom text-roadpro-black font-poppins text-base font-semibold shadow-lg tracking-wide mb-2 bg-cyan-400">
             Road Safety Experts in Abu Dhabi
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-roadpro-black leading-tight animate-fade-in-bottom font-poppins mb-3">
@@ -70,6 +79,8 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;
