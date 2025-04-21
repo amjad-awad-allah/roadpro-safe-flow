@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from "react";
 import { MapPin, Phone, Mail, TrafficCone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,6 +14,8 @@ const ContactSection = () => {
       const rect = sectionRef.current.getBoundingClientRect();
       if (rect.top < window.innerHeight - 120) {
         sectionRef.current.classList.add("animate-fade-in-contact");
+        sectionRef.current.style.opacity = "1";
+        sectionRef.current.style.transform = "translateY(0)";
       }
     };
     window.addEventListener("scroll", handleScroll);

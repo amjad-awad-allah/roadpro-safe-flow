@@ -33,6 +33,8 @@ const ServicesSection = () => {
         const rect = card.getBoundingClientRect();
         if (rect.top < window.innerHeight - 100) {
           card.classList.add("animate-slide-up-fade-in");
+          card.style.opacity = "1";
+          card.style.transform = "translateY(0)";
         }
       });
     };
