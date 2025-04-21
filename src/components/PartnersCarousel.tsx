@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+import { useRef } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -48,6 +48,12 @@ const partners = [
 ];
 
 const PartnersCarousel = () => {
+  const plugin = useRef(
+    Autoplay({
+      delay: 3000,
+    })
+  );
+
   return (
     <section className="section-padding bg-white">
       <div className="container mx-auto">
@@ -65,11 +71,7 @@ const PartnersCarousel = () => {
             align: "start",
             loop: true,
           }}
-          plugins={[
-            Autoplay({
-              delay: 3000,
-            }),
-          ]}
+          plugins={[plugin.current]}
           className="w-full max-w-6xl mx-auto"
         >
           <CarouselContent className="-ml-2 md:-ml-4">
