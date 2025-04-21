@@ -1,12 +1,32 @@
 
+import { useEffect, useRef } from "react";
 import { MapPin, Phone, Mail, TrafficCone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const ContactSection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 120) {
+        sectionRef.current.classList.add("animate-fade-in-contact");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    setTimeout(handleScroll, 200);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section id="contact" className="section-padding bg-roadpro-lightgray">
+    <section
+      id="contact"
+      ref={sectionRef}
+      className="section-padding bg-roadpro-lightgray opacity-0 translate-y-8"
+    >
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
           <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4">
@@ -23,7 +43,7 @@ const ContactSection = () => {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
           {/* Contact details and map */}
-          <div className="animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <div className="animate-fade-in-up" style={{ animationDelay: "0.25s" }}>
             <div className="bg-white p-8 rounded-2xl mb-8 shadow-xl border border-roadpro-lightgray">
               <div className="space-y-8 font-poppins">
                 <div className="flex items-start gap-4 group">
@@ -40,7 +60,7 @@ const ContactSection = () => {
                 </div>
                 <div className="flex items-start gap-4 group">
                   <div className="w-12 h-12 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg animate-soft-pulse group-hover:scale-110 transition-transform">
-                    <Phone className="w-6 h-6 text-roadpro-black animate-float" style={{ animationDelay: "0.4s" }} />
+                    <Phone className="w-6 h-6 text-roadpro-black animate-float" style={{ animationDelay: "0.15s" }} />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">Phone</h3>
@@ -52,7 +72,7 @@ const ContactSection = () => {
                 </div>
                 <div className="flex items-start gap-4 group">
                   <div className="w-12 h-12 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg animate-soft-pulse group-hover:scale-110 transition-transform">
-                    <Mail className="w-6 h-6 text-roadpro-black animate-float" style={{ animationDelay: "0.8s" }} />
+                    <Mail className="w-6 h-6 text-roadpro-black animate-float" style={{ animationDelay: "0.3s" }} />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">Email</h3>
@@ -64,7 +84,7 @@ const ContactSection = () => {
                 </div>
               </div>
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-xl h-[240px] md:h-[300px] hover:shadow-2xl transition-shadow duration-300 bg-white border border-roadpro-lightgray flex items-center justify-center">
+            <div className="rounded-2xl overflow-hidden shadow-xl h-[220px] md:h-[300px] hover:shadow-2xl transition-shadow duration-300 bg-white border border-roadpro-lightgray flex items-center justify-center map-container">
               <iframe
                 title="RoadPro Abu Dhabi Map"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=54.3691%2C24.4672%2C54.3816%2C24.4802&amp;layer=mapnik"
@@ -85,7 +105,7 @@ const ContactSection = () => {
                   </label>
                   <Input
                     placeholder="Enter your name"
-                    className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow rounded-lg transition-all"
+                    className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow"
                   />
                 </div>
                 <div>
@@ -95,7 +115,7 @@ const ContactSection = () => {
                   <Input
                     type="email"
                     placeholder="Enter your email"
-                    className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow rounded-lg transition-all"
+                    className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow"
                   />
                 </div>
               </div>
@@ -105,7 +125,7 @@ const ContactSection = () => {
                 </label>
                 <Input
                   placeholder="Enter your company"
-                  className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow rounded-lg transition-all"
+                  className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow"
                 />
               </div>
               <div>
@@ -114,7 +134,7 @@ const ContactSection = () => {
                 </label>
                 <Input
                   placeholder="Enter your phone"
-                  className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow rounded-lg transition-all"
+                  className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow"
                 />
               </div>
               <div>
@@ -123,13 +143,13 @@ const ContactSection = () => {
                 </label>
                 <Textarea
                   placeholder="Tell us about your requirements"
-                  className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow rounded-lg transition-all"
+                  className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow"
                   rows={4}
                 />
               </div>
               <Button
                 type="submit"
-                className="w-full mt-4 bg-roadpro-yellow text-roadpro-black hover:bg-roadpro-black hover:text-roadpro-yellow transition-transform hover:scale-105 hover:shadow-lg hover-glow shadow rounded-xl text-lg py-6 font-poppins"
+                className="w-full mt-4 bg-roadpro-yellow text-roadpro-black hover:bg-roadpro-black hover:text-roadpro-yellow transition-transform hover:scale-105 hover:shadow-lg hover-glow shadow rounded-xl text-lg py-6 font-poppins glowing-cta"
               >
                 Get a Quote
               </Button>

@@ -87,94 +87,127 @@
 @layer base {
   * {
     @apply border-border;
+    font-family: 'Poppins', system-ui, sans-serif !important;
   }
-
   body {
     @apply bg-background text-foreground font-poppins;
+    font-family: 'Poppins', system-ui, sans-serif !important;
   }
-
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold;
+    font-family: 'Poppins', system-ui, sans-serif !important;
   }
-
   .section-padding {
     @apply py-16 md:py-24;
   }
-
   .container {
     @apply px-4 mx-auto max-w-7xl;
   }
 }
 
-/* Animation utilities */
-@keyframes glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(255, 204, 0, 0.4); }
-  50% { box-shadow: 0 0 30px rgba(255, 204, 0, 0.6); }
+/* Modern Animations */
+@keyframes fade-in-bottom {
+  from { opacity: 0; transform: translateY(45px);}
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-bottom {
+  animation: fade-in-bottom 0.8s cubic-bezier(0.51,0.11,0.39,1.01) forwards;
+}
+@keyframes zoom-in-scroll {
+  0% { transform: scale(0.96); }
+  80% { transform: scale(1.04);}
+  100% { transform: scale(1);}
+}
+.animate-zoom-in-on-scroll {
+  animation: zoom-in-scroll 1.2s cubic-bezier(0.47,0,0.745,0.715) 0.25s both;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+@keyframes glow-cta {
+  0%, 100% { box-shadow: 0 0 18px #FFD60080, 0 4px 24px #00000016; }
+  50% { box-shadow: 0 0 36px #FFD600cc, 0 6px 38px #00000018; }
+}
+.glowing-cta {
+  animation: glow-cta 2.5s infinite alternate;
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+@keyframes glowing-outline-cta {
+  0%, 100% { box-shadow: 0 0 0 #FFD60033; }
+  50% { box-shadow: 0 0 8px #FFD60088; }
+}
+.glowing-outline-cta:hover, .glowing-outline-cta:focus {
+  animation: glowing-outline-cta 1.2s infinite alternate;
 }
 
-.hover-glow:hover {
-  animation: glow 2s ease-in-out infinite;
+@keyframes slide-up-fade-in {
+  0% { opacity: 0; transform: translateY(32px);}
+  80% { opacity: 1; transform: translateY(-6px);}
+  100% { opacity: 1; transform: translateY(0);}
+}
+.animate-slide-up-fade-in {
+  animation: slide-up-fade-in 0.7s cubic-bezier(0.51,0.11,0.39,1.01) forwards;
+}
+@keyframes fade-in-contact {
+  from { opacity: 0; transform: translateY(35px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.animate-fade-in-contact {
+  transition: opacity 0.7s, transform 0.7s;
+  animation: fade-in-contact 0.85s cubic-bezier(0.71,0.13,0.25,1) forwards;
+}
+@keyframes float-slower {
+  0%, 100% { transform: translateY(0px);}
+  50% { transform: translateY(-18px);}
+}
+.animate-float-slower {
+  animation: float-slower 8s ease-in-out infinite;
+}
+@keyframes input-glow {
+  0% { box-shadow: 0 0 0 0 #FFD60000;}
+  50% { box-shadow: 0 0 0 3px #FFD60044;}
+  100% { box-shadow: 0 0 0 0 #FFD60000;}
+}
+.animate-input-glow:focus {
+  animation: input-glow 1.2s;
 }
 
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.5s ease-out forwards;
-}
-
-.text-stroke {
-  -webkit-text-stroke: 1px black;
-}
-
-/* Parallax classes */
-.parallax {
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-
-.parallax-layer {
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-/* == Additional Styles for soft shadows, soft backgrounds, spacing, improved visuals ==*/
+/* Extra shadow/hover utilities */
 @layer components {
-  .shadow-roadpro {
-    box-shadow: 0 2px 16px 0 rgba(255, 204, 0, 0.08), 0 1.5px 8px 0 rgba(0,0,0,0.08);
-  }
   .hover\:shadow-roadpro-yellow:hover {
     box-shadow: 0 0 24px 0 #ffcc00a0, 0 2px 16px 0 #0003;
   }
-  /* Smooth card grow on hover for service cards is in Tailwind, but here's a util if needed */
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
   .card-animated {
     @apply shadow-lg rounded-xl transition-all duration-300 hover:shadow-2xl hover:scale-105;
   }
-  /* Responsive, visible images utility */
   .image-display {
     @apply w-full max-w-lg block rounded-xl shadow-md border-8 border-white bg-white object-contain;
   }
+}
+
+
+/* Utility: Ensure images are never covered and fit in grid */
+img, .map-container, .image-display {
+  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.map-container {
+  aspect-ratio: 4/3;
+  max-height: 360px;
 }
 
 @media (max-width: 600px) {
   .container {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+  }
+  .map-container {
+    aspect-ratio: 1/1;
+    min-height: 180px;
+    max-height: 220px;
   }
 }
