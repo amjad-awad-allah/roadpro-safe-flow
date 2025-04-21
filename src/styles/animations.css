@@ -1,3 +1,4 @@
+
 @keyframes fade-in-bottom {
   from { 
     opacity: 0; 
@@ -92,7 +93,9 @@
 }
 
 .animate-zoom-in-on-scroll {
-  animation: zoom-in-scroll 1.2s cubic-bezier(0.47,0,0.745,0.715) 0.25s both;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease-out, transform 1.2s cubic-bezier(0.47,0,0.745,0.715);
 }
 
 .animate-float {
@@ -146,6 +149,24 @@
 }
 
 .visible {
-  opacity: 1;
-  transform: translate(0, 0);
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+  scale: 1 !important;
+}
+
+/* Dark overlay base class */
+.text-with-overlay {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+}
+
+.text-with-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0.75rem;
+  z-index: -1;
 }

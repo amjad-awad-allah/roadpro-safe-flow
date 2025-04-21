@@ -4,13 +4,14 @@ import { useEffect, useRef, RefObject } from 'react';
 interface ScrollAnimationOptions {
   threshold?: number;
   delay?: number;
+  animation?: string;
 }
 
 export const useScrollAnimation = <T extends HTMLElement>(
   options: ScrollAnimationOptions = {}
 ): RefObject<T> => {
   const elementRef = useRef<T>(null);
-  const { threshold = 0.1, delay = 0 } = options;
+  const { threshold = 0.1, delay = 0, animation = 'animate-fade-in-scroll' } = options;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -18,7 +19,16 @@ export const useScrollAnimation = <T extends HTMLElement>(
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
-              entry.target.classList.add('visible');
+              if (entry.target.classList.contains('animate-fade-in-scroll')) {
+                entry.target.classList.add('visible');
+              } else if (entry.target.classList.contains('animate-slide-in-right')) {
+                entry.target.classList.add('visible');
+              } else if (entry.target.classList.contains('animate-slide-in-left')) {
+                entry.target.classList.add('visible');
+              } else {
+                // For any other animation class
+                entry.target.classList.add('visible');
+              }
             }, delay);
             observer.unobserve(entry.target);
           }
@@ -32,6 +42,7 @@ export const useScrollAnimation = <T extends HTMLElement>(
 
     const currentElement = elementRef.current;
     if (currentElement) {
+      currentElement.classList.add(animation);
       observer.observe(currentElement);
     }
 
@@ -40,7 +51,7 @@ export const useScrollAnimation = <T extends HTMLElement>(
         observer.unobserve(currentElement);
       }
     };
-  }, [threshold, delay]);
+  }, [threshold, delay, animation]);
 
   return elementRef;
 };

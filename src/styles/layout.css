@@ -20,6 +20,16 @@
   .card-hover {
     @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
   }
+  
+  /* Dark overlay utilities */
+  .dark-overlay {
+    @apply relative;
+  }
+  
+  .dark-overlay::before {
+    content: '';
+    @apply absolute inset-0 bg-black/40 rounded-xl -z-10;
+  }
 }
 
 /* Image and Text Spacing */
@@ -34,7 +44,7 @@
 
 /* Add more padding for text on dark backgrounds */
 .text-on-dark {
-  @apply px-6 py-4 md:px-8 md:py-6;
+  @apply px-6 py-6 md:px-8 md:py-8 relative z-10 rounded-xl;
 }
 
 /* Map Container Responsive Sizing */

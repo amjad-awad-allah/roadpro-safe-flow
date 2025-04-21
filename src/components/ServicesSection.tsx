@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from "react";
 import { Navigation, Shield, ClipboardList } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -24,42 +25,30 @@ const services = [
 ];
 
 const ServicesSection = () => {
-  const titleRef = useScrollAnimation<HTMLDivElement>();
-  const cardsRef = useRef<Array<HTMLDivElement | null>>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '50px',
-      }
-    );
-
-    cardsRef.current.forEach((card) => {
-      if (card) {
-        card.classList.add('animate-fade-in-scroll');
-        observer.observe(card);
-      }
-    });
-
-    return () => {
-      cardsRef.current.forEach((card) => {
-        if (card) observer.unobserve(card);
-      });
-    };
-  }, []);
+  const titleRef = useScrollAnimation<HTMLDivElement>({ 
+    animation: 'animate-fade-in-scroll',
+    delay: 100
+  });
+  
+  const card1Ref = useScrollAnimation<HTMLDivElement>({ 
+    animation: 'animate-fade-in-scroll', 
+    delay: 200
+  });
+  
+  const card2Ref = useScrollAnimation<HTMLDivElement>({ 
+    animation: 'animate-fade-in-scroll', 
+    delay: 350
+  });
+  
+  const card3Ref = useScrollAnimation<HTMLDivElement>({ 
+    animation: 'animate-fade-in-scroll', 
+    delay: 500
+  });
 
   return (
     <section id="services" className="section-padding bg-white">
       <div className="container mx-auto px-4 py-16 md:py-24">
-        <div ref={titleRef} className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-scroll">
+        <div ref={titleRef} className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4">
             <span className="text-sm font-medium text-roadpro-black">
               Our Expertise
@@ -76,13 +65,14 @@ const ServicesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {services.map((service, index) => {
             const Icon = service.icon;
+            const ref = index === 0 ? card1Ref : index === 1 ? card2Ref : card3Ref;
+            
             return (
               <div
                 key={index}
-                ref={el => cardsRef.current[index] = el}
+                ref={ref}
                 className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-300
                   hover:scale-105 hover:shadow-xl hover:shadow-roadpro-yellow/30 border-2 border-transparent"
-                style={{ animationDelay: `${index * 130}ms` }}
               >
                 <div className="w-16 h-16 bg-roadpro-yellow/20 rounded-full flex items-center justify-center mb-6
                     transition-shadow group-hover:shadow-roadpro-yellow/30 animate-soft-pulse">
