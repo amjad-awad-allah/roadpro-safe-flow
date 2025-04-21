@@ -1,6 +1,5 @@
-
 import { useEffect, useRef } from "react";
-import { MapPin, Phone, Mail, TrafficCone } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -45,7 +44,7 @@ const ContactSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
-          {/* Contact Info and Map */}
+          {/* Contact Info */}
           <div className="space-y-8">
             {/* Contact cards */}
             <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
@@ -87,16 +86,6 @@ const ContactSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            {/* Map */}
-            <div className="map-container h-[400px] md:h-[450px] bg-white p-2 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
-              <iframe
-                title="RoadPro Abu Dhabi Map"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=54.3691%2C24.4672%2C54.3816%2C24.4802&amp;layer=mapnik"
-                className="w-full h-full rounded-xl"
-                style={{ border: 0 }}
-                allowFullScreen
-              />
             </div>
           </div>
 
