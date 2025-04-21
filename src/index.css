@@ -107,8 +107,14 @@
 
 /* Modern Animations */
 @keyframes fade-in-bottom {
-  from { opacity: 0; transform: translateY(45px);}
-  to { opacity: 1; transform: translateY(0); }
+  from { 
+    opacity: 0; 
+    transform: translateY(45px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
 .animate-fade-in-bottom {
   animation: fade-in-bottom 0.8s cubic-bezier(0.51,0.11,0.39,1.01) forwards;
@@ -123,8 +129,12 @@
 }
 
 @keyframes glow-cta {
-  0%, 100% { box-shadow: 0 0 18px #FFD60080, 0 4px 24px #00000016; }
-  50% { box-shadow: 0 0 36px #FFD600cc, 0 6px 38px #00000018; }
+  0%, 100% { 
+    box-shadow: 0 0 18px #FFD60080, 0 4px 24px #00000016; 
+  }
+  50% { 
+    box-shadow: 0 0 36px #FFD600cc, 0 6px 38px #00000018; 
+  }
 }
 .glowing-cta {
   animation: glow-cta 2.5s infinite alternate;
@@ -139,16 +149,31 @@
 }
 
 @keyframes slide-up-fade-in {
-  0% { opacity: 0; transform: translateY(32px);}
-  80% { opacity: 1; transform: translateY(-6px);}
-  100% { opacity: 1; transform: translateY(0);}
+  0% { 
+    opacity: 0; 
+    transform: translateY(32px);
+  }
+  80% { 
+    opacity: 1; 
+    transform: translateY(-6px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
 }
 .animate-slide-up-fade-in {
   animation: slide-up-fade-in 0.7s cubic-bezier(0.51,0.11,0.39,1.01) forwards;
 }
 @keyframes fade-in-contact {
-  from { opacity: 0; transform: translateY(35px);}
-  to { opacity: 1; transform: translateY(0);}
+  from { 
+    opacity: 0; 
+    transform: translateY(35px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
 }
 .animate-fade-in-contact {
   transition: opacity 0.7s, transform 0.7s;
@@ -168,6 +193,58 @@
 }
 .animate-input-glow:focus {
   animation: input-glow 1.2s;
+}
+
+/* Button and Card Animations */
+.hover-glow {
+  @apply transition-all duration-300;
+}
+
+.hover-glow:hover {
+  @apply transform scale-105;
+  box-shadow: 0 0 25px rgba(255, 214, 0, 0.4);
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+}
+
+/* Image and Text Spacing */
+.section-spacing {
+  @apply py-16 md:py-24 px-4 md:px-8;
+}
+
+.text-on-image {
+  @apply relative z-10;
+}
+
+.text-on-image::before {
+  content: '';
+  @apply absolute inset-0 bg-black/50 -z-10 rounded-lg;
+}
+
+/* Map Container Responsive Sizing */
+.map-container {
+  @apply w-full rounded-xl overflow-hidden shadow-lg;
+  min-height: 300px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .map-container {
+    aspect-ratio: 1/1;
+    min-height: 180px;
+    max-height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    min-height: 350px;
+  }
 }
 
 /* Extra shadow/hover utilities */
@@ -198,16 +275,4 @@ img, .map-container, .image-display {
 .map-container {
   aspect-ratio: 4/3;
   max-height: 360px;
-}
-
-@media (max-width: 600px) {
-  .container {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-  .map-container {
-    aspect-ratio: 1/1;
-    min-height: 180px;
-    max-height: 220px;
-  }
 }
