@@ -1,6 +1,6 @@
-
 import { useEffect, useRef } from "react";
 import { Navigation, Shield, ClipboardList } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const services = [
   {
@@ -24,30 +24,42 @@ const services = [
 ];
 
 const ServicesSection = () => {
+  const titleRef = useScrollAnimation<HTMLDivElement>();
   const cardsRef = useRef<Array<HTMLDivElement | null>>([]);
 
   useEffect(() => {
-    const onScroll = () => {
-      cardsRef.current.forEach((card, i) => {
-        if (!card) return;
-        const rect = card.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          card.classList.add("animate-slide-up-fade-in");
-          card.style.opacity = "1";
-          card.style.transform = "translateY(0)";
-        }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+      }
+    );
+
+    cardsRef.current.forEach((card) => {
+      if (card) {
+        card.classList.add('animate-fade-in-scroll');
+        observer.observe(card);
+      }
+    });
+
+    return () => {
+      cardsRef.current.forEach((card) => {
+        if (card) observer.unobserve(card);
       });
     };
-
-    window.addEventListener("scroll", onScroll);
-    setTimeout(onScroll, 300); // Run once after mount
-    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <section id="services" className="section-padding bg-white">
       <div className="container mx-auto px-4 py-16 md:py-24">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div ref={titleRef} className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-scroll">
           <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4">
             <span className="text-sm font-medium text-roadpro-black">
               Our Expertise
@@ -69,11 +81,8 @@ const ServicesSection = () => {
                 key={index}
                 ref={el => cardsRef.current[index] = el}
                 className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-300
-                  hover:scale-105 hover:shadow-xl hover:shadow-roadpro-yellow/30 border-2 border-transparent
-                  opacity-0 translate-y-8 card-hover"
-                style={{
-                  animationDelay: `${index * 130}ms`
-                }}
+                  hover:scale-105 hover:shadow-xl hover:shadow-roadpro-yellow/30 border-2 border-transparent"
+                style={{ animationDelay: `${index * 130}ms` }}
               >
                 <div className="w-16 h-16 bg-roadpro-yellow/20 rounded-full flex items-center justify-center mb-6
                     transition-shadow group-hover:shadow-roadpro-yellow/30 animate-soft-pulse">
