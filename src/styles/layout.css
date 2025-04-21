@@ -1,0 +1,57 @@
+
+@layer utilities {
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .container {
+    @apply px-4 mx-auto max-w-7xl;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+
+  .hover-glow:hover {
+    @apply transform scale-105;
+    box-shadow: 0 0 25px rgba(255, 214, 0, 0.4);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+}
+
+/* Image and Text Spacing */
+.text-on-image {
+  @apply relative z-10;
+}
+
+.text-on-image::before {
+  content: '';
+  @apply absolute inset-0 bg-black/50 -z-10 rounded-lg;
+}
+
+/* Map Container Responsive Sizing */
+.map-container {
+  @apply w-full rounded-xl overflow-hidden shadow-lg;
+  min-height: 300px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .map-container {
+    aspect-ratio: 1/1;
+    min-height: 180px;
+    max-height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    min-height: 350px;
+  }
+}
