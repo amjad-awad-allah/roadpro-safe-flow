@@ -86,18 +86,11 @@ const Navbar = () => {
               key={link.href}
               href={link.href}
               onClick={() => handleNavLinkClick(link.href)}
-              className={`font-medium relative transition-colors duration-200
+              className={`font-medium relative transition-colors duration-300 py-2 px-3 rounded-lg
                 ${activeSection === link.href 
-                  ? "text-roadpro-yellow font-semibold" 
-                  : "hover:text-roadpro-yellow"}
+                  ? "text-roadpro-black bg-roadpro-yellow/90 shadow-md" 
+                  : "hover:text-roadpro-yellow hover:bg-gray-100/80"}
               `}
-              style={activeSection === link.href 
-                ? { 
-                    borderBottom: "2.5px solid #FFD600",
-                    paddingBottom: "2px",
-                    transform: "translateY(-1px)" 
-                  } 
-                : undefined}
             >
               {link.text}
             </a>
@@ -122,10 +115,10 @@ const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className={`py-2 font-medium transition-colors text-lg
+                className={`py-3 font-medium transition-all duration-300 text-lg rounded-lg px-4
                   ${activeSection === link.href 
-                    ? "text-roadpro-yellow font-bold border-l-4 border-roadpro-yellow pl-3" 
-                    : "hover:text-roadpro-yellow pl-3"}
+                    ? "text-roadpro-black bg-roadpro-yellow/90 shadow-md font-bold" 
+                    : "hover:text-roadpro-yellow hover:bg-gray-100/80"}
                 `}
                 onClick={() => handleNavLinkClick(link.href)}
               >
