@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Globe } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
   const { t, language, setLanguage } = useLanguage();
+  const scrollTimeoutRef = useRef(null);
   
   const navLinks = [
     { href: "#home", text: language === "en" ? "Home" : "الرئيسية" },
@@ -29,38 +30,67 @@ const Navbar = () => {
   };
   
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-
-      // Highlight active link by section in viewport
-      const sections = navLinks.map(({ href }) => {
-        const id = href.replace("#", "");
-        const el = document.getElementById(id);
-        if (!el) return { href, top: Infinity };
-        const rect = el.getBoundingClientRect();
-        return { href, top: rect.top };
-      });
-      
-      // Find section closest to top but not below halfway viewport
-      const active = sections.find(s => s.top > -window.innerHeight / 2 && s.top < window.innerHeight / 2) || sections[0];
-      if (active && active.href !== activeSection) {
-        setActiveSection(active.href);
-        // Update URL hash without scrolling
-        history.replaceState(null, '', active.href);
-      }
-    };
-    
-    window.addEventListener("scroll", handleScroll);
-    
     // Set initial active section based on URL hash or default to home
     const initialHash = window.location.hash || "#home";
     setActiveSection(initialHash);
     
-    // Call handleScroll after a short delay to set correct active section on load
-    setTimeout(handleScroll, 300);
+    const handleScroll = () => {
+      // Check if scrolled for navbar styling
+      setIsScrolled(window.scrollY > 50);
+      
+      // Clear previous timeout to avoid frequent updates
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+      
+      // Use a timeout to avoid excessive calculations during scroll
+      scrollTimeoutRef.current = setTimeout(() => {
+        // Get all sections and their positions
+        const sections = navLinks.map(({ href }) => {
+          const id = href.replace("#", "");
+          const element = document.getElementById(id);
+          if (!element) return { href, top: 9999 };
+          
+          const rect = element.getBoundingClientRect();
+          // Calculate how much of the section is visible in the viewport
+          const visiblePercentage = Math.min(
+            (window.innerHeight - Math.max(0, -rect.top)) / rect.height,
+            (rect.bottom) / window.innerHeight
+          );
+          
+          return { 
+            href, 
+            top: rect.top, 
+            visiblePercentage: rect.height > 0 ? visiblePercentage : 0 
+          };
+        });
+        
+        // Find section with the highest visibility
+        const mostVisibleSection = sections.reduce(
+          (prev, current) => (current.visiblePercentage > prev.visiblePercentage ? current : prev),
+          { href: "#home", visiblePercentage: 0 }
+        );
+        
+        if (mostVisibleSection.href !== activeSection) {
+          setActiveSection(mostVisibleSection.href);
+          // Update URL hash without scrolling
+          history.replaceState(null, '', mostVisibleSection.href);
+        }
+      }, 100);
+    };
     
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [navLinks]);
+    window.addEventListener("scroll", handleScroll);
+    
+    // Initial check for correct highlighting
+    handleScroll();
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, [navLinks, activeSection]);
   
   const handleNavLinkClick = (href) => {
     setActiveSection(href);
@@ -89,7 +119,7 @@ const Navbar = () => {
         </a>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className={`hidden md:flex items-center ${language === "ar" ? "space-x-reverse space-x-8" : "space-x-8"}`}>
           {navLinks.map(link => (
             <a
               key={link.href}

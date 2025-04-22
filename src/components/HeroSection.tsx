@@ -1,13 +1,13 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CarFront } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   return (
-    <section className="relative h-[90vh] flex items-center">
+    <section id="home" className="relative min-h-[90vh] flex items-center">
       {/* Video Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
@@ -28,23 +28,56 @@ const HeroSection = () => {
         </video>
       </div>
 
-      {/* Content */}
-      <div className="container mx-auto relative z-20 px-4 md:px-6">
-        <div className="max-w-3xl text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-bottom [animation-delay:200ms]">
-            {t("hero.title")}
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in-bottom [animation-delay:400ms]">
-            {t("hero.subtitle")}
-          </p>
-          <div className="flex flex-wrap gap-4 animate-fade-in-bottom [animation-delay:600ms]">
-            <Button variant="cta" size="lg" className="group">
-              {t("hero.button.explore")}
-              <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-roadpro-black">
-              {t("hero.button.contact")}
-            </Button>
+      {/* Content with Image Layout */}
+      <div className="container mx-auto relative z-20 px-4 md:px-6 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          {/* Left side - Image in card */}
+          <div className={`mx-auto lg:mx-0 max-w-xl rounded-3xl overflow-hidden shadow-2xl bg-white p-4 ${language === "ar" ? "lg:order-2" : ""}`}>
+            <img 
+              src="/lovable-uploads/db1e0333-dc95-4f2f-8ca3-881d036f4aba.png" 
+              alt="Highway interchange at night" 
+              className="w-full h-auto rounded-2xl" 
+            />
+          </div>
+          
+          {/* Right side - Text content */}
+          <div className={`text-white ${language === "ar" ? "lg:order-1 text-right" : ""}`}>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in-bottom [animation-delay:200ms]">
+              {language === "en" ? (
+                <>
+                  Enhancing Public Safety<br />
+                  & Smooth Traffic Flow
+                </>
+              ) : (
+                <>
+                  تعزيز السلامة العامة<br />
+                  وانسيابية حركة المرور
+                </>
+              )}
+            </h1>
+            <p className="text-xl mb-8 opacity-90 animate-fade-in-bottom [animation-delay:400ms]">
+              {language === "en" 
+                ? "Innovative solutions for traffic diversions, lane closures, and street safety—expertly delivered by RoadPro."
+                : "حلول مبتكرة لتحويلات المرور، وإغلاق المسارات، وسلامة الشوارع - يتم تقديمها باحترافية من قبل رود برو."}
+            </p>
+            <div className={`flex flex-wrap gap-4 animate-fade-in-bottom [animation-delay:600ms] ${language === "ar" ? "justify-end" : ""}`}>
+              <Button variant="cta" size="lg" className="group">
+                {language === "en" ? (
+                  <>
+                    Explore Our Services
+                    <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
+                  </>
+                ) : (
+                  <>
+                    استكشف خدماتنا
+                    <ArrowRight className="mr-2 transition-transform group-hover:-translate-x-1 rotate-180" />
+                  </>
+                )}
+              </Button>
+              <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-roadpro-black">
+                {language === "en" ? "Get a Quote" : "احصل على عرض سعر"}
+              </Button>
+            </div>
           </div>
         </div>
       </div>
