@@ -42,7 +42,7 @@ const Navbar = () => {
       });
       
       // Find section closest to top but not below halfway viewport
-      const active = sections.find(o => o.top > -window.innerHeight / 2) || sections[sections.length - 1];
+      const active = sections.find(s => s.top > -window.innerHeight / 2 && s.top < window.innerHeight / 2) || sections[0];
       if (active && active.href !== activeSection) {
         setActiveSection(active.href);
         // Update URL hash without scrolling
@@ -51,14 +51,16 @@ const Navbar = () => {
     };
     
     window.addEventListener("scroll", handleScroll);
-    setTimeout(handleScroll, 300);
     
-    // Set initial active section based on URL hash
+    // Set initial active section based on URL hash or default to home
     const initialHash = window.location.hash || "#home";
     setActiveSection(initialHash);
     
+    // Call handleScroll after a short delay to set correct active section on load
+    setTimeout(handleScroll, 300);
+    
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeSection, navLinks]);
+  }, [navLinks]);
   
   const handleNavLinkClick = (href) => {
     setActiveSection(href);
