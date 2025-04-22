@@ -11,6 +11,9 @@ const ContactSection = () => {
   const { t, language } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
 
+  // Office location coordinates for Abu Dhabi
+  const officeLocation = { lat: 24.4539, lng: 54.3773 };
+
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
@@ -94,7 +97,10 @@ const ContactSection = () => {
             
             {/* Google Map */}
             <div className="w-full h-[300px]">
-              <GoogleMap height="300px" />
+              <GoogleMap 
+                location={officeLocation} 
+                height="300px" 
+              />
             </div>
           </div>
 
