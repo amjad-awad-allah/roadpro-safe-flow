@@ -8,6 +8,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const partners = [
   {
@@ -50,7 +52,8 @@ const partners = [
 const PartnersCarousel = () => {
   const plugin = useRef(
     Autoplay({
-      delay: 3000,
+      delay: 6000, // Increased to 6 seconds
+      stopOnInteraction: false, // Continue autoplay after user interaction
     })
   );
 
@@ -72,25 +75,70 @@ const PartnersCarousel = () => {
             loop: true,
           }}
           plugins={[plugin.current]}
-          className="w-full max-w-6xl mx-auto"
+          className="w-full max-w-6xl mx-auto relative"
         >
           <CarouselContent className="-ml-2 md:-ml-4">
             {partners.map((partner) => (
-              <CarouselItem key={partner.id} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
+              <CarouselItem 
+                key={partner.id} 
+                className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4"
+              >
                 <div className="p-4">
-                  <div className="rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow p-6 flex items-center justify-center h-32">
+                  <div 
+                    className="rounded-lg bg-white shadow-md hover:shadow-xl transition-all duration-300 
+                             p-6 flex items-center justify-center h-32 group"
+                  >
                     <img
                       src={partner.logo}
                       alt={`${partner.name} logo`}
-                      className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                      className="max-w-full max-h-full object-contain transition-transform duration-300 
+                               group-hover:scale-103 group-hover:shadow-lg"
                     />
                   </div>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex" />
-          <CarouselNext className="hidden md:flex" />
+
+          {/* Custom Navigation Arrows */}
+          <div className="absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2">
+            <CarouselPrevious 
+              variant="outline" 
+              size="lg"
+              className="h-12 w-12 rounded-full border-2 border-roadpro-yellow bg-white/90 
+                         hover:bg-roadpro-yellow hover:text-roadpro-black transition-all duration-300
+                         shadow-lg hover:shadow-xl"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </CarouselPrevious>
+          </div>
+          
+          <div className="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2">
+            <CarouselNext 
+              variant="outline" 
+              size="lg"
+              className="h-12 w-12 rounded-full border-2 border-roadpro-yellow bg-white/90 
+                         hover:bg-roadpro-yellow hover:text-roadpro-black transition-all duration-300
+                         shadow-lg hover:shadow-xl"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </CarouselNext>
+          </div>
+
+          {/* Carousel Dots/Indicators */}
+          <div className="flex justify-center gap-2 mt-6">
+            {partners.map((_, index) => (
+              <Button
+                key={index}
+                variant="ghost"
+                size="sm"
+                className="w-2 h-2 rounded-full bg-roadpro-gray/30 hover:bg-roadpro-yellow/50
+                         data-[state=active]:bg-roadpro-yellow data-[state=active]:scale-125
+                         transition-all duration-300"
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </Carousel>
       </div>
     </section>
