@@ -1,12 +1,12 @@
 
 import { useEffect, useRef } from "react";
-import { Traffic, Layers, Construction, MapPin } from "lucide-react";
+import { CarFront, Layers, Construction, MapPin } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 
 const services = [
   {
-    icon: Traffic,
+    icon: CarFront,
     title: "Traffic Management Solutions",
     description: "Comprehensive traffic flow management during road works, construction, and public events with ITC-compliant planning and implementation.",
     delay: 0

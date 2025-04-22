@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Traffic } from "lucide-react";
+import { ArrowRight, CarFront } from "lucide-react";
 
 const HeroSection = () => {
   return (
