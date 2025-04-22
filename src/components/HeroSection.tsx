@@ -1,20 +1,23 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+
 const HeroSection = () => {
   const {
     t,
     language
   } = useLanguage();
+  
   return <section id="home" className="relative min-h-[90vh] flex items-center">
-      {/* Video Background */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <video autoPlay muted loop playsInline className="w-full h-full object-cover">
-          <source src="https://storage.googleapis.com/lovable-public-assets/roadpro-traffic.mp4" type="video/mp4" />
-          {/* Fallback for browsers that don't support video */}
-          <img src="/lovable-uploads/2c60c704-4e64-4ceb-a808-2dfe5dd85255.jpg" alt="Road safety workers" className="w-full h-full object-cover" />
-        </video>
+        <img 
+          src="/lovable-uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg" 
+          alt="Road safety background" 
+          className="w-full h-full object-cover"
+        />
       </div>
 
       {/* Content with Image Layout */}
@@ -68,4 +71,5 @@ const HeroSection = () => {
       </div>
     </section>;
 };
+
 export default HeroSection;

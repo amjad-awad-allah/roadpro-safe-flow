@@ -45,36 +45,45 @@ const Navbar = () => {
       
       // Use a timeout to avoid excessive calculations during scroll
       scrollTimeoutRef.current = setTimeout(() => {
-        // Get all sections and their positions
-        const sections = navLinks.map(({ href }) => {
+        // Get all sections and calculate their position and visibility
+        const sections = [];
+        navLinks.forEach(({ href }) => {
           const id = href.replace("#", "");
           const element = document.getElementById(id);
-          if (!element) return { href, top: 9999 };
           
-          const rect = element.getBoundingClientRect();
-          // Calculate how much of the section is visible in the viewport
-          const visiblePercentage = Math.min(
-            (window.innerHeight - Math.max(0, -rect.top)) / rect.height,
-            (rect.bottom) / window.innerHeight
-          );
-          
-          return { 
-            href, 
-            top: rect.top, 
-            visiblePercentage: rect.height > 0 ? visiblePercentage : 0 
-          };
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            const topPos = rect.top;
+            const height = rect.height;
+            
+            // Calculate visibility percentage - how much of section is in viewport
+            const viewportHeight = window.innerHeight;
+            const visibleHeight = Math.min(
+              viewportHeight,
+              Math.max(0, rect.bottom) - Math.max(0, rect.top)
+            );
+            
+            // Calculate visibility as a percentage (0 to 1)
+            const visiblePercentage = visibleHeight / height;
+            
+            sections.push({
+              id: href,
+              topPos,
+              visiblePercentage,
+              // Add a weight factor for sections near the top of the viewport
+              weight: visiblePercentage * (1 - (Math.max(0, topPos) / viewportHeight) * 0.8)
+            });
+          }
         });
         
-        // Find section with the highest visibility
-        const mostVisibleSection = sections.reduce(
-          (prev, current) => (current.visiblePercentage > prev.visiblePercentage ? current : prev),
-          { href: "#home", visiblePercentage: 0 }
-        );
+        // Sort sections by their weighted visibility (most visible first)
+        sections.sort((a, b) => b.weight - a.weight);
         
-        if (mostVisibleSection.href !== activeSection) {
-          setActiveSection(mostVisibleSection.href);
+        // Check if we have a section and if the most visible one is different from current
+        if (sections.length > 0 && sections[0].id !== activeSection) {
+          setActiveSection(sections[0].id);
           // Update URL hash without scrolling
-          history.replaceState(null, '', mostVisibleSection.href);
+          history.replaceState(null, null, sections[0].id);
         }
       }, 100);
     };
@@ -84,18 +93,37 @@ const Navbar = () => {
     // Initial check for correct highlighting
     handleScroll();
     
+    // Handle hash changes from clicks
+    const handleHashChange = () => {
+      const hash = window.location.hash || "#home";
+      setActiveSection(hash);
+    };
+    
+    window.addEventListener("hashchange", handleHashChange);
+    
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("hashchange", handleHashChange);
       if (scrollTimeoutRef.current) {
         clearTimeout(scrollTimeoutRef.current);
       }
     };
-  }, [navLinks, activeSection]);
+  }, [navLinks]);
   
   const handleNavLinkClick = (href) => {
     setActiveSection(href);
     if (isMenuOpen) {
       setIsMenuOpen(false);
+    }
+    
+    // Scroll to section smoothly
+    const id = href.replace("#", "");
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      
+      // Update URL without adding to history
+      history.replaceState(null, null, href);
     }
   };
 
@@ -124,7 +152,10 @@ const Navbar = () => {
             <a
               key={link.href}
               href={link.href}
-              onClick={() => handleNavLinkClick(link.href)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavLinkClick(link.href);
+              }}
               className={`font-medium relative transition-colors duration-300 py-2 px-3 rounded-lg
                 ${activeSection === link.href 
                   ? "text-roadpro-black bg-roadpro-yellow/90 shadow-md" 
@@ -183,7 +214,10 @@ const Navbar = () => {
                     ? "text-roadpro-black bg-roadpro-yellow/90 shadow-md font-bold" 
                     : "hover:text-roadpro-yellow hover:bg-gray-100/80"}
                 `}
-                onClick={() => handleNavLinkClick(link.href)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavLinkClick(link.href);
+                }}
               >
                 {link.text}
               </a>
