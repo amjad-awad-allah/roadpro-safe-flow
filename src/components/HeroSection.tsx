@@ -1,8 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CarFront } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="relative h-[90vh] flex items-center">
       {/* Video Background */}
@@ -29,18 +32,18 @@ const HeroSection = () => {
       <div className="container mx-auto relative z-20 px-4 md:px-6">
         <div className="max-w-3xl text-white">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-bottom [animation-delay:200ms]">
-            Expert Traffic Management Solutions
+            {t("hero.title")}
           </h1>
           <p className="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in-bottom [animation-delay:400ms]">
-            Setting the standard for road safety and traffic management in Abu Dhabi with ITC-compliant solutions
+            {t("hero.subtitle")}
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-in-bottom [animation-delay:600ms]">
             <Button variant="cta" size="lg" className="group">
-              Explore Our Services
+              {t("hero.button.explore")}
               <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-roadpro-black">
-              Contact Us
+              {t("hero.button.contact")}
             </Button>
           </div>
         </div>

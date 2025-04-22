@@ -1,7 +1,11 @@
 
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const WhatsAppButton = () => {
+  const { t } = useLanguage();
   const phoneNumber = "+971501234567"; // Replace with actual WhatsApp number
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=Hello%20RoadPro,%20I%20would%20like%20to%20inquire%20about%20your%20services.`;
+  const message = encodeURIComponent(t("whatsapp.message"));
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
   
   return (
     <a
@@ -9,7 +13,7 @@ const WhatsAppButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg 
-        hover:scale-110 transition-all duration-300 hover:shadow-xl animate-pulse [animation-duration:3s]"
+        hover:scale-110 transition-all duration-300 hover:shadow-xl"
       aria-label="Chat with us on WhatsApp"
     >
       <svg 

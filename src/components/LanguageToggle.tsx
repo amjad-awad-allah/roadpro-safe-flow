@@ -1,13 +1,13 @@
 
-import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
+import { Globe } from "lucide-react";
 
 const LanguageToggle = () => {
-  const [language, setLanguage] = useState("en");
+  const { language, setLanguage } = useLanguage();
   
   const toggleLanguage = () => {
     setLanguage(language === "en" ? "ar" : "en");
-    // In a full implementation, this would trigger language context changes
   };
   
   return (
@@ -16,8 +16,9 @@ const LanguageToggle = () => {
         variant="outline"
         size="sm"
         onClick={toggleLanguage}
-        className="bg-white/80 backdrop-blur-sm hover:bg-white"
+        className="bg-white/90 backdrop-blur-sm hover:bg-white flex items-center gap-2 shadow-md"
       >
+        <Globe size={16} />
         {language === "en" ? "العربية" : "English"}
       </Button>
     </div>
