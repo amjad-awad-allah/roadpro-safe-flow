@@ -1,5 +1,5 @@
 
-import React, { createContext, useState, useContext, ReactNode } from "react";
+import React, { createContext, useState, useContext, ReactNode, useEffect } from "react";
 
 // Define the available languages and translation keys
 export type Language = "en" | "ar";
@@ -24,6 +24,10 @@ const translations = {
     "nav.equipment": "Equipment",
     "nav.clients": "Clients",
     "nav.contact": "Contact Us",
+    "nav.whyus": "Why Us",
+    "nav.sustainability": "Sustainability",
+    "nav.language": "العربية",
+    "nav.getquote": "Get a Quote",
     
     // Hero Section
     "hero.title": "Expert Traffic Management Solutions",
@@ -73,6 +77,32 @@ const translations = {
     "equipment.certified": "ITC Certified",
     "equipment.compliance": "All equipment complies with International Traffic Control (ITC) standards and undergoes regular maintenance and safety inspections.",
     
+    // Advantages Section
+    "advantages.title": "Why Choose RoadPro",
+    "advantages.subtitle": "We deliver excellence in every project",
+    "advantages.experience.title": "Industry Experience",
+    "advantages.experience.description": "Our team brings years of specialized knowledge in traffic management and road safety.",
+    "advantages.compliance.title": "ITC Compliance",
+    "advantages.compliance.description": "All our services meet International Traffic Control standards for maximum safety.",
+    "advantages.customized.title": "Customized Solutions",
+    "advantages.customized.description": "We design traffic management plans tailored to your specific project needs.",
+    "advantages.responsive.title": "Responsive Team",
+    "advantages.responsive.description": "Available 24/7 for emergency traffic management situations with rapid response.",
+    "advantages.equipment.title": "Latest Equipment",
+    "advantages.equipment.description": "Access to state-of-the-art traffic safety technology and equipment.",
+    "advantages.affordability.title": "Competitive Pricing",
+    "advantages.affordability.description": "Cost-effective solutions without compromising on quality or safety.",
+    
+    // Sustainability Section
+    "sustainability.title": "Our Commitment to Sustainability",
+    "sustainability.subtitle": "Creating safer roads with environmental responsibility",
+    "sustainability.environment.title": "Environmental Stewardship",
+    "sustainability.environment.description": "We minimize our carbon footprint by using energy-efficient equipment and sustainable materials.",
+    "sustainability.innovation.title": "Innovative Practices",
+    "sustainability.innovation.description": "Implementing eco-friendly technologies and processes in our operations.",
+    "sustainability.community.title": "Community Focus",
+    "sustainability.community.description": "Supporting local initiatives and contributing to the community's well-being.",
+    
     // Contact Section
     "contact.title": "Contact Information",
     "contact.subtitle": "Reach out for inquiries or to discuss your traffic management needs",
@@ -87,6 +117,11 @@ const translations = {
     "contact.form.message": "Message",
     "contact.form.button": "Get a Quote",
     
+    // Footer
+    "footer.rights": "All Rights Reserved",
+    "footer.privacy": "Privacy Policy",
+    "footer.terms": "Terms of Service",
+    
     // WhatsApp Button
     "whatsapp.message": "Hello RoadPro, I would like to inquire about your services."
   },
@@ -99,6 +134,10 @@ const translations = {
     "nav.equipment": "معداتنا",
     "nav.clients": "عملاؤنا",
     "nav.contact": "اتصل بنا",
+    "nav.whyus": "لماذا نحن",
+    "nav.sustainability": "الاستدامة",
+    "nav.language": "English",
+    "nav.getquote": "احصل على عرض سعر",
     
     // Hero Section
     "hero.title": "حلول إدارة حركة المرور المتخصصة",
@@ -148,6 +187,32 @@ const translations = {
     "equipment.certified": "معتمد من ITC",
     "equipment.compliance": "تتوافق جميع المعدات مع معايير التحكم المروري الدولية (ITC) وتخضع لصيانة منتظمة وفحوصات السلامة.",
     
+    // Advantages Section
+    "advantages.title": "لماذا تختار رود برو",
+    "advantages.subtitle": "نقدم التميز في كل مشروع",
+    "advantages.experience.title": "خبرة في الصناعة",
+    "advantages.experience.description": "يجلب فريقنا سنوات من المعرفة المتخصصة في إدارة حركة المرور وسلامة الطرق.",
+    "advantages.compliance.title": "الامتثال لمعايير ITC",
+    "advantages.compliance.description": "تلبي جميع خدماتنا معايير التحكم المروري الدولية لتحقيق أقصى قدر من السلامة.",
+    "advantages.customized.title": "حلول مخصصة",
+    "advantages.customized.description": "نصمم خطط إدارة حركة المرور المصممة خصيصًا لاحتياجات مشروعك المحددة.",
+    "advantages.responsive.title": "فريق سريع الاستجابة",
+    "advantages.responsive.description": "متاح على مدار الساعة طوال أيام الأسبوع لحالات إدارة حركة المرور الطارئة مع استجابة سريعة.",
+    "advantages.equipment.title": "أحدث المعدات",
+    "advantages.equipment.description": "الوصول إلى أحدث تقنيات ومعدات سلامة المرور.",
+    "advantages.affordability.title": "أسعار تنافسية",
+    "advantages.affordability.description": "حلول فعالة من حيث التكلفة دون المساس بالجودة أو السلامة.",
+    
+    // Sustainability Section
+    "sustainability.title": "التزامنا بالاستدامة",
+    "sustainability.subtitle": "إنشاء طرق أكثر أمانًا مع المسؤولية البيئية",
+    "sustainability.environment.title": "الإشراف البيئي",
+    "sustainability.environment.description": "نحن نقلل من بصمتنا الكربونية باستخدام معدات موفرة للطاقة ومواد مستدامة.",
+    "sustainability.innovation.title": "ممارسات مبتكرة",
+    "sustainability.innovation.description": "تنفيذ تقنيات وعمليات صديقة للبيئة في عملياتنا.",
+    "sustainability.community.title": "التركيز على المجتمع",
+    "sustainability.community.description": "دعم المبادرات المحلية والمساهمة في رفاهية المجتمع.",
+    
     // Contact Section
     "contact.title": "معلومات الاتصال",
     "contact.subtitle": "تواصل معنا للاستفسارات أو لمناقشة احتياجاتك في إدارة حركة المرور",
@@ -161,6 +226,11 @@ const translations = {
     "contact.form.phone": "رقم الهاتف",
     "contact.form.message": "الرسالة",
     "contact.form.button": "احصل على عرض سعر",
+    
+    // Footer
+    "footer.rights": "جميع الحقوق محفوظة",
+    "footer.privacy": "سياسة الخصوصية",
+    "footer.terms": "شروط الخدمة",
     
     // WhatsApp Button
     "whatsapp.message": "مرحبًا رود برو، أود الاستفسار عن خدماتكم."
@@ -177,6 +247,12 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
   const t = (key: string): string => {
     return translations[language][key as keyof typeof translations[typeof language]] || key;
   };
+  
+  // Set initial document direction and lang on mount
+  useEffect(() => {
+    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+    document.documentElement.lang = language;
+  }, [language]);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>

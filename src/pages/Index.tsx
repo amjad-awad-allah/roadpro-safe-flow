@@ -12,7 +12,6 @@ import PartnersCarousel from "@/components/PartnersCarousel";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import LanguageToggle from "@/components/LanguageToggle";
 
 const Index = () => {
   return (
@@ -30,7 +29,6 @@ const Index = () => {
       <ContactSection />
       <Footer />
       <WhatsAppButton />
-      <LanguageToggle />
     </div>
   );
 };

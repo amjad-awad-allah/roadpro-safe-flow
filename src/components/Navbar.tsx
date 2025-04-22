@@ -1,14 +1,14 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
-  const { t, language } = useLanguage();
+  const { t, language, setLanguage } = useLanguage();
   
   const navLinks = [
     { href: "#home", text: language === "en" ? "Home" : "الرئيسية" },
@@ -20,6 +20,13 @@ const Navbar = () => {
   ];
   
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  
+  const toggleLanguage = () => {
+    const newLanguage = language === "en" ? "ar" : "en";
+    setLanguage(newLanguage);
+    document.documentElement.dir = newLanguage === "ar" ? "rtl" : "ltr";
+    document.documentElement.lang = newLanguage;
+  };
   
   useEffect(() => {
     const handleScroll = () => {
@@ -95,16 +102,40 @@ const Navbar = () => {
               {link.text}
             </a>
           ))}
+          
+          {/* Language Toggle Button for Desktop */}
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={toggleLanguage}
+            className="bg-white/90 backdrop-blur-sm hover:bg-roadpro-yellow hover:text-roadpro-black flex items-center gap-2 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 ml-2"
+          >
+            <Globe size={16} />
+            {language === "en" ? "العربية" : "English"}
+          </Button>
         </nav>
         
         {/* Mobile Navigation Toggle */}
-        <button 
-          className="md:hidden text-roadpro-black shadow-md bg-white px-2 py-2 rounded-xl border border-roadpro-lightgray transition-all hover:scale-110 hover:shadow-roadpro-yellow"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          {/* Language Toggle Button for Mobile */}
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={toggleLanguage}
+            className="bg-white/90 backdrop-blur-sm hover:bg-roadpro-yellow hover:text-roadpro-black shadow-md transition-all hover:scale-105 px-2 py-1"
+          >
+            <Globe size={16} />
+            <span className="sr-only">{language === "en" ? "العربية" : "English"}</span>
+          </Button>
+          
+          <button 
+            className="text-roadpro-black shadow-md bg-white px-2 py-2 rounded-xl border border-roadpro-lightgray transition-all hover:scale-110 hover:shadow-roadpro-yellow"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
       
       {/* Mobile Navigation Menu */}
@@ -125,6 +156,17 @@ const Navbar = () => {
                 {link.text}
               </a>
             ))}
+            
+            {/* Language Toggle for Mobile Menu */}
+            <Button 
+              onClick={toggleLanguage}
+              className="w-full text-left justify-start py-3 mt-2 font-medium transition-all duration-300 text-lg rounded-lg px-4 hover:text-roadpro-yellow hover:bg-gray-100/80"
+              variant="ghost"
+            >
+              <Globe size={20} className="mr-2" />
+              {language === "en" ? "العربية" : "English"}
+            </Button>
+            
             <Button 
               className="w-full mt-2 bg-roadpro-yellow text-roadpro-black hover:bg-roadpro-black hover:text-roadpro-yellow transition-transform hover:scale-105 hover:shadow-lg hover-glow shadow rounded-lg text-base px-4 py-3 font-poppins glowing-cta"
             >
