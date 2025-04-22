@@ -1,105 +1,69 @@
 
-import { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, TrafficCone } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { ArrowRight, Traffic } from "lucide-react";
 
 const HeroSection = () => {
-  // Parallax effect on image based on mouse move (desktop only)
-  const imgRef = useRef<HTMLImageElement>(null);
-  useEffect(() => {
-    const handleParallax = (e: MouseEvent) => {
-      if (!imgRef.current) return;
-      const {
-        innerWidth,
-        innerHeight
-      } = window;
-      const moveX = (e.clientX - innerWidth / 2) / innerWidth * 20;
-      const moveY = (e.clientY - innerHeight / 2) / innerHeight * 20;
-      imgRef.current.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(1.06)`;
-    };
-    const resetParallax = () => {
-      if (imgRef.current) imgRef.current.style.transform = "translate3d(0,0,0) scale(1)";
-    };
-    window.addEventListener("mousemove", handleParallax);
-    window.addEventListener("mouseleave", resetParallax);
-    return () => {
-      window.removeEventListener("mousemove", handleParallax);
-      window.removeEventListener("mouseleave", resetParallax);
-    };
-  }, []);
-
-  const headingRef = useScrollAnimation<HTMLHeadingElement>({ 
-    delay: 200, 
-    animation: 'animate-fade-in-scroll' 
-  });
-  const descriptionRef = useScrollAnimation<HTMLParagraphElement>({ 
-    delay: 400, 
-    animation: 'animate-fade-in-scroll' 
-  });
-  const buttonsRef = useScrollAnimation<HTMLDivElement>({ 
-    delay: 600, 
-    animation: 'animate-fade-in-scroll' 
-  });
-  const imageRef = useScrollAnimation<HTMLDivElement>({ 
-    delay: 300, 
-    animation: 'animate-zoom-in-on-scroll' 
-  });
-  const coneRef = useScrollAnimation<HTMLDivElement>({ 
-    delay: 500, 
-    animation: 'animate-slide-in-left' 
-  });
-
   return (
-    <section id="home" className="relative min-h-[80vh] flex items-center pt-[100px] pb-10 bg-roadpro-lightgray transition-spacing">
-      {/* Decorative cone left */}
-      <div 
-        ref={coneRef}
-        className="absolute left-0 top-12 z-0 pointer-events-none select-none hidden md:block"
-      >
-        <TrafficCone className="text-roadpro-yellow drop-shadow-xl animate-float-slower" size={54} />
+    <section className="relative h-[90vh] flex items-center">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="https://storage.googleapis.com/lovable-public-assets/roadpro-traffic.mp4" type="video/mp4" />
+          {/* Fallback for browsers that don't support video */}
+          <img 
+            src="/lovable-uploads/2c60c704-4e64-4ceb-a808-2dfe5dd85255.jpg" 
+            alt="Road safety workers" 
+            className="w-full h-full object-cover" 
+          />
+        </video>
       </div>
 
-      <div className="container relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div className="w-full flex justify-center order-2 md:order-1" ref={imageRef}>
-          <div className="relative w-full max-w-xl flex items-center">
-            <img 
-              ref={imgRef} 
-              alt="RoadPro team working on a traffic solution" 
-              className="w-full aspect-square max-w-xl rounded-2xl shadow-2xl border-8 border-white object-cover block bg-white 
-                transition-transform duration-1000" 
-              src="/lovable-uploads/2c60c704-4e64-4ceb-a808-2dfe5dd85255.jpg" 
-              style={{
-                minHeight: "260px",
-                background: "#F1F0FB"
-              }} 
-            />
+      {/* Content */}
+      <div className="container mx-auto relative z-20 px-4 md:px-6">
+        <div className="max-w-3xl text-white">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-bottom [animation-delay:200ms]">
+            Expert Traffic Management Solutions
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in-bottom [animation-delay:400ms]">
+            Setting the standard for road safety and traffic management in Abu Dhabi with ITC-compliant solutions
+          </p>
+          <div className="flex flex-wrap gap-4 animate-fade-in-bottom [animation-delay:600ms]">
+            <Button variant="cta" size="lg" className="group">
+              Explore Our Services
+              <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
+            </Button>
+            <Button variant="outline" size="lg" className="bg-transparent border-white text-white hover:bg-white hover:text-roadpro-black">
+              Contact Us
+            </Button>
           </div>
         </div>
-        
-        <div className="space-y-7 text-center md:text-left flex flex-col items-center md:items-start order-1 md:order-2">
-          <h1 ref={headingRef} className="text-4xl md:text-5xl lg:text-6xl font-bold text-roadpro-black leading-tight">
-            Enhancing Public Safety
-            <br className="hidden md:block" />
-            & Smooth Traffic Flow
-          </h1>
-          
-          <p ref={descriptionRef} className="text-lg md:text-xl text-roadpro-gray max-w-xl">
-            Innovative solutions for traffic diversions, lane closures, and street safety—expertly delivered by RoadPro.
-          </p>
-          
-          <div ref={buttonsRef} className="flex flex-wrap gap-4">
-            <Button className="bg-roadpro-yellow text-roadpro-black text-lg px-7 py-5 rounded-xl shadow-xl
-                hover:bg-roadpro-black hover:text-roadpro-yellow transition-all hover-glow hover:scale-105 font-poppins
-                animate-soft-pulse focus:outline-none focus:ring-4 focus:ring-roadpro-yellow/70
-                [animation-duration:2.7s] glowing-cta">
-              Explore Our Services
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button variant="outline" className="border-roadpro-black text-roadpro-black text-lg px-7 py-5 hover:bg-roadpro-black hover:text-white transition-all rounded-xl font-poppins shadow-md glowing-outline-cta">
-              Get a Quote
-            </Button>
-          </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+        <div className="w-10 h-10 flex items-center justify-center rounded-full bg-roadpro-yellow/80">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            className="text-roadpro-black"
+          >
+            <path d="M12 5v14" />
+            <path d="m19 12-7 7-7-7" />
+          </svg>
         </div>
       </div>
     </section>

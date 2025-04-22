@@ -1,26 +1,33 @@
 
 import { useEffect, useRef } from "react";
-import { Navigation, Shield, ClipboardList } from "lucide-react";
+import { Traffic, Layers, Construction, MapPin } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { Button } from "@/components/ui/button";
 
 const services = [
   {
-    icon: Navigation,
-    title: "Traffic Diversion Solutions",
-    description: "Expert management of traffic flow during road works and events.",
+    icon: Traffic,
+    title: "Traffic Management Solutions",
+    description: "Comprehensive traffic flow management during road works, construction, and public events with ITC-compliant planning and implementation.",
     delay: 0
   },
   {
-    icon: Shield,
-    title: "Safety Management",
-    description: "Comprehensive safety protocols and risk mitigation strategies.",
+    icon: Layers,
+    title: "Lane Closure Equipment",
+    description: "State-of-the-art equipment for safe and efficient lane closures, including barriers, cones, and advanced warning signage.",
     delay: 100
   },
   {
-    icon: ClipboardList,
-    title: "Traffic Planning",
-    description: "Detailed traffic management and optimization plans.",
+    icon: Construction,
+    title: "Street Closure Management",
+    description: "Complete management of temporary street closures for construction, events, and emergencies with minimal disruption to daily traffic.",
     delay: 200
+  },
+  {
+    icon: MapPin,
+    title: "Specialized Equipment (TMA)",
+    description: "Truck Mounted Attenuators and other specialized safety equipment to protect workers and the public in high-risk traffic zones.",
+    delay: 300
   }
 ];
 
@@ -30,24 +37,33 @@ const ServicesSection = () => {
     delay: 100
   });
   
-  const card1Ref = useScrollAnimation<HTMLDivElement>({ 
-    animation: 'animate-fade-in-scroll', 
-    delay: 200
-  });
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   
-  const card2Ref = useScrollAnimation<HTMLDivElement>({ 
-    animation: 'animate-fade-in-scroll', 
-    delay: 350
-  });
-  
-  const card3Ref = useScrollAnimation<HTMLDivElement>({ 
-    animation: 'animate-fade-in-scroll', 
-    delay: 500
-  });
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, Number(entry.target.getAttribute('data-delay')) || 0);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    cardsRef.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+    
+    return () => {
+      cardsRef.current.forEach((card) => {
+        if (card) observer.unobserve(card);
+      });
+    };
+  }, []);
 
   return (
-    <section id="services" className="section-padding bg-white">
-      <div className="container mx-auto px-4 py-16 md:py-24">
+    <section id="services" className="section-padding bg-roadpro-lightgray">
+      <div className="container mx-auto px-4">
         <div ref={titleRef} className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4">
             <span className="text-sm font-medium text-roadpro-black">
@@ -62,28 +78,36 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
-            const ref = index === 0 ? card1Ref : index === 1 ? card2Ref : card3Ref;
             
             return (
               <div
                 key={index}
-                ref={ref}
+                ref={(el) => (cardsRef.current[index] = el)}
+                data-delay={service.delay}
                 className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-300
-                  hover:scale-105 hover:shadow-xl hover:shadow-roadpro-yellow/30 border-2 border-transparent"
+                  hover:translate-y-[-10px] hover:shadow-xl border-b-4 border-transparent 
+                  hover:border-roadpro-yellow animate-fade-in-scroll"
               >
                 <div className="w-16 h-16 bg-roadpro-yellow/20 rounded-full flex items-center justify-center mb-6
-                    transition-shadow group-hover:shadow-roadpro-yellow/30 animate-soft-pulse">
-                  <Icon className="w-9 h-9 text-roadpro-yellow transition-transform group-hover:scale-110" />
+                    transition-shadow animate-soft-pulse">
+                  <Icon className="w-8 h-8 text-roadpro-yellow transition-transform" />
                 </div>
-                <h3 className="text-xl font-semibold text-roadpro-black mb-4 leading-tight group-hover:text-roadpro-yellow transition-colors">
+                <h3 className="text-xl font-semibold text-roadpro-black mb-4 leading-tight">
                   {service.title}
                 </h3>
-                <p className="text-roadpro-gray leading-relaxed">
+                <p className="text-roadpro-gray leading-relaxed mb-6">
                   {service.description}
                 </p>
+                <Button variant="ghost" size="sm" className="text-roadpro-black hover:text-roadpro-yellow px-0 group">
+                  Learn More 
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="ml-1 transition-transform group-hover:translate-x-1">
+                    <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </Button>
               </div>
             );
           })}
