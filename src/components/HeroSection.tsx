@@ -1,23 +1,16 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-
 const HeroSection = () => {
   const {
     t,
     language
   } = useLanguage();
-  
   return <section id="home" className="relative min-h-[90vh] flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <img 
-          src="/lovable-uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg" 
-          alt="Road safety background" 
-          className="w-full h-full object-cover"
-        />
+        <img src="/lovable-uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg" alt="Road safety background" className="w-full h-full object-cover" />
       </div>
 
       {/* Content with Image Layout */}
@@ -25,7 +18,7 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Left side - Image in card */}
           <div className={`mx-auto lg:mx-0 max-w-xl rounded-3xl overflow-hidden shadow-2xl bg-white p-4 ${language === "ar" ? "lg:order-2" : ""}`}>
-            <img alt="Highway interchange at night" className="w-full h-auto rounded-2xl" src="/lovable-uploads/190bb4d6-7c94-4b57-a01e-2972704e9b1a.png" />
+            <img alt="Highway interchange at night" className="w-full h-auto rounded-2xl" src="/lovable-uploads/9f2af0ae-570f-415a-8795-1abcc6472efe.png" />
           </div>
           
           {/* Right side - Text content */}
@@ -71,5 +64,4 @@ const HeroSection = () => {
       </div>
     </section>;
 };
-
 export default HeroSection;
