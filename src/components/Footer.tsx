@@ -1,19 +1,54 @@
 
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUp } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useState, useEffect } from "react";
 
 const Footer = () => {
+  const { language } = useLanguage();
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Function to handle smooth scrolling to a section
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, null, `#${sectionId}`);
+    }
+  };
+
+  // Function to scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+    history.replaceState(null, null, "#home");
+  };
+
+  // Show scroll to top button when scrolled down
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <footer className="bg-roadpro-black text-white pt-16 pb-8">
+    <footer className="bg-roadpro-black text-white pt-16 pb-8 relative">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="mb-6">
-              <a href="#" className="text-2xl font-bold">
+              <a href="#home" onClick={(e) => { e.preventDefault(); scrollToTop(); }} className="text-2xl font-bold">
                 Road<span className="text-roadpro-yellow">Pro</span>
               </a>
             </div>
             <p className="text-gray-300 mb-6">
-              Professional traffic management and consultancy services committed to ensuring public safety and maintaining efficient traffic flow.
+              {language === "en" 
+                ? "Professional traffic management and consultancy services committed to ensuring public safety and maintaining efficient traffic flow."
+                : "خدمات إدارة المرور والاستشارات المهنية الملتزمة بضمان السلامة العامة والحفاظ على تدفق مروري فعال."}
             </p>
             <div className="flex space-x-4">
               <a
@@ -46,67 +81,133 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-6">
+              {language === "en" ? "Quick Links" : "روابط سريعة"}
+            </h3>
             <ul className="space-y-4">
               <li>
-                <a href="#home" className="text-gray-300 hover:text-roadpro-yellow transition-colors">Home</a>
+                <a 
+                  href="#home" 
+                  onClick={(e) => { e.preventDefault(); scrollToTop(); }}
+                  className="text-gray-300 hover:text-roadpro-yellow transition-colors"
+                >
+                  {language === "en" ? "Home" : "الرئيسية"}
+                </a>
               </li>
               <li>
-                <a href="#about" className="text-gray-300 hover:text-roadpro-yellow transition-colors">About</a>
+                <a 
+                  href="#about"
+                  onClick={(e) => { e.preventDefault(); scrollToSection("about"); }}
+                  className="text-gray-300 hover:text-roadpro-yellow transition-colors"
+                >
+                  {language === "en" ? "About" : "من نحن"}
+                </a>
               </li>
               <li>
-                <a href="#services" className="text-gray-300 hover:text-roadpro-yellow transition-colors">Services</a>
+                <a 
+                  href="#services"
+                  onClick={(e) => { e.preventDefault(); scrollToSection("services"); }}
+                  className="text-gray-300 hover:text-roadpro-yellow transition-colors"
+                >
+                  {language === "en" ? "Services" : "خدماتنا"}
+                </a>
               </li>
               <li>
-                <a href="#advantages" className="text-gray-300 hover:text-roadpro-yellow transition-colors">Why Choose Us</a>
+                <a 
+                  href="#advantages"
+                  onClick={(e) => { e.preventDefault(); scrollToSection("advantages"); }}
+                  className="text-gray-300 hover:text-roadpro-yellow transition-colors"
+                >
+                  {language === "en" ? "Why Choose Us" : "لماذا نحن"}
+                </a>
               </li>
               <li>
-                <a href="#contact" className="text-gray-300 hover:text-roadpro-yellow transition-colors">Contact Us</a>
+                <a
+                  href="#contact"
+                  onClick={(e) => { e.preventDefault(); scrollToSection("contact"); }}
+                  className="text-gray-300 hover:text-roadpro-yellow transition-colors"
+                >
+                  {language === "en" ? "Contact Us" : "اتصل بنا"}
+                </a>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-6">Services</h3>
+            <h3 className="text-lg font-semibold mb-6">
+              {language === "en" ? "Services" : "الخدمات"}
+            </h3>
             <ul className="space-y-4">
               <li>
-                <a href="#" className="text-gray-300 hover:text-roadpro-yellow transition-colors">Traffic Management Planning</a>
+                <a 
+                  href="#services"
+                  onClick={(e) => { e.preventDefault(); scrollToSection("services"); }}
+                  className="text-gray-300 hover:text-roadpro-yellow transition-colors"
+                >
+                  {language === "en" ? "Traffic Management Planning" : "تخطيط إدارة المرور"}
+                </a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-roadpro-yellow transition-colors">Consultancy and Advisory</a>
+                <a 
+                  href="#services" 
+                  onClick={(e) => { e.preventDefault(); scrollToSection("services"); }}
+                  className="text-gray-300 hover:text-roadpro-yellow transition-colors"
+                >
+                  {language === "en" ? "Consultancy and Advisory" : "الاستشارات والدعم الفني"}
+                </a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-roadpro-yellow transition-colors">Traffic Diversion Solutions</a>
+                <a 
+                  href="#services"
+                  onClick={(e) => { e.preventDefault(); scrollToSection("services"); }}
+                  className="text-gray-300 hover:text-roadpro-yellow transition-colors"
+                >
+                  {language === "en" ? "Traffic Diversion Solutions" : "حلول تحويلات المرور"}
+                </a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-roadpro-yellow transition-colors">Lane Closure Equipment</a>
+                <a 
+                  href="#services"
+                  onClick={(e) => { e.preventDefault(); scrollToSection("services"); }}
+                  className="text-gray-300 hover:text-roadpro-yellow transition-colors"
+                >
+                  {language === "en" ? "Lane Closure Equipment" : "معدات إغلاق الحارات"}
+                </a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-roadpro-yellow transition-colors">Street Control Systems</a>
+                <a 
+                  href="#services"
+                  onClick={(e) => { e.preventDefault(); scrollToSection("services"); }}
+                  className="text-gray-300 hover:text-roadpro-yellow transition-colors"
+                >
+                  {language === "en" ? "Street Control Systems" : "أنظمة تحكم الشوارع"}
+                </a>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-6">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-6">
+              {language === "en" ? "Contact Us" : "اتصل بنا"}
+            </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-roadpro-yellow flex-shrink-0 mt-1" />
                 <span className="text-gray-300">
-                  Abu Dhabi, UAE
+                  {language === "en" ? "Abu Dhabi, UAE" : "أبوظبي، الإمارات العربية المتحدة"}
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-roadpro-yellow flex-shrink-0 mt-1" />
-                <span className="text-gray-300">
+                <a href="tel:+97150123456" className="text-gray-300 hover:text-roadpro-yellow transition-colors">
                   +971-50-123-4567
-                </span>
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-roadpro-yellow flex-shrink-0 mt-1" />
-                <span className="text-gray-300">
+                <a href="mailto:info@roadpro.ae" className="text-gray-300 hover:text-roadpro-yellow transition-colors">
                   info@roadpro.ae
-                </span>
+                </a>
               </li>
             </ul>
           </div>
@@ -119,15 +220,27 @@ const Footer = () => {
             </p>
             <div className="flex space-x-6">
               <a href="#" className="text-gray-400 text-sm hover:text-roadpro-yellow transition-colors">
-                Privacy Policy
+                {language === "en" ? "Privacy Policy" : "سياسة الخصوصية"}
               </a>
               <a href="#" className="text-gray-400 text-sm hover:text-roadpro-yellow transition-colors">
-                Terms of Service
+                {language === "en" ? "Terms of Service" : "شروط الخدمة"}
               </a>
             </div>
           </div>
         </div>
       </div>
+      
+      {/* Back to top button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 left-6 z-50 bg-roadpro-yellow text-roadpro-black p-3 rounded-full shadow-lg 
+            hover:scale-110 transition-all duration-300 hover:shadow-xl"
+          aria-label="Back to top"
+        >
+          <ArrowUp size={24} />
+        </button>
+      )}
     </footer>
   );
 };

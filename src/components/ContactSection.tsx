@@ -1,18 +1,67 @@
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/contexts/LanguageContext";
 import GoogleMap from "@/components/GoogleMap";
+import { toast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
   const { t, language } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Form state
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    message: ""
+  });
 
   // Office location coordinates for Abu Dhabi
   const officeLocation = { lat: 24.4539, lng: 54.3773 };
+
+  // Handle form input changes
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    setTimeout(() => {
+      toast({
+        title: language === "en" ? "Message Sent!" : "تم إرسال الرسالة!",
+        description: language === "en" 
+          ? "Thank you for contacting us. We'll get back to you soon." 
+          : "شكراً للتواصل معنا. سنرد عليك قريباً.",
+        variant: "default",
+      });
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        phone: "",
+        message: ""
+      });
+      
+      setIsSubmitting(false);
+    }, 1500);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,33 +116,33 @@ const ContactSection = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 group">
+                <a href="tel:+97150123456" className="flex items-start gap-4 group hover:text-roadpro-yellow transition-colors">
                   <div className="w-12 h-12 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg animate-soft-pulse group-hover:scale-110 transition-transform">
                     <Phone className="w-6 h-6 text-roadpro-black animate-float" style={{ animationDelay: "0.15s" }} />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">{t("contact.phone.title")}</h3>
-                    <p className="text-roadpro-gray">
+                    <p className="text-roadpro-gray group-hover:text-roadpro-yellow transition-colors">
                       +971-50-123-4567
                     </p>
                   </div>
-                </div>
-                <div className="flex items-start gap-4 group">
+                </a>
+                <a href="mailto:info@roadpro.ae" className="flex items-start gap-4 group hover:text-roadpro-yellow transition-colors">
                   <div className="w-12 h-12 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg animate-soft-pulse group-hover:scale-110 transition-transform">
                     <Mail className="w-6 h-6 text-roadpro-black animate-float" style={{ animationDelay: "0.3s" }} />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">{t("contact.email.title")}</h3>
-                    <p className="text-roadpro-gray">
+                    <p className="text-roadpro-gray group-hover:text-roadpro-yellow transition-colors">
                       info@roadpro.ae
                     </p>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
             
             {/* Google Map */}
-            <div className="w-full h-[300px]">
+            <div className="w-full h-[300px] cursor-pointer" onClick={() => window.open("https://maps.google.com/?q=24.4539,54.3773", "_blank")}>
               <GoogleMap 
                 location={officeLocation} 
                 height="300px" 
@@ -106,15 +155,19 @@ const ContactSection = () => {
             <h3 className="text-2xl font-bold text-roadpro-black mb-6 leading-tight">
               {t("contact.form.title")}
             </h3>
-            <form className="space-y-7">
+            <form ref={formRef} className="space-y-7" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="text-sm font-medium text-roadpro-gray font-poppins">
                     {t("contact.form.name")}
                   </label>
                   <Input
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder={language === "en" ? "Enter your name" : "أدخل اسمك"}
                     className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow"
+                    required
                   />
                 </div>
                 <div>
@@ -123,8 +176,12 @@ const ContactSection = () => {
                   </label>
                   <Input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder={language === "en" ? "Enter your email" : "أدخل بريدك الإلكتروني"}
                     className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow"
+                    required
                   />
                 </div>
               </div>
@@ -133,6 +190,9 @@ const ContactSection = () => {
                   {t("contact.form.company")}
                 </label>
                 <Input
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
                   placeholder={language === "en" ? "Enter your company" : "أدخل اسم شركتك"}
                   className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow"
                 />
@@ -142,6 +202,9 @@ const ContactSection = () => {
                   {t("contact.form.phone")}
                 </label>
                 <Input
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   placeholder={language === "en" ? "Enter your phone" : "أدخل رقم هاتفك"}
                   className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow"
                 />
@@ -151,17 +214,24 @@ const ContactSection = () => {
                   {t("contact.form.message")}
                 </label>
                 <Textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder={language === "en" ? "Tell us about your requirements" : "أخبرنا عن متطلباتك"}
                   className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow"
                   rows={4}
+                  required
                 />
               </div>
               <Button
                 type="submit"
+                disabled={isSubmitting}
                 className="w-full mt-6 bg-roadpro-yellow text-roadpro-black hover:bg-roadpro-black hover:text-roadpro-yellow
                   transition-all hover:scale-105 shadow-lg rounded-xl text-lg py-6 hover-glow"
               >
-                {t("contact.form.button")}
+                {isSubmitting 
+                  ? (language === "en" ? "Sending..." : "جاري الإرسال...")
+                  : t("contact.form.button")}
               </Button>
             </form>
           </div>

@@ -6,6 +6,15 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const HeroSection = () => {
   const { t, language } = useLanguage();
 
+  // Function to handle smooth scrolling to a section
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, null, `#${sectionId}`);
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-[90vh] flex items-center">
       {/* Background Image */}
@@ -48,7 +57,12 @@ const HeroSection = () => {
                 language === "ar" ? "justify-end" : ""
               }`}
             >
-              <Button variant="cta" size="lg" className="group">
+              <Button 
+                variant="cta" 
+                size="lg" 
+                className="group"
+                onClick={() => scrollToSection("services")}
+              >
                 {language === "en" ? (
                   <>
                     Explore Our Services
@@ -65,6 +79,7 @@ const HeroSection = () => {
                 variant="outline"
                 size="lg"
                 className="bg-transparent border-white text-white hover:bg-white hover:text-roadpro-black"
+                onClick={() => scrollToSection("contact")}
               >
                 {language === "en" ? "Contact Us" : "اتصل بنا"}
               </Button>
@@ -74,7 +89,10 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+      <div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce cursor-pointer"
+        onClick={() => scrollToSection("about")}
+      >
         <div className="w-10 h-10 flex items-center justify-center rounded-full bg-roadpro-yellow/80">
           <svg
             xmlns="http://www.w3.org/2000/svg"

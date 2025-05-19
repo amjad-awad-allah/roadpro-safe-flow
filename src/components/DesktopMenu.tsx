@@ -23,6 +23,15 @@ const DesktopMenu = ({
   language,
   toggleLanguage
 }: DesktopMenuProps) => {
+  // Function to handle the quote button click
+  const handleGetQuoteClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+      history.replaceState(null, null, '#contact');
+    }
+  };
+  
   return (
     <nav className={`hidden md:flex items-center ${language === "ar" ? "space-x-reverse space-x-8" : "space-x-8"}`}>
       {navLinks.map(link => (
@@ -33,7 +42,7 @@ const DesktopMenu = ({
             e.preventDefault();
             handleNavLinkClick(link.href);
           }}
-          className={`font-medium relative transition-colors duration-300 py-2 px-3 rounded-lg
+          className={`font-medium relative transition-colors duration-300 py-2 px-3 rounded-lg cursor-pointer
               ${activeSection === link.href 
                 ? "text-roadpro-black bg-roadpro-yellow/90 shadow-md" 
                 : "hover:text-roadpro-yellow hover:bg-gray-100/80"}
@@ -43,6 +52,13 @@ const DesktopMenu = ({
         </a>
       ))}
       <LanguageToggle language={language} toggleLanguage={toggleLanguage} isDesktop />
+      <Button 
+        variant="cta" 
+        onClick={handleGetQuoteClick}
+        className="hover:scale-105 transition-all duration-300 hover:shadow-roadpro-yellow/30"
+      >
+        {language === "en" ? "Get a Quote" : "احصل على عرض سعر"}
+      </Button>
     </nav>
   );
 };
