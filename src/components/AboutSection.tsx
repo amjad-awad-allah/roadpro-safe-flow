@@ -43,13 +43,6 @@ const AboutSection = () => {
                 <li>Specialize in traffic diversions, lane closures, and street control.</li>
               </ul>
             </div>
-            
-            <div className="border-l-4 border-roadpro-yellow pl-4">
-              <h3 className="text-2xl font-semibold text-roadpro-black mb-2">Our Approach</h3>
-              <p className="text-roadpro-gray">
-                We prioritize safety while ensuring efficient traffic management through comprehensive planning and implementation of regulatory-compliant solutions.
-              </p>
-            </div>
           </div>
           
           <div className="relative">
