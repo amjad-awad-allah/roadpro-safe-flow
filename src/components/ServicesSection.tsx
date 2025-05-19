@@ -1,46 +1,13 @@
 
 import { useEffect, useRef } from "react";
-import { CarFront, Layers, Construction, MapPin, AlertTriangle, FileCheck, ClipboardCheck, FileText } from "lucide-react";
+import { CarFront, Layers, Construction, MapPin, AlertTriangle } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
-
-const trafficManagementServices = [
-  {
-    icon: CarFront,
-    title: "Traffic Management Planning",
-    description: "Development of Traffic Management Plans (TMP) in compliance with ITC and UAE regulations. Full traffic scheme planning for construction sites, roadworks, and public events. Emergency response strategies and incident handling support. Assistance with permit acquisition and coordination with official entities.",
-    delay: 0
-  },
-  {
-    icon: Layers,
-    title: "Consultancy and Advisory",
-    description: "Expert consultation on safe and efficient traffic operations. Traffic flow analysis and congestion mitigation planning. Engineering support for layout and signage design. Preparation of Method Statements and Risk Assessments (MSRA). Submission-ready plans and documents for ITC and authority approvals.",
-    delay: 100
-  }
-];
-
-const trafficProductsServices = [
-  {
-    icon: Construction,
-    title: "Traffic Diversion Solutions",
-    description: "Temporary and permanent road signs compliant with ITC standards. Durable cones and barriers for safe traffic redirection. Customized diversion plans tailored to project scope and location.",
-    delay: 200
-  },
-  {
-    icon: MapPin,
-    title: "Lane Closure Equipment",
-    description: "Strategically placed, high-visibility lane closure signs. Certified safety barriers and delineators. Complete lane closure execution aligned with safety protocols.",
-    delay: 300
-  },
-  {
-    icon: AlertTriangle,
-    title: "Street Control Systems",
-    description: "Portable traffic lights for temporary setups. Pedestrian control equipment ensuring public safety. Customizable street control devices for special events or construction sites.",
-    delay: 400
-  }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ServicesSection = () => {
+  const { t } = useLanguage();
+  
   const titleRef = useScrollAnimation<HTMLDivElement>({ 
     animation: 'animate-fade-in-scroll',
     delay: 100
@@ -53,6 +20,43 @@ const ServicesSection = () => {
   
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const productsCardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  
+  // Define services with their respective icons and translation keys
+  const trafficManagementServices = [
+    {
+      icon: CarFront,
+      titleKey: "services.traffic.title",
+      descriptionKey: "services.traffic.description",
+      delay: 0
+    },
+    {
+      icon: Layers,
+      titleKey: "services.consultancy.title",
+      descriptionKey: "services.consultancy.description",
+      delay: 100
+    }
+  ];
+
+  const trafficProductsServices = [
+    {
+      icon: Construction,
+      titleKey: "services.diversion.title",
+      descriptionKey: "services.diversion.description",
+      delay: 200
+    },
+    {
+      icon: MapPin,
+      titleKey: "services.lane.title",
+      descriptionKey: "services.lane.description",
+      delay: 300
+    },
+    {
+      icon: AlertTriangle,
+      titleKey: "services.street.title",
+      descriptionKey: "services.street.description",
+      delay: 400
+    }
+  ];
   
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -91,14 +95,14 @@ const ServicesSection = () => {
         <div ref={titleRef} className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4">
             <span className="text-sm font-medium text-roadpro-black">
-              Our Services
+              {t("nav.services")}
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black mb-4 leading-tight">
-            Traffic Management & Consultancy Services
+            {t("services.title")}
           </h2>
           <p className="text-roadpro-gray text-lg leading-relaxed">
-            Professional services to ensure safety and efficiency in traffic management
+            {t("services.subtitle")}
           </p>
         </div>
 
@@ -120,13 +124,13 @@ const ServicesSection = () => {
                   <Icon className="w-8 h-8 text-roadpro-yellow transition-transform" />
                 </div>
                 <h3 className="text-xl font-semibold text-roadpro-black mb-4 leading-tight">
-                  {service.title}
+                  {t(service.titleKey)}
                 </h3>
                 <p className="text-roadpro-gray leading-relaxed mb-6">
-                  {service.description}
+                  {t(service.descriptionKey)}
                 </p>
                 <Button variant="ghost" size="sm" className="text-roadpro-black hover:text-roadpro-yellow px-0 group">
-                  Learn More 
+                  {t("services.button.more")} 
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="ml-1 transition-transform group-hover:translate-x-1">
                     <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -141,14 +145,14 @@ const ServicesSection = () => {
         <div ref={productsTitleRef} className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4">
             <span className="text-sm font-medium text-roadpro-black">
-              Our Products
+              {t("nav.equipment")}
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black mb-4 leading-tight">
-            Traffic Products and Services
+            {t("services.products.title")}
           </h2>
           <p className="text-roadpro-gray text-lg leading-relaxed">
-            Quality equipment and solutions for effective traffic control
+            {t("services.products.subtitle")}
           </p>
         </div>
 
@@ -170,13 +174,13 @@ const ServicesSection = () => {
                   <Icon className="w-8 h-8 text-roadpro-yellow transition-transform" />
                 </div>
                 <h3 className="text-xl font-semibold text-roadpro-black mb-4 leading-tight">
-                  {service.title}
+                  {t(service.titleKey)}
                 </h3>
                 <p className="text-roadpro-gray leading-relaxed mb-6">
-                  {service.description}
+                  {t(service.descriptionKey)}
                 </p>
                 <Button variant="ghost" size="sm" className="text-roadpro-black hover:text-roadpro-yellow px-0 group">
-                  Learn More 
+                  {t("services.button.more")}
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="ml-1 transition-transform group-hover:translate-x-1">
                     <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

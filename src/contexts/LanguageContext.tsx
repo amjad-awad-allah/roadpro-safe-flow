@@ -38,10 +38,15 @@ const translations = {
     // About Section
     "about.title": "Abu Dhabi's Premier Road Safety Partner",
     "about.subtitle": "Delivering innovative and sustainable traffic management solutions since 2015",
+    "about.company": "Road Pro is a professional traffic management and consultancy service provider committed to ensuring public safety and maintaining efficient traffic flow. Our team of experts specializes in developing comprehensive traffic diversion plans and implementing road safety measures that comply with regulatory standards.",
     "about.vision.title": "Our Vision",
     "about.vision.description": "To lead the road safety industry with innovative solutions and reliable services, becoming the gold standard for traffic management in the UAE.",
-    "about.mission.title": "Our Mission",
-    "about.mission.description": "To provide safe and efficient traffic management systems, ensuring the well-being of all road users while contributing to the smart city vision of Abu Dhabi.",
+    "about.mission.title": "Mission Statement",
+    "about.mission.description": "Enhance public safety across all road types. Ensure smooth and uninterrupted traffic flow. Deliver innovative, regulation-compliant solutions. Specialize in traffic diversions, lane closures, and street control.",
+    "about.mission.item1": "Enhance public safety across all road types.",
+    "about.mission.item2": "Ensure smooth and uninterrupted traffic flow.",
+    "about.mission.item3": "Deliver innovative, regulation-compliant solutions.",
+    "about.mission.item4": "Specialize in traffic diversions, lane closures, and street control.",
     "about.compliance.title": "International Compliance",
     "about.compliance.description": "All our operations, equipment, and services comply with International Traffic Control (ITC) standards, ensuring the highest levels of safety and efficiency.",
     "about.stats.experience": "Years of Experience",
@@ -50,16 +55,20 @@ const translations = {
     "about.stats.clients": "Corporate Clients",
     
     // Services Section
-    "services.title": "Innovative Traffic Management Services",
-    "services.subtitle": "Delivering cutting-edge solutions for urban mobility and road safety",
-    "services.traffic.title": "Traffic Management Solutions",
-    "services.traffic.description": "Comprehensive traffic flow management during road works, construction, and public events with ITC-compliant planning and implementation.",
+    "services.title": "Traffic Management & Consultancy Services",
+    "services.subtitle": "Professional services to ensure safety and efficiency in traffic management",
+    "services.traffic.title": "Traffic Management Planning",
+    "services.traffic.description": "Development of Traffic Management Plans (TMP) in compliance with ITC and UAE regulations. Full traffic scheme planning for construction sites, roadworks, and public events. Emergency response strategies and incident handling support. Assistance with permit acquisition and coordination with official entities.",
+    "services.consultancy.title": "Consultancy and Advisory",
+    "services.consultancy.description": "Expert consultation on safe and efficient traffic operations. Traffic flow analysis and congestion mitigation planning. Engineering support for layout and signage design. Preparation of Method Statements and Risk Assessments (MSRA). Submission-ready plans and documents for ITC and authority approvals.",
+    "services.products.title": "Traffic Products and Services",
+    "services.products.subtitle": "Quality equipment and solutions for effective traffic control",
+    "services.diversion.title": "Traffic Diversion Solutions",
+    "services.diversion.description": "Temporary and permanent road signs compliant with ITC standards. Durable cones and barriers for safe traffic redirection. Customized diversion plans tailored to project scope and location.",
     "services.lane.title": "Lane Closure Equipment",
-    "services.lane.description": "State-of-the-art equipment for safe and efficient lane closures, including barriers, cones, and advanced warning signage.",
-    "services.street.title": "Street Closure Management",
-    "services.street.description": "Complete management of temporary street closures for construction, events, and emergencies with minimal disruption to daily traffic.",
-    "services.equipment.title": "Specialized Equipment (TMA)",
-    "services.equipment.description": "Truck Mounted Attenuators and other specialized safety equipment to protect workers and the public in high-risk traffic zones.",
+    "services.lane.description": "Strategically placed, high-visibility lane closure signs. Certified safety barriers and delineators. Complete lane closure execution aligned with safety protocols.",
+    "services.street.title": "Street Control Systems",
+    "services.street.description": "Portable traffic lights for temporary setups. Pedestrian control equipment ensuring public safety. Customizable street control devices for special events or construction sites.",
     "services.button.more": "Learn More",
     
     // Projects Gallery
@@ -78,7 +87,7 @@ const translations = {
     "equipment.compliance": "All equipment complies with International Traffic Control (ITC) standards and undergoes regular maintenance and safety inspections.",
     
     // Advantages Section
-    "advantages.title": "Why Choose RoadPro",
+    "advantages.title": "Why Choose Road Pro",
     "advantages.subtitle": "We deliver excellence in every project",
     "advantages.experience.title": "Industry Experience",
     "advantages.experience.description": "Our team brings years of specialized knowledge in traffic management and road safety.",
@@ -123,7 +132,7 @@ const translations = {
     "footer.terms": "Terms of Service",
     
     // WhatsApp Button
-    "whatsapp.message": "Hello RoadPro, I would like to inquire about your services."
+    "whatsapp.message": "Hello Road Pro, I would like to inquire about your services."
   },
   ar: {
     // Navigation
@@ -148,10 +157,15 @@ const translations = {
     // About Section
     "about.title": "الشريك الرائد في مجال سلامة الطرق في أبوظبي",
     "about.subtitle": "نقدم حلول إدارة حركة المرور المبتكرة والمستدامة منذ عام 2015",
+    "about.company": "Road Pro هي شركة متخصصة في إدارة المرور والاستشارات، ملتزمة بتوفير أعلى مستويات السلامة العامة وضمان تدفق مروري فعال. فريقنا من الخبراء يركز على تطوير خطط شاملة لتحويلات المرور وتنفيذ إجراءات السلامة الطرقية التي تتماشى مع المعايير التنظيمية.",
     "about.vision.title": "رؤيتنا",
     "about.vision.description": "ريادة صناعة سلامة الطرق بحلول مبتكرة وخدمات موثوقة، لنصبح المعيار الذهبي لإدارة حركة المرور في الإمارات العربية المتحدة.",
-    "about.mission.title": "مهمتنا",
-    "about.mission.description": "توفير أنظمة آمنة وفعالة لإدارة حركة المرور، مع ضمان رفاهية جميع مستخدمي الطرق والمساهمة في رؤية المدينة الذكية لأبوظبي.",
+    "about.mission.title": "الرسالة",
+    "about.mission.description": "تعزيز السلامة العامة على جميع أنواع الطرق. ضمان سير مرور سلس وغير متقطع. تقديم حلول إبداعية تتماشى مع القوانين واللوائح. التركيز على تحويلات المرور، إغلاق الحارات، وتنظيم الشوارع.",
+    "about.mission.item1": "تعزيز السلامة العامة على جميع أنواع الطرق.",
+    "about.mission.item2": "ضمان سير مرور سلس وغير متقطع.",
+    "about.mission.item3": "تقديم حلول إبداعية تتماشى مع القوانين واللوائح.",
+    "about.mission.item4": "التركيز على تحويلات المرور، إغلاق الحارات، وتنظيم الشوارع.",
     "about.compliance.title": "الامتثال للمعايير الدولية",
     "about.compliance.description": "تتوافق جميع عملياتنا ومعداتنا وخدماتنا مع معايير التحكم المروري الدولية (ITC)، مما يضمن أعلى مستويات السلامة والكفاءة.",
     "about.stats.experience": "سنوات من الخبرة",
@@ -160,16 +174,20 @@ const translations = {
     "about.stats.clients": "عملاء الشركات",
     
     // Services Section
-    "services.title": "خدمات إدارة حركة المرور المبتكرة",
-    "services.subtitle": "تقديم حلول متطورة للتنقل الحضري وسلامة الطرق",
-    "services.traffic.title": "حلول إدارة حركة المرور",
-    "services.traffic.description": "إدارة شاملة لتدفق حركة المرور أثناء أعمال الطرق والبناء والفعاليات العامة مع تخطيط وتنفيذ متوافق مع معايير التحكم المروري الدولية.",
-    "services.lane.title": "معدات إغلاق المسارات",
-    "services.lane.description": "معدات متطورة للإغلاق الآمن والفعال للمسارات، بما في ذلك الحواجز والمخاريط ولافتات التحذير المتقدمة.",
-    "services.street.title": "إدارة إغلاق الشوارع",
-    "services.street.description": "إدارة كاملة للإغلاق المؤقت للشوارع للبناء والفعاليات والطوارئ مع الحد الأدنى من الاضطراب لحركة المرور اليومية.",
-    "services.equipment.title": "معدات متخصصة (TMA)",
-    "services.equipment.description": "المخففات المثبتة على الشاحنات ومعدات السلامة المتخصصة الأخرى لحماية العمال والجمهور في مناطق حركة المرور عالية الخطورة.",
+    "services.title": "خدمات إدارة المرور والاستشارات",
+    "services.subtitle": "خدمات احترافية لضمان السلامة والكفاءة في إدارة حركة المرور",
+    "services.traffic.title": "خدمات إدارة المرور",
+    "services.traffic.description": "تطوير خطط إدارة المرور (TMP) التي تتماشى مع لوائح ITC والإمارات العربية المتحدة. التخطيط الكامل لخطط المرور لمواقع البناء، وأعمال الطرق، والأحداث العامة. استراتيجيات الاستجابة للطوارئ وإدارة الحوادث. المساعدة في الحصول على التراخيص والتنسيق مع الجهات الرسمية.",
+    "services.consultancy.title": "الاستشارات والدعم الفني",
+    "services.consultancy.description": "استشارات خبراء حول العمليات المرورية الآمنة والفعالة. تحليل تدفق المرور وتخطيط لتخفيف الاختناقات. دعم هندسي لتصميم المخططات والعلامات المرورية. إعداد بيانات الإجراءات والتحليلات (MSRA). خطط جاهزة للتقديم للحصول على الموافقات من ITC والجهات المعنية.",
+    "services.products.title": "منتجات وخدمات المرور",
+    "services.products.subtitle": "معدات وحلول عالية الجودة للتحكم الفعال في حركة المرور",
+    "services.diversion.title": "حلول تحويلات المرور",
+    "services.diversion.description": "علامات مرور مؤقتة ودائمة تتماشى مع معايير ITC. مخاريط وأسوار أمان متينة لتحويل حركة المرور بشكل آمن. خطط تحويل مرنة مصممة وفقًا لحدود المشروع والموقع.",
+    "services.lane.title": "معدات إغلاق الحارات",
+    "services.lane.description": "علامات إغلاق الحارات عالية المرئية. سياجات وألواح أمان معتمدة. تنفيذ كامل لإغلاق الحارات وفقًا لإجراءات السلامة.",
+    "services.street.title": "أنظمة تحكم الشوارع",
+    "services.street.description": "أضواء مرور قابلة للنقل للاستخدام المؤقت. معدات تحكم المشاة لضمان السلامة العامة. أجهزة تحكم شوارع قابلة للتخصيص للأحداث الخاصة أو مواقع البناء.",
     "services.button.more": "اعرف المزيد",
     
     // Projects Gallery
@@ -190,18 +208,18 @@ const translations = {
     // Advantages Section
     "advantages.title": "لماذا تختار رود برو",
     "advantages.subtitle": "نقدم التميز في كل مشروع",
-    "advantages.experience.title": "خبرة في الصناعة",
-    "advantages.experience.description": "يجلب فريقنا سنوات من المعرفة المتخصصة في إدارة حركة المرور وسلامة الطرق.",
-    "advantages.compliance.title": "الامتثال لمعايير ITC",
-    "advantages.compliance.description": "تلبي جميع خدماتنا معايير التحكم المروري الدولية لتحقيق أقصى قدر من السلامة.",
+    "advantages.experience.title": "خبراء ذو خبرة",
+    "advantages.experience.description": "محترفون يتمتعون بخبرة عميقة في صناعة إدارة المرور.",
+    "advantages.compliance.title": "التزام باللوائح",
+    "advantages.compliance.description": "الالتزام بكافة المعايير المحلية والدولية للسلامة.",
     "advantages.customized.title": "حلول مخصصة",
     "advantages.customized.description": "نصمم خطط إدارة حركة المرور المصممة خصيصًا لاحتياجات مشروعك المحددة.",
-    "advantages.responsive.title": "فريق سريع الاستجابة",
-    "advantages.responsive.description": "متاح على مدار الساعة طوال أيام الأسبوع لحالات إدارة حركة المرور الطارئة مع استجابة سريعة.",
-    "advantages.equipment.title": "أحدث المعدات",
-    "advantages.equipment.description": "الوصول إلى أحدث تقنيات ومعدات سلامة المرور.",
-    "advantages.affordability.title": "أسعار تنافسية",
-    "advantages.affordability.description": "حلول فعالة من حيث التكلفة دون المساس بالجودة أو السلامة.",
+    "advantages.responsive.title": "استجابة سريعة",
+    "advantages.responsive.description": "تنفيذ سريع وتعامل استباقي مع المشاريع.",
+    "advantages.equipment.title": "تنسيق قوي مع السلطات",
+    "advantages.equipment.description": "تعاون وثيق مع الجهات الحكومية (ITC، الشرطة، البلديات).",
+    "advantages.affordability.title": "سجل حافل بالإنجازات",
+    "advantages.affordability.description": "سجل موثوق في إدارة السيناريوهات المرورية ذات الكثافة العالية.",
     
     // Sustainability Section
     "sustainability.title": "التزامنا بالاستدامة",
