@@ -119,8 +119,8 @@ const Navbar = () => {
           <img 
             alt="RoadPro logo" 
             src="/lovable-uploads/1bff6bfd-7a6d-4fc2-9244-f856d1380181.png" 
-            className="h-14 w-auto rounded-xl shadow-xl bg-white p-2 border border-gray-200 object-cover transition-all duration-300 group-hover:scale-105" 
-            style={{ maxHeight: 64 }}
+            className="h-20 w-auto rounded-xl shadow-xl bg-white p-2 border border-gray-200 object-contain transition-all duration-300 group-hover:scale-105" 
+            style={{ maxHeight: 80 }}
           />
         </a>
         <DesktopMenu
