@@ -63,8 +63,7 @@ const ContactSection = () => {
                   <div>
                     <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">{t("contact.location.title")}</h3>
                     <p className="text-roadpro-gray">
-                      {language === "en" ? "Al Falah Street, Abu Dhabi, UAE" : "شارع الفلاح، أبوظبي، الإمارات العربية المتحدة"}<br />
-                      {language === "en" ? "P.O. Box 12345" : "صندوق بريد 12345"}
+                      {language === "en" ? "Abu Dhabi, UAE" : "أبوظبي، الإمارات العربية المتحدة"}
                     </p>
                   </div>
                 </div>
@@ -75,8 +74,7 @@ const ContactSection = () => {
                   <div>
                     <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">{t("contact.phone.title")}</h3>
                     <p className="text-roadpro-gray">
-                      +971 2 123 4567<br />
-                      {language === "en" ? "Customer Support: +971 2 765 4321" : "خدمة العملاء: +971 2 765 4321"}
+                      +971-50-123-4567
                     </p>
                   </div>
                 </div>
@@ -87,8 +85,7 @@ const ContactSection = () => {
                   <div>
                     <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">{t("contact.email.title")}</h3>
                     <p className="text-roadpro-gray">
-                      info@roadpro-abudhabi.com<br />
-                      sales@roadpro-abudhabi.com
+                      info@roadpro.ae
                     </p>
                   </div>
                 </div>

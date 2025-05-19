@@ -4,29 +4,29 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const advantages = [
   {
-    title: "Industry Experience",
+    title: "Experienced Professionals",
     description:
-      "Over 15 years of traffic management and road safety expertise in the UAE.",
+      "Professionals with deep industry knowledge and expertise.",
   },
   {
     title: "Regulatory Compliance",
     description:
-      "All solutions strictly follow safety regulations and standards.",
+      "Compliance with all local and international safety standards.",
   },
   {
-    title: "Innovative Designs",
+    title: "Rapid Response",
     description:
-      "Custom engineered solutions for every unique project and scenario.",
+      "Rapid deployment and responsive project handling.",
   },
   {
-    title: "Strong ITC Relationships",
+    title: "Strong Authority Coordination",
     description:
-      "Established authority partnerships for streamlined approvals.",
+      "Strong coordination with local authorities (ITC, police, municipalities).",
   },
   {
-    title: "Proven Success Record",
+    title: "Proven Track Record",
     description:
-      "Hundreds of completed projects across Abu Dhabi and the UAE.",
+      "Proven track record in managing high-traffic scenarios.",
   },
 ];
 
@@ -70,10 +70,10 @@ const AdvantagesSection = () => {
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black mb-6 font-poppins">
-              Our Competitive Advantage
+              Why Choose Road Pro
             </h2>
             <p className="text-roadpro-gray text-lg mb-10 font-poppins max-w-lg">
-              Experts, innovation, and dedication for superior traffic management—what sets us apart.
+              We offer industry expertise, compliance, and responsiveness for your traffic management needs.
             </p>
             <div className="space-y-5">
               {advantages.map((advantage, index) => (
@@ -96,7 +96,7 @@ const AdvantagesSection = () => {
           <div ref={imageRef} className="relative flex items-center justify-center w-full max-w-xl mx-auto">
             <div className="rounded-2xl overflow-hidden shadow-2xl border-8 border-white bg-white w-full max-w-md">
               <img
-                alt="RoadPro professional vehicle"
+                alt="Road Pro professional vehicle"
                 src="/lovable-uploads/b28ade9e-f56c-4d8f-8891-c7ba2b8b00bf.png"
                 className="w-full h-full object-cover bg-white p-2"
                 style={{ minHeight: 200, minWidth: 220 }}

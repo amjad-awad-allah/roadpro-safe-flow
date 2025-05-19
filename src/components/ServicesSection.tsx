@@ -7,26 +7,26 @@ import { Button } from "@/components/ui/button";
 const services = [
   {
     icon: CarFront,
-    title: "Traffic Management Solutions",
-    description: "Comprehensive traffic flow management during road works, construction, and public events with ITC-compliant planning and implementation.",
+    title: "Traffic Management Planning",
+    description: "Development of Traffic Management Plans (TMP) in compliance with ITC and UAE regulations. Full traffic scheme planning for construction sites, roadworks, and public events.",
     delay: 0
   },
   {
     icon: Layers,
-    title: "Lane Closure Equipment",
-    description: "State-of-the-art equipment for safe and efficient lane closures, including barriers, cones, and advanced warning signage.",
+    title: "Consultancy and Advisory",
+    description: "Expert consultation on safe and efficient traffic operations. Traffic flow analysis and congestion mitigation planning. Engineering support for layout and signage design.",
     delay: 100
   },
   {
     icon: Construction,
-    title: "Street Closure Management",
-    description: "Complete management of temporary street closures for construction, events, and emergencies with minimal disruption to daily traffic.",
+    title: "Traffic Diversion Solutions",
+    description: "Temporary and permanent road signs compliant with ITC standards. Durable cones and barriers for safe traffic redirection. Customized diversion plans tailored to project scope.",
     delay: 200
   },
   {
     icon: MapPin,
-    title: "Specialized Equipment (TMA)",
-    description: "Truck Mounted Attenuators and other specialized safety equipment to protect workers and the public in high-risk traffic zones.",
+    title: "Lane Closure Equipment",
+    description: "Strategically placed, high-visibility lane closure signs. Certified safety barriers and delineators. Complete lane closure execution aligned with safety protocols.",
     delay: 300
   }
 ];
@@ -67,14 +67,14 @@ const ServicesSection = () => {
         <div ref={titleRef} className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4">
             <span className="text-sm font-medium text-roadpro-black">
-              Our Expertise
+              Our Services
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black mb-4 leading-tight">
-            Innovative Traffic Management Services
+            Traffic Management & Consultancy Services
           </h2>
           <p className="text-roadpro-gray text-lg leading-relaxed">
-            Delivering cutting-edge solutions for urban mobility and road safety.
+            Professional services to ensure safety and efficiency in traffic management
           </p>
         </div>
 
