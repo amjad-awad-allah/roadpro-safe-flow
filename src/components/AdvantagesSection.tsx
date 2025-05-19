@@ -1,36 +1,11 @@
 
 import { Check } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
-const advantages = [
-  {
-    title: "Experienced Professionals",
-    description:
-      "Professionals with deep industry knowledge and expertise.",
-  },
-  {
-    title: "Regulatory Compliance",
-    description:
-      "Compliance with all local and international safety standards.",
-  },
-  {
-    title: "Rapid Response",
-    description:
-      "Rapid deployment and responsive project handling.",
-  },
-  {
-    title: "Strong Authority Coordination",
-    description:
-      "Strong coordination with local authorities (ITC, police, municipalities).",
-  },
-  {
-    title: "Proven Track Record",
-    description:
-      "Proven track record in managing high-traffic scenarios.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const AdvantagesSection = () => {
+  const { t, language } = useLanguage();
+  
   const titleRef = useScrollAnimation<HTMLDivElement>({ 
     animation: 'animate-fade-in-scroll', 
     delay: 100 
@@ -51,6 +26,30 @@ const AdvantagesSection = () => {
     delay: 400 
   });
 
+  // Define advantages with their respective translation keys
+  const advantages = [
+    {
+      titleKey: "advantages.experience.title",
+      descriptionKey: "advantages.experience.description",
+    },
+    {
+      titleKey: "advantages.compliance.title",
+      descriptionKey: "advantages.compliance.description",
+    },
+    {
+      titleKey: "advantages.responsive.title",
+      descriptionKey: "advantages.responsive.description",
+    },
+    {
+      titleKey: "advantages.equipment.title",
+      descriptionKey: "advantages.equipment.description",
+    },
+    {
+      titleKey: "advantages.affordability.title",
+      descriptionKey: "advantages.affordability.description",
+    },
+  ];
+
   const advantageRefs = advantages.map((_, index) => {
     return useScrollAnimation<HTMLDivElement>({ 
       animation: 'animate-fade-in-scroll', 
@@ -66,14 +65,14 @@ const AdvantagesSection = () => {
           <div ref={textRef}>
             <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4 font-poppins">
               <span className="text-sm font-medium text-roadpro-black">
-                Why Choose Us
+                {t("nav.whyus")}
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black mb-6 font-poppins">
-              Why Choose Road Pro
+              {t("advantages.title")}
             </h2>
             <p className="text-roadpro-gray text-lg mb-10 font-poppins max-w-lg">
-              We offer industry expertise, compliance, and responsiveness for your traffic management needs.
+              {t("advantages.subtitle")}
             </p>
             <div className="space-y-5">
               {advantages.map((advantage, index) => (
@@ -83,9 +82,9 @@ const AdvantagesSection = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-roadpro-black font-poppins mb-1 transition-colors group-hover:text-roadpro-yellow">
-                      {advantage.title}
+                      {t(advantage.titleKey)}
                     </h3>
-                    <p className="text-roadpro-gray font-poppins">{advantage.description}</p>
+                    <p className="text-roadpro-gray font-poppins">{t(advantage.descriptionKey)}</p>
                   </div>
                 </div>
               ))}
@@ -114,10 +113,14 @@ const AdvantagesSection = () => {
                 <div className="w-10 h-10 rounded-full bg-roadpro-yellow flex items-center justify-center">
                   <Check className="w-6 h-6 text-roadpro-black" />
                 </div>
-                <h4 className="text-lg font-bold text-roadpro-black">Your Safety, Our Priority</h4>
+                <h4 className="text-lg font-bold text-roadpro-black">
+                  {language === "en" ? "Your Safety, Our Priority" : "سلامتك، أولويتنا"}
+                </h4>
               </div>
               <p className="text-roadpro-gray">
-                Every solution prioritizes worker, driver & pedestrian safety.
+                {language === "en" 
+                  ? "Every solution prioritizes worker, driver & pedestrian safety."
+                  : "كل حلولنا تضع في أولوياتها سلامة العمال والسائقين والمشاة."}
               </p>
             </div>
           </div>
@@ -132,10 +135,14 @@ const AdvantagesSection = () => {
             <div className="w-10 h-10 rounded-full bg-roadpro-yellow flex items-center justify-center">
               <Check className="w-6 h-6 text-roadpro-black" />
             </div>
-            <h4 className="text-lg font-bold text-roadpro-black">Your Safety, Our Priority</h4>
+            <h4 className="text-lg font-bold text-roadpro-black">
+              {language === "en" ? "Your Safety, Our Priority" : "سلامتك، أولويتنا"}
+            </h4>
           </div>
           <p className="text-roadpro-gray">
-            Every solution prioritizes worker, driver & pedestrian safety.
+            {language === "en" 
+              ? "Every solution prioritizes worker, driver & pedestrian safety."
+              : "كل حلولنا تضع في أولوياتها سلامة العمال والسائقين والمشاة."}
           </p>
         </div>
       </div>
