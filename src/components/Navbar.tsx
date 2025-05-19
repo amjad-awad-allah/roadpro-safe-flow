@@ -118,7 +118,7 @@ const Navbar = () => {
         <a href="#" className="flex items-center space-x-3 group">
           <img 
             alt="RoadPro logo" 
-            src="/lovable-uploads/0da8014e-7a3b-4ac3-8355-f7f00bf18dbd.png" 
+            src="/lovable-uploads/1bff6bfd-7a6d-4fc2-9244-f856d1380181.png" 
             className="h-14 w-auto rounded-xl shadow-xl bg-white p-2 border border-gray-200 object-cover transition-all duration-300 group-hover:scale-105" 
             style={{ maxHeight: 64 }}
           />
