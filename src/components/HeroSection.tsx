@@ -17,9 +17,7 @@ const HeroSection = () => {
       <div className="container mx-auto relative z-20 px-4 md:px-6 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Left side - Image in card */}
-          <div className={`mx-auto lg:mx-0 max-w-xl rounded-3xl overflow-hidden shadow-2xl bg-white p-4 ${language === "ar" ? "lg:order-2" : ""}`}>
-            <img alt="Highway interchange at night" src="/lovable-uploads/1e6af629-aeca-49b2-926c-35b435dcb626.jpg" className="w-full h-auto rounded-2xl object-fill" />
-          </div>
+          
           
           {/* Right side - Text content */}
           <div className={`text-white ${language === "ar" ? "lg:order-1 text-right" : ""}`}>
