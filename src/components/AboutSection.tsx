@@ -3,7 +3,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const AboutSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   const titleRef = useScrollAnimation<HTMLDivElement>({
     animation: 'animate-fade-in-scroll',
@@ -56,9 +56,13 @@ const AboutSection = () => {
             />
             <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg max-w-xs hidden md:block">
               <p className="text-roadpro-black text-sm italic">
-                "Safety isn't expensive, it's priceless. We ensure every road project prioritizes the safety of all users."
+                {language === "en" 
+                  ? "Safety isn't expensive, it's priceless. We ensure every road project prioritizes the safety of all users."
+                  : "السلامة ليست مكلفة، بل هي لا تقدر بثمن. نحن نضمن أن كل مشروع طرق يعطي الأولوية لسلامة جميع المستخدمين."}
               </p>
-              <p className="text-right text-roadpro-yellow font-semibold mt-2">- Road Pro Leadership</p>
+              <p className="text-right text-roadpro-yellow font-semibold mt-2">
+                {language === "en" ? "- Road Pro Leadership" : "- قيادة رود برو"}
+              </p>
             </div>
           </div>
         </div>
