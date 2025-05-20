@@ -27,7 +27,7 @@ const AboutSection = () => {
           <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4">
             <span className="text-sm font-medium text-roadpro-black">{t("nav.about")}</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-roadpro-black mb-4">
             {t("about.title")}
           </h2>
           <p className="text-roadpro-gray text-lg max-w-3xl mx-auto">

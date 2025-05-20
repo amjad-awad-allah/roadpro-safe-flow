@@ -55,7 +55,7 @@ const AdvantagesSection = () => {
               {t("nav.whyus")}
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black font-poppins">
+          <h2 className="text-4xl md:text-5xl font-bold text-roadpro-black font-poppins">
             {t("advantages.title")}
           </h2>
         </div>

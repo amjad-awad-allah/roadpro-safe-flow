@@ -82,7 +82,7 @@ const ServicesSection = () => {
               {t("nav.services")}
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black mb-4 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-roadpro-black mb-4 leading-tight">
             {t("services.title")}
           </h2>
           <p className="text-roadpro-gray text-lg leading-relaxed">
@@ -118,7 +118,7 @@ const ServicesSection = () => {
               {t("nav.equipment")}
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black mb-4 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-roadpro-black mb-4 leading-tight">
             {t("services.products.title")}
           </h2>
           <p className="text-roadpro-gray text-lg leading-relaxed">
