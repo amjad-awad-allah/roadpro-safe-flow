@@ -107,14 +107,15 @@ const ClientsCarousel = () => {
                   <div className="p-4">
                     <div 
                       className="rounded-lg bg-white shadow-md hover:shadow-xl transition-all duration-300 
-                               p-6 flex items-center justify-center h-32 group border border-gray-100 hover:border-roadpro-yellow"
+                               p-8 flex items-center justify-center h-40 group border border-gray-100 hover:border-roadpro-yellow"
                     >
                       <img
                         src={client.logo}
                         alt={`${client.name} logo`}
-                        className="max-w-[80%] max-h-[80%] object-contain transition-all duration-300 
+                        className="max-w-[90%] max-h-[90%] object-contain transition-all duration-300 
                                  group-hover:scale-110 group-hover:drop-shadow-md"
-                        style={{ aspectRatio: "4/2", objectFit: "contain" }}
+                        loading="lazy"
+                        style={{ objectFit: "contain" }}
                       />
                     </div>
                   </div>
