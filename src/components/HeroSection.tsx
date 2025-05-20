@@ -2,9 +2,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { useEffect, useRef } from "react";
 
 const HeroSection = () => {
   const { t, language } = useLanguage();
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Function to handle smooth scrolling to a section
   const scrollToSection = (sectionId: string) => {
@@ -15,16 +18,46 @@ const HeroSection = () => {
     }
   };
 
+  // Ensure video plays properly on all devices
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (videoElement) {
+      // Attempt to play the video
+      const playPromise = videoElement.play();
+      
+      // Handle potential play restrictions (especially on mobile)
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log('Auto-play was prevented. This is normal on some devices.', error);
+          // We won't show play controls since we have a fallback background
+        });
+      }
+    }
+  }, []);
+
   return (
     <section id="home" className="relative min-h-[90vh] flex items-center">
-      {/* Background Image */}
+      {/* Background Video with Fallback Image */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <img
-          src="/lovable-uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg"
-          alt="Road safety background"
+        
+        <video 
+          ref={videoRef}
           className="w-full h-full object-cover"
-        />
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          poster="/lovable-uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg"
+        >
+          <source src="https://res.cloudinary.com/datzyu3yi/video/upload/v1716983834/roadpro-hero-video_bpynrp.mp4" type="video/mp4" />
+          {/* Fallback to the original image if video fails */}
+          <img
+            src="/lovable-uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg"
+            alt="Road safety background"
+            className="w-full h-full object-cover"
+          />
+        </video>
       </div>
 
       {/* Content with Image Layout */}
