@@ -103,7 +103,7 @@ const AdvantagesSection = () => {
           <div ref={imageRef} className="relative">
             <img 
               alt="Road Pro professional vehicle" 
-              src="/lovable-uploads/b28ade9e-f56c-4d8f-8891-c7ba2b8b00bf.png" 
+              src="https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/imges/bg-3.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJpbWdlcy9iZy0zLndlYnAiLCJpYXQiOjE3NDc3Mzc2MTAsImV4cCI6MjM3ODQ1NzYxMH0.oXjx9kYzDe2AP1MWi0uNYT4HYsouEtcRx6yqfUqwU74"
               className="w-full h-auto rounded-2xl shadow-xl"
             />
             <div className="absolute -right-7 -bottom-7 w-36 h-36 bg-roadpro-yellow/20 rounded-full -z-10"></div>
