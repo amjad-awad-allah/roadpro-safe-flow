@@ -86,43 +86,46 @@ const ClientsCarousel = () => {
         </div>
         
         <div className="max-w-7xl mx-auto">
-          <Carousel
-            opts={{
-              align: "center",
-              loop: true,
-              skipSnaps: false,
-              dragFree: true,
-            }}
-            plugins={[plugin.current]}
-            className="w-full"
-            onMouseEnter={() => plugin.current.stop()}
-            onMouseLeave={() => plugin.current.play()}
-          >
-            <CarouselContent className="-ml-4">
-              {clientLogos.map((client) => (
-                <CarouselItem 
-                  key={client.id} 
-                  className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
-                >
-                  <div className="p-4">
-                    <div 
-                      className="rounded-lg bg-white shadow-md hover:shadow-xl transition-all duration-300 
-                               p-8 flex items-center justify-center h-40 group border border-gray-100 hover:border-roadpro-yellow"
-                    >
-                      <img
-                        src={client.logo}
-                        alt={`${client.name} logo`}
-                        className="max-w-[90%] max-h-[90%] object-contain transition-all duration-300 
-                                 group-hover:scale-110 group-hover:drop-shadow-md"
-                        loading="lazy"
-                        style={{ objectFit: "contain" }}
-                      />
+          {/* Force LTR direction on the carousel container regardless of language */}
+          <div dir="ltr">
+            <Carousel
+              opts={{
+                align: "center",
+                loop: true,
+                skipSnaps: false,
+                dragFree: true,
+              }}
+              plugins={[plugin.current]}
+              className="w-full"
+              onMouseEnter={() => plugin.current.stop()}
+              onMouseLeave={() => plugin.current.play()}
+            >
+              <CarouselContent className="-ml-4">
+                {clientLogos.map((client) => (
+                  <CarouselItem 
+                    key={client.id} 
+                    className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
+                  >
+                    <div className="p-4">
+                      <div 
+                        className="rounded-lg bg-white shadow-md hover:shadow-xl transition-all duration-300 
+                                 p-8 flex items-center justify-center h-40 group border border-gray-100 hover:border-roadpro-yellow"
+                      >
+                        <img
+                          src={client.logo}
+                          alt={`${client.name} logo`}
+                          className="max-w-[90%] max-h-[90%] object-contain transition-all duration-300 
+                                   group-hover:scale-110 group-hover:drop-shadow-md"
+                          loading="lazy"
+                          style={{ objectFit: "contain" }}
+                        />
+                      </div>
                     </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
         </div>
       </div>
     </section>
