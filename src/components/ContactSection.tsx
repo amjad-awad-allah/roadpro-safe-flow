@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/contexts/LanguageContext";
 import GoogleMap from "@/components/GoogleMap";
 import { toast } from "@/hooks/use-toast";
+
 const ContactSection = () => {
   const {
     t,
@@ -109,32 +111,51 @@ const ContactSection = () => {
                   <div>
                     <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">{t("contact.location.title")}</h3>
                     <p className="text-roadpro-gray">
-                      {language === "en" ? "Abu Dhabi, UAE" : "أبوظبي، الإمارات العربية المتحدة"}
+                      {language === "en" ? "Abu Dhabi, Mussafah Industrial Area, M45" : "أبوظبي، المصفح المنطقة الصناعية، M45"}
                     </p>
                   </div>
                 </div>
-                <a href="tel:+97150123456" className="flex items-start gap-4 group hover:text-roadpro-yellow transition-colors">
-                  <div className="w-12 h-12 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg animate-soft-pulse group-hover:scale-110 transition-transform">
-                    <Phone className="w-6 h-6 text-roadpro-black animate-float" style={{
-                    animationDelay: "0.15s"
-                  }} />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">{t("contact.phone.title")}</h3>
-                    <p className="text-roadpro-gray group-hover:text-roadpro-yellow transition-colors">
-                      +971-50-123-4567
-                    </p>
-                  </div>
-                </a>
-                <a href="mailto:info@roadpro.ae" className="flex items-start gap-4 group hover:text-roadpro-yellow transition-colors">
+                <div className="flex flex-col space-y-6">
+                  <a href="tel:+971562107006" className="flex items-start gap-4 group hover:text-roadpro-yellow transition-colors">
+                    <div className="w-12 h-12 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg animate-soft-pulse group-hover:scale-110 transition-transform">
+                      <Phone className="w-6 h-6 text-roadpro-black animate-float" style={{
+                      animationDelay: "0.15s"
+                    }} />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">
+                        {language === "en" ? "Mobile" : "الجوال"}
+                      </h3>
+                      <p className="text-roadpro-gray group-hover:text-roadpro-yellow transition-colors">
+                        +971 56 210 7006
+                      </p>
+                    </div>
+                  </a>
+                  <a href="tel:+97126447786" className="flex items-start gap-4 group hover:text-roadpro-yellow transition-colors">
+                    <div className="w-12 h-12 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg animate-soft-pulse group-hover:scale-110 transition-transform">
+                      <Phone className="w-6 h-6 text-roadpro-black animate-float" style={{
+                      animationDelay: "0.3s"
+                    }} />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">
+                        {language === "en" ? "Landline" : "الهاتف الثابت"}
+                      </h3>
+                      <p className="text-roadpro-gray group-hover:text-roadpro-yellow transition-colors">
+                        +971 2 644 7786
+                      </p>
+                    </div>
+                  </a>
+                </div>
+                <a href="mailto:info@roadshield.ae" className="flex items-start gap-4 group hover:text-roadpro-yellow transition-colors">
                   <div className="w-12 h-12 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg animate-soft-pulse group-hover:scale-110 transition-transform">
                     <Mail className="w-6 h-6 text-roadpro-black animate-float" style={{
-                    animationDelay: "0.3s"
+                    animationDelay: "0.45s"
                   }} />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">{t("contact.email.title")}</h3>
-                    <p className="text-roadpro-gray group-hover:text-roadpro-yellow transition-colors">info@roadpro.ae</p>
+                    <p className="text-roadpro-gray group-hover:text-roadpro-yellow transition-colors">info@roadshield.ae</p>
                   </div>
                 </a>
               </div>
