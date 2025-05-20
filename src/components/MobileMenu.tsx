@@ -16,6 +16,7 @@ interface MobileMenuProps {
   toggleLanguage: () => void;
   isMenuOpen: boolean;
   toggleMenu: () => void;
+  isScrolled: boolean;
 }
 
 const MobileMenu = ({
@@ -25,7 +26,8 @@ const MobileMenu = ({
   language,
   toggleLanguage,
   isMenuOpen,
-  toggleMenu
+  toggleMenu,
+  isScrolled
 }: MobileMenuProps) => {
   // Function to handle the quote button click
   const handleQuoteClick = () => {
@@ -45,7 +47,11 @@ const MobileMenu = ({
         {/* Language Toggle Button for Mobile */}
         <LanguageToggle language={language} toggleLanguage={toggleLanguage} />
         <button 
-          className="text-roadpro-black shadow-md bg-white px-2 py-2 rounded-xl border border-roadpro-lightgray transition-all hover:scale-110 hover:shadow-roadpro-yellow"
+          className={`px-2 py-2 rounded-xl border transition-all hover:scale-110 ${
+            isScrolled 
+              ? "text-roadpro-black shadow-md bg-white border-roadpro-lightgray hover:shadow-roadpro-yellow" 
+              : "text-white bg-black/20 border-white/30 hover:bg-black/40"
+          }`}
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
