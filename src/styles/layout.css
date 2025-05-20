@@ -1,3 +1,4 @@
+
 @layer utilities {
   .section-padding {
     @apply py-16 md:py-24;
@@ -70,6 +71,11 @@
     min-height: 180px;
     max-height: 220px;
   }
+  
+  /* Mobile parallax fallback */
+  #parallax {
+    background-attachment: scroll !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -87,3 +93,4 @@
   margin-bottom: -5px;
   white-space: nowrap;
 }
+
