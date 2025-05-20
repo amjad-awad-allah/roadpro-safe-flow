@@ -1,95 +1,79 @@
-
 import { useEffect, useRef } from "react";
 import { CarFront, Layers, Construction, MapPin, AlertTriangle } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-
 const ServicesSection = () => {
-  const { t } = useLanguage();
-  
-  const titleRef = useScrollAnimation<HTMLDivElement>({ 
+  const {
+    t
+  } = useLanguage();
+  const titleRef = useScrollAnimation<HTMLDivElement>({
     animation: 'animate-fade-in-scroll',
     delay: 100
   });
-  
-  const productsTitleRef = useScrollAnimation<HTMLDivElement>({ 
+  const productsTitleRef = useScrollAnimation<HTMLDivElement>({
     animation: 'animate-fade-in-scroll',
     delay: 100
   });
-  
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const productsCardsRef = useRef<(HTMLDivElement | null)[]>([]);
-  
-  // Define services with their respective icons and translation keys
-  const trafficManagementServices = [
-    {
-      icon: CarFront,
-      titleKey: "services.traffic.title",
-      descriptionKey: "services.traffic.description",
-      delay: 0
-    },
-    {
-      icon: Layers,
-      titleKey: "services.consultancy.title",
-      descriptionKey: "services.consultancy.description",
-      delay: 100
-    }
-  ];
 
-  const trafficProductsServices = [
-    {
-      icon: Construction,
-      titleKey: "services.diversion.title",
-      descriptionKey: "services.diversion.description",
-      delay: 200
-    },
-    {
-      icon: MapPin,
-      titleKey: "services.lane.title",
-      descriptionKey: "services.lane.description",
-      delay: 300
-    },
-    {
-      icon: AlertTriangle,
-      titleKey: "services.street.title",
-      descriptionKey: "services.street.description",
-      delay: 400
-    }
-  ];
-  
+  // Define services with their respective icons and translation keys
+  const trafficManagementServices = [{
+    icon: CarFront,
+    titleKey: "services.traffic.title",
+    descriptionKey: "services.traffic.description",
+    delay: 0
+  }, {
+    icon: Layers,
+    titleKey: "services.consultancy.title",
+    descriptionKey: "services.consultancy.description",
+    delay: 100
+  }];
+  const trafficProductsServices = [{
+    icon: Construction,
+    titleKey: "services.diversion.title",
+    descriptionKey: "services.diversion.description",
+    delay: 200
+  }, {
+    icon: MapPin,
+    titleKey: "services.lane.title",
+    descriptionKey: "services.lane.description",
+    delay: 300
+  }, {
+    icon: AlertTriangle,
+    titleKey: "services.street.title",
+    descriptionKey: "services.street.description",
+    delay: 400
+  }];
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           setTimeout(() => {
             entry.target.classList.add('visible');
           }, Number(entry.target.getAttribute('data-delay')) || 0);
         }
       });
-    }, { threshold: 0.1 });
-    
-    cardsRef.current.forEach((card) => {
+    }, {
+      threshold: 0.1
+    });
+    cardsRef.current.forEach(card => {
       if (card) observer.observe(card);
     });
-    
-    productsCardsRef.current.forEach((card) => {
+    productsCardsRef.current.forEach(card => {
       if (card) observer.observe(card);
     });
-    
     return () => {
-      cardsRef.current.forEach((card) => {
+      cardsRef.current.forEach(card => {
         if (card) observer.unobserve(card);
       });
-      
-      productsCardsRef.current.forEach((card) => {
+      productsCardsRef.current.forEach(card => {
         if (card) observer.unobserve(card);
       });
     };
   }, []);
-
-  return (
-    <section id="services" className="section-padding bg-roadpro-lightgray">
+  return <section id="services" className="section-padding bg-roadpro-lightgray">
       <div className="container mx-auto px-4">
         {/* Traffic Management & Consultancy Services */}
         <div ref={titleRef} className="text-center max-w-3xl mx-auto mb-16">
@@ -108,17 +92,10 @@ const ServicesSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
           {trafficManagementServices.map((service, index) => {
-            const Icon = service.icon;
-            
-            return (
-              <div
-                key={index}
-                ref={(el) => (cardsRef.current[index] = el)}
-                data-delay={service.delay}
-                className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-300
+          const Icon = service.icon;
+          return <div key={index} ref={el => cardsRef.current[index] = el} data-delay={service.delay} className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-300
                   hover:translate-y-[-10px] hover:shadow-xl border-b-4 border-transparent 
-                  hover:border-roadpro-yellow animate-fade-in-scroll"
-              >
+                  hover:border-roadpro-yellow animate-fade-in-scroll">
                 <div className="w-16 h-16 bg-roadpro-yellow/20 rounded-full flex items-center justify-center mb-6
                     transition-shadow animate-soft-pulse">
                   <Icon className="w-8 h-8 text-roadpro-yellow transition-transform" />
@@ -129,16 +106,9 @@ const ServicesSection = () => {
                 <p className="text-roadpro-gray leading-relaxed mb-6">
                   {t(service.descriptionKey)}
                 </p>
-                <Button variant="ghost" size="sm" className="text-roadpro-black hover:text-roadpro-yellow px-0 group">
-                  {t("services.button.more")} 
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="ml-1 transition-transform group-hover:translate-x-1">
-                    <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </Button>
-              </div>
-            );
-          })}
+                
+              </div>;
+        })}
         </div>
 
         {/* Traffic Products and Services Section */}
@@ -158,17 +128,10 @@ const ServicesSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {trafficProductsServices.map((service, index) => {
-            const Icon = service.icon;
-            
-            return (
-              <div
-                key={index}
-                ref={(el) => (productsCardsRef.current[index] = el)}
-                data-delay={service.delay}
-                className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-300
+          const Icon = service.icon;
+          return <div key={index} ref={el => productsCardsRef.current[index] = el} data-delay={service.delay} className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-300
                   hover:translate-y-[-10px] hover:shadow-xl border-b-4 border-transparent 
-                  hover:border-roadpro-yellow animate-fade-in-scroll"
-              >
+                  hover:border-roadpro-yellow animate-fade-in-scroll">
                 <div className="w-16 h-16 bg-roadpro-yellow/20 rounded-full flex items-center justify-center mb-6
                     transition-shadow animate-soft-pulse">
                   <Icon className="w-8 h-8 text-roadpro-yellow transition-transform" />
@@ -179,20 +142,11 @@ const ServicesSection = () => {
                 <p className="text-roadpro-gray leading-relaxed mb-6">
                   {t(service.descriptionKey)}
                 </p>
-                <Button variant="ghost" size="sm" className="text-roadpro-black hover:text-roadpro-yellow px-0 group">
-                  {t("services.button.more")}
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="ml-1 transition-transform group-hover:translate-x-1">
-                    <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </Button>
-              </div>
-            );
-          })}
+                
+              </div>;
+        })}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ServicesSection;

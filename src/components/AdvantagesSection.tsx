@@ -1,64 +1,52 @@
-
 import { Check } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
-
 const AdvantagesSection = () => {
-  const { t, language } = useLanguage();
-  
-  const titleRef = useScrollAnimation<HTMLDivElement>({ 
-    animation: 'animate-fade-in-scroll', 
-    delay: 100 
+  const {
+    t,
+    language
+  } = useLanguage();
+  const titleRef = useScrollAnimation<HTMLDivElement>({
+    animation: 'animate-fade-in-scroll',
+    delay: 100
   });
-  
-  const textRef = useScrollAnimation<HTMLDivElement>({ 
-    animation: 'animate-slide-in-left', 
-    delay: 200 
+  const textRef = useScrollAnimation<HTMLDivElement>({
+    animation: 'animate-slide-in-left',
+    delay: 200
   });
-  
-  const imageRef = useScrollAnimation<HTMLDivElement>({ 
-    animation: 'animate-slide-in-right', 
-    delay: 300 
+  const imageRef = useScrollAnimation<HTMLDivElement>({
+    animation: 'animate-slide-in-right',
+    delay: 300
   });
-  
-  const mobileCardRef = useScrollAnimation<HTMLDivElement>({ 
-    animation: 'animate-fade-in-scroll', 
-    delay: 400 
+  const mobileCardRef = useScrollAnimation<HTMLDivElement>({
+    animation: 'animate-fade-in-scroll',
+    delay: 400
   });
 
   // Define advantages with their respective translation keys
-  const advantages = [
-    {
-      titleKey: "advantages.experience.title",
-      descriptionKey: "advantages.experience.description",
-    },
-    {
-      titleKey: "advantages.compliance.title",
-      descriptionKey: "advantages.compliance.description",
-    },
-    {
-      titleKey: "advantages.responsive.title",
-      descriptionKey: "advantages.responsive.description",
-    },
-    {
-      titleKey: "advantages.equipment.title",
-      descriptionKey: "advantages.equipment.description",
-    },
-    {
-      titleKey: "advantages.affordability.title",
-      descriptionKey: "advantages.affordability.description",
-    },
-  ];
-
+  const advantages = [{
+    titleKey: "advantages.experience.title",
+    descriptionKey: "advantages.experience.description"
+  }, {
+    titleKey: "advantages.compliance.title",
+    descriptionKey: "advantages.compliance.description"
+  }, {
+    titleKey: "advantages.responsive.title",
+    descriptionKey: "advantages.responsive.description"
+  }, {
+    titleKey: "advantages.equipment.title",
+    descriptionKey: "advantages.equipment.description"
+  }, {
+    titleKey: "advantages.affordability.title",
+    descriptionKey: "advantages.affordability.description"
+  }];
   const advantageRefs = advantages.map((_, index) => {
-    return useScrollAnimation<HTMLDivElement>({ 
-      animation: 'animate-fade-in-scroll', 
-      delay: 200 + (index * 100)
+    return useScrollAnimation<HTMLDivElement>({
+      animation: 'animate-fade-in-scroll',
+      delay: 200 + index * 100
     });
   });
-
-  return (
-    <section id="advantages" className="section-padding bg-white">
+  return <section id="advantages" className="section-padding bg-white">
       <div className="container">
         {/* Center-aligned section title */}
         <div className="text-center mb-12" ref={titleRef}>
@@ -79,8 +67,7 @@ const AdvantagesSection = () => {
               {t("advantages.subtitle")}
             </p>
             <div className="space-y-5">
-              {advantages.map((advantage, index) => (
-                <div key={index} ref={advantageRefs[index]} className="flex gap-4 items-start group">
+              {advantages.map((advantage, index) => <div key={index} ref={advantageRefs[index]} className="flex gap-4 items-start group">
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-roadpro-yellow flex items-center justify-center shadow-md animate-soft-pulse group-hover:scale-110 transition-transform">
                     <Check className="w-5 h-5 text-roadpro-black" />
                   </div>
@@ -90,20 +77,17 @@ const AdvantagesSection = () => {
                     </h3>
                     <p className="text-roadpro-gray font-poppins">{t(advantage.descriptionKey)}</p>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
           
           {/* IMAGE right */}
           <div ref={imageRef} className="relative flex items-center justify-center w-full max-w-xl mx-auto">
             <div className="rounded-2xl overflow-hidden shadow-2xl border-8 border-white bg-white w-full max-w-md">
-              <img
-                alt="Road Pro professional vehicle"
-                src="/lovable-uploads/b28ade9e-f56c-4d8f-8891-c7ba2b8b00bf.png"
-                className="w-full h-full object-cover bg-white p-2"
-                style={{ minHeight: 200, minWidth: 220 }}
-              />
+              <img alt="Road Pro professional vehicle" src="/lovable-uploads/b28ade9e-f56c-4d8f-8891-c7ba2b8b00bf.png" className="w-full h-full object-cover bg-white p-2" style={{
+              minHeight: 200,
+              minWidth: 220
+            }} />
             </div>
             <div className="absolute -right-7 -bottom-7 w-36 h-36 bg-roadpro-yellow/20 rounded-full -z-10"></div>
             <div className="absolute -left-7 -top-7 w-20 h-20 border-4 border-roadpro-yellow rounded-full -z-10"></div>
@@ -122,9 +106,7 @@ const AdvantagesSection = () => {
                 </h4>
               </div>
               <p className="text-roadpro-gray">
-                {language === "en" 
-                  ? "Every solution prioritizes worker, driver & pedestrian safety."
-                  : "كل حلولنا تضع في أولوياتها سلامة العمال والسائقين والمشاة."}
+                {language === "en" ? "Every solution prioritizes worker, driver & pedestrian safety." : "كل حلولنا تضع في أولوياتها سلامة العمال والسائقين والمشاة."}
               </p>
             </div>
           </div>
@@ -144,14 +126,10 @@ const AdvantagesSection = () => {
             </h4>
           </div>
           <p className="text-roadpro-gray">
-            {language === "en" 
-              ? "Every solution prioritizes worker, driver & pedestrian safety."
-              : "كل حلولنا تضع في أولوياتها سلامة العمال والسائقين والمشاة."}
+            {language === "en" ? "Every solution prioritizes worker, driver & pedestrian safety." : "كل حلولنا تضع في أولوياتها سلامة العمال والسائقين والمشاة."}
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AdvantagesSection;
