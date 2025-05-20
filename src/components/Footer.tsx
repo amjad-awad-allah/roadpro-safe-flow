@@ -194,16 +194,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">
               {language === "en" ? "Contact Us" : "اتصل بنا"}
             </h3>
-            <ul className="space-y-6">
-              <li className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <MapPin className="w-5 h-5 text-roadpro-black" />
+            <ul className="space-y-4">
+              <li className="flex items-start gap-2">
+                <div className="w-6 h-6 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-3 h-3 text-roadpro-black" />
                 </div>
                 <div>
-                  <h4 className="text-base font-semibold text-white mb-1">
+                  <h4 className="text-sm font-medium text-white mb-0.5">
                     {language === "en" ? "Location" : "الموقع"}
                   </h4>
-                  <span className="text-gray-300">
+                  <span className="text-xs text-gray-300">
                     {language === "en" 
                       ? "Abu Dhabi, Mussafah Industrial Area, M45" 
                       : "أبوظبي، المصفح المنطقة الصناعية، M45"}
@@ -211,43 +211,43 @@ const Footer = () => {
                 </div>
               </li>
 
-              <li className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <Phone className="w-5 h-5 text-roadpro-black" />
+              <li className="flex items-start gap-2">
+                <div className="w-6 h-6 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-3 h-3 text-roadpro-black" />
                 </div>
                 <div>
-                  <h4 className="text-base font-semibold text-white mb-1">
+                  <h4 className="text-sm font-medium text-white mb-0.5">
                     {language === "en" ? "Mobile" : "الجوال"}
                   </h4>
-                  <a href="tel:+971562107006" className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                  <a href="tel:+971562107006" className="text-xs text-gray-300 hover:text-roadpro-yellow transition-colors">
                     +971 56 210 7006
                   </a>
                 </div>
               </li>
 
-              <li className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <Phone className="w-5 h-5 text-roadpro-black" />
+              <li className="flex items-start gap-2">
+                <div className="w-6 h-6 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-3 h-3 text-roadpro-black" />
                 </div>
                 <div>
-                  <h4 className="text-base font-semibold text-white mb-1">
+                  <h4 className="text-sm font-medium text-white mb-0.5">
                     {language === "en" ? "Landline" : "الهاتف الثابت"}
                   </h4>
-                  <a href="tel:+97126447786" className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                  <a href="tel:+97126447786" className="text-xs text-gray-300 hover:text-roadpro-yellow transition-colors">
                     +971 2 644 7786
                   </a>
                 </div>
               </li>
 
-              <li className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <Mail className="w-5 h-5 text-roadpro-black" />
+              <li className="flex items-start gap-2">
+                <div className="w-6 h-6 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-3 h-3 text-roadpro-black" />
                 </div>
                 <div>
-                  <h4 className="text-base font-semibold text-white mb-1">
+                  <h4 className="text-sm font-medium text-white mb-0.5">
                     {language === "en" ? "Email" : "البريد الإلكتروني"}
                   </h4>
-                  <a href="mailto:info@roadshield.ae" className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                  <a href="mailto:info@roadshield.ae" className="text-xs text-gray-300 hover:text-roadpro-yellow transition-colors">
                     info@roadshield.ae
                   </a>
                 </div>
