@@ -41,8 +41,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="mb-6">
-              <a href="#home" onClick={(e) => { e.preventDefault(); scrollToTop(); }} className="text-2xl font-bold">
-                Road<span className="text-roadpro-yellow">Pro</span>
+              <a href="#home" onClick={(e) => { e.preventDefault(); scrollToTop(); }} className="inline-block">
+                <img 
+                  src="/lovable-uploads/93894b69-d1b6-4144-ab42-63beff0a43d6.png" 
+                  alt="Road Shield Solutions" 
+                  className="h-20 w-auto object-contain"
+                />
               </a>
             </div>
             <p className="text-gray-300 mb-6">
@@ -190,24 +194,63 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">
               {language === "en" ? "Contact Us" : "اتصل بنا"}
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-6">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-roadpro-yellow flex-shrink-0 mt-1" />
-                <span className="text-gray-300">
-                  {language === "en" ? "Abu Dhabi, UAE" : "أبوظبي، الإمارات العربية المتحدة"}
-                </span>
+                <div className="w-10 h-10 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <MapPin className="w-5 h-5 text-roadpro-black" />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">
+                    {language === "en" ? "Location" : "الموقع"}
+                  </h4>
+                  <span className="text-gray-300">
+                    {language === "en" 
+                      ? "Abu Dhabi, Mussafah Industrial Area, M45" 
+                      : "أبوظبي، المصفح المنطقة الصناعية، M45"}
+                  </span>
+                </div>
               </li>
+
               <li className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-roadpro-yellow flex-shrink-0 mt-1" />
-                <a href="tel:+97150123456" className="text-gray-300 hover:text-roadpro-yellow transition-colors">
-                  +971-50-123-4567
-                </a>
+                <div className="w-10 h-10 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <Phone className="w-5 h-5 text-roadpro-black" />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">
+                    {language === "en" ? "Mobile" : "الجوال"}
+                  </h4>
+                  <a href="tel:+971562107006" className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                    +971 56 210 7006
+                  </a>
+                </div>
               </li>
+
               <li className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-roadpro-yellow flex-shrink-0 mt-1" />
-                <a href="mailto:info@roadpro.ae" className="text-gray-300 hover:text-roadpro-yellow transition-colors">
-                  info@roadpro.ae
-                </a>
+                <div className="w-10 h-10 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <Phone className="w-5 h-5 text-roadpro-black" />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">
+                    {language === "en" ? "Landline" : "الهاتف الثابت"}
+                  </h4>
+                  <a href="tel:+97126447786" className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                    +971 2 644 7786
+                  </a>
+                </div>
+              </li>
+
+              <li className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <Mail className="w-5 h-5 text-roadpro-black" />
+                </div>
+                <div>
+                  <h4 className="text-base font-semibold text-white mb-1">
+                    {language === "en" ? "Email" : "البريد الإلكتروني"}
+                  </h4>
+                  <a href="mailto:info@roadshield.ae" className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                    info@roadshield.ae
+                  </a>
+                </div>
               </li>
             </ul>
           </div>
