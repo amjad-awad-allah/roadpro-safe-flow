@@ -60,17 +60,21 @@ const AdvantagesSection = () => {
   return (
     <section id="advantages" className="section-padding bg-white">
       <div className="container">
+        {/* Center-aligned section title */}
+        <div className="text-center mb-12" ref={titleRef}>
+          <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4 font-poppins">
+            <span className="text-sm font-medium text-roadpro-black">
+              {t("nav.whyus")}
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black font-poppins">
+            {t("advantages.title")}
+          </h2>
+        </div>
+        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           {/* TEXT left */}
           <div ref={textRef}>
-            <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4 font-poppins">
-              <span className="text-sm font-medium text-roadpro-black">
-                {t("nav.whyus")}
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black mb-6 font-poppins">
-              {t("advantages.title")}
-            </h2>
             <p className="text-roadpro-gray text-lg mb-10 font-poppins max-w-lg">
               {t("advantages.subtitle")}
             </p>
