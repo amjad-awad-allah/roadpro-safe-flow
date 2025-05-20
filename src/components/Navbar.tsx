@@ -114,7 +114,7 @@ const Navbar = () => {
         <a href="#" className="flex items-center space-x-3 group">
           <img alt="Road Pro logo" style={{
           maxHeight: 80
-        }} className="h-20 w-auto rounded-xl shadow-xl bg-white p-2 border border-gray-200 transition-all duration-300 group-hover:scale-105 object-contain" src="/lovable-uploads/9648ccd3-a44d-48f3-b45a-812c4424690f.png" />
+        }} className="h-20 w-auto rounded-xl shadow-xl bg-white p-2 border border-gray-200 transition-all duration-300 group-hover:scale-105 object-contain" src="/lovable-uploads/25f91db6-31d9-44f7-a1f6-bb7d7d7e03c6.png" />
         </a>
 
         <DesktopMenu navLinks={navLinks} activeSection={activeSection} handleNavLinkClick={handleNavLinkClick} language={language} toggleLanguage={toggleLanguage} />
