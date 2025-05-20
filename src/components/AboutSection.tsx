@@ -50,7 +50,7 @@ const AboutSection = () => {
           
           <div className="relative">
             <img 
-              src="/lovable-uploads/3c252bc4-7b3a-40df-9c24-5e12127748a3.jpg" 
+              src="https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/imges/bg-5.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJpbWdlcy9iZy01LndlYnAiLCJpYXQiOjE3NDc3NDY4NzAsImV4cCI6MjM3ODQ2Njg3MH0.Mca5SsMzwMX5iGLNXQOF-dJjWhJgEBJvlL8Xk0nispU" 
               alt="Road Pro team at work" 
               className="w-full h-auto rounded-2xl shadow-xl"
             />
