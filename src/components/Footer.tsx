@@ -1,10 +1,10 @@
+
 import { Mail, Phone, MapPin, ArrowUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useEffect } from "react";
+
 const Footer = () => {
-  const {
-    language
-  } = useLanguage();
+  const { language } = useLanguage();
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Function to handle smooth scrolling to a section
@@ -35,16 +35,22 @@ const Footer = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  return <footer className="bg-roadpro-black text-white pt-16 pb-8 relative">
+
+  return (
+    <footer className="bg-roadpro-black text-white pt-16 pb-8 relative">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="mb-6">
               <a href="#home" onClick={e => {
-              e.preventDefault();
-              scrollToTop();
-            }} className="inline-block">
-                <img alt="Road Shield Solutions" className="h-20 w-auto object-contain" src="/lovable-uploads/f2840b7c-c72b-4909-8bb1-8beb815734b1.png" />
+                e.preventDefault();
+                scrollToTop();
+              }} className="inline-block">
+                <img 
+                  alt="Road Shield Solutions" 
+                  className="h-20 w-auto object-contain" 
+                  src="/lovable-uploads/f2840b7c-c72b-4909-8bb1-8beb815734b1.png" 
+                />
               </a>
             </div>
             <p className="text-gray-300 mb-6">
@@ -73,41 +79,41 @@ const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <a href="#home" onClick={e => {
-                e.preventDefault();
-                scrollToTop();
-              }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                  e.preventDefault();
+                  scrollToTop();
+                }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
                   {language === "en" ? "Home" : "الرئيسية"}
                 </a>
               </li>
               <li>
                 <a href="#about" onClick={e => {
-                e.preventDefault();
-                scrollToSection("about");
-              }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                  e.preventDefault();
+                  scrollToSection("about");
+                }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
                   {language === "en" ? "About" : "من نحن"}
                 </a>
               </li>
               <li>
                 <a href="#services" onClick={e => {
-                e.preventDefault();
-                scrollToSection("services");
-              }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                  e.preventDefault();
+                  scrollToSection("services");
+                }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
                   {language === "en" ? "Services" : "خدماتنا"}
                 </a>
               </li>
               <li>
                 <a href="#advantages" onClick={e => {
-                e.preventDefault();
-                scrollToSection("advantages");
-              }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                  e.preventDefault();
+                  scrollToSection("advantages");
+                }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
                   {language === "en" ? "Why Choose Us" : "لماذا نحن"}
                 </a>
               </li>
               <li>
                 <a href="#contact" onClick={e => {
-                e.preventDefault();
-                scrollToSection("contact");
-              }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                  e.preventDefault();
+                  scrollToSection("contact");
+                }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
                   {language === "en" ? "Contact Us" : "اتصل بنا"}
                 </a>
               </li>
@@ -121,41 +127,41 @@ const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <a href="#services" onClick={e => {
-                e.preventDefault();
-                scrollToSection("services");
-              }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                  e.preventDefault();
+                  scrollToSection("services");
+                }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
                   {language === "en" ? "Traffic Management Planning" : "تخطيط إدارة المرور"}
                 </a>
               </li>
               <li>
                 <a href="#services" onClick={e => {
-                e.preventDefault();
-                scrollToSection("services");
-              }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                  e.preventDefault();
+                  scrollToSection("services");
+                }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
                   {language === "en" ? "Consultancy and Advisory" : "الاستشارات والدعم الفني"}
                 </a>
               </li>
               <li>
                 <a href="#services" onClick={e => {
-                e.preventDefault();
-                scrollToSection("services");
-              }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                  e.preventDefault();
+                  scrollToSection("services");
+                }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
                   {language === "en" ? "Traffic Diversion Solutions" : "حلول تحويلات المرور"}
                 </a>
               </li>
               <li>
                 <a href="#services" onClick={e => {
-                e.preventDefault();
-                scrollToSection("services");
-              }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                  e.preventDefault();
+                  scrollToSection("services");
+                }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
                   {language === "en" ? "Lane Closure Equipment" : "معدات إغلاق الحارات"}
                 </a>
               </li>
               <li>
                 <a href="#services" onClick={e => {
-                e.preventDefault();
-                scrollToSection("services");
-              }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
+                  e.preventDefault();
+                  scrollToSection("services");
+                }} className="text-gray-300 hover:text-roadpro-yellow transition-colors">
                   {language === "en" ? "Street Control Systems" : "أنظمة تحكم الشوارع"}
                 </a>
               </li>
@@ -244,10 +250,18 @@ const Footer = () => {
       </div>
       
       {/* Back to top button */}
-      {showScrollTop && <button onClick={scrollToTop} className="fixed bottom-6 left-6 z-50 bg-roadpro-yellow text-roadpro-black p-3 rounded-full shadow-lg 
-            hover:scale-110 transition-all duration-300 hover:shadow-xl" aria-label="Back to top">
+      {showScrollTop && (
+        <button 
+          onClick={scrollToTop} 
+          className="fixed bottom-6 left-6 z-50 bg-roadpro-yellow text-roadpro-black p-3 rounded-full shadow-lg 
+            hover:scale-110 transition-all duration-300 hover:shadow-xl" 
+          aria-label="Back to top"
+        >
           <ArrowUp size={24} />
-        </button>}
-    </footer>;
+        </button>
+      )}
+    </footer>
+  );
 };
+
 export default Footer;
