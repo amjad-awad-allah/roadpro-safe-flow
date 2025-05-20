@@ -2,9 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useEffect, useRef } from "react";
 
 const HeroSection = () => {
   const { t, language } = useLanguage();
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Function to handle smooth scrolling to a section
   const scrollToSection = (sectionId: string) => {
@@ -15,16 +17,55 @@ const HeroSection = () => {
     }
   };
 
+  // Make sure video plays on iOS Safari
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.playsInline = true;
+      video.muted = true;
+      
+      // Try to play the video after it's loaded
+      const playVideo = () => {
+        if (video.paused) {
+          video.play().catch(error => {
+            console.log("Video play error:", error);
+          });
+        }
+      };
+      
+      video.addEventListener('loadeddata', playVideo);
+      video.addEventListener('canplay', playVideo);
+      
+      // Try to play immediately in case the video is already loaded
+      playVideo();
+
+      return () => {
+        video.removeEventListener('loadeddata', playVideo);
+        video.removeEventListener('canplay', playVideo);
+      };
+    }
+  }, []);
+
   return (
     <section id="home" className="relative min-h-[90vh] flex items-center">
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <img
-          src="/lovable-uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg"
-          alt="Road safety background"
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
           className="w-full h-full object-cover"
-        />
+          poster="/lovable-uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg" // Keep the original image as fallback
+        >
+          <source 
+            src="https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/video/home--v.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJ2aWRlby9ob21lLS12Lm1wNCIsImlhdCI6MTc0NzczMjA0NSwiZXhwIjoyMzc4NDUyMDQ1fQ.4uXhcfD2Db3EdQlapmaGMWfqUyCFxNgG_HZGyalni7s" 
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       {/* Content with Image Layout */}
