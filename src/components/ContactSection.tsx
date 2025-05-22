@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,7 +6,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/contexts/LanguageContext";
 import GoogleMap from "@/components/GoogleMap";
 import { toast } from "@/hooks/use-toast";
-
 const ContactSection = () => {
   const {
     t,
@@ -90,7 +88,7 @@ const ContactSection = () => {
               {language === "en" ? "Get In Touch" : "تواصل معنا"}
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-roadpro-black mb-4 leading-tight">
+          <h2 className="text-4xl font-bold text-roadpro-black mb-4 leading-tight md:text-4xl">
             {t("contact.title")}
           </h2>
           <p className="text-roadpro-gray text-lg leading-relaxed">

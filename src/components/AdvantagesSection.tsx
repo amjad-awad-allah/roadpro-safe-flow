@@ -1,64 +1,52 @@
-
 import { Check } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
-
 const AdvantagesSection = () => {
-  const { t, language } = useLanguage();
-  
+  const {
+    t,
+    language
+  } = useLanguage();
   const titleRef = useScrollAnimation<HTMLDivElement>({
     animation: 'animate-fade-in-scroll',
     delay: 100
   });
-  
   const textRef = useScrollAnimation<HTMLDivElement>({
     animation: 'animate-slide-in-left',
     delay: 200
   });
-  
   const imageRef = useScrollAnimation<HTMLDivElement>({
     animation: 'animate-slide-in-right',
     delay: 300
   });
-  
   const mobileCardRef = useScrollAnimation<HTMLDivElement>({
     animation: 'animate-fade-in-scroll',
     delay: 400
   });
 
   // Define advantages with their respective translation keys
-  const advantages = [
-    {
-      titleKey: "advantages.experience.title",
-      descriptionKey: "advantages.experience.description"
-    },
-    {
-      titleKey: "advantages.compliance.title",
-      descriptionKey: "advantages.compliance.description"
-    },
-    {
-      titleKey: "advantages.responsive.title",
-      descriptionKey: "advantages.responsive.description"
-    },
-    {
-      titleKey: "advantages.equipment.title",
-      descriptionKey: "advantages.equipment.description"
-    },
-    {
-      titleKey: "advantages.affordability.title",
-      descriptionKey: "advantages.affordability.description"
-    }
-  ];
-  
+  const advantages = [{
+    titleKey: "advantages.experience.title",
+    descriptionKey: "advantages.experience.description"
+  }, {
+    titleKey: "advantages.compliance.title",
+    descriptionKey: "advantages.compliance.description"
+  }, {
+    titleKey: "advantages.responsive.title",
+    descriptionKey: "advantages.responsive.description"
+  }, {
+    titleKey: "advantages.equipment.title",
+    descriptionKey: "advantages.equipment.description"
+  }, {
+    titleKey: "advantages.affordability.title",
+    descriptionKey: "advantages.affordability.description"
+  }];
   const advantageRefs = advantages.map((_, index) => {
     return useScrollAnimation<HTMLDivElement>({
       animation: 'animate-fade-in-scroll',
       delay: 200 + index * 100
     });
   });
-
-  return (
-    <section id="advantages" className="section-padding bg-white">
+  return <section id="advantages" className="section-padding bg-white">
       <div className="container">
         {/* Center-aligned section title */}
         <div className="text-center mb-12" ref={titleRef}>
@@ -67,7 +55,7 @@ const AdvantagesSection = () => {
               {t("nav.whyus")}
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-roadpro-black font-poppins">
+          <h2 className="text-4xl font-bold text-roadpro-black font-poppins md:text-4xl">
             {t("advantages.title")}
           </h2>
         </div>
@@ -79,12 +67,7 @@ const AdvantagesSection = () => {
               {t("advantages.subtitle")}
             </p>
             <div className="space-y-5">
-              {advantages.map((advantage, index) => (
-                <div 
-                  key={index} 
-                  ref={advantageRefs[index]} 
-                  className="flex gap-4 items-start group"
-                >
+              {advantages.map((advantage, index) => <div key={index} ref={advantageRefs[index]} className="flex gap-4 items-start group">
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-roadpro-yellow flex items-center justify-center shadow-md animate-soft-pulse group-hover:scale-110 transition-transform">
                     <Check className="w-5 h-5 text-roadpro-black" />
                   </div>
@@ -94,27 +77,20 @@ const AdvantagesSection = () => {
                     </h3>
                     <p className="text-roadpro-gray font-poppins">{t(advantage.descriptionKey)}</p>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
           
           {/* IMAGE right - updated to match About Us section image styling */}
           <div ref={imageRef} className="relative">
-            <img 
-              alt="Road Pro professional vehicle" 
-              src="https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/imges/bg-3.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJpbWdlcy9iZy0zLndlYnAiLCJpYXQiOjE3NDc3Mzc2MTAsImV4cCI6MjM3ODQ1NzYxMH0.oXjx9kYzDe2AP1MWi0uNYT4HYsouEtcRx6yqfUqwU74"
-              className="w-full h-auto rounded-2xl shadow-xl"
-            />
+            <img alt="Road Pro professional vehicle" src="https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/imges/bg-3.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJpbWdlcy9iZy0zLndlYnAiLCJpYXQiOjE3NDc3Mzc2MTAsImV4cCI6MjM3ODQ1NzYxMH0.oXjx9kYzDe2AP1MWi0uNYT4HYsouEtcRx6yqfUqwU74" className="w-full h-auto rounded-2xl shadow-xl" />
             <div className="absolute -right-7 -bottom-7 w-36 h-36 bg-roadpro-yellow/20 rounded-full -z-10"></div>
             <div className="absolute -left-7 -top-7 w-20 h-20 border-4 border-roadpro-yellow rounded-full -z-10"></div>
             
             {/* Card: Your Safety, Our Priority - visible on XL, with updated positioning */}
             <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg max-w-xs hidden md:block">
               <p className="text-roadpro-black text-sm italic">
-                {language === "en" 
-                  ? "Your Safety, Our Priority - Every solution prioritizes worker, driver & pedestrian safety." 
-                  : "سلامتك، أولويتنا - كل حلولنا تضع في أولوياتها سلامة العمال والسائقين والمشاة."}
+                {language === "en" ? "Your Safety, Our Priority - Every solution prioritizes worker, driver & pedestrian safety." : "سلامتك، أولويتنا - كل حلولنا تضع في أولوياتها سلامة العمال والسائقين والمشاة."}
               </p>
               <p className="text-right text-roadpro-yellow font-semibold mt-2">
                 {language === "en" ? "- Road Pro Team" : "- فريق رود برو"}
@@ -141,8 +117,6 @@ const AdvantagesSection = () => {
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AdvantagesSection;
