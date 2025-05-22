@@ -37,7 +37,7 @@ const translations = {
     // About Section
     "about.title": "Abu Dhabi's Premier Road Safety Partner",
     "about.subtitle": "Delivering innovative and sustainable traffic management solutions since 2015",
-    "about.company": "Road Pro is a professional traffic management and consultancy service provider committed to ensuring public safety and maintaining efficient traffic flow. Our team of experts specializes in developing comprehensive traffic diversion plans and implementing road safety measures that comply with regulatory standards.",
+    "about.company": "Road Shield Solutions is a professional traffic management and consultancy service provider committed to ensuring public safety and maintaining efficient traffic flow. Our team of experts specializes in developing comprehensive traffic diversion plans and implementing road safety measures that comply with regulatory standards.",
     "about.vision.title": "Our Vision",
     "about.vision.description": "To lead the road safety industry with innovative solutions and reliable services, becoming the gold standard for traffic management in the UAE.",
     "about.mission.title": "Mission Statement",
@@ -86,7 +86,7 @@ const translations = {
     "equipment.compliance": "All equipment complies with International Traffic Control (ITC) standards and undergoes regular maintenance and safety inspections.",
     
     // Advantages Section
-    "advantages.title": "Why Choose Road Pro",
+    "advantages.title": "Why Choose Road Shield Solutions",
     "advantages.subtitle": "We deliver excellence in every project",
     "advantages.experience.title": "Industry Experience",
     "advantages.experience.description": "Our team brings years of specialized knowledge in traffic management and road safety.",
@@ -131,7 +131,7 @@ const translations = {
     "footer.terms": "Terms of Service",
     
     // WhatsApp Button
-    "whatsapp.message": "Hello Road Pro, I would like to inquire about your services."
+    "whatsapp.message": "Hello Road Shield Solutions, I would like to inquire about your services."
   },
   ar: {
     // Navigation
@@ -156,7 +156,7 @@ const translations = {
     // About Section
     "about.title": "الشريك الرائد في مجال سلامة الطرق في أبوظبي",
     "about.subtitle": "نقدم حلول إدارة حركة المرور المبتكرة والمستدامة منذ عام 2015",
-    "about.company": "Road Pro هي شركة متخصصة في إدارة المرور والاستشارات، ملتزمة بتوفير أعلى مستويات السلامة العامة وضمان تدفق مروري فعال. فريقنا من الخبراء يركز على تطوير خطط شاملة لتحويلات المرور وتنفيذ إجراءات السلامة الطرقية التي تتماشى مع المعايير التنظيمية.",
+    "about.company": "رود شيلد سوليوشنز هي شركة متخصصة في إدارة المرور والاستشارات، ملتزمة بتوفير أعلى مستويات السلامة العامة وضمان تدفق مروري فعال. فريقنا من الخبراء يركز على تطوير خطط شاملة لتحويلات المرور وتنفيذ إجراءات السلامة الطرقية التي تتماشى مع المعايير التنظيمية.",
     "about.vision.title": "رؤيتنا",
     "about.vision.description": "ريادة صناعة سلامة الطرق بحلول مبتكرة وخدمات موثوقة، لنصبح المعيار الذهبي لإدارة حركة المرور في الإمارات العربية المتحدة.",
     "about.mission.title": "الرسالة",
@@ -205,7 +205,7 @@ const translations = {
     "equipment.compliance": "تتوافق جميع المعدات مع معايير التحكم المروري الدولية (ITC) وتخضع لصيانة منتظمة وفحوصات السلامة.",
     
     // Advantages Section
-    "advantages.title": "لماذا تختار رود برو",
+    "advantages.title": "لماذا تختار رود شيلد سوليوشنز",
     "advantages.subtitle": "نقدم التميز في كل مشروع",
     "advantages.experience.title": "خبراء ذو خبرة",
     "advantages.experience.description": "محترفون يتمتعون بخبرة عميقة في صناعة إدارة المرور.",
@@ -250,7 +250,7 @@ const translations = {
     "footer.terms": "شروط الخدمة",
     
     // WhatsApp Button
-    "whatsapp.message": "مرحبًا رود برو، أود الاستفسار عن خدماتكم."
+    "whatsapp.message": "مرحبًا رود شيلد سوليوشنز، أود الاستفسار عن خدماتكم."
   }
 };
 

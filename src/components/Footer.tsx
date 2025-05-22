@@ -1,3 +1,4 @@
+
 import { Mail, Phone, MapPin, ArrowUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useEffect } from "react";
@@ -229,7 +230,7 @@ const Footer = () => {
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              &copy; {new Date().getFullYear()} Road Pro Traffic Management & Consultancy. All rights reserved.
+              &copy; {new Date().getFullYear()} Road Shield Solutions - Traffic Management & Consultancy. All rights reserved.
             </p>
             <div className="flex space-x-6">
               

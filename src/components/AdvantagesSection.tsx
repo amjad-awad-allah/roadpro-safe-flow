@@ -1,3 +1,4 @@
+
 import { Check } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -83,7 +84,7 @@ const AdvantagesSection = () => {
           
           {/* IMAGE right - updated to match About Us section image styling */}
           <div ref={imageRef} className="relative">
-            <img alt="Road Pro professional vehicle" src="https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/imges/bg-3.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJpbWdlcy9iZy0zLndlYnAiLCJpYXQiOjE3NDc3Mzc2MTAsImV4cCI6MjM3ODQ1NzYxMH0.oXjx9kYzDe2AP1MWi0uNYT4HYsouEtcRx6yqfUqwU74" className="w-full h-auto rounded-2xl shadow-xl" />
+            <img alt="Road Shield Solutions professional vehicle" src="https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/imges/bg-3.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJpbWdlcy9iZy0zLndlYnAiLCJpYXQiOjE3NDc3Mzc2MTAsImV4cCI6MjM3ODQ1NzYxMH0.oXjx9kYzDe2AP1MWi0uNYT4HYsouEtcRx6yqfUqwU74" className="w-full h-auto rounded-2xl shadow-xl" />
             <div className="absolute -right-7 -bottom-7 w-36 h-36 bg-roadpro-yellow/20 rounded-full -z-10"></div>
             <div className="absolute -left-7 -top-7 w-20 h-20 border-4 border-roadpro-yellow rounded-full -z-10"></div>
             
@@ -93,7 +94,7 @@ const AdvantagesSection = () => {
                 {language === "en" ? "Your Safety, Our Priority - Every solution prioritizes worker, driver & pedestrian safety." : "سلامتك، أولويتنا - كل حلولنا تضع في أولوياتها سلامة العمال والسائقين والمشاة."}
               </p>
               <p className="text-right text-roadpro-yellow font-semibold mt-2">
-                {language === "en" ? "- Road Pro Team" : "- فريق رود برو"}
+                {language === "en" ? "- Road Shield Solutions Team" : "- فريق رود شيلد سوليوشنز"}
               </p>
             </div>
           </div>
