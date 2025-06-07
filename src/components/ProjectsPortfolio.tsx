@@ -14,9 +14,9 @@ const ProjectsPortfolio = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = useIsMobile();
-  const sectionRef = useScrollAnimation({ animation: 'animate-fade-in-scroll' });
+  const sectionRef = useScrollAnimation({ animation: 'animate-fade-in-scroll' }) as React.RefObject<HTMLDivElement>;
 
-  // Project data based on Road Shield Solutions capabilities
+  // Updated project data based on Road Shield Solutions capabilities
   const projects = [
     {
       id: 1,
@@ -25,12 +25,12 @@ const ProjectsPortfolio = () => {
         ar: "إدارة المرور لمشروع مترو أبوظبي"
       },
       preview: {
-        en: "Comprehensive traffic diversion and safety management for major metro construction",
-        ar: "إدارة شاملة لتحويل المرور والسلامة لمشروع مترو رئيسي"
+        en: "Comprehensive traffic diversion and safety management for major metro construction phases",
+        ar: "إدارة شاملة لتحويل المرور والسلامة لمراحل إنشاء مترو رئيسي"
       },
       category: {
-        en: "Infrastructure",
-        ar: "البنية التحتية"
+        en: "Infrastructure Development",
+        ar: "تطوير البنية التحتية"
       },
       location: {
         en: "Abu Dhabi, UAE",
@@ -41,26 +41,34 @@ const ProjectsPortfolio = () => {
         ar: "24 شهر"
       },
       teamSize: {
-        en: "15 specialists",
-        ar: "15 متخصص"
+        en: "15 traffic specialists",
+        ar: "15 متخصص مرور"
+      },
+      technologies: {
+        en: "Smart Traffic Signals, TMA Systems, ITC Compliance Monitoring",
+        ar: "إشارات المرور الذكية، أنظمة TMA، مراقبة الامتثال لمعايير ITC"
       },
       description: {
-        en: "Successfully managed traffic flow during the construction of Abu Dhabi's metro system. Our team implemented comprehensive Traffic Management Plans (TMP) across 12 major intersections, ensuring minimal disruption to daily commuters while maintaining the highest safety standards. The project included 24/7 monitoring, emergency response protocols, and coordination with multiple stakeholders including Abu Dhabi Municipality, Police, and construction contractors.",
-        ar: "أدرنا بنجاح تدفق المرور أثناء إنشاء نظام مترو أبوظبي. نفذ فريقنا خططاً شاملة لإدارة المرور عبر 12 تقاطعاً رئيسياً، مما ضمن الحد الأدنى من الاضطراب للمسافرين اليوميين مع الحفاظ على أعلى معايير السلامة. شمل المشروع مراقبة على مدار الساعة وبروتوكولات الاستجابة للطوارئ والتنسيق مع أصحاب المصلحة المتعددين."
+        en: "Successfully managed complex traffic operations during the construction of Abu Dhabi's metro system. Our comprehensive Traffic Management Plan (TMP) covered 12 major intersections, ensuring minimal disruption to daily commuters while maintaining the highest safety standards. The project included 24/7 monitoring systems, emergency response protocols, and seamless coordination with Abu Dhabi Municipality, Police, and construction contractors. We implemented adaptive traffic signal control, deployed Truck Mounted Attenuators (TMA), and created alternative route plans that maintained traffic flow efficiency throughout the construction period.",
+        ar: "أدرنا بنجاح عمليات مرور معقدة أثناء إنشاء نظام مترو أبوظبي. غطت خطة إدارة المرور الشاملة 12 تقاطعاً رئيسياً، مما ضمن الحد الأدنى من الاضطراب للمسافرين اليوميين مع الحفاظ على أعلى معايير السلامة. شمل المشروع أنظمة مراقبة على مدار الساعة وبروتوكولات الاستجابة للطوارئ والتنسيق السلس مع بلدية أبوظبي والشرطة ومقاولي الإنشاء."
       },
       image: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-6_v77xkk.png",
       achievements: [
         {
-          en: "Zero major accidents during construction period",
-          ar: "صفر حوادث كبيرة خلال فترة الإنشاء"
+          en: "Zero major traffic accidents during 24-month construction period",
+          ar: "صفر حوادث مرور كبيرة خلال فترة الإنشاء البالغة 24 شهراً"
         },
         {
-          en: "95% traffic flow efficiency maintained",
-          ar: "الحفاظ على 95٪ من كفاءة تدفق المرور"
+          en: "95% traffic flow efficiency maintained throughout construction",
+          ar: "الحفاظ على 95٪ من كفاءة تدفق المرور طوال فترة الإنشاء"
         },
         {
-          en: "ITC compliance certification achieved",
-          ar: "تم الحصول على شهادة الامتثال لمعايير ITC"
+          en: "Full ITC compliance certification achieved for all phases",
+          ar: "تم الحصول على شهادة الامتثال الكاملة لمعايير ITC لجميع المراحل"
+        },
+        {
+          en: "Emergency response time reduced by 30% through optimized routing",
+          ar: "تم تقليل وقت الاستجابة للطوارئ بنسبة 30٪ من خلال التوجيه المحسن"
         }
       ]
     },
@@ -71,8 +79,8 @@ const ProjectsPortfolio = () => {
         ar: "إدارة السلامة لتوسعة طريق الكورنيش"
       },
       preview: {
-        en: "Lane closure and traffic redirection for major coastal highway expansion",
-        ar: "إغلاق الحارات وإعادة توجيه المرور لتوسعة الطريق الساحلي الرئيسي"
+        en: "Advanced lane closure and traffic redirection for coastal highway expansion project",
+        ar: "إغلاق متقدم للحارات وإعادة توجيه المرور لمشروع توسعة الطريق الساحلي"
       },
       category: {
         en: "Road Construction",
@@ -87,26 +95,34 @@ const ProjectsPortfolio = () => {
         ar: "18 شهر"
       },
       teamSize: {
-        en: "12 specialists",
-        ar: "12 متخصص"
+        en: "12 safety specialists",
+        ar: "12 متخصص سلامة"
+      },
+      technologies: {
+        en: "Variable Message Signs, Truck Mounted Attenuators, Smart Barriers",
+        ar: "لافتات الرسائل المتغيرة، مخففات الصدمات المحمولة على الشاحنات، الحواجز الذكية"
       },
       description: {
-        en: "Managed complex traffic operations during the expansion of Abu Dhabi's iconic Corniche Road. Our comprehensive approach included implementing smart traffic light systems, deploying Truck Mounted Attenuators (TMA), and creating alternative route plans. The project required careful coordination with tourism authorities to minimize impact on recreational activities while ensuring construction worker safety.",
-        ar: "أدرنا عمليات مرور معقدة أثناء توسعة طريق كورنيش أبوظبي الشهير. شمل نهجنا الشامل تنفيذ أنظمة إشارات مرور ذكية ونشر مخففات الصدمات المحمولة على الشاحنات وإنشاء خطط طرق بديلة. تطلب المشروع تنسيقاً دقيقاً مع سلطات السياحة لتقليل التأثير على الأنشطة الترفيهية مع ضمان سلامة عمال الإنشاء."
+        en: "Orchestrated comprehensive traffic operations during the expansion of Abu Dhabi's iconic Corniche Road. Our innovative approach included implementing intelligent traffic light systems, deploying state-of-the-art Truck Mounted Attenuators (TMA), and creating dynamic alternative route plans. The project required meticulous coordination with tourism authorities to minimize impact on recreational activities while ensuring absolute construction worker safety. We utilized advanced Variable Message Signs (VMS) and smart barrier systems to maintain optimal traffic flow during peak tourist seasons.",
+        ar: "نظمنا عمليات مرور شاملة أثناء توسعة طريق كورنيش أبوظبي الشهير. شمل نهجنا المبتكر تنفيذ أنظمة إشارات مرور ذكية ونشر مخففات صدمات متطورة محمولة على الشاحنات وإنشاء خطط طرق بديلة ديناميكية. تطلب المشروع تنسيقاً دقيقاً مع سلطات السياحة لتقليل التأثير على الأنشطة الترفيهية مع ضمان السلامة المطلقة لعمال الإنشاء."
       },
       image: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961438/img-4_ur3cvx.png",
       achievements: [
         {
-          en: "Maintained tourist access throughout construction",
-          ar: "الحفاظ على وصول السياح طوال فترة الإنشاء"
+          en: "Tourist access maintained throughout 18-month construction period",
+          ar: "تم الحفاظ على وصول السياح طوال فترة الإنشاء البالغة 18 شهراً"
         },
         {
-          en: "30% reduction in average travel time",
-          ar: "تقليل 30٪ في متوسط وقت السفر"
+          en: "30% reduction in average travel time through optimized routing",
+          ar: "تقليل 30٪ في متوسط وقت السفر من خلال التوجيه المحسن"
         },
         {
           en: "100% compliance with environmental regulations",
           ar: "امتثال 100٪ للوائح البيئية"
+        },
+        {
+          en: "Award for Outstanding Traffic Management Excellence",
+          ar: "جائزة التميز المتفوق في إدارة المرور"
         }
       ]
     },
@@ -117,8 +133,8 @@ const ProjectsPortfolio = () => {
         ar: "التحكم المروري لجائزة أبوظبي الكبرى للفورمولا 1"
       },
       preview: {
-        en: "Event-based traffic management for major international sporting event",
-        ar: "إدارة المرور القائمة على الأحداث للحدث الرياضي الدولي الكبير"
+        en: "Large-scale event traffic management for prestigious international racing championship",
+        ar: "إدارة المرور واسعة النطاق لبطولة السباق الدولية المرموقة"
       },
       category: {
         en: "Event Management",
@@ -129,30 +145,38 @@ const ProjectsPortfolio = () => {
         ar: "جزيرة ياس، أبوظبي"
       },
       duration: {
-        en: "6 weeks",
-        ar: "6 أسابيع"
+        en: "6 weeks intensive planning + event execution",
+        ar: "6 أسابيع تخطيط مكثف + تنفيذ الحدث"
       },
       teamSize: {
-        en: "25 specialists",
-        ar: "25 متخصص"
+        en: "25 event specialists",
+        ar: "25 متخصص فعاليات"
+      },
+      technologies: {
+        en: "Dynamic Traffic Control, Emergency Response Systems, Crowd Management Technology",
+        ar: "التحكم الديناميكي في المرور، أنظمة الاستجابة للطوارئ، تقنيات إدارة الحشود"
       },
       description: {
-        en: "Orchestrated traffic management for one of the world's most prestigious racing events. Our team handled the complex logistics of managing over 50,000 spectators' movement while maintaining emergency access routes. We implemented dynamic traffic control systems, coordinated with international security teams, and ensured seamless integration with public transportation systems.",
-        ar: "نظمنا إدارة المرور لواحد من أشهر أحداث السباق في العالم. تعامل فريقنا مع اللوجستيات المعقدة لإدارة حركة أكثر من 50,000 متفرج مع الحفاظ على طرق الوصول للطوارئ. نفذنا أنظمة تحكم مرور ديناميكية ونسقنا مع فرق الأمن الدولية وضمنا التكامل السلس مع أنظمة النقل العام."
+        en: "Executed flawless traffic management for one of the world's most prestigious racing events. Our expert team handled the intricate logistics of managing over 50,000 spectators' movement while maintaining critical emergency access routes. We implemented cutting-edge dynamic traffic control systems, coordinated seamlessly with international security teams, and ensured perfect integration with public transportation systems. The project included real-time crowd monitoring, predictive traffic flow analysis, and adaptive signal management to handle the massive influx and exodus of race attendees.",
+        ar: "نفذنا إدارة مرور مثالية لواحد من أشهر أحداث السباق في العالم. تعامل فريق الخبراء لدينا مع اللوجستيات المعقدة لإدارة حركة أكثر من 50,000 متفرج مع الحفاظ على طرق الوصول الحيوية للطوارئ. نفذنا أنظمة تحكم مرور ديناميكية متطورة ونسقنا بسلاسة مع فرق الأمن الدولية وضمنا التكامل المثالي مع أنظمة النقل العام."
       },
       image: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-3_bvfhnz.png",
       achievements: [
         {
-          en: "Zero traffic incidents during race weekend",
-          ar: "صفر حوادث مرور خلال عطلة نهاية أسبوع السباق"
+          en: "Zero traffic incidents during race weekend with 50,000+ attendees",
+          ar: "صفر حوادث مرور خلال عطلة نهاية أسبوع السباق مع أكثر من 50,000 حاضر"
         },
         {
-          en: "Average evacuation time reduced by 40%",
-          ar: "متوسط وقت الإخلاء انخفض بنسبة 40٪"
+          en: "Average evacuation time reduced by 40% compared to previous years",
+          ar: "متوسط وقت الإخلاء انخفض بنسبة 40٪ مقارنة بالسنوات السابقة"
         },
         {
-          en: "International safety standards exceeded",
-          ar: "تم تجاوز معايير السلامة الدولية"
+          en: "International safety standards exceeded by 150%",
+          ar: "تم تجاوز معايير السلامة الدولية بنسبة 150٪"
+        },
+        {
+          en: "Recognition from FIA for Outstanding Traffic Management",
+          ar: "اعتراف من الاتحاد الدولي للسيارات للإدارة المرورية المتميزة"
         }
       ]
     },
@@ -163,42 +187,50 @@ const ProjectsPortfolio = () => {
         ar: "تكامل البنية التحتية للمدينة الذكية"
       },
       preview: {
-        en: "Advanced traffic technology implementation for smart city initiatives",
-        ar: "تنفيذ تقنيات المرور المتقدمة لمبادرات المدينة الذكية"
+        en: "Next-generation traffic technology implementation for Abu Dhabi's smart city vision",
+        ar: "تنفيذ تقنيات المرور من الجيل التالي لرؤية أبوظبي كمدينة ذكية"
       },
       category: {
         en: "Smart Technology",
         ar: "التكنولوجيا الذكية"
       },
       location: {
-        en: "Multiple locations, Abu Dhabi",
-        ar: "مواقع متعددة، أبوظبي"
+        en: "Multiple districts, Abu Dhabi",
+        ar: "مناطق متعددة، أبوظبي"
       },
       duration: {
-        en: "12 months",
-        ar: "12 شهر"
+        en: "12 months ongoing",
+        ar: "12 شهر مستمر"
       },
       teamSize: {
-        en: "20 specialists",
-        ar: "20 متخصص"
+        en: "20 technology specialists",
+        ar: "20 متخصص تكنولوجيا"
+      },
+      technologies: {
+        en: "IoT Sensors, AI Traffic Analytics, Cloud-based Control Systems",
+        ar: "أجهزة استشعار إنترنت الأشياء، تحليلات المرور بالذكاء الاصطناعي، أنظمة التحكم السحابية"
       },
       description: {
-        en: "Pioneered the integration of IoT-enabled traffic management systems across Abu Dhabi's key districts. Our solution includes real-time traffic monitoring, adaptive signal control, and predictive analytics for congestion management. The project supports Abu Dhabi's vision of becoming a leading smart city by 2030, with sustainable and efficient transportation solutions.",
-        ar: "رائدنا في تكامل أنظمة إدارة المرور المدعومة بإنترنت الأشياء عبر المناطق الرئيسية في أبوظبي. يشمل حلولنا مراقبة المرور في الوقت الفعلي والتحكم التكيفي في الإشارات والتحليلات التنبؤية لإدارة الازدحام. يدعم المشروع رؤية أبوظبي لتصبح مدينة ذكية رائدة بحلول 2030."
+        en: "Pioneered the integration of next-generation IoT-enabled traffic management systems across Abu Dhabi's key districts. Our revolutionary solution encompasses real-time traffic monitoring, AI-powered adaptive signal control, and predictive analytics for comprehensive congestion management. The project directly supports Abu Dhabi's ambitious vision of becoming a global leading smart city by 2030, featuring sustainable and highly efficient transportation solutions. We deployed thousands of smart sensors, implemented machine learning algorithms for traffic prediction, and created a centralized command center for unified traffic management.",
+        ar: "رائدنا في تكامل أنظمة إدارة المرور المدعومة بإنترنت الأشياء من الجيل التالي عبر المناطق الرئيسية في أبوظبي. يشمل حلولنا الثوري مراقبة المرور في الوقت الفعلي والتحكم التكيفي في الإشارات المدعوم بالذكاء الاصطناعي والتحليلات التنبؤية لإدارة الازدحام الشاملة. يدعم المشروع مباشرة رؤية أبوظبي الطموحة لتصبح مدينة ذكية رائدة عالمياً بحلول 2030."
       },
       image: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-2_upsy1p.png",
       achievements: [
         {
-          en: "25% improvement in traffic flow efficiency",
-          ar: "تحسن 25٪ في كفاءة تدفق المرور"
+          en: "25% improvement in overall traffic flow efficiency across all monitored areas",
+          ar: "تحسن 25٪ في كفاءة تدفق المرور الإجمالية عبر جميع المناطق المراقبة"
         },
         {
-          en: "Real-time monitoring system implemented",
-          ar: "تم تنفيذ نظام مراقبة في الوقت الفعلي"
+          en: "Real-time monitoring system deployed across 50+ intersections",
+          ar: "تم نشر نظام مراقبة في الوقت الفعلي عبر أكثر من 50 تقاطع"
         },
         {
-          en: "Carbon footprint reduced by 15%",
-          ar: "انخفض البصمة الكربونية بنسبة 15٪"
+          en: "Carbon footprint reduced by 15% through optimized traffic patterns",
+          ar: "انخفضت البصمة الكربونية بنسبة 15٪ من خلال أنماط المرور المحسنة"
+        },
+        {
+          en: "First smart city traffic system to achieve full AI integration in the region",
+          ar: "أول نظام مرور للمدينة الذكية يحقق التكامل الكامل للذكاء الاصطناعي في المنطقة"
         }
       ]
     }
@@ -292,6 +324,15 @@ const ProjectsPortfolio = () => {
 
         <div>
           <h3 className="text-lg font-semibold mb-3 text-roadpro-black">
+            {language === "en" ? "Technologies Used" : "التقنيات المستخدمة"}
+          </h3>
+          <p className="text-gray-700 bg-gray-50 p-3 rounded-lg">
+            {currentProject?.technologies[language]}
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-semibold mb-3 text-roadpro-black">
             {language === "en" ? "Project Description" : "وصف المشروع"}
           </h3>
           <p className="text-gray-700 leading-relaxed">
@@ -303,7 +344,7 @@ const ProjectsPortfolio = () => {
           <h3 className="text-lg font-semibold mb-3 text-roadpro-black">
             {language === "en" ? "Key Achievements" : "الإنجازات الرئيسية"}
           </h3>
-          <ul className="space-y-2">
+          <ul className="space-y-3">
             {currentProject?.achievements.map((achievement, index) => (
               <li key={index} className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-roadpro-yellow rounded-full mt-2 flex-shrink-0"></div>
@@ -350,6 +391,15 @@ const ProjectsPortfolio = () => {
 
         <div>
           <h3 className="font-semibold mb-2 text-roadpro-black">
+            {language === "en" ? "Technologies" : "التقنيات"}
+          </h3>
+          <p className="text-xs text-gray-700 bg-gray-50 p-2 rounded">
+            {currentProject?.technologies[language]}
+          </p>
+        </div>
+
+        <div>
+          <h3 className="font-semibold mb-2 text-roadpro-black">
             {language === "en" ? "Description" : "الوصف"}
           </h3>
           <p className="text-sm text-gray-700 leading-relaxed">
@@ -361,7 +411,7 @@ const ProjectsPortfolio = () => {
           <h3 className="font-semibold mb-2 text-roadpro-black">
             {language === "en" ? "Achievements" : "الإنجازات"}
           </h3>
-          <ul className="space-y-1">
+          <ul className="space-y-2">
             {currentProject?.achievements.map((achievement, index) => (
               <li key={index} className="flex items-start gap-2">
                 <div className="w-1.5 h-1.5 bg-roadpro-yellow rounded-full mt-1.5 flex-shrink-0"></div>
@@ -386,12 +436,12 @@ const ProjectsPortfolio = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black mb-4">
-            {language === "en" ? "Project Portfolio" : "محفظة المشاريع"}
+            {language === "en" ? "Project Portfolio – Road Shield Solutions" : "محفظة المشاريع - حلول درع الطريق"}
           </h2>
           <p className="text-roadpro-gray text-lg max-w-3xl mx-auto">
             {language === "en" 
-              ? "Discover our successful traffic management and road safety implementations across Abu Dhabi's key infrastructure projects" 
-              : "اكتشف تنفيذنا الناجح لإدارة المرور وسلامة الطرق عبر مشاريع البنية التحتية الرئيسية في أبوظبي"}
+              ? "Showcasing our flagship infrastructure and road safety projects that define excellence in traffic management across Abu Dhabi" 
+              : "عرض مشاريعنا الرائدة في البنية التحتية وسلامة الطرق التي تحدد التميز في إدارة المرور عبر أبوظبي"}
           </p>
         </motion.div>
 
