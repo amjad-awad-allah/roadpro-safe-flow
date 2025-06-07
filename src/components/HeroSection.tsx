@@ -47,9 +47,9 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-[90vh] flex items-center">
-      {/* Background Video */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Full Screen Background Video */}
+      <div className="fixed inset-0 w-full h-full -z-10">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
         <video
           ref={videoRef}
@@ -57,11 +57,21 @@ const HeroSection = () => {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
-          poster="/lovable-uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg" // Keep the original image as fallback
+          controls={false}
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: -1
+          }}
+          poster="/lovable-uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg"
         >
           <source 
-            src="https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/video/home--v.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJ2aWRlby9ob21lLS12Lm1wNCIsImlhdCI6MTc0NzczMjA0NSwiZXhwIjoyMzc4NDUyMDQ1fQ.4uXhcfD2Db3EdQlapmaGMWfqUyCFxNgG_HZGyalni7s" 
+            src="https://res.cloudinary.com/digkc9b40/video/upload/v1748961247/home--v_r0glzq.mp4" 
             type="video/mp4"
           />
           Your browser does not support the video tag.
