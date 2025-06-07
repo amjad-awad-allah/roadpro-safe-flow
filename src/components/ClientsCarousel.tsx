@@ -1,7 +1,7 @@
 
 import { useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Loop } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import { useLanguage } from "@/contexts/LanguageContext";
 
 // Import Swiper styles
@@ -68,7 +68,7 @@ const ClientsCarousel = () => {
           {/* Force LTR direction on the carousel container regardless of language */}
           <div dir="ltr">
             <Swiper
-              modules={[Autoplay, Loop]}
+              modules={[Autoplay]}
               spaceBetween={20}
               slidesPerView={1}
               loop={true}
@@ -122,7 +122,7 @@ const ClientsCarousel = () => {
       </div>
 
       {/* Custom styles for smooth continuous movement */}
-      <style jsx>{`
+      <style>{`
         .clients-swiper .swiper-wrapper {
           transition-timing-function: linear !important;
         }
