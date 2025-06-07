@@ -1,75 +1,54 @@
 
 import { useRef, useEffect } from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Loop } from 'swiper/modules';
 import { useLanguage } from "@/contexts/LanguageContext";
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/autoplay';
 
 const ClientsCarousel = () => {
   const { language } = useLanguage();
   
-  // Client logo URLs
+  // Updated client logo URLs
   const clientLogos = [
     {
       id: 1,
       name: "Client 1",
-      logo: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/client-logo/img-1.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJjbGllbnQtbG9nby9pbWctMS5wbmciLCJpYXQiOjE3NDc3MzI3OTgsImV4cCI6MjM3ODQ1Mjc5OH0._bOU_d_mZpN5yxv0gbBA0-HSo07-BYacy0FDsBxNeNI"
+      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-6_v77xkk.png"
     },
     {
       id: 2,
       name: "Client 2",
-      logo: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/client-logo/img-2.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJjbGllbnQtbG9nby9pbWctMi5qcGciLCJpYXQiOjE3NDc3MzI4OTAsImV4cCI6MjM3ODQ1Mjg5MH0.k_cTxj5Y5DLSS6eKQkIH213wk89HbzQfRSggqkTK_w0"
+      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961438/img-4_ur3cvx.png"
     },
     {
       id: 3,
       name: "Client 3",
-      logo: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/client-logo/img-2.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJjbGllbnQtbG9nby9pbWctMi5wbmciLCJpYXQiOjE3NDc3MzI5MDUsImV4cCI6MjM3ODQ1MjkwNX0.uiFigBU62HJihqK9bgiX00U09J3GhK5Orbhcu3DUqu0"
+      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-3_bvfhnz.png"
     },
     {
       id: 4,
       name: "Client 4",
-      logo: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/client-logo/img-3.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJjbGllbnQtbG9nby9pbWctMy5wbmciLCJpYXQiOjE3NDc3MzI5OTksImV4cCI6MjM3ODQ1Mjk5OX0.7Yn9SVBypSIGTN7vmylbPoaOHqi9YWaeEeBqlW14u4A"
+      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-2_upsy1p.png"
     },
     {
       id: 5,
       name: "Client 5",
-      logo: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/client-logo/img-4.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJjbGllbnQtbG9nby9pbWctNC5wbmciLCJpYXQiOjE3NDc3MzMwMTYsImV4cCI6MjM3ODQ1MzAxNn0.aRXxBMtVL0uNiIBtO82CY5hJAam0UEbYPm2db2b7oH4"
+      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-2_ki6i6g.jpg"
     },
     {
       id: 6,
       name: "Client 6",
-      logo: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/client-logo/img-5.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJjbGllbnQtbG9nby9pbWctNS5wbmciLCJpYXQiOjE3NDc3MzMwMzEsImV4cCI6MjM3ODQ1MzAzMX0.Qa3U3t8-rIp4Kiu5WEQTTPdnFeBr2SiWLZ6xuUhdQ0c"
+      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-1_u7cxow.png"
     },
     {
       id: 7,
       name: "Client 7",
-      logo: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/client-logo/img-6.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJjbGllbnQtbG9nby9pbWctNi5wbmciLCJpYXQiOjE3NDc3MzMwNDYsImV4cCI6MjM3ODQ1MzA0Nn0.MjBfxlKz8Sibp8ivFct2NGTEDDE7x4hhtup5t60_URU"
+      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-5_rnx1yy.png"
     },
   ];
-  
-  // Create autoplay plugin with options
-  const plugin = useRef(
-    Autoplay({
-      delay: 3000,
-      stopOnInteraction: true,
-      stopOnMouseEnter: true,
-      rootNode: (emblaRoot) => emblaRoot.parentElement,
-    })
-  );
-  
-  // Function to handle window resize for responsiveness
-  useEffect(() => {
-    const handleResize = () => {
-      // Force carousel reflow/update on resize
-      plugin.current.reset();
-    };
-    
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   return (
     <section id="clients" className="section-padding bg-white">
@@ -88,46 +67,66 @@ const ClientsCarousel = () => {
         <div className="max-w-7xl mx-auto">
           {/* Force LTR direction on the carousel container regardless of language */}
           <div dir="ltr">
-            <Carousel
-              opts={{
-                align: "center",
-                loop: true,
-                skipSnaps: false,
-                dragFree: true,
+            <Swiper
+              modules={[Autoplay, Loop]}
+              spaceBetween={20}
+              slidesPerView={1}
+              loop={true}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: false,
+                reverseDirection: false,
               }}
-              plugins={[plugin.current]}
-              className="w-full"
-              onMouseEnter={() => plugin.current.stop()}
-              onMouseLeave={() => plugin.current.play()}
+              speed={3000}
+              allowTouchMove={false}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 40,
+                },
+              }}
+              className="clients-swiper"
             >
-              <CarouselContent className="-ml-4">
-                {clientLogos.map((client) => (
-                  <CarouselItem 
-                    key={client.id} 
-                    className="pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
-                  >
-                    <div className="p-4">
-                      <div 
-                        className="rounded-lg bg-white shadow-md hover:shadow-xl transition-all duration-300 
-                                 p-8 flex items-center justify-center h-40 group border border-gray-100 hover:border-roadpro-yellow"
-                      >
-                        <img
-                          src={client.logo}
-                          alt={`${client.name} logo`}
-                          className="max-w-[90%] max-h-[90%] object-contain transition-all duration-300 
-                                   group-hover:scale-110 group-hover:drop-shadow-md"
-                          loading="lazy"
-                          style={{ objectFit: "contain" }}
-                        />
-                      </div>
+              {/* Duplicate slides for seamless looping */}
+              {[...clientLogos, ...clientLogos].map((client, index) => (
+                <SwiperSlide key={`${client.id}-${index}`}>
+                  <div className="p-4">
+                    <div 
+                      className="rounded-lg bg-white shadow-md hover:shadow-xl transition-all duration-300 
+                               p-8 flex items-center justify-center h-40 group border border-gray-100 hover:border-roadpro-yellow"
+                    >
+                      <img
+                        src={client.logo}
+                        alt={`${client.name} logo`}
+                        className="max-w-[90%] max-h-[90%] object-contain transition-all duration-300 
+                                 group-hover:scale-110 group-hover:drop-shadow-md"
+                        loading="lazy"
+                        style={{ objectFit: "contain" }}
+                      />
                     </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       </div>
+
+      {/* Custom styles for smooth continuous movement */}
+      <style jsx>{`
+        .clients-swiper .swiper-wrapper {
+          transition-timing-function: linear !important;
+        }
+      `}</style>
     </section>
   );
 };
