@@ -17,31 +17,49 @@ const HeroSection = () => {
     }
   };
 
-  // Make sure video plays on iOS Safari
+  // Make sure video plays on iOS Safari and other browsers
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
+      // Set video properties programmatically
       video.playsInline = true;
       video.muted = true;
+      video.autoplay = true;
+      video.loop = true;
+      video.controls = false;
       
-      // Try to play the video after it's loaded
-      const playVideo = () => {
+      // Force play after video loads
+      const handleCanPlay = () => {
+        video.play().catch(error => {
+          console.log("Video autoplay failed:", error);
+          // Fallback: try to play on any user interaction
+          const playOnInteraction = () => {
+            video.play().catch(e => console.log("Manual play failed:", e));
+            document.removeEventListener('click', playOnInteraction);
+            document.removeEventListener('touchstart', playOnInteraction);
+          };
+          document.addEventListener('click', playOnInteraction);
+          document.addEventListener('touchstart', playOnInteraction);
+        });
+      };
+
+      const handleLoadedData = () => {
         if (video.paused) {
-          video.play().catch(error => {
-            console.log("Video play error:", error);
-          });
+          handleCanPlay();
         }
       };
+
+      video.addEventListener('canplay', handleCanPlay);
+      video.addEventListener('loadeddata', handleLoadedData);
       
-      video.addEventListener('loadeddata', playVideo);
-      video.addEventListener('canplay', playVideo);
-      
-      // Try to play immediately in case the video is already loaded
-      playVideo();
+      // Try to play immediately if video is already loaded
+      if (video.readyState >= 3) {
+        handleCanPlay();
+      }
 
       return () => {
-        video.removeEventListener('loadeddata', playVideo);
-        video.removeEventListener('canplay', playVideo);
+        video.removeEventListener('canplay', handleCanPlay);
+        video.removeEventListener('loadeddata', handleLoadedData);
       };
     }
   }, []);
@@ -58,6 +76,7 @@ const HeroSection = () => {
           loop
           playsInline
           controls={false}
+          preload="auto"
           className="absolute top-0 left-0 w-full h-full object-cover"
           style={{
             position: 'fixed',
