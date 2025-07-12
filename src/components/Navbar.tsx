@@ -19,6 +19,7 @@ const Navbar = () => {
     { href: "#about", text: language === "en" ? "About" : "من نحن" },
     { href: "#services", text: language === "en" ? "Services" : "خدماتنا" },
     { href: "#projects-portfolio", text: language === "en" ? "Projects" : "المشاريع" },
+    { href: "#certifications", text: language === "en" ? "Certifications" : "الشهادات" },
     { href: "#clients", text: language === "en" ? "Our Clients" : "عملاؤنا" },
     { href: "#advantages", text: language === "en" ? "Why Us" : "لماذا نحن" },
     { href: "#contact", text: language === "en" ? "Contact" : "اتصل بنا" }

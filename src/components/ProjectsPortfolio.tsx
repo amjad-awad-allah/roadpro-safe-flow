@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { X, ArrowRight, MapPin, Calendar, Users, Award, FileText, ExternalLink } from "lucide-react";
+import { X, ArrowRight, MapPin, Calendar, Users, Award, FileText, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import { LinkesAndPathes, CertificateLinks } from "@/utils/LinkesAndPathes";
 
 const ProjectsPortfolio = () => {
@@ -15,6 +17,22 @@ const ProjectsPortfolio = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = useIsMobile();
   const sectionRef = useScrollAnimation({ animation: 'animate-fade-in-scroll' }) as React.RefObject<HTMLDivElement>;
+  
+  // Embla Carousel for certificates
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { 
+      loop: true,
+      align: 'start',
+      breakpoints: {
+        '(min-width: 768px)': { slidesToScroll: 2 },
+        '(min-width: 1024px)': { slidesToScroll: 3 }
+      }
+    },
+    [Autoplay({ delay: 4000, stopOnInteraction: true })]
+  );
+
+  const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
+  const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   // Updated project data based on Road Shield Solutions capabilities
   const projects = [
@@ -632,7 +650,7 @@ const ProjectsPortfolio = () => {
         </AnimatePresence>
 
         {/* Certificates Section */}
-        <div className="mt-24">
+        <div id="certifications" className="mt-24">{/* Added id for navigation */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -650,25 +668,41 @@ const ProjectsPortfolio = () => {
             </p>
           </motion.div>
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6"
-          >
-            {certificates.map((certificate, index) => (
-              <motion.div
-                key={certificate.id}
-                variants={cardVariants}
-                whileHover={{ 
-                  scale: 1.03,
-                  y: -8,
-                  boxShadow: "0 25px 50px rgba(255, 214, 0, 0.25)"
-                }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="group"
+          {/* Carousel Container */}
+          <div className="relative">
+            {/* Navigation Arrows */}
+            <div className="absolute -top-16 right-0 flex gap-2 z-10">
+              <button
+                onClick={scrollPrev}
+                className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-roadpro-yellow/10 border border-gray-100"
               >
+                <ChevronLeft className="h-5 w-5 text-roadpro-black" />
+              </button>
+              <button
+                onClick={scrollNext}
+                className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-roadpro-yellow/10 border border-gray-100"
+              >
+                <ChevronRight className="h-5 w-5 text-roadpro-black" />
+              </button>
+            </div>
+
+            {/* Embla Carousel */}
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex gap-6">{/* Embla container */}
+                {certificates.map((certificate, index) => (
+                  <motion.div
+                    key={certificate.id}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    whileHover={{ 
+                      scale: 1.03,
+                      y: -8,
+                      boxShadow: "0 25px 50px rgba(255, 214, 0, 0.25)"
+                    }}
+                    className="group flex-shrink-0 w-80" /* Fixed width for carousel */
+                  >
                 <Card className="h-full hover:shadow-2xl transition-all duration-500 border-0 bg-white/90 backdrop-blur-sm overflow-hidden group-hover:border-roadpro-yellow/20 group-hover:border">
                   <CardContent className="p-8 h-full flex flex-col relative">
                     {/* Background gradient overlay on hover */}
@@ -749,7 +783,9 @@ const ProjectsPortfolio = () => {
                 </Card>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
+        </div>
+      </div>
         </div>
       </div>
     </section>
