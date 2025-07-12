@@ -2,58 +2,9 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { LinkesAndPathes } from "@/utils/LinkesAndPathes";
 
-// Sample projects data
 const projects = [
-  {
-    id: 1,
-    category: "road-construction",
-    name: "Al Falah Street Expansion",
-    location: "Abu Dhabi City Center",
-    image: LinkesAndPathes.projectGallery1,
-    highlights: "Completed 2 weeks ahead of schedule with zero safety incidents"
-  },
-  {
-    id: 2,
-    category: "events",
-    name: "UAE National Day Parade",
-    location: "Corniche Road, Abu Dhabi",
-    image: LinkesAndPathes.projectGallery2,
-    highlights: "Managed traffic for over 200,000 attendees"
-  },
-  {
-    id: 3,
-    category: "infrastructure",
-    name: "Reem Island Bridge Construction",
-    location: "Reem Island, Abu Dhabi",
-    image: LinkesAndPathes.projectGallery3,
-    highlights: "Award-winning safety implementation"
-  },
-  {
-    id: 4,
-    category: "road-construction",
-    name: "Yas Island Highway Extension",
-    location: "Yas Island, Abu Dhabi",
-    image: LinkesAndPathes.projectGallery4,
-    highlights: "Innovative traffic diversion plan"
-  },
-  {
-    id: 5,
-    category: "events",
-    name: "Formula 1 Grand Prix",
-    location: "Yas Marina Circuit",
-    image: LinkesAndPathes.projectGallery5,
-    highlights: "Managed complex traffic flows for international event"
-  },
-  {
-    id: 6,
-    category: "infrastructure",
-    name: "Sheikh Zayed Road Maintenance",
-    location: "Dubai-Abu Dhabi Highway",
-    image: LinkesAndPathes.projectGallery6,
-    highlights: "Zero disruption to major arterial route"
-  }
+  // Project data will be added when real project images are available
 ];
 
 const categories = [
@@ -120,7 +71,7 @@ const ProjectsGallery = () => {
           ref={galleryRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {filteredProjects.map(project => (
+          {filteredProjects.length > 0 ? filteredProjects.map(project => (
             <div 
               key={project.id}
               className="group rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
@@ -149,7 +100,11 @@ const ProjectsGallery = () => {
                 </div>
               </div>
             </div>
-          ))}
+          )) : (
+            <div className="col-span-full text-center py-12 text-roadpro-gray">
+              <p className="text-lg">Project gallery will be displayed here</p>
+            </div>
+          )}
         </div>
         
         <div className="text-center mt-12">

@@ -11,44 +11,9 @@ import Autoplay from "embla-carousel-autoplay";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { LinkesAndPathes } from "@/utils/LinkesAndPathes";
 
 const partners = [
-  {
-    id: 1,
-    name: "Partner 1",
-    logo: LinkesAndPathes.partnerLogo1
-  },
-  {
-    id: 2,
-    name: "Partner 2",
-    logo: LinkesAndPathes.partnerLogo2
-  },
-  {
-    id: 3,
-    name: "Partner 3",
-    logo: LinkesAndPathes.partnerLogo3
-  },
-  {
-    id: 4,
-    name: "Partner 4",
-    logo: LinkesAndPathes.partnerLogo4
-  },
-  {
-    id: 5,
-    name: "Partner 5",
-    logo: LinkesAndPathes.partnerLogo5
-  },
-  {
-    id: 6,
-    name: "Partner 6",
-    logo: LinkesAndPathes.partnerLogo6
-  },
-  {
-    id: 7,
-    name: "Partner 7",
-    logo: LinkesAndPathes.partnerLogo1  // Reusing first partner logo
-  },
+  // Partners data will be added when real partner logos are available
 ];
 
 const PartnersCarousel = () => {
@@ -104,7 +69,7 @@ const PartnersCarousel = () => {
             onMouseLeave={() => plugin.current.play()}
           >
             <CarouselContent className="-ml-2 md:-ml-4">
-              {partners.map((partner) => (
+              {partners.length > 0 ? partners.map((partner) => (
                 <CarouselItem 
                   key={partner.id} 
                   className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4"
@@ -124,7 +89,11 @@ const PartnersCarousel = () => {
                     </div>
                   </div>
                 </CarouselItem>
-              ))}
+              )) : (
+                <div className="text-center py-8 text-roadpro-gray">
+                  Partner logos will be displayed here
+                </div>
+              )}
             </CarouselContent>
 
             {/* Custom Navigation Arrows */}
