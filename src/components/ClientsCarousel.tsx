@@ -14,38 +14,45 @@ const ClientsCarousel = () => {
   
   // Updated client logo URLs
   const clientLogos = [
-    {
-      id: 1,
-      name: "Client 1",
-      logo: {LinkesAndPathes.client1}
-    {
-      id: 2,
-      name: "Client 2",
-      logo: {LinkesAndPathes.client1}
-    },
-    {
-      id: 3,
-      name: "Client 3",
-      logo: {LinkesAndPathes.client1}
-    },
-    {
-      id: 4,
-      name: "Client 4",
-logo: {LinkesAndPathes.client1}    },
-    {
-      id: 5,
-      name: "Client 5",
-logo: {LinkesAndPathes.client1}    },
-    {
-      id: 6,
-      name: "Client 6",
-logo: {LinkesAndPathes.client1}    },
-    {
-      id: 7,
-      name: "Client 7",
-      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-5_rnx1yy.png"
-    },
-  ];
+    import { LinkesAndPathes } from "@/utils/LinkesAndPathes";
+
+const clients = [
+  {
+    id: 1,
+    name: "Client 1",
+    logo: LinkesAndPathes.clent1
+  },
+  {
+    id: 2,
+    name: "Client 2",
+    logo: LinkesAndPathes.clent2
+  },
+  {
+    id: 3,
+    name: "Client 3",
+    logo: LinkesAndPathes.clent3
+  },
+  {
+    id: 4,
+    name: "Client 4",
+    logo: LinkesAndPathes.clent4
+  },
+  {
+    id: 5,
+    name: "Client 5",
+    logo: LinkesAndPathes.clent5
+  },
+  {
+    id: 6,
+    name: "Client 6",
+    logo: LinkesAndPathes.clent6
+  },
+  {
+    id: 7,
+    name: "Client 7",
+    logo: LinkesAndPathes.clent7
+  }
+];
 
   return (
     <section id="clients" className="section-padding bg-white">
