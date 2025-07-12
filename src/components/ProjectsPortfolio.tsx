@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { X, ArrowRight, MapPin, Calendar, Users, Award, FileText, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ArrowRight, MapPin, Calendar, Users, Award, FileText, ExternalLink } from "lucide-react";
 import { LinkesAndPathes, CertificateLinks } from "@/utils/LinkesAndPathes";
 
 const ProjectsPortfolio = () => {
@@ -18,38 +18,44 @@ const ProjectsPortfolio = () => {
   const isMobile = useIsMobile();
   const sectionRef = useScrollAnimation({ animation: 'animate-fade-in-scroll' }) as React.RefObject<HTMLDivElement>;
   
-  // Embla Carousel for certificates with autoplay
+  // Check if screen is mobile (≤768px)
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
+  
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobileScreen(window.innerWidth <= 768);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
+
+  // Autoplay plugin only for mobile screens
   const autoplayPlugin = Autoplay({ 
     delay: 4000, 
-    stopOnInteraction: false,  // Continue autoplay even after manual interaction
-    stopOnMouseEnter: true,    // Pause on hover
-    stopOnFocusIn: true
+    stopOnInteraction: false,
+    stopOnMouseEnter: false,
+    stopOnFocusIn: false
   });
   
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
       loop: true,
       align: 'start',
-      slidesToScroll: 1,  // Scroll one card at a time for smoother experience
+      slidesToScroll: 1,
+      duration: 30, // Smoother transition (700-800ms)
       breakpoints: {
         '(min-width: 768px)': { slidesToScroll: 1 },
         '(min-width: 1024px)': { slidesToScroll: 1 }
       }
     },
-    [autoplayPlugin]
+    // Only add autoplay for mobile screens
+    isMobileScreen ? [autoplayPlugin] : []
   );
-
-  const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
-  const scrollNext = () => emblaApi && emblaApi.scrollNext();
-
-  // Handle hover pause/resume
-  const handleMouseEnter = () => {
-    if (autoplayPlugin) autoplayPlugin.stop();
-  };
-
-  const handleMouseLeave = () => {
-    if (autoplayPlugin) autoplayPlugin.play();
-  };
 
   // Updated project data based on Road Shield Solutions capabilities
   const projects = [
@@ -687,28 +693,10 @@ const ProjectsPortfolio = () => {
 
           {/* Carousel Container */}
           <div className="relative">
-            {/* Navigation Arrows */}
-            <div className="absolute -top-16 right-0 flex gap-2 z-10">
-              <button
-                onClick={scrollPrev}
-                className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-roadpro-yellow/10 border border-gray-100"
-              >
-                <ChevronLeft className="h-5 w-5 text-roadpro-black" />
-              </button>
-              <button
-                onClick={scrollNext}
-                className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-roadpro-yellow/10 border border-gray-100"
-              >
-                <ChevronRight className="h-5 w-5 text-roadpro-black" />
-              </button>
-            </div>
-
             {/* Embla Carousel */}
             <div 
               className="overflow-hidden" 
               ref={emblaRef}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
             >
               <div className="flex gap-6">{/* Embla container */}
                 {certificates.map((certificate, index) => (
