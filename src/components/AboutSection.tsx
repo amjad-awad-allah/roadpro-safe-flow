@@ -48,7 +48,7 @@ const AboutSection = () => {
           </div>
           
           <div className="relative">
-            <img src={LinkesAndPathes .bg3} alt="Road Shield Solutions team at work" className="w-full h-auto rounded-2xl shadow-xl" />
+            <img src={LinkesAndPathes.bg5} alt="Road Shield Solutions team at work" className="w-full h-auto rounded-2xl shadow-xl" />
             <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg max-w-xs hidden md:block">
               <p className="text-roadpro-black text-sm italic">
                 {language === "en" ? "Safety isn't expensive, it's priceless. We ensure every road project prioritizes the safety of all users." : "السلامة ليست مكلفة، بل هي لا تقدر بثمن. نحن نضمن أن كل مشروع طرق يعطي الأولوية لسلامة جميع المستخدمين."}
