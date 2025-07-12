@@ -1,6 +1,6 @@
 
 export const LinkesAndPathes  = {
- videoHome:"https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/video//home--v.mp4",
+ videoHome:"https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/video/home--v.mp4",
   bg1: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/imges/bg-1.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iNGEyMzBkMi1lM2E2LTQ0OWQtYmRlOS00MzJjOGUyNzk5ZDEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWdlcy9iZy0xLndlYnAiLCJpYXQiOjE3NTIzMjIyODAsImV4cCI6MjQ0NjExNDI4MH0.AZfk4xE4xDtw63hJgLZnTXQqkqW-g26BajJ4e07Volo",
   bg3: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/imges/bg-3.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iNGEyMzBkMi1lM2E2LTQ0OWQtYmRlOS00MzJjOGUyNzk5ZDEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWdlcy9iZy0zLndlYnAiLCJpYXQiOjE3NTIzMjIzMzcsImV4cCI6MjQ0NjExNDMzN30.3jyLcl0-0e2o_joF7yQJZILR3xSg2V2xPPX7Ais6rV4",
   bg5: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/imges/bg-5.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iNGEyMzBkMi1lM2E2LTQ0OWQtYmRlOS00MzJjOGUyNzk5ZDEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWdlcy9iZy01LndlYnAiLCJpYXQiOjE3NTIzMjIzODIsImV4cCI6MjQ0NjExNDM4Mn0.yar4JInDinWC6VrvrJEdaCjz-nPXsad_2_TOo1hBGSA"
