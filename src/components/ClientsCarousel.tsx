@@ -49,6 +49,11 @@ const ClientsCarousel = () => {
       name: "Client 7",
       logo: LinkesAndPathes.clientLogo7
     },
+    {
+      id: 8,
+      name: "Client 8",
+      logo: LinkesAndPathes.clientLogo8
+    },
   ];
 
   return (

@@ -16,6 +16,7 @@ export const LinkesAndPathes = {
   clientLogo5: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-2_ki6i6g.jpg",
   clientLogo6: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-1_u7cxow.png",
   clientLogo7: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-5_rnx1yy.png",
+  clientLogo8: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-5_rnx1yy.png",
   
   
   // Google Maps
