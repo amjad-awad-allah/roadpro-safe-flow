@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/contexts/LanguageContext";
 import GoogleMap from "@/components/GoogleMap";
 import { toast } from "@/hooks/use-toast";
+import { LinkesAndPathes } from "@/utils/LinkesAndPathes";
 const ContactSection = () => {
   const {
     t,
@@ -161,7 +162,7 @@ const ContactSection = () => {
             </div>
             
             {/* Google Map */}
-            <div className="w-full h-[300px] cursor-pointer" onClick={() => window.open("https://maps.google.com/?q=24.4539,54.3773", "_blank")}>
+            <div className="w-full h-[300px] cursor-pointer" onClick={() => window.open(LinkesAndPathes.googleMapsUrl, "_blank")}>
               <GoogleMap location={officeLocation} height="300px" />
             </div>
           </div>

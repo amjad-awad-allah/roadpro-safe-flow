@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { LinkesAndPathes } from "@/utils/LinkesAndPathes";
 
 // Sample projects data
 const projects = [
@@ -10,7 +11,7 @@ const projects = [
     category: "road-construction",
     name: "Al Falah Street Expansion",
     location: "Abu Dhabi City Center",
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&h=500&fit=crop",
+    image: LinkesAndPathes.projectGallery1,
     highlights: "Completed 2 weeks ahead of schedule with zero safety incidents"
   },
   {
@@ -18,7 +19,7 @@ const projects = [
     category: "events",
     name: "UAE National Day Parade",
     location: "Corniche Road, Abu Dhabi",
-    image: "https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?w=800&h=500&fit=crop",
+    image: LinkesAndPathes.projectGallery2,
     highlights: "Managed traffic for over 200,000 attendees"
   },
   {
@@ -26,7 +27,7 @@ const projects = [
     category: "infrastructure",
     name: "Reem Island Bridge Construction",
     location: "Reem Island, Abu Dhabi",
-    image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800&h=500&fit=crop",
+    image: LinkesAndPathes.projectGallery3,
     highlights: "Award-winning safety implementation"
   },
   {
@@ -34,7 +35,7 @@ const projects = [
     category: "road-construction",
     name: "Yas Island Highway Extension",
     location: "Yas Island, Abu Dhabi",
-    image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=800&h=500&fit=crop",
+    image: LinkesAndPathes.projectGallery4,
     highlights: "Innovative traffic diversion plan"
   },
   {
@@ -42,7 +43,7 @@ const projects = [
     category: "events",
     name: "Formula 1 Grand Prix",
     location: "Yas Marina Circuit",
-    image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=800&h=500&fit=crop",
+    image: LinkesAndPathes.projectGallery5,
     highlights: "Managed complex traffic flows for international event"
   },
   {
@@ -50,7 +51,7 @@ const projects = [
     category: "infrastructure",
     name: "Sheikh Zayed Road Maintenance",
     location: "Dubai-Abu Dhabi Highway",
-    image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&h=500&fit=crop",
+    image: LinkesAndPathes.projectGallery6,
     highlights: "Zero disruption to major arterial route"
   }
 ];

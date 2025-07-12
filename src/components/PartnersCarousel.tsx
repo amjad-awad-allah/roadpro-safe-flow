@@ -11,42 +11,43 @@ import Autoplay from "embla-carousel-autoplay";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { LinkesAndPathes } from "@/utils/LinkesAndPathes";
 
 const partners = [
   {
     id: 1,
     name: "Partner 1",
-    logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=200&h=100&q=80"
+    logo: LinkesAndPathes.partnerLogo1
   },
   {
     id: 2,
     name: "Partner 2",
-    logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=200&h=100&q=80"
+    logo: LinkesAndPathes.partnerLogo2
   },
   {
     id: 3,
     name: "Partner 3",
-    logo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=200&h=100&q=80"
+    logo: LinkesAndPathes.partnerLogo3
   },
   {
     id: 4,
     name: "Partner 4",
-    logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=200&h=100&q=80"
+    logo: LinkesAndPathes.partnerLogo4
   },
   {
     id: 5,
     name: "Partner 5",
-    logo: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=200&h=100&q=80"
+    logo: LinkesAndPathes.partnerLogo5
   },
   {
     id: 6,
     name: "Partner 6",
-    logo: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=200&h=100&q=80"
+    logo: LinkesAndPathes.partnerLogo6
   },
   {
     id: 7,
     name: "Partner 7",
-    logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=200&h=100&q=80"
+    logo: LinkesAndPathes.partnerLogo1  // Reusing first partner logo
   },
 ];
 

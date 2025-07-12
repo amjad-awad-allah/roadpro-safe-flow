@@ -1,5 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
+import { LinkesAndPathes } from "@/utils/LinkesAndPathes";
 
 interface GoogleMapProps {
   apiKey?: string;
@@ -38,7 +39,7 @@ const GoogleMap = ({
 
     // Load Google Maps API script
     const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
+    script.src = `${LinkesAndPathes.googleMapsApiBase}?key=${apiKey}&callback=initMap`;
     script.async = true;
     script.defer = true;
     
