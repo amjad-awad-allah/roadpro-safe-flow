@@ -1,6 +1,6 @@
 
 import { useEffect, useRef } from 'react';
-import { backgroundImages } from '@/utils/backgroundImages';
+import { LinkesAndPathes  } from '@/utils/LinkesAndPathes';
 
 const ParallaxSection = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -38,7 +38,7 @@ const ParallaxSection = () => {
       ref={parallaxRef}
       className="w-full bg-center bg-no-repeat bg-cover relative h-[300px] md:h-[400px] lg:h-[500px] dark-overlay"
       style={{
-        backgroundImage: `url('${backgroundImages.bg1}')`,
+        backgroundImage: `url('${LinkesAndPathes.bg1}')`,
         backgroundAttachment: "fixed",
         backgroundSize: "cover",
         backgroundPosition: "center 50%",

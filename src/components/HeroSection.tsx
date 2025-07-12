@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useRef } from "react";
+import { LinkesAndPathes   } from "@/utils/LinkesAndPathes"; // لو بنفس المستوى
 
 const HeroSection = () => {
   const { t, language } = useLanguage();
@@ -90,7 +91,7 @@ const HeroSection = () => {
           poster="/lovable-uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg"
         >
           <source 
-            src="https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/video/home--v.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iNGEyMzBkMi1lM2E2LTQ0OWQtYmRlOS00MzJjOGUyNzk5ZDEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9ob21lLS12Lm1wNCIsImlhdCI6MTc1MjMzOTU3NiwiZXhwIjoyMDk5MjM1NTc2fQ.2lsHneVI5PbMZ2qeiCzEyPMhtJLZkXnPUShO2lXB31E" 
+           src={LinkesAndPathes.videoHome}
             type="video/mp4"
           />
           Your browser does not support the video tag.

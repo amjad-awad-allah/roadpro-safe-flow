@@ -1,5 +1,5 @@
 
-export const backgroundImages = {
+export const LinkesAndPathes  = {
  videoHome:"https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/video/home--v.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iNGEyMzBkMi1lM2E2LTQ0OWQtYmRlOS00MzJjOGUyNzk5ZDEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9ob21lLS12Lm1wNCIsImlhdCI6MTc1MjMzOTQ3MCwiZXhwIjoyNDQ2MTMxNDcwfQ.gTrRu7ZkeQ9HSZz-AwzFdUcSWzvKNjyxJ3eWAGRiGC8",
   bg1: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/imges/bg-1.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iNGEyMzBkMi1lM2E2LTQ0OWQtYmRlOS00MzJjOGUyNzk5ZDEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWdlcy9iZy0xLndlYnAiLCJpYXQiOjE3NTIzMjIyODAsImV4cCI6MjQ0NjExNDI4MH0.AZfk4xE4xDtw63hJgLZnTXQqkqW-g26BajJ4e07Volo",
   bg3: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/imges/bg-3.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iNGEyMzBkMi1lM2E2LTQ0OWQtYmRlOS00MzJjOGUyNzk5ZDEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWdlcy9iZy0zLndlYnAiLCJpYXQiOjE3NTIzMjIzMzcsImV4cCI6MjQ0NjExNDMzN30.3jyLcl0-0e2o_joF7yQJZILR3xSg2V2xPPX7Ais6rV4",

@@ -2,7 +2,7 @@
 import { Check } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { backgroundImages } from "@/utils/backgroundImages"; // لو بنفس المستوى
+import { LinkesAndPathes   } from "@/utils/LinkesAndPathes"; // لو بنفس المستوى
 
 const AdvantagesSection = () => {
   const {
@@ -86,8 +86,8 @@ const AdvantagesSection = () => {
           
           {/* IMAGE right - updated to match About Us section image styling */}
           <div ref={imageRef} className="relative">
-            <img alt="Road Shield Solutions professional vehicle" src={backgroundImages.bg1} />
-            <div className="absolute -right-7 -bottom-7 w-36 h-36 bg-roadpro-yellow/20 rounded-full -z-10"></div>
+            <img alt="Road Shield Solutions professional vehicle" src={LinkesAndPathes.bg1} />
+            <div className="absolute -right-7 -bottom-7 w-36 h-36 bg-roadpro-ybackgroundImagesellow/20 rounded-full -z-10"></div>
             <div className="absolute -left-7 -top-7 w-20 h-20 border-4 border-roadpro-yellow rounded-full -z-10"></div>
             
             {/* Card: Your Safety, Our Priority - visible on XL, with updated positioning */}
