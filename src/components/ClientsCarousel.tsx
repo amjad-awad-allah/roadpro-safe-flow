@@ -17,8 +17,7 @@ const ClientsCarousel = () => {
     {
       id: 1,
       name: "Client 1",
-      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-6_v77xkk.png"
-    },
+      logo: LinkesAndPathes.clent1
     {
       id: 2,
       name: "Client 2",
