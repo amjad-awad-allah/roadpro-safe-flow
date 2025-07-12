@@ -90,7 +90,7 @@ const HeroSection = () => {
           poster="/lovable-uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg"
         >
           <source 
-            src="https://res.cloudinary.com/digkc9b40/video/upload/v1748961247/home--v_r0glzq.mp4" 
+            src="https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/video/home--v.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iNGEyMzBkMi1lM2E2LTQ0OWQtYmRlOS00MzJjOGUyNzk5ZDEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9ob21lLS12Lm1wNCIsImlhdCI6MTc1MjMzOTU3NiwiZXhwIjoyMDk5MjM1NTc2fQ.2lsHneVI5PbMZ2qeiCzEyPMhtJLZkXnPUShO2lXB31E" 
             type="video/mp4"
           />
           Your browser does not support the video tag.
