@@ -43,7 +43,8 @@ logo: {LinkesAndPathes.client1}    },
     {
       id: 7,
       name: "Client 7",
-logo: {LinkesAndPathes.client1}    },
+      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-5_rnx1yy.png"
+    },
   ];
 
   return (

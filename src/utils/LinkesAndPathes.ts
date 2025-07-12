@@ -10,6 +10,6 @@ clent3:"https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-6_v77x
 clent4:"https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-6_v77xkk.png",
 clent5:"https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-6_v77xkk.png",
 clent6:"https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-6_v77xkk.png",
-clent7:"https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-6_v77xkk.png",
+clent7:"https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-6_v77xkk.png"
 
 };
