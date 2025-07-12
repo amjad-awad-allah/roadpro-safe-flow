@@ -3,6 +3,7 @@ import { useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import { useLanguage } from "@/contexts/LanguageContext";
+import { LinkesAndPathes } from "@/utils/LinkesAndPathes"; // تأكد من صحة المسار
 
 // Import Swiper styles
 import 'swiper/css';
@@ -16,38 +17,33 @@ const ClientsCarousel = () => {
     {
       id: 1,
       name: "Client 1",
-      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-6_v77xkk.png"
-    },
+      logo: {LinkesAndPathes.client1}
     {
       id: 2,
       name: "Client 2",
-      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961438/img-4_ur3cvx.png"
+      logo: {LinkesAndPathes.client1}
     },
     {
       id: 3,
       name: "Client 3",
-      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-3_bvfhnz.png"
+      logo: {LinkesAndPathes.client1}
     },
     {
       id: 4,
       name: "Client 4",
-      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-2_upsy1p.png"
-    },
+logo: {LinkesAndPathes.client1}    },
     {
       id: 5,
       name: "Client 5",
-      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-2_ki6i6g.jpg"
-    },
+logo: {LinkesAndPathes.client1}    },
     {
       id: 6,
       name: "Client 6",
-      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-1_u7cxow.png"
-    },
+logo: {LinkesAndPathes.client1}    },
     {
       id: 7,
       name: "Client 7",
-      logo: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-5_rnx1yy.png"
-    },
+logo: {LinkesAndPathes.client1}    },
   ];
 
   return (
