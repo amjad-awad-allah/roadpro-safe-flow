@@ -1,5 +1,6 @@
 
 import { useEffect, useRef } from 'react';
+import { backgroundImages } from '@/utils/backgroundImages';
 
 const ParallaxSection = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -37,7 +38,7 @@ const ParallaxSection = () => {
       ref={parallaxRef}
       className="w-full bg-center bg-no-repeat bg-cover relative h-[300px] md:h-[400px] lg:h-[500px] dark-overlay"
       style={{
-        backgroundImage: "url('https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/imges/bg-1.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iNGEyMzBkMi1lM2E2LTQ0OWQtYmRlOS00MzJjOGUyNzk5ZDEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWdlcy9iZy0xLndlYnAiLCJpYXQiOjE3NTIzMjIyODAsImV4cCI6MjQ0NjExNDI4MH0.AZfk4xE4xDtw63hJgLZnTXQqkqW-g26BajJ4e07Volo')",
+        backgroundImage: `url('${backgroundImages.bg1}')`,
         backgroundAttachment: "fixed",
         backgroundSize: "cover",
         backgroundPosition: "center 50%",
