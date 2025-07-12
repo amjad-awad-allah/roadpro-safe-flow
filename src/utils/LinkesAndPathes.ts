@@ -11,12 +11,12 @@ export const LinkesAndPathes = {
   // Client logos (Cloudinary)
   clientLogo1: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-6_v77xkk.png",
   clientLogo2: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961438/img-4_ur3cvx.png",
-  clientLogo3: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-3_bvfhnz.png",
+  clientLogo3: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-3.png",
   clientLogo4: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-2_upsy1p.png",
   clientLogo5: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-2_ki6i6g.jpg",
   clientLogo6: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-1_u7cxow.png",
   clientLogo7: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-5_rnx1yy.png",
-  clientLogo8: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-5_rnx1yy.png",
+  clientLogo8: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-8.png",
   
   
   // Google Maps
