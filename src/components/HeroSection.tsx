@@ -68,7 +68,7 @@ const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Full Screen Background Video */}
-   <div className="absolute inset-0 w-full h-full overflow-hidden -z-10">
+   <div className="absolute inset-0 w-full h-full overflow-hidden -z-1">
   <video
     ref={videoRef}
     autoPlay
