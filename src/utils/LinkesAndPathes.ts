@@ -28,3 +28,8 @@ export const LinkesAndPathes = {
   // Supabase
   supabaseUrl: "https://pvwrtzsebysbidqijglv.supabase.co"
 };
+
+// Certificate PDF links
+export const CertificateLinks = {
+  iso9001: "/pdfs/certificate1.pdf",
+};

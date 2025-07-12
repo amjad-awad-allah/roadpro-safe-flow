@@ -6,8 +6,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { X, ArrowRight, MapPin, Calendar, Users, Award } from "lucide-react";
-import { LinkesAndPathes } from "@/utils/LinkesAndPathes";
+import { X, ArrowRight, MapPin, Calendar, Users, Award, FileText, ExternalLink } from "lucide-react";
+import { LinkesAndPathes, CertificateLinks } from "@/utils/LinkesAndPathes";
 
 const ProjectsPortfolio = () => {
   const { language, t } = useLanguage();
@@ -233,6 +233,38 @@ const ProjectsPortfolio = () => {
           ar: "أول نظام مرور للمدينة الذكية يحقق التكامل الكامل للذكاء الاصطناعي في المنطقة"
         }
       ]
+    }
+  ];
+
+  // Certificate data
+  const certificates = [
+    {
+      id: 1,
+      title: "ISO 9001:2015",
+      subtitle: {
+        en: "Quality Management System",
+        ar: "نظام إدارة الجودة"
+      },
+      issueDate: "03 July 2025",
+      expiryDate: "02 July 2028",
+      registrationNumber: "FQC/Q/3197/AE",
+      scope: {
+        en: [
+          "Road Maintenance",
+          "Main Roads, Streets and Related Works Contracting",
+          "Onshore and Offshore Oil and Gas Fields and Facilities Services",
+          "Road Painting and Other Marking Works",
+          "Roads and Bridges Management and Operation"
+        ],
+        ar: [
+          "صيانة الطرق",
+          "مقاولات الطرق الرئيسية والشوارع والأعمال ذات الصلة",
+          "خدمات حقول النفط والغاز البرية والبحرية والمرافق",
+          "أعمال طلاء الطرق وأعمال العلامات الأخرى",
+          "إدارة وتشغيل الطرق والجسور"
+        ]
+      },
+      pdfLink: CertificateLinks.iso9001
     }
   ];
 
@@ -524,6 +556,120 @@ const ProjectsPortfolio = () => {
             </>
           )}
         </AnimatePresence>
+
+        {/* Certificates Section */}
+        <div className="mt-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h3 className="text-3xl md:text-4xl font-bold text-roadpro-black mb-4">
+              {language === "en" ? "Our Certifications" : "شهاداتنا"}
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              {language === "en" 
+                ? "Quality assurance through internationally recognized certifications and standards" 
+                : "ضمان الجودة من خلال الشهادات والمعايير المعترف بها دولياً"}
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {certificates.map((certificate, index) => (
+              <motion.div
+                key={certificate.id}
+                variants={cardVariants}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px rgba(255, 214, 0, 0.3)"
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card className="h-full hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm">
+                  <CardContent className="p-6 h-full flex flex-col">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-3 bg-roadpro-yellow/20 rounded-lg">
+                        <Award className="h-6 w-6 text-roadpro-yellow" />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-roadpro-black">
+                          {certificate.title}
+                        </h4>
+                        <p className="text-gray-600 text-sm">
+                          {certificate.subtitle[language]}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3 mb-6">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-gray-500">
+                          {language === "en" ? "Issue Date:" : "تاريخ الإصدار:"}
+                        </span>
+                        <span className="text-sm font-medium text-roadpro-black">
+                          {certificate.issueDate}
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-gray-500">
+                          {language === "en" ? "Expiry Date:" : "تاريخ الانتهاء:"}
+                        </span>
+                        <span className="text-sm font-medium text-roadpro-black">
+                          {certificate.expiryDate}
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm text-gray-500">
+                          {language === "en" ? "Registration No:" : "رقم التسجيل:"}
+                        </span>
+                        <span className="text-sm font-medium text-roadpro-black">
+                          {certificate.registrationNumber}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="mb-6">
+                      <h5 className="text-sm font-semibold text-roadpro-black mb-2">
+                        {language === "en" ? "Scope:" : "النطاق:"}
+                      </h5>
+                      <ul className="text-xs text-gray-600 space-y-1">
+                        {certificate.scope[language].map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <span className="w-1 h-1 bg-roadpro-yellow rounded-full mt-2 flex-shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="mt-auto">
+                      <motion.a
+                        href={certificate.pdfLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 w-full justify-center bg-roadpro-yellow text-roadpro-black px-4 py-3 rounded-lg font-medium hover:bg-roadpro-yellow/90 transition-colors"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <FileText className="h-4 w-4" />
+                        {language === "en" ? "View Certificate" : "عرض الشهادة"}
+                        <ExternalLink className="h-3 w-3" />
+                      </motion.a>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
