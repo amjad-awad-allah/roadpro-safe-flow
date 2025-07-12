@@ -265,6 +265,80 @@ const ProjectsPortfolio = () => {
         ]
       },
       pdfLink: CertificateLinks.iso9001
+    },
+    {
+      id: 2,
+      title: "ISO 14001:2015",
+      subtitle: {
+        en: "Environmental Management System",
+        ar: "نظام الإدارة البيئية"
+      },
+      issueDate: "03 July 2025",
+      expiryDate: "02 July 2028",
+      registrationNumber: "FQC/Q/3198/AE",
+      scope: {
+        en: [
+          "Road Maintenance",
+          "Roads & Bridges Management and Operation",
+          "Oil & Gas Fields and Facilities Services",
+          "Road Markings and Signage"
+        ],
+        ar: [
+          "صيانة الطرق",
+          "إدارة وتشغيل الطرق والجسور",
+          "خدمات حقول النفط والغاز والمرافق",
+          "علامات الطرق واللافتات"
+        ]
+      },
+      pdfLink: CertificateLinks.iso14001
+    },
+    {
+      id: 3,
+      title: "ISO 45001:2018",
+      subtitle: {
+        en: "Occupational Health & Safety Management System",
+        ar: "نظام إدارة الصحة والسلامة المهنية"
+      },
+      issueDate: "03 July 2025",
+      expiryDate: "02 July 2028",
+      registrationNumber: "FQC/Q/3199/AE",
+      scope: {
+        en: [
+          "Road Maintenance",
+          "Main Roads and Related Works",
+          "Health and Safety Services in Oil & Gas Fields",
+          "Bridge Management & Road Painting"
+        ],
+        ar: [
+          "صيانة الطرق",
+          "الطرق الرئيسية والأعمال ذات الصلة",
+          "خدمات الصحة والسلامة في حقول النفط والغاز",
+          "إدارة الجسور وطلاء الطرق"
+        ]
+      },
+      pdfLink: CertificateLinks.iso45001
+    },
+    {
+      id: 4,
+      title: "ISO 41001:2018",
+      subtitle: {
+        en: "Facility Management System",
+        ar: "نظام إدارة المرافق"
+      },
+      issueDate: "03 July 2025",
+      expiryDate: "02 July 2028",
+      registrationNumber: "FQC/Q/3200/AE",
+      scope: {
+        en: [
+          "Operation and Maintenance of Infrastructure Facilities",
+          "Facility Services for Roads, Bridges, and Oil/Gas Fields"
+        ],
+        ar: [
+          "تشغيل وصيانة مرافق البنية التحتية",
+          "خدمات المرافق للطرق والجسور وحقول النفط والغاز"
+        ]
+      },
+      pdfLink: CertificateLinks.iso41001
     }
   ];
 
@@ -581,88 +655,95 @@ const ProjectsPortfolio = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6"
           >
             {certificates.map((certificate, index) => (
               <motion.div
                 key={certificate.id}
                 variants={cardVariants}
                 whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: "0 20px 40px rgba(255, 214, 0, 0.3)"
+                  scale: 1.03,
+                  y: -8,
+                  boxShadow: "0 25px 50px rgba(255, 214, 0, 0.25)"
                 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="group"
               >
-                <Card className="h-full hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm">
-                  <CardContent className="p-6 h-full flex flex-col">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="p-3 bg-roadpro-yellow/20 rounded-lg">
-                        <Award className="h-6 w-6 text-roadpro-yellow" />
+                <Card className="h-full hover:shadow-2xl transition-all duration-500 border-0 bg-white/90 backdrop-blur-sm overflow-hidden group-hover:border-roadpro-yellow/20 group-hover:border">
+                  <CardContent className="p-8 h-full flex flex-col relative">
+                    {/* Background gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-roadpro-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    <div className="relative z-10">
+                      <div className="flex items-start gap-4 mb-6">
+                        <div className="p-4 bg-gradient-to-br from-roadpro-yellow/20 to-roadpro-yellow/10 rounded-xl group-hover:from-roadpro-yellow/30 group-hover:to-roadpro-yellow/20 transition-all duration-500">
+                          <Award className="h-7 w-7 text-roadpro-yellow" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-xl font-bold text-roadpro-black mb-1 group-hover:text-roadpro-black transition-colors">
+                            {certificate.title}
+                          </h4>
+                          <p className="text-gray-600 text-sm font-medium leading-relaxed">
+                            {certificate.subtitle[language]}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="text-xl font-bold text-roadpro-black">
-                          {certificate.title}
-                        </h4>
-                        <p className="text-gray-600 text-sm">
-                          {certificate.subtitle[language]}
-                        </p>
-                      </div>
-                    </div>
 
-                    <div className="space-y-3 mb-6">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-500">
-                          {language === "en" ? "Issue Date:" : "تاريخ الإصدار:"}
-                        </span>
-                        <span className="text-sm font-medium text-roadpro-black">
-                          {certificate.issueDate}
-                        </span>
+                      <div className="space-y-4 mb-8">
+                        <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                          <span className="text-sm font-medium text-gray-500">
+                            {language === "en" ? "Issue Date:" : "تاريخ الإصدار:"}
+                          </span>
+                          <span className="text-sm font-semibold text-roadpro-black">
+                            {certificate.issueDate}
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                          <span className="text-sm font-medium text-gray-500">
+                            {language === "en" ? "Expiry Date:" : "تاريخ الانتهاء:"}
+                          </span>
+                          <span className="text-sm font-semibold text-roadpro-black">
+                            {certificate.expiryDate}
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center py-2">
+                          <span className="text-sm font-medium text-gray-500">
+                            {language === "en" ? "Reg. No:" : "رقم التسجيل:"}
+                          </span>
+                          <span className="text-sm font-semibold text-roadpro-black">
+                            {certificate.registrationNumber}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-500">
-                          {language === "en" ? "Expiry Date:" : "تاريخ الانتهاء:"}
-                        </span>
-                        <span className="text-sm font-medium text-roadpro-black">
-                          {certificate.expiryDate}
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-500">
-                          {language === "en" ? "Registration No:" : "رقم التسجيل:"}
-                        </span>
-                        <span className="text-sm font-medium text-roadpro-black">
-                          {certificate.registrationNumber}
-                        </span>
-                      </div>
-                    </div>
 
-                    <div className="mb-6">
-                      <h5 className="text-sm font-semibold text-roadpro-black mb-2">
-                        {language === "en" ? "Scope:" : "النطاق:"}
-                      </h5>
-                      <ul className="text-xs text-gray-600 space-y-1">
-                        {certificate.scope[language].map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <span className="w-1 h-1 bg-roadpro-yellow rounded-full mt-2 flex-shrink-0" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                      <div className="mb-8">
+                        <h5 className="text-sm font-bold text-roadpro-black mb-3">
+                          {language === "en" ? "Scope:" : "النطاق:"}
+                        </h5>
+                        <ul className="text-xs text-gray-600 space-y-2">
+                          {certificate.scope[language].map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-3">
+                              <span className="w-1.5 h-1.5 bg-roadpro-yellow rounded-full mt-1.5 flex-shrink-0" />
+                              <span className="leading-relaxed">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-                    <div className="mt-auto">
-                      <motion.a
-                        href={certificate.pdfLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 w-full justify-center bg-roadpro-yellow text-roadpro-black px-4 py-3 rounded-lg font-medium hover:bg-roadpro-yellow/90 transition-colors"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <FileText className="h-4 w-4" />
-                        {language === "en" ? "View Certificate" : "عرض الشهادة"}
-                        <ExternalLink className="h-3 w-3" />
-                      </motion.a>
+                      <div className="mt-auto">
+                        <motion.a
+                          href={certificate.pdfLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-3 w-full justify-center bg-gradient-to-r from-roadpro-yellow to-roadpro-yellow/90 text-roadpro-black px-6 py-4 rounded-xl font-semibold hover:from-roadpro-yellow/90 hover:to-roadpro-yellow transition-all duration-300 shadow-lg hover:shadow-xl group/btn"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          <FileText className="h-5 w-5 group-hover/btn:rotate-12 transition-transform duration-300" />
+                          <span>{language === "en" ? "View Certificate" : "عرض الشهادة"}</span>
+                          <ExternalLink className="h-4 w-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300" />
+                        </motion.a>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>

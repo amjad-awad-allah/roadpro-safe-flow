@@ -32,4 +32,7 @@ export const LinkesAndPathes = {
 // Certificate PDF links
 export const CertificateLinks = {
   iso9001: "/pdfs/certificate1.pdf",
+  iso14001: "/pdfs/certificate2.pdf",
+  iso45001: "/pdfs/certificate3.pdf",
+  iso41001: "/pdfs/certificate4.pdf",
 };
