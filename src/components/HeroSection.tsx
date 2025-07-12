@@ -1,15 +1,13 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useRef } from "react";
-import { LinkesAndPathes   } from "@/utils/LinkesAndPathes"; // لو بنفس المستوى
+import { LinkesAndPathes } from "@/utils/LinkesAndPathes"; // تأكد من صحة المسار
 
 const HeroSection = () => {
   const { t, language } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Function to handle smooth scrolling to a section
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -18,58 +16,51 @@ const HeroSection = () => {
     }
   };
 
-  // Make sure video plays on iOS Safari and other browsers
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
-      // Set video properties programmatically
-      video.playsInline = true;
-      video.muted = true;
-      video.autoplay = true;
-      video.loop = true;
-      video.controls = false;
-      
-      // Force play after video loads
-      const handleCanPlay = () => {
-        video.play().catch(error => {
-          console.log("Video autoplay failed:", error);
-          // Fallback: try to play on any user interaction
-          const playOnInteraction = () => {
-            video.play().catch(e => console.log("Manual play failed:", e));
-            document.removeEventListener('click', playOnInteraction);
-            document.removeEventListener('touchstart', playOnInteraction);
-          };
-          document.addEventListener('click', playOnInteraction);
-          document.addEventListener('touchstart', playOnInteraction);
-        });
-      };
+    if (!video) return;
 
-      const handleLoadedData = () => {
-        if (video.paused) {
-          handleCanPlay();
-        }
-      };
+    // تعيين الخصائص ضمانًا لتشغيل الفيديو
+    video.playsInline = true;
+    video.muted = true;
+    video.autoplay = true;
+    video.loop = true;
+    video.controls = false;
 
-      video.addEventListener('canplay', handleCanPlay);
-      video.addEventListener('loadeddata', handleLoadedData);
-      
-      // Try to play immediately if video is already loaded
-      if (video.readyState >= 3) {
-        handleCanPlay();
+    const playVideo = async () => {
+      try {
+        await video.play();
+      } catch (err) {
+        console.log("Autoplay failed:", err);
+
+        const handleInteraction = async () => {
+          await video.play();
+          document.removeEventListener("click", handleInteraction);
+          document.removeEventListener("touchstart", handleInteraction);
+        };
+
+        document.addEventListener("click", handleInteraction);
+        document.addEventListener("touchstart", handleInteraction);
       }
+    };
 
-      return () => {
-        video.removeEventListener('canplay', handleCanPlay);
-        video.removeEventListener('loadeddata', handleLoadedData);
-      };
-    }
+    playVideo();
+
+    return () => {
+      if (video && !video.paused) {
+        video.pause();
+      }
+    };
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center">
       {/* Full Screen Background Video */}
-      <div className="fixed inset-0 w-full h-full -z-20">
+      <div className="fixed inset-0 w-full h-full -z-10 pointer-events-none">
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/50 z-10"></div>
+
+        {/* Video with inline styles for positioning and z-index */}
         <video
           ref={videoRef}
           autoPlay
@@ -78,35 +69,27 @@ const HeroSection = () => {
           playsInline
           controls={false}
           preload="auto"
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          poster="/lovable-uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg"
           style={{
-            position: 'fixed',
+            position: "fixed",
             top: 0,
             left: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            zIndex: -1
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: -10,
           }}
-          poster="/lovable-uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg"
         >
-          <source 
-           src={LinkesAndPathes.videoHome}
-            type="video/mp4"
-          />
+          <source src={LinkesAndPathes.videoHome} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
 
-      {/* Content with Image Layout */}
+      {/* Content */}
       <div className="container mx-auto relative z-20 px-4 md:px-6 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Right side - Text content */}
-          <div
-            className={`text-white ${
-              language === "ar" ? "lg:order-1 text-right" : ""
-            }`}
-          >
+          <div className={`text-white ${language === "ar" ? "lg:order-1 text-right" : ""}`}>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in-bottom [animation-delay:200ms]">
               {language === "en" ? (
                 <>Professional Traffic Management<br />& Consultancy Services</>
