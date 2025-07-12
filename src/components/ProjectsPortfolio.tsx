@@ -18,21 +18,38 @@ const ProjectsPortfolio = () => {
   const isMobile = useIsMobile();
   const sectionRef = useScrollAnimation({ animation: 'animate-fade-in-scroll' }) as React.RefObject<HTMLDivElement>;
   
-  // Embla Carousel for certificates
+  // Embla Carousel for certificates with autoplay
+  const autoplayPlugin = Autoplay({ 
+    delay: 4000, 
+    stopOnInteraction: false,  // Continue autoplay even after manual interaction
+    stopOnMouseEnter: true,    // Pause on hover
+    stopOnFocusIn: true
+  });
+  
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { 
       loop: true,
       align: 'start',
+      slidesToScroll: 1,  // Scroll one card at a time for smoother experience
       breakpoints: {
-        '(min-width: 768px)': { slidesToScroll: 2 },
-        '(min-width: 1024px)': { slidesToScroll: 3 }
+        '(min-width: 768px)': { slidesToScroll: 1 },
+        '(min-width: 1024px)': { slidesToScroll: 1 }
       }
     },
-    [Autoplay({ delay: 4000, stopOnInteraction: true })]
+    [autoplayPlugin]
   );
 
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
+
+  // Handle hover pause/resume
+  const handleMouseEnter = () => {
+    if (autoplayPlugin) autoplayPlugin.stop();
+  };
+
+  const handleMouseLeave = () => {
+    if (autoplayPlugin) autoplayPlugin.play();
+  };
 
   // Updated project data based on Road Shield Solutions capabilities
   const projects = [
@@ -687,7 +704,12 @@ const ProjectsPortfolio = () => {
             </div>
 
             {/* Embla Carousel */}
-            <div className="overflow-hidden" ref={emblaRef}>
+            <div 
+              className="overflow-hidden" 
+              ref={emblaRef}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
               <div className="flex gap-6">{/* Embla container */}
                 {certificates.map((certificate, index) => (
                   <motion.div
