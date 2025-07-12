@@ -37,7 +37,7 @@ const ParallaxSection = () => {
       ref={parallaxRef}
       className="w-full bg-center bg-no-repeat bg-cover relative h-[300px] md:h-[400px] lg:h-[500px] dark-overlay"
       style={{
-        backgroundImage: "url('https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/imges/bg-1.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2NiNWUzYzllLTUyNmUtNGExZC1iYjEzLTBmOGExZjVmMzY0YyJ9.eyJ1cmwiOiJpbWdlcy9iZy0xLndlYnAiLCJpYXQiOjE3NDc3MzUxMjYsImV4cCI6MjM3ODQ1NTEyNn0.x3erUp88qQCCPptImKXEB97deR2wNX7kQrMii_xu5oQ')",
+        backgroundImage: "url('https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/imges/bg-1.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iNGEyMzBkMi1lM2E2LTQ0OWQtYmRlOS00MzJjOGUyNzk5ZDEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWdlcy9iZy0xLndlYnAiLCJpYXQiOjE3NTIzMjIyODAsImV4cCI6MjQ0NjExNDI4MH0.AZfk4xE4xDtw63hJgLZnTXQqkqW-g26BajJ4e07Volo')",
         backgroundAttachment: "fixed",
         backgroundSize: "cover",
         backgroundPosition: "center 50%",
