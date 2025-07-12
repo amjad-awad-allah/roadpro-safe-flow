@@ -17,7 +17,7 @@ const ClientsCarousel = () => {
     {
       id: 1,
       name: "Client 1",
-      logo: LinkesAndPathes.clent1
+      logo: "@/utils/LinkesAndPathes/clent1"
     {
       id: 2,
       name: "Client 2",
