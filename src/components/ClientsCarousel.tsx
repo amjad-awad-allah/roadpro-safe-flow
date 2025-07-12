@@ -3,7 +3,6 @@ import { useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import { useLanguage } from "@/contexts/LanguageContext";
-import { LinkesAndPathes } from "@/utils/LinkesAndPathes"; // تأكد من صحة المسار
 
 // Import Swiper styles
 import 'swiper/css';
