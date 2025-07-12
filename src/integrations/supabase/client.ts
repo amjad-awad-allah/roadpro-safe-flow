@@ -3,10 +3,10 @@ import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 import { LinkesAndPathes } from '@/utils/LinkesAndPathes';
 
-const SUPABASE_URL = LinkesAndPathes.supabaseUrl;
-const SUPABASE_PUBLISHABLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB2d3J0enNlYnlzYmlkcWlqZ2x2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MjY1NjEsImV4cCI6MjA2MzMwMjU2MX0.bYekKOOMjX2Hnsw6dbHVEDiJrRAEXcsZHeQm6dnzJ54";
+//const SUPABASE_URL = LinkesAndPathes.supabaseUrl;
+//const SUPABASE_PUBLISHABLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB2d3J0enNlYnlzYmlkcWlqZ2x2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MjY1NjEsImV4cCI6MjA2MzMwMjU2MX0.bYekKOOMjX2Hnsw6dbHVEDiJrRAEXcsZHeQm6dnzJ54";
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
-export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+//export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
