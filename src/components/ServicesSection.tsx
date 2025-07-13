@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { CarFront, Layers, Construction, MapPin, AlertTriangle } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useStaggeredAnimation } from "@/hooks/useStaggeredAnimation";
