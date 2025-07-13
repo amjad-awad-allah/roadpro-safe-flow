@@ -1,26 +1,23 @@
-
 import { useEffect, useRef, RefObject } from 'react';
 
-interface ScrollAnimationOptions {
+interface StaggeredAnimationOptions {
   threshold?: number;
-  delay?: number;
-  animation?: string;
+  staggerDelay?: number;
 }
 
-export const useScrollAnimation = <T extends HTMLElement>(
-  options: ScrollAnimationOptions = {}
+export const useStaggeredAnimation = <T extends HTMLElement>(
+  options: StaggeredAnimationOptions = {}
 ): RefObject<T> => {
   const elementRef = useRef<T>(null);
-  const { threshold = 0.1, delay = 0, animation = 'animate-fade-in-scroll' } = options;
+  const { threshold = 0.1, staggerDelay = 100 } = options;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add('visible');
-            }, delay);
+            const element = entry.target as HTMLElement;
+            element.classList.add('visible');
             observer.unobserve(entry.target);
           }
         });
@@ -33,7 +30,7 @@ export const useScrollAnimation = <T extends HTMLElement>(
 
     const currentElement = elementRef.current;
     if (currentElement) {
-      currentElement.classList.add(animation);
+      currentElement.classList.add('stagger-children');
       observer.observe(currentElement);
     }
 
@@ -42,7 +39,7 @@ export const useScrollAnimation = <T extends HTMLElement>(
         observer.unobserve(currentElement);
       }
     };
-  }, [threshold, delay, animation]);
+  }, [threshold, staggerDelay]);
 
   return elementRef;
 };

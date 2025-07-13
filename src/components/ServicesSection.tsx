@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { CarFront, Layers, Construction, MapPin, AlertTriangle } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useStaggeredAnimation } from "@/hooks/useStaggeredAnimation";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 const ServicesSection = () => {
@@ -15,8 +16,10 @@ const ServicesSection = () => {
     animation: 'animate-fade-in-scroll',
     delay: 100
   });
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const productsCardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  
+  // Staggered animations for service cards
+  const trafficServicesRef = useStaggeredAnimation<HTMLDivElement>();
+  const productServicesRef = useStaggeredAnimation<HTMLDivElement>();
 
   // Define services with their respective icons and translation keys
   const trafficManagementServices = [{
@@ -46,33 +49,6 @@ const ServicesSection = () => {
     descriptionKey: "services.street.description",
     delay: 400
   }];
-  useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, Number(entry.target.getAttribute('data-delay')) || 0);
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-    cardsRef.current.forEach(card => {
-      if (card) observer.observe(card);
-    });
-    productsCardsRef.current.forEach(card => {
-      if (card) observer.observe(card);
-    });
-    return () => {
-      cardsRef.current.forEach(card => {
-        if (card) observer.unobserve(card);
-      });
-      productsCardsRef.current.forEach(card => {
-        if (card) observer.unobserve(card);
-      });
-    };
-  }, []);
   return <section id="services" className="section-padding bg-roadpro-lightgray">
       <div className="container mx-auto px-4">
         {/* Traffic Management & Consultancy Services */}
@@ -90,15 +66,15 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+        <div ref={trafficServicesRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
           {trafficManagementServices.map((service, index) => {
           const Icon = service.icon;
-          return <div key={index} ref={el => cardsRef.current[index] = el} data-delay={service.delay} className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-300
+          return <div key={index} className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-300
                   hover:translate-y-[-10px] hover:shadow-xl border-b-4 border-transparent 
-                  hover:border-roadpro-yellow animate-fade-in-scroll">
+                  hover:border-roadpro-yellow animate-zoom-in">
                 <div className="w-16 h-16 bg-roadpro-yellow/20 rounded-full flex items-center justify-center mb-6
                     transition-shadow animate-soft-pulse">
-                  <Icon className="w-8 h-8 text-roadpro-yellow transition-transform" />
+                  <Icon className="w-8 h-8 text-roadpro-yellow transition-transform animate-elastic-bounce" />
                 </div>
                 <h3 className="text-xl font-semibold text-roadpro-black mb-4 leading-tight">
                   {t(service.titleKey)}
@@ -126,12 +102,12 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={productServicesRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {trafficProductsServices.map((service, index) => {
           const Icon = service.icon;
-          return <div key={index} ref={el => productsCardsRef.current[index] = el} data-delay={service.delay} className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-300
+          return <div key={index} className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-300
                   hover:translate-y-[-10px] hover:shadow-xl border-b-4 border-transparent 
-                  hover:border-roadpro-yellow animate-fade-in-scroll">
+                  hover:border-roadpro-yellow animate-zoom-in">
                 <div className="w-16 h-16 bg-roadpro-yellow/20 rounded-full flex items-center justify-center mb-6
                     transition-shadow animate-soft-pulse">
                   <Icon className="w-8 h-8 text-roadpro-yellow transition-transform" />

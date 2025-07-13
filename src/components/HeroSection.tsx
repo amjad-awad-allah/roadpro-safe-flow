@@ -3,11 +3,17 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useRef } from "react";
-import { LinkesAndPathes   } from "@/utils/LinkesAndPathes"; // لو بنفس المستوى
+import { LinkesAndPathes } from "@/utils/LinkesAndPathes";
+import { usePageLoadAnimation } from "@/hooks/usePageLoadAnimation";
 
 const HeroSection = () => {
   const { t, language } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
+  
+  // Page load animations
+  const titleRef = usePageLoadAnimation<HTMLHeadingElement>({ delay: 200 });
+  const subtitleRef = usePageLoadAnimation<HTMLParagraphElement>({ delay: 400 });
+  const buttonsRef = usePageLoadAnimation<HTMLDivElement>({ delay: 600 });
 
   // Function to handle smooth scrolling to a section
   const scrollToSection = (sectionId: string) => {
@@ -103,7 +109,7 @@ const HeroSection = () => {
               language === "ar" ? "lg:order-1 text-right" : ""
             }`}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in-bottom [animation-delay:200ms]">
+            <h1 ref={titleRef} className="text-4xl md:text-5xl font-bold mb-4">
               {language === "en" ? (
                 <>Professional Traffic Management<br />& Consultancy Services</>
               ) : (
@@ -114,20 +120,21 @@ const HeroSection = () => {
                 </>
               )}
             </h1>
-            <p className="text-xl mb-8 opacity-90 animate-fade-in-bottom [animation-delay:400ms]">
+            <p ref={subtitleRef} className="text-xl mb-8 opacity-90">
               {language === "en"
                 ? "Committed to ensuring public safety and maintaining efficient traffic flow with comprehensive solutions that comply with regulatory standards."
                 : "ملتزمون بضمان السلامة العامة والحفاظ على تدفق مروري فعال من خلال حلول شاملة تتوافق مع المعايير التنظيمية."}
             </p>
             <div
-              className={`flex flex-wrap gap-4 animate-fade-in-bottom [animation-delay:600ms] ${
+              ref={buttonsRef}
+              className={`flex flex-wrap gap-4 ${
                 language === "ar" ? "justify-end" : ""
               }`}
             >
               <Button 
                 variant="cta" 
                 size="lg" 
-                className="group"
+                className="group animate-elastic-bounce"
                 onClick={() => scrollToSection("services")}
               >
                 {language === "en" ? (
