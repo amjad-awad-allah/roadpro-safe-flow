@@ -704,49 +704,53 @@ const ProjectsPortfolio = () => {
               key={project.id}
               variants={cardVariants}
               whileHover={{ 
-                scale: 1.03,
-                boxShadow: "0 20px 40px rgba(255, 214, 0, 0.2)",
+                scale: 1.02,
+                y: -8,
+                boxShadow: "0 25px 50px rgba(255, 214, 0, 0.15), 0 8px 25px rgba(0, 0, 0, 0.1)",
               }}
               whileTap={{ scale: 0.98 }}
-              className="cursor-pointer"
+              className="cursor-pointer group"
               onClick={() => openProject(project.id)}
             >
-              <Card className="overflow-hidden bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+              <Card className="overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 h-full group-hover:border-roadpro-yellow/20 group-hover:border">
                 <div className="relative">
                   <img 
                     src={project.image} 
                     alt={project.title[language]}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-roadpro-yellow text-roadpro-black px-3 py-1 rounded-full text-sm font-medium">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute top-6 left-6">
+                    <span className="bg-gradient-to-r from-roadpro-yellow to-roadpro-yellow/90 text-roadpro-black px-4 py-2 rounded-full text-sm font-semibold shadow-lg backdrop-blur-sm border border-roadpro-yellow/20">
                       {project.category[language]}
                     </span>
                   </div>
                 </div>
                 
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-roadpro-black mb-2 line-clamp-2">
+                <CardContent className="p-8">
+                  <h3 className="text-xl md:text-2xl font-bold text-roadpro-black mb-4 line-clamp-2 leading-tight">
                     {project.title[language]}
                   </h3>
-                  <p className="text-roadpro-gray mb-4 line-clamp-3">
+                  <p className="text-gray-600 mb-6 line-clamp-3 text-base md:text-lg leading-relaxed">
                     {project.preview[language]}
                   </p>
                   
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <MapPin size={14} />
-                      <span>{project.location[language]}</span>
+                    <div className="flex items-center gap-3 text-gray-500">
+                      <div className="p-2 bg-gray-100 rounded-lg">
+                        <MapPin size={16} className="text-roadpro-yellow" />
+                      </div>
+                      <span className="text-sm md:text-base font-medium">{project.location[language]}</span>
                     </div>
                     
                     <motion.div
                       whileHover={{ x: 5 }}
-                      className="flex items-center gap-1 text-roadpro-yellow font-medium"
+                      className="flex items-center gap-2 text-roadpro-yellow font-semibold group-hover:text-roadpro-black transition-colors duration-300"
                     >
-                      <span className="text-sm">
+                      <span className="text-sm md:text-base">
                         {language === "en" ? "View Details" : "عرض التفاصيل"}
                       </span>
-                      <ArrowRight size={16} />
+                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
                     </motion.div>
                   </div>
                 </CardContent>
@@ -901,10 +905,8 @@ const ProjectsPortfolio = () => {
                   </CardContent>
                 </Card>
               </motion.div>
-            ))}
+            )}
           </div>
-        </div>
-      </div>
         </div>
       </div>
     </section>
