@@ -86,7 +86,7 @@ const AdvantagesSection = () => {
           
           {/* IMAGE right - updated to match About Us section image styling */}
           <div ref={imageRef} className="relative">
-            <img alt="Road Shield Solutions professional vehicle" src={LinkesAndPathes.bg1} />
+            <img alt="Road Shield Solutions professional vehicle" src={LinkesAndPathes.bg3} />
             <div className="absolute -right-7 -bottom-7 w-36 h-36 bg-roadpro-ybackgroundImagesellow/20 rounded-full -z-10"></div>
             <div className="absolute -left-7 -top-7 w-20 h-20 border-4 border-roadpro-yellow rounded-full -z-10"></div>
             
