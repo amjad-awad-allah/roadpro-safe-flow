@@ -5,15 +5,17 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Card, CardContent } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
+import { Dialog } from "@/components/ui/dialog";
+import { Drawer } from "@/components/ui/drawer";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { X, ArrowRight, MapPin, Calendar, Users, Award, FileText, ExternalLink, CheckCircle, Cog, Target, Lightbulb } from "lucide-react";
-import { LinkesAndPathes, CertificateLinks } from "@/utils/LinkesAndPathes";
+import { ProjectModal } from "./projects/ProjectModal";
+import { ProjectDrawer } from "./projects/ProjectDrawer";
+import { ProjectCard } from "./projects/ProjectCard";
+import { CertificateCard } from "./projects/CertificateCard";
+import { projects, certificates } from "./projects/projectsData";
 
 const ProjectsPortfolio = () => {
-  const { language, t } = useLanguage();
+  const { language } = useLanguage();
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = useIsMobile();
@@ -43,12 +45,12 @@ const ProjectsPortfolio = () => {
     stopOnFocusIn: false
   });
   
-  const [emblaRef, emblaApi] = useEmblaCarousel(
+  const [emblaRef] = useEmblaCarousel(
     { 
       loop: true,
       align: 'start',
       slidesToScroll: 1,
-      duration: 30, // Smoother transition (700-800ms)
+      duration: 30,
       breakpoints: {
         '(min-width: 768px)': { slidesToScroll: 1 },
         '(min-width: 1024px)': { slidesToScroll: 1 }
@@ -57,332 +59,6 @@ const ProjectsPortfolio = () => {
     // Only add autoplay for mobile screens
     isMobileScreen ? [autoplayPlugin] : []
   );
-
-  // Projects data array
-  const projects = [
-    {
-      id: 1,
-      title: {
-        en: "Abu Dhabi Metro Construction Traffic Management",
-        ar: "إدارة المرور لمشروع مترو أبوظبي"
-      },
-      preview: {
-        en: "Comprehensive traffic diversion and safety management for major metro construction phases",
-        ar: "إدارة شاملة لتحويل المرور والسلامة لمراحل إنشاء مترو رئيسي"
-      },
-      category: {
-        en: "Infrastructure Development",
-        ar: "تطوير البنية التحتية"
-      },
-      location: {
-        en: "Abu Dhabi, UAE",
-        ar: "أبوظبي، الإمارات"
-      },
-      duration: {
-        en: "24 months",
-        ar: "24 شهر"
-      },
-      teamSize: {
-        en: "15 traffic specialists",
-        ar: "15 متخصص مرور"
-      },
-      technologies: {
-        en: "Smart Traffic Signals, TMA Systems, ITC Compliance Monitoring",
-        ar: "إشارات المرور الذكية، أنظمة TMA، مراقبة الامتثال لمعايير ITC"
-      },
-      description: {
-        en: "Successfully managed complex traffic operations during the construction of Abu Dhabi's metro system. Our comprehensive Traffic Management Plan (TMP) covered 12 major intersections, ensuring minimal disruption to daily commuters while maintaining the highest safety standards. The project included 24/7 monitoring systems, emergency response protocols, and seamless coordination with Abu Dhabi Municipality, Police, and construction contractors. We implemented adaptive traffic signal control, deployed Truck Mounted Attenuators (TMA), and created alternative route plans that maintained traffic flow efficiency throughout the construction period.",
-        ar: "أدرنا بنجاح عمليات مرور معقدة أثناء إنشاء نظام مترو أبوظبي. غطت خطة إدارة المرور الشاملة 12 تقاطعاً رئيسياً، مما ضمن الحد الأدنى من الاضطراب للمسافرين اليوميين مع الحفاظ على أعلى معايير السلامة. شمل المشروع أنظمة مراقبة على مدار الساعة وبروتوكولات الاستجابة للطوارئ والتنسيق السلس مع بلدية أبوظبي والشرطة ومقاولي الإنشاء."
-      },
-      image: LinkesAndPathes.clientLogo1,
-      achievements: [
-        {
-          en: "Zero major traffic accidents during 24-month construction period",
-          ar: "صفر حوادث مرور كبيرة خلال فترة الإنشاء البالغة 24 شهراً"
-        },
-        {
-          en: "95% traffic flow efficiency maintained throughout construction",
-          ar: "الحفاظ على 95٪ من كفاءة تدفق المرور طوال فترة الإنشاء"
-        },
-        {
-          en: "Full ITC compliance certification achieved for all phases",
-          ar: "تم الحصول على شهادة الامتثال الكاملة لمعايير ITC لجميع المراحل"
-        },
-        {
-          en: "Emergency response time reduced by 30% through optimized routing",
-          ar: "تم تقليل وقت الاستجابة للطوارئ بنسبة 30٪ من خلال التوجيه المحسن"
-        }
-      ]
-    },
-    {
-      id: 2,
-      title: {
-        en: "Corniche Road Expansion Safety Management",
-        ar: "إدارة السلامة لتوسعة طريق الكورنيش"
-      },
-      preview: {
-        en: "Advanced lane closure and traffic redirection for coastal highway expansion project",
-        ar: "إغلاق متقدم للحارات وإعادة توجيه المرور لمشروع توسعة الطريق الساحلي"
-      },
-      category: {
-        en: "Road Construction",
-        ar: "إنشاء الطرق"
-      },
-      location: {
-        en: "Abu Dhabi Corniche",
-        ar: "كورنيش أبوظبي"
-      },
-      duration: {
-        en: "18 months",
-        ar: "18 شهر"
-      },
-      teamSize: {
-        en: "12 safety specialists",
-        ar: "12 متخصص سلامة"
-      },
-      technologies: {
-        en: "Variable Message Signs, Truck Mounted Attenuators, Smart Barriers",
-        ar: "لافتات الرسائل المتغيرة، مخففات الصدمات المحمولة على الشاحنات، الحواجز الذكية"
-      },
-      description: {
-        en: "Orchestrated comprehensive traffic operations during the expansion of Abu Dhabi's iconic Corniche Road. Our innovative approach included implementing intelligent traffic light systems, deploying state-of-the-art Truck Mounted Attenuators (TMA), and creating dynamic alternative route plans. The project required meticulous coordination with tourism authorities to minimize impact on recreational activities while ensuring absolute construction worker safety. We utilized advanced Variable Message Signs (VMS) and smart barrier systems to maintain optimal traffic flow during peak tourist seasons.",
-        ar: "نظمنا عمليات مرور شاملة أثناء توسعة طريق كورنيش أبوظبي الشهير. شمل نهجنا المبتكر تنفيذ أنظمة إشارات مرور ذكية ونشر مخففات صدمات متطورة محمولة على الشاحنات وإنشاء خطط طرق بديلة ديناميكية. تطلب المشروع تنسيقاً دقيقاً مع سلطات السياحة لتقليل التأثير على الأنشطة الترفيهية مع ضمان السلامة المطلقة لعمال الإنشاء."
-      },
-      image: LinkesAndPathes.clientLogo2,
-      achievements: [
-        {
-          en: "Tourist access maintained throughout 18-month construction period",
-          ar: "تم الحفاظ على وصول السياح طوال فترة الإنشاء البالغة 18 شهراً"
-        },
-        {
-          en: "30% reduction in average travel time through optimized routing",
-          ar: "تقليل 30٪ في متوسط وقت السفر من خلال التوجيه المحسن"
-        },
-        {
-          en: "100% compliance with environmental regulations",
-          ar: "امتثال 100٪ للوائح البيئية"
-        },
-        {
-          en: "Award for Outstanding Traffic Management Excellence",
-          ar: "جائزة التميز المتفوق في إدارة المرور"
-        }
-      ]
-    },
-    {
-      id: 3,
-      title: {
-        en: "Formula 1 Abu Dhabi Grand Prix Traffic Control",
-        ar: "التحكم المروري لجائزة أبوظبي الكبرى للفورمولا 1"
-      },
-      preview: {
-        en: "Large-scale event traffic management for prestigious international racing championship",
-        ar: "إدارة المرور واسعة النطاق لبطولة السباق الدولية المرموقة"
-      },
-      category: {
-        en: "Event Management",
-        ar: "إدارة الفعاليات"
-      },
-      location: {
-        en: "Yas Island, Abu Dhabi",
-        ar: "جزيرة ياس، أبوظبي"
-      },
-      duration: {
-        en: "6 weeks intensive planning + event execution",
-        ar: "6 أسابيع تخطيط مكثف + تنفيذ الحدث"
-      },
-      teamSize: {
-        en: "25 event specialists",
-        ar: "25 متخصص فعاليات"
-      },
-      technologies: {
-        en: "Dynamic Traffic Control, Emergency Response Systems, Crowd Management Technology",
-        ar: "التحكم الديناميكي في المرور، أنظمة الاستجابة للطوارئ، تقنيات إدارة الحشود"
-      },
-      description: {
-        en: "Executed flawless traffic management for one of the world's most prestigious racing events. Our expert team handled the intricate logistics of managing over 50,000 spectators' movement while maintaining critical emergency access routes. We implemented cutting-edge dynamic traffic control systems, coordinated seamlessly with international security teams, and ensured perfect integration with public transportation systems. The project included real-time crowd monitoring, predictive traffic flow analysis, and adaptive signal management to handle the massive influx and exodus of race attendees.",
-        ar: "نفذنا إدارة مرور مثالية لواحد من أشهر أحداث السباق في العالم. تعامل فريق الخبراء لدينا مع اللوجستيات المعقدة لإدارة حركة أكثر من 50,000 متفرج مع الحفاظ على طرق الوصول الحيوية للطوارئ. نفذنا أنظمة تحكم مرور ديناميكية متطورة ونسقنا بسلاسة مع فرق الأمن الدولية وضمنا التكامل المثالي مع أنظمة النقل العام."
-      },
-      image: LinkesAndPathes.clientLogo3,
-      achievements: [
-        {
-          en: "Zero traffic incidents during race weekend with 50,000+ attendees",
-          ar: "صفر حوادث مرور خلال عطلة نهاية أسبوع السباق مع أكثر من 50,000 حاضر"
-        },
-        {
-          en: "Average evacuation time reduced by 40% compared to previous years",
-          ar: "متوسط وقت الإخلاء انخفض بنسبة 40٪ مقارنة بالسنوات السابقة"
-        },
-        {
-          en: "International safety standards exceeded by 150%",
-          ar: "تم تجاوز معايير السلامة الدولية بنسبة 150٪"
-        },
-        {
-          en: "Recognition from FIA for Outstanding Traffic Management",
-          ar: "اعتراف من الاتحاد الدولي للسيارات للإدارة المرورية المتميزة"
-        }
-      ]
-    },
-    {
-      id: 4,
-      title: {
-        en: "Smart City Infrastructure Integration",
-        ar: "تكامل البنية التحتية للمدينة الذكية"
-      },
-      preview: {
-        en: "Next-generation traffic technology implementation for Abu Dhabi's smart city vision",
-        ar: "تنفيذ تقنيات المرور من الجيل التالي لرؤية أبوظبي كمدينة ذكية"
-      },
-      category: {
-        en: "Smart Technology",
-        ar: "التكنولوجيا الذكية"
-      },
-      location: {
-        en: "Multiple districts, Abu Dhabi",
-        ar: "مناطق متعددة، أبوظبي"
-      },
-      duration: {
-        en: "12 months ongoing",
-        ar: "12 شهر مستمر"
-      },
-      teamSize: {
-        en: "20 technology specialists",
-        ar: "20 متخصص تكنولوجيا"
-      },
-      technologies: {
-        en: "IoT Sensors, AI Traffic Analytics, Cloud-based Control Systems",
-        ar: "أجهزة استشعار إنترنت الأشياء، تحليلات المرور بالذكاء الاصطناعي، أنظمة التحكم السحابية"
-      },
-      description: {
-        en: "Pioneered the integration of next-generation IoT-enabled traffic management systems across Abu Dhabi's key districts. Our revolutionary solution encompasses real-time traffic monitoring, AI-powered adaptive signal control, and predictive analytics for comprehensive congestion management. The project directly supports Abu Dhabi's ambitious vision of becoming a global leading smart city by 2030, featuring sustainable and highly efficient transportation solutions. We deployed thousands of smart sensors, implemented machine learning algorithms for traffic prediction, and created a centralized command center for unified traffic management.",
-        ar: "رائدنا في تكامل أنظمة إدارة المرور المدعومة بإنترنت الأشياء من الجيل التالي عبر المناطق الرئيسية في أبوظبي. يشمل حلولنا الثوري مراقبة المرور في الوقت الفعلي والتحكم التكيفي في الإشارات المدعوم بالذكاء الاصطناعي والتحليلات التنبؤية لإدارة الازدحام الشاملة. يدعم المشروع مباشرة رؤية أبوظبي الطموحة لتصبح مدينة ذكية رائدة عالمياً بحلول 2030."
-      },
-      image: LinkesAndPathes.clientLogo4,
-      achievements: [
-        {
-          en: "25% improvement in overall traffic flow efficiency across all monitored areas",
-          ar: "تحسن 25٪ في كفاءة تدفق المرور الإجمالية عبر جميع المناطق المراقبة"
-        },
-        {
-          en: "Real-time monitoring system deployed across 50+ intersections",
-          ar: "تم نشر نظام مراقبة في الوقت الفعلي عبر أكثر من 50 تقاطع"
-        },
-        {
-          en: "Carbon footprint reduced by 15% through optimized traffic patterns",
-          ar: "انخفضت البصمة الكربونية بنسبة 15٪ من خلال أنماط المرور المحسنة"
-        },
-        {
-          en: "First smart city traffic system to achieve full AI integration in the region",
-          ar: "أول نظام مرور للمدينة الذكية يحقق التكامل الكامل للذكاء الاصطناعي في المنطقة"
-        }
-      ]
-    }
-  ];
-
-  // Certificates data array
-  const certificates = [
-    {
-      id: 1,
-      title: "ISO 9001:2015",
-      subtitle: {
-        en: "Quality Management System",
-        ar: "نظام إدارة الجودة"
-      },
-      issueDate: "03 July 2025",
-      expiryDate: "02 July 2028",
-      registrationNumber: "FQC/Q/3197/AE",
-      scope: {
-        en: [
-          "Road Maintenance",
-          "Main Roads, Streets and Related Works Contracting",
-          "Onshore and Offshore Oil and Gas Fields and Facilities Services",
-          "Road Painting and Other Marking Works",
-          "Roads and Bridges Management and Operation"
-        ],
-        ar: [
-          "صيانة الطرق",
-          "مقاولات الطرق الرئيسية والشوارع والأعمال ذات الصلة",
-          "خدمات حقول النفط والغاز البرية والبحرية والمرافق",
-          "أعمال طلاء الطرق وأعمال العلامات الأخرى",
-          "إدارة وتشغيل الطرق والجسور"
-        ]
-      },
-      pdfLink: CertificateLinks.iso9001
-    },
-    {
-      id: 2,
-      title: "ISO 14001:2015",
-      subtitle: {
-        en: "Environmental Management System",
-        ar: "نظام الإدارة البيئية"
-      },
-      issueDate: "03 July 2025",
-      expiryDate: "02 July 2028",
-      registrationNumber: "FQC/Q/3198/AE",
-      scope: {
-        en: [
-          "Road Maintenance",
-          "Roads & Bridges Management and Operation",
-          "Oil & Gas Fields and Facilities Services",
-          "Road Markings and Signage"
-        ],
-        ar: [
-          "صيانة الطرق",
-          "إدارة وتشغيل الطرق والجسور",
-          "خدمات حقول النفط والغاز والمرافق",
-          "علامات الطرق واللافتات"
-        ]
-      },
-      pdfLink: CertificateLinks.iso14001
-    },
-    {
-      id: 3,
-      title: "ISO 45001:2018",
-      subtitle: {
-        en: "Occupational Health & Safety Management System",
-        ar: "نظام إدارة الصحة والسلامة المهنية"
-      },
-      issueDate: "03 July 2025",
-      expiryDate: "02 July 2028",
-      registrationNumber: "FQC/Q/3199/AE",
-      scope: {
-        en: [
-          "Road Maintenance",
-          "Main Roads and Related Works",
-          "Health and Safety Services in Oil & Gas Fields",
-          "Bridge Management & Road Painting"
-        ],
-        ar: [
-          "صيانة الطرق",
-          "الطرق الرئيسية والأعمال ذات الصلة",
-          "خدمات الصحة والسلامة في حقول النفط والغاز",
-          "إدارة الجسور وطلاء الطرق"
-        ]
-      },
-      pdfLink: CertificateLinks.iso45001
-    },
-    {
-      id: 4,
-      title: "ISO 41001:2018",
-      subtitle: {
-        en: "Facility Management System",
-        ar: "نظام إدارة المرافق"
-      },
-      issueDate: "03 July 2025",
-      expiryDate: "02 July 2028",
-      registrationNumber: "FQC/Q/3200/AE",
-      scope: {
-        en: [
-          "Operation and Maintenance of Infrastructure Facilities",
-          "Facility Services for Roads, Bridges, and Oil/Gas Fields"
-        ],
-        ar: [
-          "تشغيل وصيانة مرافق البنية التحتية",
-          "خدمات المرافق للطرق والجسور وحقول النفط والغاز"
-        ]
-      },
-      pdfLink: CertificateLinks.iso41001
-    }
-  ];
 
   const openProject = (projectId: number) => {
     setSelectedProject(projectId);
@@ -424,254 +100,6 @@ const ProjectsPortfolio = () => {
     }
   };
 
-  const ProjectModal = () => (
-    <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto bg-white shadow-2xl rounded-2xl border-0">
-      <DialogHeader className="border-b border-gray-100 pb-6 mb-8">
-        <DialogTitle className="text-3xl font-bold text-roadpro-black leading-tight">
-          {currentProject?.title[language]}
-        </DialogTitle>
-      </DialogHeader>
-      
-      <div className="space-y-8">
-        {/* Project Image */}
-        <div className="relative overflow-hidden rounded-xl shadow-lg">
-          <img 
-            src={currentProject?.image} 
-            alt={currentProject?.title[language]}
-            className="w-full h-72 object-cover"
-          />
-          <div className="absolute top-4 right-4">
-            <span className="bg-roadpro-yellow/90 backdrop-blur-sm text-roadpro-black px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-              {currentProject?.category[language]}
-            </span>
-          </div>
-        </div>
-        
-        {/* Info Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 bg-gray-50/50 rounded-xl border border-gray-100">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
-              <MapPin size={18} className="text-roadpro-yellow" />
-            </div>
-            <div>
-              <p className="text-sm font-medium text-gray-500 mb-1">{language === "en" ? "Location" : "الموقع"}</p>
-              <p className="font-semibold text-roadpro-black text-base">{currentProject?.location[language]}</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
-              <Calendar size={18} className="text-roadpro-yellow" />
-            </div>
-            <div>
-              <p className="text-sm font-medium text-gray-500 mb-1">{language === "en" ? "Duration" : "المدة"}</p>
-              <p className="font-semibold text-roadpro-black text-base">{currentProject?.duration[language]}</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
-              <Users size={18} className="text-roadpro-yellow" />
-            </div>
-            <div>
-              <p className="text-sm font-medium text-gray-500 mb-1">{language === "en" ? "Team" : "الفريق"}</p>
-              <p className="font-semibold text-roadpro-black text-base">{currentProject?.teamSize[language]}</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
-              <Award size={18} className="text-roadpro-yellow" />
-            </div>
-            <div>
-              <p className="text-sm font-medium text-gray-500 mb-1">{language === "en" ? "Category" : "الفئة"}</p>
-              <p className="font-semibold text-roadpro-black text-base">{currentProject?.category[language]}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Technologies Used */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
-              <Cog size={20} className="text-roadpro-yellow" />
-            </div>
-            <h3 className="text-xl font-bold text-roadpro-black">
-              {language === "en" ? "Technologies Used" : "التقنيات المستخدمة"}
-            </h3>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            {currentProject?.technologies[language].split(', ').map((tech, index) => (
-              <span 
-                key={index} 
-                className="px-4 py-2 bg-gradient-to-r from-roadpro-yellow/20 to-roadpro-yellow/10 text-roadpro-black rounded-full font-medium text-base border border-roadpro-yellow/30 shadow-sm"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Project Description */}
-        <div className="space-y-6">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
-              <Target size={20} className="text-roadpro-yellow" />
-            </div>
-            <h3 className="text-xl font-bold text-roadpro-black">
-              {language === "en" ? "Challenges & Strategy" : "التحديات والاستراتيجية"}
-            </h3>
-          </div>
-          <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 leading-relaxed text-base font-medium">
-              {currentProject?.description[language].substring(0, Math.floor(currentProject?.description[language].length / 2))}
-            </p>
-          </div>
-          
-          <div className="flex items-center gap-3 mt-6 mb-4">
-            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
-              <Lightbulb size={20} className="text-roadpro-yellow" />
-            </div>
-            <h3 className="text-xl font-bold text-roadpro-black">
-              {language === "en" ? "Execution Approach" : "نهج التنفيذ"}
-            </h3>
-          </div>
-          <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 leading-relaxed text-base font-medium">
-              {currentProject?.description[language].substring(Math.floor(currentProject?.description[language].length / 2))}
-            </p>
-          </div>
-        </div>
-
-        {/* Key Achievements */}
-        <div className="space-y-6">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
-              <CheckCircle size={20} className="text-roadpro-yellow" />
-            </div>
-            <h3 className="text-xl font-bold text-roadpro-black">
-              {language === "en" ? "Key Achievements" : "الإنجازات الرئيسية"}
-            </h3>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {currentProject?.achievements.map((achievement, index) => (
-              <div key={index} className="flex items-start gap-4 p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-100 shadow-sm">
-                <div className="p-1 bg-green-100 rounded-full flex-shrink-0 mt-1">
-                  <CheckCircle size={16} className="text-green-600" />
-                </div>
-                <span className="text-gray-800 font-medium text-base leading-relaxed">{achievement[language]}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </DialogContent>
-  );
-
-  const ProjectDrawer = () => (
-    <DrawerContent className="max-h-[90vh] bg-white">
-      <DrawerHeader className="border-b border-gray-100 pb-4">
-        <DrawerTitle className="text-2xl font-bold text-roadpro-black leading-tight">
-          {currentProject?.title[language]}
-        </DrawerTitle>
-      </DrawerHeader>
-      
-      <div className="px-4 pb-4 space-y-6 overflow-y-auto">
-        {/* Project Image */}
-        <div className="relative overflow-hidden rounded-xl shadow-lg">
-          <img 
-            src={currentProject?.image} 
-            alt={currentProject?.title[language]}
-            className="w-full h-48 object-cover"
-          />
-          <div className="absolute top-3 right-3">
-            <span className="bg-roadpro-yellow/90 backdrop-blur-sm text-roadpro-black px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-              {currentProject?.category[language]}
-            </span>
-          </div>
-        </div>
-        
-        {/* Info Grid */}
-        <div className="grid grid-cols-2 gap-4 p-4 bg-gray-50/50 rounded-xl border border-gray-100">
-          <div className="flex items-center gap-2">
-            <div className="p-1.5 bg-roadpro-yellow/20 rounded-lg">
-              <MapPin size={14} className="text-roadpro-yellow" />
-            </div>
-            <div>
-              <p className="text-xs font-medium text-gray-500 mb-0.5">{language === "en" ? "Location" : "الموقع"}</p>
-              <p className="text-sm font-semibold text-roadpro-black">{currentProject?.location[language]}</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="p-1.5 bg-roadpro-yellow/20 rounded-lg">
-              <Calendar size={14} className="text-roadpro-yellow" />
-            </div>
-            <div>
-              <p className="text-xs font-medium text-gray-500 mb-0.5">{language === "en" ? "Duration" : "المدة"}</p>
-              <p className="text-sm font-semibold text-roadpro-black">{currentProject?.duration[language]}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Technologies */}
-        <div>
-          <div className="flex items-center gap-2 mb-3">
-            <div className="p-1.5 bg-roadpro-yellow/20 rounded-lg">
-              <Cog size={16} className="text-roadpro-yellow" />
-            </div>
-            <h3 className="font-bold text-roadpro-black text-base">
-              {language === "en" ? "Technologies" : "التقنيات"}
-            </h3>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {currentProject?.technologies[language].split(', ').map((tech, index) => (
-              <span 
-                key={index} 
-                className="px-3 py-1 bg-roadpro-yellow/20 text-roadpro-black rounded-full text-xs font-medium border border-roadpro-yellow/30"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Description */}
-        <div>
-          <div className="flex items-center gap-2 mb-3">
-            <div className="p-1.5 bg-roadpro-yellow/20 rounded-lg">
-              <Target size={16} className="text-roadpro-yellow" />
-            </div>
-            <h3 className="font-bold text-roadpro-black text-base">
-              {language === "en" ? "Project Overview" : "نظرة عامة على المشروع"}
-            </h3>
-          </div>
-          <p className="text-sm text-gray-700 leading-relaxed font-medium">
-            {currentProject?.description[language]}
-          </p>
-        </div>
-
-        {/* Achievements */}
-        <div>
-          <div className="flex items-center gap-2 mb-3">
-            <div className="p-1.5 bg-roadpro-yellow/20 rounded-lg">
-              <CheckCircle size={16} className="text-roadpro-yellow" />
-            </div>
-            <h3 className="font-bold text-roadpro-black text-base">
-              {language === "en" ? "Key Achievements" : "الإنجازات الرئيسية"}
-            </h3>
-          </div>
-          <div className="space-y-3">
-            {currentProject?.achievements.map((achievement, index) => (
-              <div key={index} className="flex items-start gap-3 p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-100">
-                <div className="p-0.5 bg-green-100 rounded-full flex-shrink-0 mt-0.5">
-                  <CheckCircle size={12} className="text-green-600" />
-                </div>
-                <span className="text-sm text-gray-800 font-medium leading-relaxed">{achievement[language]}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </DrawerContent>
-  );
-
   return (
     <section id="projects-portfolio" className="section-padding bg-gray-50">
       <div className="container mx-auto">
@@ -701,62 +129,12 @@ const ProjectsPortfolio = () => {
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8"
         >
           {projects.map((project) => (
-            <motion.div
+            <ProjectCard
               key={project.id}
+              project={project}
+              onClick={openProject}
               variants={cardVariants}
-              whileHover={{ 
-                scale: 1.02,
-                y: -8,
-                boxShadow: "0 25px 50px rgba(255, 214, 0, 0.15), 0 8px 25px rgba(0, 0, 0, 0.1)",
-              }}
-              whileTap={{ scale: 0.98 }}
-              className="cursor-pointer group"
-              onClick={() => openProject(project.id)}
-            >
-              <Card className="overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 h-full group-hover:border-roadpro-yellow/20 group-hover:border">
-                <div className="relative">
-                  <img 
-                    src={project.image} 
-                    alt={project.title[language]}
-                    className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute top-6 left-6">
-                    <span className="bg-gradient-to-r from-roadpro-yellow to-roadpro-yellow/90 text-roadpro-black px-4 py-2 rounded-full text-sm font-semibold shadow-lg backdrop-blur-sm border border-roadpro-yellow/20">
-                      {project.category[language]}
-                    </span>
-                  </div>
-                </div>
-                
-                <CardContent className="p-8">
-                  <h3 className="text-xl md:text-2xl font-bold text-roadpro-black mb-4 line-clamp-2 leading-tight">
-                    {project.title[language]}
-                  </h3>
-                  <p className="text-gray-600 mb-6 line-clamp-3 text-base md:text-lg leading-relaxed">
-                    {project.preview[language]}
-                  </p>
-                  
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3 text-gray-500">
-                      <div className="p-2 bg-gray-100 rounded-lg">
-                        <MapPin size={16} className="text-roadpro-yellow" />
-                      </div>
-                      <span className="text-sm md:text-base font-medium">{project.location[language]}</span>
-                    </div>
-                    
-                    <motion.div
-                      whileHover={{ x: 5 }}
-                      className="flex items-center gap-2 text-roadpro-yellow font-semibold group-hover:text-roadpro-black transition-colors duration-300"
-                    >
-                      <span className="text-sm md:text-base">
-                        {language === "en" ? "View Details" : "عرض التفاصيل"}
-                      </span>
-                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
-                    </motion.div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
+            />
           ))}
         </motion.div>
 
@@ -766,11 +144,11 @@ const ProjectsPortfolio = () => {
             <>
               {isMobile ? (
                 <Drawer open={isModalOpen} onOpenChange={closeProject}>
-                  <ProjectDrawer />
+                  <ProjectDrawer project={currentProject} />
                 </Drawer>
               ) : (
                 <Dialog open={isModalOpen} onOpenChange={closeProject}>
-                  <ProjectModal />
+                  <ProjectModal project={currentProject} />
                 </Dialog>
               )}
             </>
@@ -814,98 +192,11 @@ const ProjectsPortfolio = () => {
             >
               <div className="flex gap-6">
                 {certificates.map((certificate, index) => (
-                  <motion.div
+                  <CertificateCard
                     key={certificate.id}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    whileHover={{ 
-                      scale: 1.03,
-                      y: -8,
-                      boxShadow: "0 25px 50px rgba(255, 214, 0, 0.25)"
-                    }}
-                    className="group flex-shrink-0 w-80"
-                  >
-                    <Card className="h-full hover:shadow-2xl transition-all duration-500 border-0 bg-white/90 backdrop-blur-sm overflow-hidden group-hover:border-roadpro-yellow/20 group-hover:border">
-                      <CardContent className="p-8 h-full flex flex-col relative">
-                        {/* Background gradient overlay on hover */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-roadpro-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        
-                        <div className="relative z-10">
-                          <div className="flex items-start gap-4 mb-6">
-                            <div className="p-4 bg-gradient-to-br from-roadpro-yellow/20 to-roadpro-yellow/10 rounded-xl group-hover:from-roadpro-yellow/30 group-hover:to-roadpro-yellow/20 transition-all duration-500">
-                              <Award className="h-7 w-7 text-roadpro-yellow" />
-                            </div>
-                            <div className="flex-1">
-                              <h4 className="text-xl font-bold text-roadpro-black mb-1 group-hover:text-roadpro-black transition-colors">
-                                {certificate.title}
-                              </h4>
-                              <p className="text-gray-600 text-sm font-medium leading-relaxed">
-                                {certificate.subtitle[language]}
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="space-y-4 mb-8">
-                            <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                              <span className="text-sm font-medium text-gray-500">
-                                {language === "en" ? "Issue Date:" : "تاريخ الإصدار:"}
-                              </span>
-                              <span className="text-sm font-semibold text-roadpro-black">
-                                {certificate.issueDate}
-                              </span>
-                            </div>
-                            <div className="flex justify-between items-center py-2 border-b border-gray-100">
-                              <span className="text-sm font-medium text-gray-500">
-                                {language === "en" ? "Expiry Date:" : "تاريخ الانتهاء:"}
-                              </span>
-                              <span className="text-sm font-semibold text-roadpro-black">
-                                {certificate.expiryDate}
-                              </span>
-                            </div>
-                            <div className="flex justify-between items-center py-2">
-                              <span className="text-sm font-medium text-gray-500">
-                                {language === "en" ? "Reg. No:" : "رقم التسجيل:"}
-                              </span>
-                              <span className="text-sm font-semibold text-roadpro-black">
-                                {certificate.registrationNumber}
-                              </span>
-                            </div>
-                          </div>
-
-                          <div className="mb-8">
-                            <h5 className="text-sm font-bold text-roadpro-black mb-3">
-                              {language === "en" ? "Scope:" : "النطاق:"}
-                            </h5>
-                            <ul className="text-xs text-gray-600 space-y-2">
-                              {certificate.scope[language].map((item, idx) => (
-                                <li key={idx} className="flex items-start gap-3">
-                                  <span className="w-1.5 h-1.5 bg-roadpro-yellow rounded-full mt-1.5 flex-shrink-0" />
-                                  <span className="leading-relaxed">{item}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          <div className="mt-auto">
-                            <motion.a
-                              href={certificate.pdfLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-3 w-full justify-center bg-gradient-to-r from-roadpro-yellow to-roadpro-yellow/90 text-roadpro-black px-6 py-4 rounded-xl font-semibold hover:from-roadpro-yellow/90 hover:to-roadpro-yellow transition-all duration-300 shadow-lg hover:shadow-xl group/btn"
-                              whileHover={{ scale: 1.02 }}
-                              whileTap={{ scale: 0.98 }}
-                            >
-                              <FileText className="h-5 w-5 group-hover/btn:rotate-12 transition-transform duration-300" />
-                              <span>{language === "en" ? "View Certificate" : "عرض الشهادة"}</span>
-                              <ExternalLink className="h-4 w-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300" />
-                            </motion.a>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
+                    certificate={certificate}
+                    index={index}
+                  />
                 ))}
               </div>
             </div>
