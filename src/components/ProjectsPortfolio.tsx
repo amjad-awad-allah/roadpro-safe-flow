@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { X, ArrowRight, MapPin, Calendar, Users, Award, FileText, ExternalLink } from "lucide-react";
+import { X, ArrowRight, MapPin, Calendar, Users, Award, FileText, ExternalLink, CheckCircle, Cog, Target, Lightbulb } from "lucide-react";
 import { LinkesAndPathes, CertificateLinks } from "@/utils/LinkesAndPathes";
 
 const ProjectsPortfolio = () => {
@@ -57,7 +57,7 @@ const ProjectsPortfolio = () => {
     isMobileScreen ? [autoplayPlugin] : []
   );
 
-  // Updated project data based on Road Shield Solutions capabilities
+  // Projects data array
   const projects = [
     {
       id: 1,
@@ -277,7 +277,7 @@ const ProjectsPortfolio = () => {
     }
   ];
 
-  // Certificate data
+  // Certificates data array
   const certificates = [
     {
       id: 1,
@@ -424,148 +424,248 @@ const ProjectsPortfolio = () => {
   };
 
   const ProjectModal = () => (
-    <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-      <DialogHeader>
-        <DialogTitle className="text-2xl font-bold text-roadpro-black">
+    <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto bg-white shadow-2xl rounded-2xl border-0">
+      <DialogHeader className="border-b border-gray-100 pb-6 mb-8">
+        <DialogTitle className="text-3xl font-bold text-roadpro-black leading-tight">
           {currentProject?.title[language]}
         </DialogTitle>
       </DialogHeader>
       
-      <div className="space-y-6">
-        <img 
-          src={currentProject?.image} 
-          alt={currentProject?.title[language]}
-          className="w-full h-64 object-cover rounded-lg"
-        />
+      <div className="space-y-8">
+        {/* Project Image */}
+        <div className="relative overflow-hidden rounded-xl shadow-lg">
+          <img 
+            src={currentProject?.image} 
+            alt={currentProject?.title[language]}
+            className="w-full h-72 object-cover"
+          />
+          <div className="absolute top-4 right-4">
+            <span className="bg-roadpro-yellow/90 backdrop-blur-sm text-roadpro-black px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+              {currentProject?.category[language]}
+            </span>
+          </div>
+        </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="flex items-center gap-2">
-            <MapPin size={16} className="text-roadpro-yellow" />
+        {/* Info Bar */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 bg-gray-50/50 rounded-xl border border-gray-100">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
+              <MapPin size={18} className="text-roadpro-yellow" />
+            </div>
             <div>
-              <p className="text-sm text-gray-600">{language === "en" ? "Location" : "الموقع"}</p>
-              <p className="font-medium">{currentProject?.location[language]}</p>
+              <p className="text-sm font-medium text-gray-500 mb-1">{language === "en" ? "Location" : "الموقع"}</p>
+              <p className="font-semibold text-roadpro-black text-base">{currentProject?.location[language]}</p>
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <Calendar size={16} className="text-roadpro-yellow" />
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
+              <Calendar size={18} className="text-roadpro-yellow" />
+            </div>
             <div>
-              <p className="text-sm text-gray-600">{language === "en" ? "Duration" : "المدة"}</p>
-              <p className="font-medium">{currentProject?.duration[language]}</p>
+              <p className="text-sm font-medium text-gray-500 mb-1">{language === "en" ? "Duration" : "المدة"}</p>
+              <p className="font-semibold text-roadpro-black text-base">{currentProject?.duration[language]}</p>
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <Users size={16} className="text-roadpro-yellow" />
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
+              <Users size={18} className="text-roadpro-yellow" />
+            </div>
             <div>
-              <p className="text-sm text-gray-600">{language === "en" ? "Team" : "الفريق"}</p>
-              <p className="font-medium">{currentProject?.teamSize[language]}</p>
+              <p className="text-sm font-medium text-gray-500 mb-1">{language === "en" ? "Team" : "الفريق"}</p>
+              <p className="font-semibold text-roadpro-black text-base">{currentProject?.teamSize[language]}</p>
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <Award size={16} className="text-roadpro-yellow" />
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
+              <Award size={18} className="text-roadpro-yellow" />
+            </div>
             <div>
-              <p className="text-sm text-gray-600">{language === "en" ? "Category" : "الفئة"}</p>
-              <p className="font-medium">{currentProject?.category[language]}</p>
+              <p className="text-sm font-medium text-gray-500 mb-1">{language === "en" ? "Category" : "الفئة"}</p>
+              <p className="font-semibold text-roadpro-black text-base">{currentProject?.category[language]}</p>
             </div>
           </div>
         </div>
 
-        <div>
-          <h3 className="text-lg font-semibold mb-3 text-roadpro-black">
-            {language === "en" ? "Technologies Used" : "التقنيات المستخدمة"}
-          </h3>
-          <p className="text-gray-700 bg-gray-50 p-3 rounded-lg">
-            {currentProject?.technologies[language]}
-          </p>
-        </div>
-
-        <div>
-          <h3 className="text-lg font-semibold mb-3 text-roadpro-black">
-            {language === "en" ? "Project Description" : "وصف المشروع"}
-          </h3>
-          <p className="text-gray-700 leading-relaxed">
-            {currentProject?.description[language]}
-          </p>
-        </div>
-
-        <div>
-          <h3 className="text-lg font-semibold mb-3 text-roadpro-black">
-            {language === "en" ? "Key Achievements" : "الإنجازات الرئيسية"}
-          </h3>
-          <ul className="space-y-3">
-            {currentProject?.achievements.map((achievement, index) => (
-              <li key={index} className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-roadpro-yellow rounded-full mt-2 flex-shrink-0"></div>
-                <span className="text-gray-700">{achievement[language]}</span>
-              </li>
+        {/* Technologies Used */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
+              <Cog size={20} className="text-roadpro-yellow" />
+            </div>
+            <h3 className="text-xl font-bold text-roadpro-black">
+              {language === "en" ? "Technologies Used" : "التقنيات المستخدمة"}
+            </h3>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {currentProject?.technologies[language].split(', ').map((tech, index) => (
+              <span 
+                key={index} 
+                className="px-4 py-2 bg-gradient-to-r from-roadpro-yellow/20 to-roadpro-yellow/10 text-roadpro-black rounded-full font-medium text-base border border-roadpro-yellow/30 shadow-sm"
+              >
+                {tech}
+              </span>
             ))}
-          </ul>
+          </div>
+        </div>
+
+        {/* Project Description */}
+        <div className="space-y-6">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
+              <Target size={20} className="text-roadpro-yellow" />
+            </div>
+            <h3 className="text-xl font-bold text-roadpro-black">
+              {language === "en" ? "Challenges & Strategy" : "التحديات والاستراتيجية"}
+            </h3>
+          </div>
+          <div className="prose prose-lg max-w-none">
+            <p className="text-gray-700 leading-relaxed text-base font-medium">
+              {currentProject?.description[language].substring(0, Math.floor(currentProject?.description[language].length / 2))}
+            </p>
+          </div>
+          
+          <div className="flex items-center gap-3 mt-6 mb-4">
+            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
+              <Lightbulb size={20} className="text-roadpro-yellow" />
+            </div>
+            <h3 className="text-xl font-bold text-roadpro-black">
+              {language === "en" ? "Execution Approach" : "نهج التنفيذ"}
+            </h3>
+          </div>
+          <div className="prose prose-lg max-w-none">
+            <p className="text-gray-700 leading-relaxed text-base font-medium">
+              {currentProject?.description[language].substring(Math.floor(currentProject?.description[language].length / 2))}
+            </p>
+          </div>
+        </div>
+
+        {/* Key Achievements */}
+        <div className="space-y-6">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-2 bg-roadpro-yellow/20 rounded-lg">
+              <CheckCircle size={20} className="text-roadpro-yellow" />
+            </div>
+            <h3 className="text-xl font-bold text-roadpro-black">
+              {language === "en" ? "Key Achievements" : "الإنجازات الرئيسية"}
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {currentProject?.achievements.map((achievement, index) => (
+              <div key={index} className="flex items-start gap-4 p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-100 shadow-sm">
+                <div className="p-1 bg-green-100 rounded-full flex-shrink-0 mt-1">
+                  <CheckCircle size={16} className="text-green-600" />
+                </div>
+                <span className="text-gray-800 font-medium text-base leading-relaxed">{achievement[language]}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </DialogContent>
   );
 
   const ProjectDrawer = () => (
-    <DrawerContent className="max-h-[90vh]">
-      <DrawerHeader>
-        <DrawerTitle className="text-xl font-bold text-roadpro-black">
+    <DrawerContent className="max-h-[90vh] bg-white">
+      <DrawerHeader className="border-b border-gray-100 pb-4">
+        <DrawerTitle className="text-2xl font-bold text-roadpro-black leading-tight">
           {currentProject?.title[language]}
         </DrawerTitle>
       </DrawerHeader>
       
-      <div className="px-4 pb-4 space-y-4 overflow-y-auto">
-        <img 
-          src={currentProject?.image} 
-          alt={currentProject?.title[language]}
-          className="w-full h-48 object-cover rounded-lg"
-        />
+      <div className="px-4 pb-4 space-y-6 overflow-y-auto">
+        {/* Project Image */}
+        <div className="relative overflow-hidden rounded-xl shadow-lg">
+          <img 
+            src={currentProject?.image} 
+            alt={currentProject?.title[language]}
+            className="w-full h-48 object-cover"
+          />
+          <div className="absolute top-3 right-3">
+            <span className="bg-roadpro-yellow/90 backdrop-blur-sm text-roadpro-black px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+              {currentProject?.category[language]}
+            </span>
+          </div>
+        </div>
         
-        <div className="grid grid-cols-2 gap-3">
+        {/* Info Grid */}
+        <div className="grid grid-cols-2 gap-4 p-4 bg-gray-50/50 rounded-xl border border-gray-100">
           <div className="flex items-center gap-2">
-            <MapPin size={14} className="text-roadpro-yellow" />
+            <div className="p-1.5 bg-roadpro-yellow/20 rounded-lg">
+              <MapPin size={14} className="text-roadpro-yellow" />
+            </div>
             <div>
-              <p className="text-xs text-gray-600">{language === "en" ? "Location" : "الموقع"}</p>
-              <p className="text-sm font-medium">{currentProject?.location[language]}</p>
+              <p className="text-xs font-medium text-gray-500 mb-0.5">{language === "en" ? "Location" : "الموقع"}</p>
+              <p className="text-sm font-semibold text-roadpro-black">{currentProject?.location[language]}</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <Calendar size={14} className="text-roadpro-yellow" />
+            <div className="p-1.5 bg-roadpro-yellow/20 rounded-lg">
+              <Calendar size={14} className="text-roadpro-yellow" />
+            </div>
             <div>
-              <p className="text-xs text-gray-600">{language === "en" ? "Duration" : "المدة"}</p>
-              <p className="text-sm font-medium">{currentProject?.duration[language]}</p>
+              <p className="text-xs font-medium text-gray-500 mb-0.5">{language === "en" ? "Duration" : "المدة"}</p>
+              <p className="text-sm font-semibold text-roadpro-black">{currentProject?.duration[language]}</p>
             </div>
           </div>
         </div>
 
+        {/* Technologies */}
         <div>
-          <h3 className="font-semibold mb-2 text-roadpro-black">
-            {language === "en" ? "Technologies" : "التقنيات"}
-          </h3>
-          <p className="text-xs text-gray-700 bg-gray-50 p-2 rounded">
-            {currentProject?.technologies[language]}
-          </p>
+          <div className="flex items-center gap-2 mb-3">
+            <div className="p-1.5 bg-roadpro-yellow/20 rounded-lg">
+              <Cog size={16} className="text-roadpro-yellow" />
+            </div>
+            <h3 className="font-bold text-roadpro-black text-base">
+              {language === "en" ? "Technologies" : "التقنيات"}
+            </h3>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {currentProject?.technologies[language].split(', ').map((tech, index) => (
+              <span 
+                key={index} 
+                className="px-3 py-1 bg-roadpro-yellow/20 text-roadpro-black rounded-full text-xs font-medium border border-roadpro-yellow/30"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
 
+        {/* Description */}
         <div>
-          <h3 className="font-semibold mb-2 text-roadpro-black">
-            {language === "en" ? "Description" : "الوصف"}
-          </h3>
-          <p className="text-sm text-gray-700 leading-relaxed">
+          <div className="flex items-center gap-2 mb-3">
+            <div className="p-1.5 bg-roadpro-yellow/20 rounded-lg">
+              <Target size={16} className="text-roadpro-yellow" />
+            </div>
+            <h3 className="font-bold text-roadpro-black text-base">
+              {language === "en" ? "Project Overview" : "نظرة عامة على المشروع"}
+            </h3>
+          </div>
+          <p className="text-sm text-gray-700 leading-relaxed font-medium">
             {currentProject?.description[language]}
           </p>
         </div>
 
+        {/* Achievements */}
         <div>
-          <h3 className="font-semibold mb-2 text-roadpro-black">
-            {language === "en" ? "Achievements" : "الإنجازات"}
-          </h3>
-          <ul className="space-y-2">
+          <div className="flex items-center gap-2 mb-3">
+            <div className="p-1.5 bg-roadpro-yellow/20 rounded-lg">
+              <CheckCircle size={16} className="text-roadpro-yellow" />
+            </div>
+            <h3 className="font-bold text-roadpro-black text-base">
+              {language === "en" ? "Key Achievements" : "الإنجازات الرئيسية"}
+            </h3>
+          </div>
+          <div className="space-y-3">
             {currentProject?.achievements.map((achievement, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <div className="w-1.5 h-1.5 bg-roadpro-yellow rounded-full mt-1.5 flex-shrink-0"></div>
-                <span className="text-sm text-gray-700">{achievement[language]}</span>
-              </li>
+              <div key={index} className="flex items-start gap-3 p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg border border-green-100">
+                <div className="p-0.5 bg-green-100 rounded-full flex-shrink-0 mt-0.5">
+                  <CheckCircle size={12} className="text-green-600" />
+                </div>
+                <span className="text-sm text-gray-800 font-medium leading-relaxed">{achievement[language]}</span>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </DrawerContent>
@@ -673,7 +773,7 @@ const ProjectsPortfolio = () => {
         </AnimatePresence>
 
         {/* Certificates Section */}
-        <div id="certifications" className="mt-24">{/* Added id for navigation */}
+        <div id="certifications" className="mt-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -693,12 +793,21 @@ const ProjectsPortfolio = () => {
 
           {/* Carousel Container */}
           <div className="relative">
+            {/* Mobile swipe hint */}
+            {isMobileScreen && (
+              <div className="text-center mb-4">
+                <p className="text-sm text-gray-500">
+                  {language === "en" ? "Swipe to navigate" : "اسحب للتنقل"}
+                </p>
+              </div>
+            )}
+
             {/* Embla Carousel */}
             <div 
               className="overflow-hidden" 
               ref={emblaRef}
             >
-              <div className="flex gap-6">{/* Embla container */}
+              <div className="flex gap-6">
                 {certificates.map((certificate, index) => (
                   <motion.div
                     key={certificate.id}
@@ -711,7 +820,7 @@ const ProjectsPortfolio = () => {
                       y: -8,
                       boxShadow: "0 25px 50px rgba(255, 214, 0, 0.25)"
                     }}
-                    className="group flex-shrink-0 w-80" /* Fixed width for carousel */
+                    className="group flex-shrink-0 w-80"
                   >
                 <Card className="h-full hover:shadow-2xl transition-all duration-500 border-0 bg-white/90 backdrop-blur-sm overflow-hidden group-hover:border-roadpro-yellow/20 group-hover:border">
                   <CardContent className="p-8 h-full flex flex-col relative">
