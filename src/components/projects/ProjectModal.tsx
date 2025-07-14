@@ -35,7 +35,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project }) => {
       exit={{ scale: 0.95, opacity: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
-      <DialogContent className="max-w-4xl max-h-[85vh] overflow-y-auto bg-white shadow-2xl rounded-xl border-0 p-0">
+      <DialogContent className="max-w-5xl max-h-[85vh] overflow-y-auto bg-white shadow-2xl rounded-xl border-0 p-0">
         {/* Header Section - Scrolls with content */}
         <div className="sticky top-0 bg-white/95 backdrop-blur-sm z-10 border-b border-gray-100">
           <DialogHeader className="p-6 pb-4">
@@ -67,21 +67,23 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project }) => {
         
         <div className="p-6 space-y-6">
           {/* Project Image */}
-          <div className="relative overflow-hidden rounded-xl shadow-lg mx-auto max-w-4xl">
-            <div className="aspect-[16/9] h-64 md:h-80 overflow-hidden bg-gray-100">
-              <img 
-                src={project.image} 
-                alt={project.title[language]}
-                className="w-full h-full object-cover"
-                style={{ 
-                  minHeight: '256px', 
-                  maxHeight: '320px',
-                  objectPosition: 'center center',
-                  objectFit: 'cover'
-                }}
-              />
+          <div className="flex justify-center w-full">
+            <div className="relative overflow-hidden rounded-xl shadow-lg w-full max-w-3xl">
+              <div className="aspect-[16/9] h-64 md:h-80 overflow-hidden bg-gray-100">
+                <img 
+                  src={project.image} 
+                  alt={project.title[language]}
+                  className="w-full h-full"
+                  style={{ 
+                    objectFit: 'cover',
+                    objectPosition: 'center center',
+                    display: 'block',
+                    margin: '0 auto'
+                  }}
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
           </div>
           
           {/* Info Grid */}
