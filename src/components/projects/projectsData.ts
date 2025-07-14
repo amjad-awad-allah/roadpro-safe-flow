@@ -13,7 +13,7 @@ export interface Project {
   description: { en: string; ar: string };
   image: string;
   partnerLogo: string;
-  projectDate: { month: { en: string; ar: string }; year: string };
+  projectDate: { en: string; ar: string };
   achievements: Array<{ en: string; ar: string }>;
 }
 
@@ -66,8 +66,8 @@ export const projects: Project[] = [
     image: LinkesAndPathes.clientLogo1,
     partnerLogo: LinkesAndPathes.clientLogo1,
     projectDate: {
-      month: { en: "April", ar: "أبريل" },
-      year: "2025"
+      en: "Completed – April 2025",
+      ar: "مكتمل – أبريل 2025"
     },
     achievements: [
       {
@@ -125,8 +125,8 @@ export const projects: Project[] = [
     image: LinkesAndPathes.clientLogo2,
     partnerLogo: LinkesAndPathes.clientLogo2,
     projectDate: {
-      month: { en: "September", ar: "سبتمبر" },
-      year: "2024"
+      en: "Completed – September 2024",
+      ar: "مكتمل – سبتمبر 2024"
     },
     achievements: [
       {
@@ -184,8 +184,8 @@ export const projects: Project[] = [
     image: LinkesAndPathes.clientLogo3,
     partnerLogo: LinkesAndPathes.clientLogo3,
     projectDate: {
-      month: { en: "November", ar: "نوفمبر" },
-      year: "2024"
+      en: "Completed – November 2024",
+      ar: "مكتمل – نوفمبر 2024"
     },
     achievements: [
       {
@@ -243,8 +243,8 @@ export const projects: Project[] = [
     image: LinkesAndPathes.clientLogo4,
     partnerLogo: LinkesAndPathes.clientLogo4,
     projectDate: {
-      month: { en: "March", ar: "مارس" },
-      year: "2025"
+      en: "Ongoing since August 2024",
+      ar: "مستمر منذ أغسطس 2024"
     },
     achievements: [
       {
@@ -302,8 +302,8 @@ export const projects: Project[] = [
     image: LinkesAndPathes.clientLogo5,
     partnerLogo: LinkesAndPathes.clientLogo5,
     projectDate: {
-      month: { en: "April", ar: "أبريل" },
-      year: "2025"
+      en: "Ongoing – April/May 2025",
+      ar: "مستمر – أبريل/مايو 2025"
     },
     achievements: [
       {
@@ -361,8 +361,8 @@ export const projects: Project[] = [
     image: LinkesAndPathes.clientLogo6,
     partnerLogo: LinkesAndPathes.clientLogo6,
     projectDate: {
-      month: { en: "April", ar: "أبريل" },
-      year: "2025"
+      en: "Completed – April 2025",
+      ar: "مكتمل – أبريل 2025"
     },
     achievements: [
       {
@@ -420,8 +420,8 @@ export const projects: Project[] = [
     image: LinkesAndPathes.clientLogo7,
     partnerLogo: LinkesAndPathes.clientLogo7,
     projectDate: {
-      month: { en: "March", ar: "مارس" },
-      year: "2025"
+      en: "Ongoing since March 2025",
+      ar: "مستمر منذ مارس 2025"
     },
     achievements: [
       {
@@ -479,8 +479,8 @@ export const projects: Project[] = [
     image: LinkesAndPathes.clientLogo8,
     partnerLogo: LinkesAndPathes.clientLogo8,
     projectDate: {
-      month: { en: "January", ar: "يناير" },
-      year: "2025"
+      en: "Ongoing since January 2025",
+      ar: "مستمر منذ يناير 2025"
     },
     achievements: [
       {

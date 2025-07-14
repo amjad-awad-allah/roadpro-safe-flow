@@ -8,7 +8,7 @@ interface Project {
   id: number;
   title: { en: string; ar: string };
   partnerLogo: string;
-  projectDate: { month: { en: string; ar: string }; year: string };
+  projectDate: { en: string; ar: string };
   category: { en: string; ar: string };
 }
 
@@ -81,10 +81,10 @@ export const CompactProjectCard: React.FC<CompactProjectCardProps> = ({ project,
                 </div>
                 <div className="flex flex-col">
                   <span className="text-sm font-medium text-roadpro-black">
-                    {project.projectDate.month[language]} {project.projectDate.year}
+                    {project.projectDate[language]}
                   </span>
                   <span className="text-xs text-gray-500">
-                    {language === "en" ? "Project Date" : "تاريخ المشروع"}
+                    {language === "en" ? "Project Status" : "حالة المشروع"}
                   </span>
                 </div>
               </div>
