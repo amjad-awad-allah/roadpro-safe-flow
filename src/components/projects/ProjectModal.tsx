@@ -35,28 +35,30 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project }) => {
       exit={{ scale: 0.95, opacity: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
-      <DialogContent className="max-w-5xl max-h-[85vh] overflow-y-auto bg-white shadow-2xl rounded-xl border-0 p-0">
-        {/* Header Section - Scrolls with content */}
-        <div className="sticky top-0 bg-white/95 backdrop-blur-sm z-10 border-b border-gray-100">
+      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto bg-white shadow-2xl rounded-xl border-0 p-0 relative">
+        {/* Header Section - Fixed positioning to avoid overlap */}
+        <div className="sticky top-0 bg-white/98 backdrop-blur-md z-20 border-b border-gray-100 shadow-sm">
           <DialogHeader className="p-6 pb-4">
             <div className="flex items-start justify-between gap-4">
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-3">
-                  <img 
-                    src={project.partnerLogo} 
-                    alt="Partner Logo"
-                    className="h-10 w-10 object-contain rounded-lg bg-gray-50 p-1"
-                  />
-                  <span className="bg-gradient-to-r from-roadpro-yellow/20 to-roadpro-yellow/10 text-roadpro-black px-3 py-1 rounded-full text-sm font-semibold border border-roadpro-yellow/30">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-3 mb-3 flex-wrap">
+                  <div className="flex-shrink-0">
+                    <img 
+                      src={project.partnerLogo} 
+                      alt="Partner Logo"
+                      className="h-12 w-12 object-contain rounded-lg bg-gray-50 p-2 border border-gray-200"
+                    />
+                  </div>
+                  <span className="bg-gradient-to-r from-roadpro-yellow/20 to-roadpro-yellow/10 text-roadpro-black px-3 py-1.5 rounded-full text-sm font-semibold border border-roadpro-yellow/30 flex-shrink-0">
                     {project.category[language]}
                   </span>
                 </div>
-                <DialogTitle className="text-2xl font-bold text-roadpro-black leading-tight">
+                <DialogTitle className="text-2xl md:text-3xl font-bold text-roadpro-black leading-tight mb-2">
                   {project.title[language]}
                 </DialogTitle>
-                <div className="flex items-center gap-2 mt-2 text-roadpro-yellow">
-                  <Calendar size={16} />
-                  <span className="text-sm font-medium text-gray-600">
+                <div className="flex items-center gap-2 text-roadpro-yellow">
+                  <Calendar size={18} />
+                  <span className="text-base font-medium text-gray-600">
                     {project.projectDate[language]}
                   </span>
                 </div>
@@ -65,54 +67,59 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project }) => {
           </DialogHeader>
         </div>
         
-        <div className="p-6 space-y-6">
-          {/* Project Image */}
-          <div className="flex justify-center w-full">
-            <div className="relative overflow-hidden rounded-xl shadow-lg w-full max-w-3xl">
-              <div className="aspect-[16/9] h-64 md:h-80 overflow-hidden bg-gray-100">
+        <div className="relative z-10 p-6 space-y-8">
+          {/* Project Image - Properly Centered and Responsive */}
+          <div className="w-full flex justify-center items-center py-4">
+            <div className="relative w-full max-w-4xl mx-auto">
+              <div className="aspect-[16/9] w-full overflow-hidden rounded-xl shadow-lg bg-gray-100">
                 <img 
                   src={project.image} 
                   alt={project.title[language]}
-                  className="w-full h-full"
+                  className="w-full h-full object-cover object-center"
                   style={{ 
                     objectFit: 'cover',
                     objectPosition: 'center center',
-                    display: 'block',
-                    margin: '0 auto'
+                    width: '100%',
+                    height: '100%',
+                    display: 'block'
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.style.objectFit = 'contain';
+                    e.currentTarget.style.backgroundColor = '#f3f4f6';
                   }}
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-xl pointer-events-none" />
             </div>
           </div>
           
-          {/* Info Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-              <div className="p-2 bg-roadpro-yellow/20 rounded-lg flex-shrink-0">
-                <Calendar size={16} className="text-roadpro-yellow" />
+          {/* Info Grid - Better spacing and layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-2">
+            <div className="flex items-start gap-3 p-5 bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-xl border border-gray-200/50 hover:shadow-md transition-all duration-200">
+              <div className="p-2.5 bg-roadpro-yellow/20 rounded-lg flex-shrink-0">
+                <Calendar size={18} className="text-roadpro-yellow" />
               </div>
               <div className="min-w-0">
-                <p className="text-xs font-medium text-gray-500 mb-1">{language === "en" ? "Project Status" : "حالة المشروع"}</p>
-                <p className="font-semibold text-roadpro-black text-sm">{project.projectDate[language]}</p>
+                <p className="text-sm font-medium text-gray-500 mb-1">{language === "en" ? "Project Status" : "حالة المشروع"}</p>
+                <p className="font-semibold text-roadpro-black text-base leading-tight">{project.projectDate[language]}</p>
               </div>
             </div>
-            <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-              <div className="p-2 bg-roadpro-yellow/20 rounded-lg flex-shrink-0">
-                <MapPin size={16} className="text-roadpro-yellow" />
+            <div className="flex items-start gap-3 p-5 bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-xl border border-gray-200/50 hover:shadow-md transition-all duration-200">
+              <div className="p-2.5 bg-roadpro-yellow/20 rounded-lg flex-shrink-0">
+                <MapPin size={18} className="text-roadpro-yellow" />
               </div>
               <div className="min-w-0">
-                <p className="text-xs font-medium text-gray-500 mb-1">{language === "en" ? "Location" : "الموقع"}</p>
-                <p className="font-semibold text-roadpro-black text-sm">{project.location[language]}</p>
+                <p className="text-sm font-medium text-gray-500 mb-1">{language === "en" ? "Location" : "الموقع"}</p>
+                <p className="font-semibold text-roadpro-black text-base leading-tight">{project.location[language]}</p>
               </div>
             </div>
-            <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-              <div className="p-2 bg-roadpro-yellow/20 rounded-lg flex-shrink-0">
-                <Users size={16} className="text-roadpro-yellow" />
+            <div className="flex items-start gap-3 p-5 bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-xl border border-gray-200/50 hover:shadow-md transition-all duration-200">
+              <div className="p-2.5 bg-roadpro-yellow/20 rounded-lg flex-shrink-0">
+                <Users size={18} className="text-roadpro-yellow" />
               </div>
               <div className="min-w-0">
-                <p className="text-xs font-medium text-gray-500 mb-1">{language === "en" ? "Team Size" : "حجم الفريق"}</p>
-                <p className="font-semibold text-roadpro-black text-sm">{project.teamSize[language]}</p>
+                <p className="text-sm font-medium text-gray-500 mb-1">{language === "en" ? "Team Size" : "حجم الفريق"}</p>
+                <p className="font-semibold text-roadpro-black text-base leading-tight">{project.teamSize[language]}</p>
               </div>
             </div>
           </div>
