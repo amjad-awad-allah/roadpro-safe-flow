@@ -12,6 +12,8 @@ export interface Project {
   technologies: { en: string; ar: string };
   description: { en: string; ar: string };
   image: string;
+  partnerLogo: string;
+  projectDate: { month: { en: string; ar: string }; year: string };
   achievements: Array<{ en: string; ar: string }>;
 }
 
@@ -62,6 +64,11 @@ export const projects: Project[] = [
       ar: "أدرنا بنجاح عمليات مرور معقدة أثناء إنشاء نظام مترو أبوظبي. غطت خطة إدارة المرور الشاملة 12 تقاطعاً رئيسياً، مما ضمن الحد الأدنى من الاضطراب للمسافرين اليوميين مع الحفاظ على أعلى معايير السلامة. شمل المشروع أنظمة مراقبة على مدار الساعة وبروتوكولات الاستجابة للطوارئ والتنسيق السلس مع بلدية أبوظبي والشرطة ومقاولي الإنشاء."
     },
     image: LinkesAndPathes.clientLogo1,
+    partnerLogo: LinkesAndPathes.clientLogo1,
+    projectDate: {
+      month: { en: "April", ar: "أبريل" },
+      year: "2025"
+    },
     achievements: [
       {
         en: "Zero major traffic accidents during 24-month construction period",
@@ -116,6 +123,11 @@ export const projects: Project[] = [
       ar: "نظمنا عمليات مرور شاملة أثناء توسعة طريق كورنيش أبوظبي الشهير. شمل نهجنا المبتكر تنفيذ أنظمة إشارات مرور ذكية ونشر مخففات صدمات متطورة محمولة على الشاحنات وإنشاء خطط طرق بديلة ديناميكية. تطلب المشروع تنسيقاً دقيقاً مع سلطات السياحة لتقليل التأثير على الأنشطة الترفيهية مع ضمان السلامة المطلقة لعمال الإنشاء."
     },
     image: LinkesAndPathes.clientLogo2,
+    partnerLogo: LinkesAndPathes.clientLogo2,
+    projectDate: {
+      month: { en: "September", ar: "سبتمبر" },
+      year: "2024"
+    },
     achievements: [
       {
         en: "Tourist access maintained throughout 18-month construction period",
@@ -170,6 +182,11 @@ export const projects: Project[] = [
       ar: "نفذنا إدارة مرور مثالية لواحد من أشهر أحداث السباق في العالم. تعامل فريق الخبراء لدينا مع اللوجستيات المعقدة لإدارة حركة أكثر من 50,000 متفرج مع الحفاظ على طرق الوصول الحيوية للطوارئ. نفذنا أنظمة تحكم مرور ديناميكية متطورة ونسقنا بسلاسة مع فرق الأمن الدولية وضمنا التكامل المثالي مع أنظمة النقل العام."
     },
     image: LinkesAndPathes.clientLogo3,
+    partnerLogo: LinkesAndPathes.clientLogo3,
+    projectDate: {
+      month: { en: "November", ar: "نوفمبر" },
+      year: "2024"
+    },
     achievements: [
       {
         en: "Zero traffic incidents during race weekend with 50,000+ attendees",
@@ -224,6 +241,11 @@ export const projects: Project[] = [
       ar: "رائدنا في تكامل أنظمة إدارة المرور المدعومة بإنترنت الأشياء من الجيل التالي عبر المناطق الرئيسية في أبوظبي. يشمل حلولنا الثوري مراقبة المرور في الوقت الفعلي والتحكم التكيفي في الإشارات المدعوم بالذكاء الاصطناعي والتحليلات التنبؤية لإدارة الازدحام الشاملة. يدعم المشروع مباشرة رؤية أبوظبي الطموحة لتصبح مدينة ذكية رائدة عالمياً بحلول 2030."
     },
     image: LinkesAndPathes.clientLogo4,
+    partnerLogo: LinkesAndPathes.clientLogo4,
+    projectDate: {
+      month: { en: "January", ar: "يناير" },
+      year: "2025"
+    },
     achievements: [
       {
         en: "25% improvement in overall traffic flow efficiency across all monitored areas",

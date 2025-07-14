@@ -10,7 +10,8 @@ import { Drawer } from "@/components/ui/drawer";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ProjectModal } from "./projects/ProjectModal";
 import { ProjectDrawer } from "./projects/ProjectDrawer";
-import { ProjectCard } from "./projects/ProjectCard";
+import { CompactProjectCard } from "./projects/CompactProjectCard";
+import { ProjectCarousel } from "./projects/ProjectCarousel";
 import { CertificateCard } from "./projects/CertificateCard";
 import { projects, certificates } from "./projects/projectsData";
 
@@ -111,9 +112,6 @@ const ProjectsPortfolio = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black mb-4">
-            {language === "en" ? "Project Portfolio – Road Shield Solutions" : "محفظة المشاريع - حلول درع الطريق"}
-          </h2>
           <p className="text-roadpro-gray text-lg max-w-3xl mx-auto">
             {language === "en" 
               ? "Showcasing our flagship infrastructure and road safety projects that define excellence in traffic management across Abu Dhabi" 
@@ -121,22 +119,19 @@ const ProjectsPortfolio = () => {
           </p>
         </motion.div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8"
+        {/* Projects Carousel */}
+        <ProjectCarousel 
+          projects={projects} 
+          onProjectClick={openProject}
         >
           {projects.map((project) => (
-            <ProjectCard
+            <CompactProjectCard
               key={project.id}
               project={project}
               onClick={openProject}
-              variants={cardVariants}
             />
           ))}
-        </motion.div>
+        </ProjectCarousel>
 
         {/* Modal/Drawer for project details */}
         <AnimatePresence>
