@@ -54,7 +54,6 @@ const DesktopMenu = ({
         {link.text}
       </a>)}
       
-      <LanguageToggle language={language} toggleLanguage={toggleLanguage} isDesktop />
       
     </nav>;
 };
