@@ -54,8 +54,12 @@ export const CompactProjectCard: React.FC<CompactProjectCardProps> = ({ project,
               <img 
                 src={project.partnerLogo} 
                 alt="Partner Logo"
-                className="max-h-14 max-w-20 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                style={{ minHeight: '40px', maxHeight: '56px' }}
+                className="max-h-14 max-w-20 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 mx-auto"
+                style={{ 
+                  minHeight: '40px', 
+                  maxHeight: '56px',
+                  objectPosition: 'center center'
+                }}
               />
             </div>
           </div>
