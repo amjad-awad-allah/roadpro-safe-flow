@@ -130,9 +130,10 @@ const ProjectsPortfolio = () => {
 
         {/* Projects Carousel */}
         <ProjectCarousel>
-          {projects.map((project) => (
+          {/* Duplicate projects for seamless infinite loop */}
+          {[...projects, ...projects].map((project, index) => (
             <CompactProjectCard
-              key={project.id}
+              key={`${project.id}-${index}`}
               project={project}
               onClick={openProject}
             />
