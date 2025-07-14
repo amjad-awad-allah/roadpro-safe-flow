@@ -141,15 +141,21 @@ const ProjectsPortfolio = () => {
         </ProjectCarousel>
 
         {/* Modal/Drawer for project details */}
-        {isMobile ? (
-          <Drawer open={isModalOpen} onOpenChange={closeProject}>
-            {currentProject && <ProjectDrawer project={currentProject} />}
-          </Drawer>
-        ) : (
-          <Dialog open={isModalOpen} onOpenChange={closeProject}>
-            {currentProject && <ProjectModal project={currentProject} />}
-          </Dialog>
-        )}
+        <AnimatePresence>
+          {isModalOpen && currentProject && (
+            <>
+              {isMobile ? (
+                <Drawer open={isModalOpen} onOpenChange={closeProject}>
+                  <ProjectDrawer project={currentProject} />
+                </Drawer>
+              ) : (
+                <Dialog open={isModalOpen} onOpenChange={closeProject}>
+                  <ProjectModal project={currentProject} />
+                </Dialog>
+              )}
+            </>
+          )}
+        </AnimatePresence>
 
         {/* Certificates Section */}
         <div id="certifications" className="mt-24">
