@@ -1,7 +1,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
+import { DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription } from "@/components/ui/drawer";
 import { MapPin, Calendar, Users, Award, Cog, Target, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -35,9 +35,9 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({ project }) => {
       exit={{ y: "100%" }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
-      <DrawerContent className="max-h-[90vh] bg-white rounded-t-xl border-0">
+      <DrawerContent className="max-h-[90vh] bg-white rounded-t-xl border-0 z-50">
         {/* Header */}
-        <div className="sticky top-0 bg-white/95 backdrop-blur-sm z-10 border-b border-gray-100">
+        <div className="sticky top-0 bg-white/98 backdrop-blur-sm z-20 border-b border-gray-100">
           <DrawerHeader className="p-4 pb-3">
             <div className="flex items-start gap-3">
               <img 
@@ -54,12 +54,12 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({ project }) => {
                 <DrawerTitle className="text-lg font-bold text-roadpro-black leading-tight text-left">
                   {project.title[language]}
                 </DrawerTitle>
-                <div className="flex items-center gap-2 mt-1">
+                <DrawerDescription className="flex items-center gap-2 mt-1">
                   <Calendar size={14} className="text-roadpro-yellow" />
                   <span className="text-xs font-medium text-gray-600">
                     {project.projectDate[language]}
                   </span>
-                </div>
+                </DrawerDescription>
               </div>
             </div>
           </DrawerHeader>

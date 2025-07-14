@@ -1,8 +1,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { MapPin, Calendar, Users, Award, Cog, Target, CheckCircle, X } from "lucide-react";
+import { DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { MapPin, Calendar, Users, Award, Cog, Target, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Project {
@@ -56,12 +56,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project }) => {
                 <DialogTitle className="text-2xl md:text-3xl font-bold text-roadpro-black leading-tight mb-2">
                   {project.title[language]}
                 </DialogTitle>
-                <div className="flex items-center gap-2 text-roadpro-yellow">
+                <DialogDescription className="flex items-center gap-2 text-roadpro-yellow">
                   <Calendar size={18} />
                   <span className="text-base font-medium text-gray-600">
                     {project.projectDate[language]}
                   </span>
-                </div>
+                </DialogDescription>
               </div>
             </div>
           </DialogHeader>
