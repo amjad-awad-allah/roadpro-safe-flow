@@ -34,7 +34,7 @@ const DesktopMenu = ({
     }
   };
   
-  return <nav className={`hidden md:flex items-center ${language === "ar" ? "space-x-reverse space-x-8" : "space-x-8"}`}>
+  return <nav className={`hidden lg:flex items-center ${language === "ar" ? "space-x-reverse space-x-4 lg:space-x-6" : "space-x-4 lg:space-x-6"}`}>
       {navLinks.map(link => <a 
         key={link.href} 
         href={link.href} 
@@ -42,7 +42,7 @@ const DesktopMenu = ({
           e.preventDefault();
           handleNavLinkClick(link.href);
         }} 
-        className={`font-medium relative transition-colors duration-300 py-2 px-3 rounded-lg cursor-pointer
+        className={`font-medium relative transition-colors duration-300 py-2 px-2 lg:px-3 rounded-lg cursor-pointer text-sm lg:text-base
           ${activeSection === link.href 
             ? "text-roadpro-black bg-roadpro-yellow/90 shadow-md" 
             : isScrolled

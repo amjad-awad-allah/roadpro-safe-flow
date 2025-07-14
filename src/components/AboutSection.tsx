@@ -34,7 +34,7 @@ const AboutSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div ref={contentRef} className="space-y-6">
             <div className="border-l-4 border-roadpro-yellow pl-4">
               <h3 className="text-2xl font-semibold text-roadpro-black mb-2">{t("about.mission.title")}</h3>

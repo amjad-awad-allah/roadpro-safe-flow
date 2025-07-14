@@ -43,7 +43,7 @@ const MobileMenu = ({
   
   return (
     <>
-      <div className="md:hidden flex items-center gap-2">
+      <div className="lg:hidden flex items-center gap-2">
         <button
           className={`px-2 py-2 rounded-xl border transition-all hover:scale-110 ${
             isScrolled 
@@ -57,7 +57,7 @@ const MobileMenu = ({
         </button>
       </div>
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 shadow-lg animate-fade-in-up rounded-b-xl border-t border-roadpro-lightgray z-50">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 shadow-lg animate-fade-in-up rounded-b-xl border-t border-roadpro-lightgray z-50">
           <div className="container py-4 flex flex-col space-y-4">
             {navLinks.map(link => (
               <a

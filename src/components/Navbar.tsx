@@ -111,12 +111,15 @@ const Navbar = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-poppins
         ${isScrolled ? "bg-white/90 shadow-lg py-2 backdrop-blur" : "bg-transparent py-4"}
       `} style={{ transitionProperty: "background,box-shadow,padding" }}>
-      <div className="container flex items-center justify-between">
+      <div className="container flex items-center justify-between px-4 md:px-6">
         <a href="#" className="flex items-center space-x-3 group">
           <img 
             alt="Road Pro logo" 
-            style={{ maxHeight: 80 }} 
-            className="h-20 w-auto rounded-xl shadow-xl bg-white p-2 border border-gray-200 transition-all duration-300 group-hover:scale-105 object-contain" 
+            className={`w-auto rounded-xl shadow-xl bg-white p-2 border border-gray-200 transition-all duration-300 group-hover:scale-105 object-contain ${
+              isScrolled 
+                ? "h-12 sm:h-14 md:h-16" 
+                : "h-16 sm:h-18 md:h-20"
+            }`}
             src="/lovable-uploads/25f91db6-31d9-44f7-a1f6-bb7d7d7e03c6.png" 
           />
         </a>

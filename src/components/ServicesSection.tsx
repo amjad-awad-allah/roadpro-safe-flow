@@ -65,10 +65,10 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div ref={trafficServicesRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+        <div ref={trafficServicesRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16 md:mb-24">
           {trafficManagementServices.map((service, index) => {
           const Icon = service.icon;
-          return <div key={index} className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-300
+          return <div key={index} className="bg-white rounded-2xl p-6 md:p-8 shadow-lg transition-all duration-300
                   hover:translate-y-[-10px] hover:shadow-xl border-b-4 border-transparent 
                   hover:border-roadpro-yellow animate-zoom-in">
                 <div className="w-16 h-16 bg-roadpro-yellow/20 rounded-full flex items-center justify-center mb-6
@@ -101,10 +101,10 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div ref={productServicesRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={productServicesRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {trafficProductsServices.map((service, index) => {
           const Icon = service.icon;
-          return <div key={index} className="bg-white rounded-2xl p-8 shadow-lg transition-all duration-300
+          return <div key={index} className="bg-white rounded-2xl p-6 md:p-8 shadow-lg transition-all duration-300
                   hover:translate-y-[-10px] hover:shadow-xl border-b-4 border-transparent 
                   hover:border-roadpro-yellow animate-zoom-in">
                 <div className="w-16 h-16 bg-roadpro-yellow/20 rounded-full flex items-center justify-center mb-6

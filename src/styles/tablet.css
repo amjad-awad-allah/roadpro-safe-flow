@@ -1,0 +1,93 @@
+/* Tablet-specific responsive improvements */
+
+@layer utilities {
+  /* Tablet navigation improvements */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .tablet-nav-spacing {
+      @apply space-x-3;
+    }
+    
+    .tablet-nav-text {
+      @apply text-sm;
+    }
+    
+    .tablet-logo {
+      @apply h-14;
+    }
+    
+    .tablet-container {
+      @apply px-6;
+    }
+  }
+  
+  /* Tablet grid improvements */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .tablet-grid-2 {
+      @apply grid-cols-2;
+    }
+    
+    .tablet-gap-6 {
+      @apply gap-6;
+    }
+    
+    .tablet-p-6 {
+      @apply p-6;
+    }
+    
+    .tablet-mb-16 {
+      @apply mb-16;
+    }
+  }
+  
+  /* Tablet text sizing */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .tablet-text-lg {
+      @apply text-lg;
+    }
+    
+    .tablet-text-xl {
+      @apply text-xl;
+    }
+    
+    .tablet-text-2xl {
+      @apply text-2xl;
+    }
+    
+    .tablet-text-3xl {
+      @apply text-3xl;
+    }
+  }
+  
+  /* Ensure proper mobile menu on tablets */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .mobile-menu-tablet {
+      @apply flex;
+    }
+    
+    .desktop-menu-tablet {
+      @apply hidden;
+    }
+  }
+  
+  /* Tablet-specific button sizing */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .tablet-btn-spacing {
+      @apply px-4 py-2;
+    }
+  }
+}
+
+/* Custom tablet breakpoint classes */
+.tablet-only {
+  @apply hidden;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet-only {
+    @apply block;
+  }
+  
+  .tablet-hidden {
+    @apply hidden;
+  }
+}
