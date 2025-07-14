@@ -100,67 +100,6 @@ const HeroSection = () => {
 </div>
 
 
-      {/* Content with Image Layout */}
-      <div className="container mx-auto relative z-20 px-4 md:px-6 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Right side - Text content */}
-          <div
-            className={`text-white ${
-              language === "ar" ? "lg:order-1 text-right" : ""
-            }`}
-          >
-            <h1 ref={titleRef} className="text-4xl md:text-5xl font-bold mb-4">
-              {language === "en" ? (
-                <>Professional Traffic Management<br />& Consultancy Services</>
-              ) : (
-                <>
-                  إدارة حركة المرور المهنية
-                  <br />
-                  وخدمات الاستشارات
-                </>
-              )}
-            </h1>
-            <p ref={subtitleRef} className="text-xl mb-8 opacity-90">
-              {language === "en"
-                ? "Committed to ensuring public safety and maintaining efficient traffic flow with comprehensive solutions that comply with regulatory standards."
-                : "ملتزمون بضمان السلامة العامة والحفاظ على تدفق مروري فعال من خلال حلول شاملة تتوافق مع المعايير التنظيمية."}
-            </p>
-            <div
-              ref={buttonsRef}
-              className={`flex flex-wrap gap-4 ${
-                language === "ar" ? "justify-end" : ""
-              }`}
-            >
-              <Button 
-                variant="cta" 
-                size="lg" 
-                className="group animate-elastic-bounce"
-                onClick={() => scrollToSection("services")}
-              >
-                {language === "en" ? (
-                  <>
-                    Explore Our Services
-                    <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
-                  </>
-                ) : (
-                  <>
-                    استكشف خدماتنا
-                    <ArrowRight className="mr-2 transition-transform group-hover:-translate-x-1 rotate-180" />
-                  </>
-                )}
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-transparent border-white text-white hover:bg-white hover:text-roadpro-black"
-                onClick={() => scrollToSection("contact")}
-              >
-                {language === "en" ? "Contact Us" : "اتصل بنا"}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Scroll indicator */}
       <div 

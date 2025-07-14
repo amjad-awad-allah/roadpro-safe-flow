@@ -44,9 +44,7 @@ const MobileMenu = ({
   return (
     <>
       <div className="md:hidden flex items-center gap-2">
-        {/* Language Toggle Button for Mobile */}
-        <LanguageToggle language={language} toggleLanguage={toggleLanguage} />
-        <button 
+        <button
           className={`px-2 py-2 rounded-xl border transition-all hover:scale-110 ${
             isScrolled 
               ? "text-roadpro-black shadow-md bg-white border-roadpro-lightgray hover:shadow-roadpro-yellow" 
@@ -79,7 +77,7 @@ const MobileMenu = ({
                 {link.text}
               </a>
             ))}
-            <LanguageToggle language={language} toggleLanguage={toggleLanguage} isMobileMenu />
+            
             <Button 
               className="w-full mt-2 bg-roadpro-yellow text-roadpro-black hover:bg-roadpro-black hover:text-roadpro-yellow transition-transform hover:scale-105 hover:shadow-lg hover-glow shadow rounded-lg text-base px-4 py-3 font-poppins glowing-cta"
               onClick={handleQuoteClick}
