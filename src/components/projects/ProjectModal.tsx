@@ -68,7 +68,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project }) => {
         <div className="p-6 space-y-6">
           {/* Project Image */}
           <div className="relative overflow-hidden rounded-xl shadow-lg mx-auto max-w-4xl">
-            <div className="aspect-[16/9] h-64 md:h-80 overflow-hidden bg-gray-100 mx-auto">
+            <div className="aspect-[16/9] h-64 md:h-80 overflow-hidden bg-gray-100 mx-auto max-w-2xl max-h-80">
               <img 
                 src={project.image} 
                 alt={project.title[language]}
