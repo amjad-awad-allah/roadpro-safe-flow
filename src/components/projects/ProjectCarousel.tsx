@@ -13,21 +13,24 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
   const { language } = useLanguage();
   
   const autoplayPlugin = Autoplay({ 
-    delay: 4000, 
+    delay: 3000, 
     stopOnInteraction: false,
-    stopOnMouseEnter: true,
-    stopOnFocusIn: false
+    stopOnMouseEnter: false,
+    stopOnFocusIn: false,
+    playOnInit: true,
+    rootNode: (emblaRoot) => emblaRoot.parentElement,
   });
   
   const [emblaRef] = useEmblaCarousel({
     loop: true,
     align: 'start',
     slidesToScroll: 1,
-    dragFree: true,
-    containScroll: 'trimSnaps',
+    dragFree: false,
+    skipSnaps: false,
+    duration: 25,
     breakpoints: {
-      '(min-width: 768px)': { slidesToScroll: 2 },
-      '(min-width: 1024px)': { slidesToScroll: 3 }
+      '(min-width: 768px)': { slidesToScroll: 1 },
+      '(min-width: 1024px)': { slidesToScroll: 1 }
     }
   }, [autoplayPlugin]);
 
