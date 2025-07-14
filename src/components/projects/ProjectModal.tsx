@@ -67,16 +67,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project }) => {
         
         <div className="p-6 space-y-6">
           {/* Project Image */}
-          <div className="relative overflow-hidden rounded-xl shadow-lg">
-            <div className="aspect-[16/9] h-64 md:h-80 overflow-hidden bg-gray-100 flex items-center justify-center">
+          <div className="relative overflow-hidden rounded-xl shadow-lg mx-auto max-w-4xl">
+            <div className="aspect-[16/9] h-64 md:h-80 overflow-hidden bg-gray-100">
               <img 
                 src={project.image} 
                 alt={project.title[language]}
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover"
                 style={{ 
                   minHeight: '256px', 
                   maxHeight: '320px',
-                  objectPosition: 'center center'
+                  objectPosition: 'center center',
+                  objectFit: 'cover'
                 }}
               />
             </div>
@@ -84,7 +85,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project }) => {
           </div>
           
           {/* Info Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+              <div className="p-2 bg-roadpro-yellow/20 rounded-lg flex-shrink-0">
+                <Calendar size={16} className="text-roadpro-yellow" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-xs font-medium text-gray-500 mb-1">{language === "en" ? "Project Status" : "حالة المشروع"}</p>
+                <p className="font-semibold text-roadpro-black text-sm">{project.projectDate[language]}</p>
+              </div>
+            </div>
             <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
               <div className="p-2 bg-roadpro-yellow/20 rounded-lg flex-shrink-0">
                 <MapPin size={16} className="text-roadpro-yellow" />
@@ -96,29 +106,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project }) => {
             </div>
             <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
               <div className="p-2 bg-roadpro-yellow/20 rounded-lg flex-shrink-0">
-                <Calendar size={16} className="text-roadpro-yellow" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-xs font-medium text-gray-500 mb-1">{language === "en" ? "Duration" : "المدة"}</p>
-                <p className="font-semibold text-roadpro-black text-sm">{project.duration[language]}</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-              <div className="p-2 bg-roadpro-yellow/20 rounded-lg flex-shrink-0">
                 <Users size={16} className="text-roadpro-yellow" />
               </div>
               <div className="min-w-0">
-                <p className="text-xs font-medium text-gray-500 mb-1">{language === "en" ? "Team" : "الفريق"}</p>
+                <p className="text-xs font-medium text-gray-500 mb-1">{language === "en" ? "Team Size" : "حجم الفريق"}</p>
                 <p className="font-semibold text-roadpro-black text-sm">{project.teamSize[language]}</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-              <div className="p-2 bg-roadpro-yellow/20 rounded-lg flex-shrink-0">
-                <Award size={16} className="text-roadpro-yellow" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-xs font-medium text-gray-500 mb-1">{language === "en" ? "Technologies" : "التقنيات"}</p>
-                <p className="font-semibold text-roadpro-black text-sm">{project.technologies[language]}</p>
               </div>
             </div>
           </div>
