@@ -24,10 +24,24 @@ export const CompactProjectCard: React.FC<CompactProjectCardProps> = ({ project,
     <motion.div
       whileHover={{ 
         scale: 1.03,
-        y: -5,
-        boxShadow: "0 15px 30px rgba(255, 214, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1)",
+        y: -8,
+        boxShadow: "0 20px 40px rgba(255, 214, 0, 0.25), 0 8px 20px rgba(0, 0, 0, 0.1)",
       }}
-      whileTap={{ scale: 0.98 }}
+      whileTap={{ 
+        scale: 0.95,
+        y: -2,
+        transition: { type: "spring", stiffness: 400, damping: 20 }
+      }}
+      initial={{ scale: 1 }}
+      animate={{ 
+        y: [0, -2, 0],
+        transition: { 
+          duration: 2, 
+          repeat: Infinity, 
+          repeatType: "reverse",
+          ease: "easeInOut"
+        }
+      }}
       className="cursor-pointer group flex-shrink-0"
       onClick={() => onClick(project.id)}
     >

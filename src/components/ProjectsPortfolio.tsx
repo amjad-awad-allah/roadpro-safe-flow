@@ -104,6 +104,7 @@ const ProjectsPortfolio = () => {
   return (
     <section id="projects-portfolio" className="section-padding bg-gray-50">
       <div className="container mx-auto">
+        {/* Section Header */}
         <motion.div 
           ref={sectionRef}
           initial={{ opacity: 0, y: 30 }}
@@ -112,6 +113,14 @@ const ProjectsPortfolio = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
+          <div className="inline-block bg-roadpro-yellow/20 px-4 py-1 rounded-full mb-4">
+            <span className="text-sm font-medium text-roadpro-black">
+              {language === "en" ? "Portfolio" : "المحفظة"}
+            </span>
+          </div>
+          <h2 className="text-4xl font-bold text-roadpro-black mb-4 md:text-4xl">
+            {language === "en" ? "Our Projects" : "مشاريعنا"}
+          </h2>
           <p className="text-roadpro-gray text-lg max-w-3xl mx-auto">
             {language === "en" 
               ? "Showcasing our flagship infrastructure and road safety projects that define excellence in traffic management across Abu Dhabi" 
@@ -120,10 +129,7 @@ const ProjectsPortfolio = () => {
         </motion.div>
 
         {/* Projects Carousel */}
-        <ProjectCarousel 
-          projects={projects} 
-          onProjectClick={openProject}
-        >
+        <ProjectCarousel>
           {projects.map((project) => (
             <CompactProjectCard
               key={project.id}

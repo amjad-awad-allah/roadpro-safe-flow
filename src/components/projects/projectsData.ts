@@ -243,7 +243,7 @@ export const projects: Project[] = [
     image: LinkesAndPathes.clientLogo4,
     partnerLogo: LinkesAndPathes.clientLogo4,
     projectDate: {
-      month: { en: "January", ar: "يناير" },
+      month: { en: "March", ar: "مارس" },
       year: "2025"
     },
     achievements: [

@@ -1,31 +1,26 @@
-import React, { useCallback } from "react";
-import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import useEmblaCarousel from 'embla-carousel-react';
-
-interface Project {
-  id: number;
-  title: { en: string; ar: string };
-  partnerLogo: string;
-  projectDate: { month: { en: string; ar: string }; year: string };
-  category: { en: string; ar: string };
-}
+import Autoplay from 'embla-carousel-autoplay';
 
 interface ProjectCarouselProps {
-  projects: Project[];
-  onProjectClick: (projectId: number) => void;
   children: React.ReactNode;
 }
 
 export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ 
-  projects, 
-  onProjectClick, 
   children 
 }) => {
   const { language } = useLanguage();
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: false,
+  
+  const autoplayPlugin = Autoplay({ 
+    delay: 4000, 
+    stopOnInteraction: false,
+    stopOnMouseEnter: true,
+    stopOnFocusIn: false
+  });
+  
+  const [emblaRef] = useEmblaCarousel({
+    loop: true,
     align: 'start',
     slidesToScroll: 1,
     dragFree: true,
@@ -34,45 +29,10 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
       '(min-width: 768px)': { slidesToScroll: 2 },
       '(min-width: 1024px)': { slidesToScroll: 3 }
     }
-  });
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+  }, [autoplayPlugin]);
 
   return (
     <div className="relative">
-      {/* Navigation Buttons */}
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-roadpro-black">
-          {language === "en" ? "Our Projects" : "مشاريعنا"}
-        </h2>
-        
-        <div className="flex gap-2">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={scrollPrev}
-            className="p-3 bg-white border border-gray-200 rounded-full shadow-md hover:shadow-lg hover:border-roadpro-yellow/50 hover:bg-roadpro-yellow/5 transition-all duration-300 group"
-          >
-            <ChevronLeft size={20} className="text-gray-600 group-hover:text-roadpro-yellow transition-colors" />
-          </motion.button>
-          
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={scrollNext}
-            className="p-3 bg-white border border-gray-200 rounded-full shadow-md hover:shadow-lg hover:border-roadpro-yellow/50 hover:bg-roadpro-yellow/5 transition-all duration-300 group"
-          >
-            <ChevronRight size={20} className="text-gray-600 group-hover:text-roadpro-yellow transition-colors" />
-          </motion.button>
-        </div>
-      </div>
-
       {/* Carousel Container */}
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex gap-6">
