@@ -36,11 +36,13 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({ project }) => {
       <div className="px-4 pb-4 space-y-6 overflow-y-auto">
         {/* Project Image */}
         <div className="relative overflow-hidden rounded-xl shadow-lg">
-          <img 
-            src={project.image} 
-            alt={project.title[language]}
-            className="w-full h-48 object-cover"
-          />
+          <div className="aspect-[16/9] overflow-hidden">
+            <img 
+              src={project.image} 
+              alt={project.title[language]}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
           <div className="absolute top-3 right-3">
             <span className="bg-roadpro-yellow/90 backdrop-blur-sm text-roadpro-black px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
               {project.category[language]}
