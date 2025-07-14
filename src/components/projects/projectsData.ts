@@ -264,6 +264,242 @@ export const projects: Project[] = [
         ar: "أول نظام مرور للمدينة الذكية يحقق التكامل الكامل للذكاء الاصطناعي في المنطقة"
       }
     ]
+  },
+  {
+    id: 5,
+    title: {
+      en: "Traffic Diversions for Landscape Maintenance Project",
+      ar: "تحويلات المرور لمشروع صيانة المناظر الطبيعية"
+    },
+    preview: {
+      en: "Strategic traffic management for high-profile landscape maintenance in Saadiyat Island",
+      ar: "إدارة المرور الاستراتيجية لصيانة المناظر الطبيعية في جزيرة السعديات"
+    },
+    category: {
+      en: "Road Diversion",
+      ar: "تحويل الطرق"
+    },
+    location: {
+      en: "Saadiyat Island, Abu Dhabi",
+      ar: "جزيرة السعديات، أبوظبي"
+    },
+    duration: {
+      en: "2 months",
+      ar: "شهرين"
+    },
+    teamSize: {
+      en: "8 traffic specialists",
+      ar: "8 متخصصين مرور"
+    },
+    technologies: {
+      en: "TMA Systems, Advanced Signage, Real-time Safety Control",
+      ar: "أنظمة TMA، لافتات متقدمة، التحكم الأمني في الوقت الفعلي"
+    },
+    description: {
+      en: "Successfully executed comprehensive traffic diversions for critical landscape maintenance operations in Saadiyat Island's high-profile cultural district. Our specialized team deployed Truck Mounted Attenuators (TMA), implemented dynamic signage systems, and provided continuous on-site safety control in full collaboration with ITC authorities. The project required meticulous planning to maintain access to major cultural institutions while ensuring worker safety and minimal disruption to residents and tourists in this prestigious area.",
+      ar: "نفذنا بنجاح تحويلات مرور شاملة لعمليات صيانة المناظر الطبيعية الحيوية في المنطقة الثقافية المرموقة بجزيرة السعديات. نشر فريقنا المتخصص مخففات الصدمات المحمولة على الشاحنات ونفذ أنظمة لافتات ديناميكية ووفر تحكماً أمنياً مستمراً في الموقع بالتعاون الكامل مع سلطات ITC."
+    },
+    image: LinkesAndPathes.clientLogo5,
+    partnerLogo: LinkesAndPathes.clientLogo5,
+    projectDate: {
+      month: { en: "April", ar: "أبريل" },
+      year: "2025"
+    },
+    achievements: [
+      {
+        en: "Zero disruption to major cultural institutions during maintenance period",
+        ar: "صفر اضطراب للمؤسسات الثقافية الكبرى خلال فترة الصيانة"
+      },
+      {
+        en: "100% ITC compliance maintained throughout all operations",
+        ar: "تم الحفاظ على امتثال 100٪ لمعايير ITC طوال جميع العمليات"
+      },
+      {
+        en: "Tourist access preserved with alternative routing solutions",
+        ar: "تم الحفاظ على وصول السياح من خلال حلول التوجيه البديلة"
+      },
+      {
+        en: "Advanced TMA deployment reduced work zone incidents by 95%",
+        ar: "نشر TMA المتقدم قلل حوادث منطقة العمل بنسبة 95٪"
+      }
+    ]
+  },
+  {
+    id: 6,
+    title: {
+      en: "AL FARIS Heavy Load Movement - KIZAD to Ruwais",
+      ar: "حركة الأحمال الثقيلة AL FARIS - من كيزاد إلى الرويس"
+    },
+    preview: {
+      en: "First-of-its-kind reverse-direction highway diversion for oversized cargo transport",
+      ar: "أول تحويل طريق سريع عكسي الاتجاه لنقل البضائع كبيرة الحجم"
+    },
+    category: {
+      en: "Logistics Transport",
+      ar: "النقل اللوجستي"
+    },
+    location: {
+      en: "KIZAD to Ruwais Highway",
+      ar: "طريق كيزاد - الرويس السريع"
+    },
+    duration: {
+      en: "2 weeks intensive planning + execution",
+      ar: "أسبوعين تخطيط مكثف + تنفيذ"
+    },
+    teamSize: {
+      en: "18 logistics specialists",
+      ar: "18 متخصص لوجستي"
+    },
+    technologies: {
+      en: "Real-time GPS Monitoring, Advanced Route Planning, Highway Closure Systems",
+      ar: "مراقبة GPS في الوقت الفعلي، تخطيط الطرق المتقدم، أنظمة إغلاق الطرق السريعة"
+    },
+    description: {
+      en: "Pioneered the Emirate's first reverse-direction highway diversion for AL FARIS's oversized cargo movement from KIZAD Industrial Zone to Ruwais. This groundbreaking operation required unprecedented coordination with multiple authorities, advanced safety protocols, and real-time monitoring systems. Our expert team developed innovative traffic management solutions, implemented comprehensive safety measures, and executed flawless logistics coordination that set new standards for heavy transport operations in the UAE.",
+      ar: "رائدنا في أول تحويل طريق سريع عكسي الاتجاه في الإمارة لحركة البضائع كبيرة الحجم لشركة AL FARIS من المنطقة الصناعية كيزاد إلى الرويس. تطلبت هذه العملية الرائدة تنسيقاً غير مسبوق مع سلطات متعددة وبروتوكولات أمان متقدمة وأنظمة مراقبة في الوقت الفعلي."
+    },
+    image: LinkesAndPathes.clientLogo6,
+    partnerLogo: LinkesAndPathes.clientLogo6,
+    projectDate: {
+      month: { en: "April", ar: "أبريل" },
+      year: "2025"
+    },
+    achievements: [
+      {
+        en: "First successful reverse-direction highway operation in the UAE",
+        ar: "أول عملية طريق سريع عكسية الاتجاه ناجحة في الإمارات"
+      },
+      {
+        en: "Zero safety incidents during complex oversized transport",
+        ar: "صفر حوادث أمان خلال النقل المعقد كبير الحجم"
+      },
+      {
+        en: "Real-time monitoring reduced transport time by 40%",
+        ar: "المراقبة في الوقت الفعلي قللت وقت النقل بنسبة 40٪"
+      },
+      {
+        en: "Established new protocols for future heavy transport operations",
+        ar: "وضع بروتوكولات جديدة لعمليات النقل الثقيل المستقبلية"
+      }
+    ]
+  },
+  {
+    id: 7,
+    title: {
+      en: "KABRI LLC Night Construction Support",
+      ar: "دعم الإنشاءات الليلية KABRI LLC"
+    },
+    preview: {
+      en: "24/7 TMA deployment and traffic teams for critical nighttime infrastructure projects",
+      ar: "نشر TMA ومداف مرور على مدار الساعة لمشاريع البنية التحتية الليلية الحيوية"
+    },
+    category: {
+      en: "Night Operations",
+      ar: "العمليات الليلية"
+    },
+    location: {
+      en: "Multiple sites, Abu Dhabi",
+      ar: "مواقع متعددة، أبوظبي"
+    },
+    duration: {
+      en: "Ongoing since March 2025",
+      ar: "مستمر منذ مارس 2025"
+    },
+    teamSize: {
+      en: "12 night shift specialists",
+      ar: "12 متخصص نوبة ليلية"
+    },
+    technologies: {
+      en: "High-Visibility TMA Units, LED Warning Systems, Night Vision Safety Equipment",
+      ar: "وحدات TMA عالية الرؤية، أنظمة تحذير LED، معدات السلامة للرؤية الليلية"
+    },
+    description: {
+      en: "Providing comprehensive nighttime traffic support for KABRI LLC's critical infrastructure projects through specialized TMA vehicle deployment and highly trained traffic management teams. Our 24/7 operations ensure maximum visibility and worker safety during complex nighttime construction activities. The project features advanced LED warning systems, strategic positioning of safety equipment, and continuous coordination with construction crews to maintain optimal safety standards throughout extended night work periods.",
+      ar: "نوفر دعماً مرورياً ليلياً شاملاً لمشاريع البنية التحتية الحيوية لشركة KABRI LLC من خلال نشر مركبات TMA المتخصصة وفرق إدارة المرور المدربة تدريباً عالياً. تضمن عملياتنا على مدار الساعة أقصى رؤية وسلامة للعمال أثناء أنشطة الإنشاء الليلية المعقدة."
+    },
+    image: LinkesAndPathes.clientLogo7,
+    partnerLogo: LinkesAndPathes.clientLogo7,
+    projectDate: {
+      month: { en: "March", ar: "مارس" },
+      year: "2025"
+    },
+    achievements: [
+      {
+        en: "100% safety record maintained across all night operations",
+        ar: "تم الحفاظ على سجل أمان 100٪ عبر جميع العمليات الليلية"
+      },
+      {
+        en: "Advanced LED systems improved visibility by 300% during night work",
+        ar: "أنظمة LED المتقدمة حسنت الرؤية بنسبة 300٪ أثناء العمل الليلي"
+      },
+      {
+        en: "Zero work zone incidents reported since project inception",
+        ar: "صفر حوادث منطقة عمل تم الإبلاغ عنها منذ بداية المشروع"
+      },
+      {
+        en: "24/7 response capability established for emergency situations",
+        ar: "تم إنشاء قدرة استجابة على مدار الساعة للحالات الطارئة"
+      }
+    ]
+  },
+  {
+    id: 8,
+    title: {
+      en: "AL NUBANI Ongoing Traffic Support",
+      ar: "الدعم المروري المستمر AL NUBANI"
+    },
+    preview: {
+      en: "Continuous traffic management for dynamic construction zones under flexible long-term agreement",
+      ar: "إدارة مرور مستمرة لمناطق الإنشاء الديناميكية تحت اتفاقية مرنة طويلة الأمد"
+    },
+    category: {
+      en: "Site Operations",
+      ar: "عمليات الموقع"
+    },
+    location: {
+      en: "Multiple construction sites, Abu Dhabi",
+      ar: "مواقع إنشاء متعددة، أبوظبي"
+    },
+    duration: {
+      en: "Long-term ongoing since January 2025",
+      ar: "طويل الأمد مستمر منذ يناير 2025"
+    },
+    teamSize: {
+      en: "15 flexible deployment specialists",
+      ar: "15 متخصص نشر مرن"
+    },
+    technologies: {
+      en: "Mobile TMA Units, Flexible Deployment Systems, Dynamic Site Management",
+      ar: "وحدات TMA متنقلة، أنظمة النشر المرنة، إدارة الموقع الديناميكية"
+    },
+    description: {
+      en: "Delivering comprehensive and adaptive traffic support for AL NUBANI's dynamic construction operations through our innovative flexible deployment model. This long-term partnership involves daily assessment and strategic positioning of TMA vehicles and trained traffic crews to match the evolving needs of multiple active construction zones. Our responsive approach ensures continuous safety coverage while adapting to changing project requirements and site conditions.",
+      ar: "نقدم دعماً مرورياً شاملاً وتكيفياً لعمليات الإنشاء الديناميكية لشركة AL NUBANI من خلال نموذج النشر المرن المبتكر. تتضمن هذه الشراكة طويلة الأمد تقييماً يومياً وتموضعاً استراتيجياً لمركبات TMA وطاقم المرور المدرب لمطابقة الاحتياجات المتطورة لمناطق الإنشاء النشطة المتعددة."
+    },
+    image: LinkesAndPathes.clientLogo8,
+    partnerLogo: LinkesAndPathes.clientLogo8,
+    projectDate: {
+      month: { en: "January", ar: "يناير" },
+      year: "2025"
+    },
+    achievements: [
+      {
+        en: "Flexible deployment model increased operational efficiency by 45%",
+        ar: "نموذج النشر المرن زاد الكفاءة التشغيلية بنسبة 45٪"
+      },
+      {
+        en: "Multi-site coordination maintains consistent safety standards",
+        ar: "التنسيق متعدد المواقع يحافظ على معايير السلامة المتسقة"
+      },
+      {
+        en: "Daily assessment protocol ensures optimal resource allocation",
+        ar: "بروتوكول التقييم اليومي يضمن التخصيص الأمثل للموارد"
+      },
+      {
+        en: "Long-term partnership model reduces project costs by 30%",
+        ar: "نموذج الشراكة طويلة الأمد يقلل تكاليف المشروع بنسبة 30٪"
+      }
+    ]
   }
 ];
 
