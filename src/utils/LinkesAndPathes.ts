@@ -15,7 +15,7 @@ export const LinkesAndPathes = {
   clientLogo4: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-2_upsy1p.png",
   clientLogo5: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-2_ki6i6g.jpg",
   clientLogo6: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-1_u7cxow.png",
-  clientLogo7: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961439/img-5_rnx1yy.png",
+  clientLogo7: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-5.png",
   clientLogo8: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-8.png",
   
   
