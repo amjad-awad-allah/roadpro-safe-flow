@@ -42,11 +42,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project }) => {
             <div className="flex items-start justify-between gap-4">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-3">
-                  <img 
-                    src={project.partnerLogo} 
-                    alt="Partner Logo"
-                    className="h-10 w-10 object-contain rounded-lg bg-gray-50 p-1"
-                  />
+                 
                   <span className="bg-gradient-to-r from-roadpro-yellow/20 to-roadpro-yellow/10 text-roadpro-black px-3 py-1 rounded-full text-sm font-semibold border border-roadpro-yellow/30">
                     {project.category[language]}
                   </span>
