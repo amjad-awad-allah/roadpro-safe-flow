@@ -10,7 +10,7 @@ export const LinkesAndPathes = {
   
   // Client logos (Cloudinary)
   clientLogo1: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-6.png",
-  clientLogo2: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-4.png",
+  clientLogo2: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-4.jpg",
   clientLogo3: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-3.png",
   clientLogo4: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-2_upsy1p.png",
   clientLogo5: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-2_ki6i6g.jpg",
