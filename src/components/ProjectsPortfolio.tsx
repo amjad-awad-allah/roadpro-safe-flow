@@ -130,14 +130,16 @@ const ProjectsPortfolio = () => {
 
         {/* Projects Carousel */}
         <ProjectCarousel>
-          {/* Triple duplicate projects for seamless infinite loop on all screen sizes */}
-          {[...projects, ...projects, ...projects].map((project, index) => (
-            <CompactProjectCard
-              key={`${project.id}-${index}`}
-              project={project}
-              onClick={openProject}
-            />
-          ))}
+          {/* Multiple duplicates for truly infinite loop */}
+          {Array.from({ length: 6 }, (_, setIndex) => 
+            projects.map((project, projectIndex) => (
+              <CompactProjectCard
+                key={`${project.id}-${setIndex}-${projectIndex}`}
+                project={project}
+                onClick={openProject}
+              />
+            ))
+          ).flat()}
         </ProjectCarousel>
 
         {/* Modal/Drawer for project details */}

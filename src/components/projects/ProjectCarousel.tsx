@@ -19,6 +19,7 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
     stopOnFocusIn: false,
     playOnInit: true,
     jump: false,
+    rootNode: (emblaRoot) => emblaRoot.parentElement,
   });
   
   const [emblaRef] = useEmblaCarousel({
@@ -27,9 +28,10 @@ export const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
     slidesToScroll: 1,
     dragFree: false,
     skipSnaps: false,
-    duration: 15,
-    startIndex: 8, // Start from middle to enhance infinite effect
-    watchDrag: false, // Disable drag to maintain smooth autoplay
+    duration: 20,
+    startIndex: 16, // Start from middle section for better infinite effect
+    watchDrag: true, // Allow drag but maintain autoplay
+    containScroll: false,
   }, [autoplayPlugin]);
 
   return (

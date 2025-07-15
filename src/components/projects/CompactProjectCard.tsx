@@ -51,16 +51,9 @@ export const CompactProjectCard: React.FC<CompactProjectCardProps> = ({ project,
           <div className="h-32 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-roadpro-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="w-24 h-16 flex items-center justify-center">
-              <img 
-                src={project.partnerLogo} 
-                alt="Partner Logo"
-                className="max-h-14 max-w-20 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 mx-auto"
-                style={{ 
-                  minHeight: '40px', 
-                  maxHeight: '56px',
-                  objectPosition: 'center center'
-                }}
-              />
+              <div className="w-16 h-12 bg-gradient-to-br from-roadpro-yellow/20 to-roadpro-yellow/10 rounded-lg flex items-center justify-center border border-roadpro-yellow/30">
+                <span className="text-roadpro-yellow font-bold text-lg">RP</span>
+              </div>
             </div>
           </div>
           
