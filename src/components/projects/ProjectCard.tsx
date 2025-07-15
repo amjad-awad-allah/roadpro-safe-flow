@@ -41,20 +41,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, vari
       onClick={() => onClick(project.id)}
     >
       <Card className="overflow-hidden bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 h-full group-hover:border-roadpro-yellow/30 group-hover:border-2 flex flex-col">
-        <div className="relative flex-shrink-0">
-          <div className="aspect-[16/10] overflow-hidden">
-            <img 
-              src={project.image} 
-              alt={project.title[language]}
-              className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          <div className="absolute top-4 left-4">
-            <span className="bg-gradient-to-r from-roadpro-yellow to-roadpro-yellow/90 text-roadpro-black px-3 py-2 rounded-full text-sm font-semibold shadow-lg backdrop-blur-sm border border-roadpro-yellow/20">
-              {project.category[language]}
-            </span>
-          </div>
+        <div className="p-6 pb-0">
+          <span className="bg-gradient-to-r from-roadpro-yellow to-roadpro-yellow/90 text-roadpro-black px-3 py-2 rounded-full text-sm font-semibold shadow-lg backdrop-blur-sm border border-roadpro-yellow/20">
+            {project.category[language]}
+          </span>
         </div>
         
         <CardContent className="p-6 flex flex-col flex-grow">

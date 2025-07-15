@@ -66,23 +66,6 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({ project }) => {
         </div>
         
         <div className="p-4 space-y-4 overflow-y-auto">
-          {/* Project Image */}
-          <div className="relative overflow-hidden rounded-lg shadow-md mx-auto">
-            <div className="aspect-[16/9] h-48 overflow-hidden bg-gray-100">
-              <img 
-                src={project.image} 
-                alt={project.title[language]}
-                className="w-full h-full object-cover"
-                style={{ 
-                  minHeight: '192px', 
-                  maxHeight: '192px',
-                  objectPosition: 'center center',
-                  objectFit: 'cover'
-                }}
-              />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-          </div>
           
           {/* Info Grid */}
           <div className="grid grid-cols-2 gap-3">
