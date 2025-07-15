@@ -45,18 +45,8 @@ export const CompactProjectCard: React.FC<CompactProjectCardProps> = ({ project,
       className="cursor-pointer group flex-shrink-0"
       onClick={() => onClick(project.id)}
     >
-      <Card className="w-80 h-96 bg-white border-0 shadow-md hover:shadow-xl transition-all duration-300 group-hover:border-roadpro-yellow/30 group-hover:border-2 overflow-hidden">
+      <Card className="w-80 h-80 bg-white border-0 shadow-md hover:shadow-xl transition-all duration-300 group-hover:border-roadpro-yellow/30 group-hover:border-2 overflow-hidden">
         <CardContent className="p-0 h-full flex flex-col">
-          {/* Partner Logo Section */}
-          <div className="h-32 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-roadpro-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="w-24 h-16 flex items-center justify-center">
-              <div className="w-16 h-12 bg-gradient-to-br from-roadpro-yellow/20 to-roadpro-yellow/10 rounded-lg flex items-center justify-center border border-roadpro-yellow/30">
-                <span className="text-roadpro-yellow font-bold text-lg">RP</span>
-              </div>
-            </div>
-          </div>
-          
           {/* Content Section */}
           <div className="flex-1 p-6 flex flex-col justify-between">
             <div>
