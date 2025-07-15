@@ -40,11 +40,6 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({ project }) => {
         <div className="sticky top-0 bg-white/95 backdrop-blur-sm z-10 border-b border-gray-100">
           <DrawerHeader className="p-4 pb-3">
             <div className="flex items-start gap-3">
-              <img 
-                src={project.partnerLogo} 
-                alt="Partner Logo"
-                className="h-8 w-8 object-contain rounded-lg bg-gray-50 p-1 flex-shrink-0"
-              />
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="bg-gradient-to-r from-roadpro-yellow/20 to-roadpro-yellow/10 text-roadpro-black px-2 py-1 rounded-full text-xs font-semibold border border-roadpro-yellow/30">
