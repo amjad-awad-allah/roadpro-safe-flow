@@ -593,7 +593,7 @@ export const certificates: Certificate[] = [
     },
     issueDate: "03 July 2025",
     expiryDate: "02 July 2028",
-    registrationNumber: "FQC/ٌRTS/3200/AE",
+    registrationNumber: "FQC/RTS/3200/AE",
     scope: {
       en: [
         "Road Maintenance",
@@ -610,6 +610,6 @@ export const certificates: Certificate[] = [
         "إدارة وتشغيل الطرق والجسور"
       ]
     },
-    pdfLink: CertificateLinks.iso41001
+    pdfLink: CertificateLinks.iso3900
   }
 ];
