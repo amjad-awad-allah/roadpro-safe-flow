@@ -3,15 +3,13 @@ import { useEffect, useRef } from "react";
 const GoogleMap = () => {
   const mapRef = useRef<HTMLDivElement>(null);
 
-  // إحداثيات الموقع الدقيقة:
   const location = {
     lat: 24.48475442926147,
     lng: 54.38270741104361
   };
 
-  const apiKey = "AIzaSyBK8zEiYnUvStanJpqf8PIDyl5RWFewSG8"; // استخدم مفتاحك الخاص
+  const apiKey = "AIzaSyBK8zEiYnUvStanJpqf8PIDyl5RWFewSG8";
   const zoom = 17;
-  const height = "400px";
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -19,25 +17,14 @@ const GoogleMap = () => {
     script.async = true;
     script.defer = true;
 
-    // تعريف دالة initMap بشكل عام
     window.initMap = () => {
       if (!mapRef.current || !window.google) return;
 
       const map = new window.google.maps.Map(mapRef.current, {
         center: location,
         zoom: zoom,
-        styles: [
-          {
-            featureType: "all",
-            elementType: "labels.text.fill",
-            stylers: [{ color: "#7c93a3" }, { lightness: -10 }]
-          },
-          {
-            featureType: "road.highway",
-            elementType: "geometry.fill",
-            stylers: [{ color: "#FFD600" }]
-          }
-        ]
+        disableDefaultUI: true, // يخفي كل الأدوات
+        gestureHandling: "greedy" // لمنع التمدد التلقائي
       });
 
       new window.google.maps.Marker({
@@ -58,21 +45,29 @@ const GoogleMap = () => {
     };
   }, []);
 
-return (
-  <div
-    ref={mapRef}
-    style={{
-      width: "100%",
-      height: height,
-      maxHeight: height,
-      minHeight: height,
-      overflow: "hidden",
-      borderRadius: "12px", // للتجميل
-      boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)" // ظل خفيف
-    }}
-  />
-);
-
+  return (
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "400px",          // اضبط الارتفاع حسب ما بدك
+        overflow: "hidden",
+        borderRadius: "16px",
+        boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)"
+      }}
+    >
+      <div
+        ref={mapRef}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0
+        }}
+      />
+    </div>
+  );
 };
 
 export default GoogleMap;
