@@ -610,6 +610,6 @@ export const certificates: Certificate[] = [
         "إدارة وتشغيل الطرق والجسور"
       ]
     },
-    pdfLink: CertificateLinks.iso3900
+    pdfLink: CertificateLinks.iso39001
   }
 ];
