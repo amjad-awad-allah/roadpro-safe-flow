@@ -101,64 +101,72 @@ const ContactSection = () => {
         <div className="max-w-2xl mx-auto">
           {/* Contact Info */}
           <div className="space-y-8">
-            {/* Contact cards */}
-            <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
-              <div className="space-y-8 font-poppins">
+            {/* Contact cards grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Location Card */}
+              <div className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
                 <div className="flex items-start gap-4 group">
                   <div className="w-12 h-12 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg animate-soft-pulse group-hover:scale-110 transition-transform">
                     <MapPin className="w-6 h-6 text-roadpro-black animate-float" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">{t("contact.location.title")}</h3>
-                    <p className="text-roadpro-gray">
+                    <p className="text-roadpro-gray text-sm">
                       {language === "en" ? "Abu Dhabi, Mussafah Industrial Area, M45" : "أبوظبي، المصفح المنطقة الصناعية، M45"}
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-col space-y-6">
-                  <a href="tel:+971562107006" className="flex items-start gap-4 group hover:text-roadpro-yellow transition-colors">
-                    <div className="w-12 h-12 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg animate-soft-pulse group-hover:scale-110 transition-transform">
-                      <Phone className="w-6 h-6 text-roadpro-black animate-float" style={{
-                      animationDelay: "0.15s"
-                    }} />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">
-                        {language === "en" ? "Mobile" : "الجوال"}
-                      </h3>
-                      <p className="text-roadpro-gray group-hover:text-roadpro-yellow transition-colors">
-                        +971 56 210 7006
-                      </p>
-                    </div>
-                  </a>
-                  <a href="tel:+97126447786" className="flex items-start gap-4 group hover:text-roadpro-yellow transition-colors">
-                    <div className="w-12 h-12 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg animate-soft-pulse group-hover:scale-110 transition-transform">
-                      <Phone className="w-6 h-6 text-roadpro-black animate-float" style={{
-                      animationDelay: "0.3s"
-                    }} />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">
-                        {language === "en" ? "Landline" : "الهاتف الثابت"}
-                      </h3>
-                      <p className="text-roadpro-gray group-hover:text-roadpro-yellow transition-colors">
-                        +971 2 644 7786
-                      </p>
-                    </div>
-                  </a>
-                </div>
-                <a href="mailto:info@roadshield.ae" className="flex items-start gap-4 group hover:text-roadpro-yellow transition-colors">
+              </div>
+
+              {/* Email Card */}
+              <a href="mailto:info@roadshield.ae" className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 block group hover:text-roadpro-yellow">
+                <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg animate-soft-pulse group-hover:scale-110 transition-transform">
-                    <Mail className="w-6 h-6 text-roadpro-black animate-float" style={{
-                    animationDelay: "0.45s"
-                  }} />
+                    <Mail className="w-6 h-6 text-roadpro-black animate-float" style={{animationDelay: "0.45s"}} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins">{t("contact.email.title")}</h3>
-                    <p className="text-roadpro-gray group-hover:text-roadpro-yellow transition-colors">info@roadshield.ae</p>
+                    <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins group-hover:text-roadpro-yellow transition-colors">{t("contact.email.title")}</h3>
+                    <p className="text-roadpro-gray group-hover:text-roadpro-yellow transition-colors text-sm">info@roadshield.ae</p>
                   </div>
-                </a>
-              </div>
+                </div>
+              </a>
+            </div>
+
+            {/* Phone numbers row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Mobile Card */}
+              <a href="tel:+971562107006" className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 block group hover:text-roadpro-yellow">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg animate-soft-pulse group-hover:scale-110 transition-transform">
+                    <Phone className="w-6 h-6 text-roadpro-black animate-float" style={{animationDelay: "0.15s"}} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins group-hover:text-roadpro-yellow transition-colors">
+                      {language === "en" ? "Mobile" : "الجوال"}
+                    </h3>
+                    <p className="text-roadpro-gray group-hover:text-roadpro-yellow transition-colors text-sm">
+                      +971 56 210 7006
+                    </p>
+                  </div>
+                </div>
+              </a>
+
+              {/* Landline Card */}
+              <a href="tel:+97126447786" className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 block group hover:text-roadpro-yellow">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-roadpro-yellow flex items-center justify-center flex-shrink-0 shadow-lg animate-soft-pulse group-hover:scale-110 transition-transform">
+                    <Phone className="w-6 h-6 text-roadpro-black animate-float" style={{animationDelay: "0.3s"}} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-roadpro-black mb-1 font-poppins group-hover:text-roadpro-yellow transition-colors">
+                      {language === "en" ? "Landline" : "الهاتف الثابت"}
+                    </h3>
+                    <p className="text-roadpro-gray group-hover:text-roadpro-yellow transition-colors text-sm">
+                      +971 2 644 7786
+                    </p>
+                  </div>
+                </div>
+              </a>
             </div>
             
             {/* Google Map */}
