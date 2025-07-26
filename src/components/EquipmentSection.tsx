@@ -3,22 +3,22 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Badge } from "@/components/ui/badge";
 const equipment = [{
   name: "Truck Mounted Attenuator (TMA)",
-  image: "/lovable-uploads/480795cd-6319-48a2-8143-80c77d1f2aa6.png",
+  image: "/uploads/480795cd-6319-48a2-8143-80c77d1f2aa6.png",
   specs: ["NCHRP 350 TL-3 Compliant", "High-visibility LED arrow board", "Hydraulic lift system", "Energy-absorbing technology"],
   certified: true
 }, {
   name: "Traffic Cones & Barriers",
-  image: "/lovable-uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg",
+  image: "/uploads/9e739e81-95a6-45a7-ba5b-c2ddca0e411e.jpg",
   specs: ["Reflective collars for high visibility", "PVC & rubber construction", "Wind-resistant design", "Various sizes available"],
   certified: true
 }, {
   name: "Advanced Warning Signage",
-  image: "/lovable-uploads/d0fdedde-4d38-45a4-86f3-d6acb78b3f99.png",
+  image: "/uploads/d0fdedde-4d38-45a4-86f3-d6acb78b3f99.png",
   specs: ["LED illumination", "Solar-powered options", "Remote operation capability", "Weather-resistant construction"],
   certified: true
 }, {
   name: "Lane Closure Trailers",
-  image: "/lovable-uploads/0da8014e-7a3b-4ac3-8355-f7f00bf18dbd.png",
+  image: "/uploads/0da8014e-7a3b-4ac3-8355-f7f00bf18dbd.png",
   specs: ["Quick deployment system", "Integrated lighting", "Storage compartments", "Towable by standard vehicles"],
   certified: true
 }];

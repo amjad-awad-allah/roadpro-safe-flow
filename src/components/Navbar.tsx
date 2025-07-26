@@ -120,7 +120,7 @@ const Navbar = () => {
                 ? "h-12 sm:h-14 md:h-16" 
                 : "h-16 sm:h-18 md:h-20"
             }`}
-            src="/lovable-uploads/25f91db6-31d9-44f7-a1f6-bb7d7d7e03c6.png" 
+            src="/uploads/25f91db6-31d9-44f7-a1f6-bb7d7d7e03c6.png" 
           />
         </a>
 

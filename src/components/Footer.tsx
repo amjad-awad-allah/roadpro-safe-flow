@@ -44,7 +44,7 @@ const Footer = () => {
               e.preventDefault();
               scrollToTop();
             }} className="inline-block">
-                <img alt="Road Shield Solutions" className="h-20 w-auto object-contain" src="/lovable-uploads/f2840b7c-c72b-4909-8bb1-8beb815734b1.png" />
+                <img alt="Road Shield Solutions" className="h-20 w-auto object-contain" src="/uploads/f2840b7c-c72b-4909-8bb1-8beb815734b1.png" />
               </a>
             </div>
             <p className="text-gray-300 mb-6">
