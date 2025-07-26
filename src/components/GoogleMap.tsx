@@ -22,7 +22,7 @@ declare global {
 
 const GoogleMap = ({ 
   apiKey = "AIzaSyBK8zEiYnUvStanJpqf8PIDyl5RWFewSG8",
-  location = { lat: 24.484444, lng: 54.384444 }, // 720 Sheikh Zayed Bin Sultan St - Al Danah
+  location = { lat: 24.48475442926147, lng: 54.38270741104361 }, // 720 Sheikh Zayed Bin Sultan St - Al Danah
   zoom = 15,
   height = "400px"
 }: GoogleMapProps) => {
