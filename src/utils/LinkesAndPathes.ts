@@ -20,7 +20,7 @@ export const LinkesAndPathes = {
   
   
   // Google Maps
-  googleMapsUrl: "https://maps.google.com/?q=24.4539,54.3773",
+  googleMapsUrl: "https://maps.google.com/?q=24.48475442926147,54.38270741104361",
   googleMapsApiBase: "https://maps.googleapis.com/maps/api/js",
   
   // WhatsApp

@@ -28,8 +28,8 @@ const ContactSection = () => {
 
   // Office location coordinates for Abu Dhabi
   const officeLocation = {
-    lat: 24.4539,
-    lng: 54.3773
+    lat: 24.48475442926147,
+    lng: 54.38270741104361
   };
 
   // Handle form input changes
