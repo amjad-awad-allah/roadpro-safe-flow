@@ -167,7 +167,9 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Contact Form - Send Us a Message */}
+          {/* Temporarily hidden - can be restored anytime without affecting design */}
+          {/* 
           <div className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300">
             <h3 className="text-2xl font-bold text-roadpro-black mb-6 leading-tight">
               {t("contact.form.title")}
@@ -211,6 +213,7 @@ const ContactSection = () => {
               </Button>
             </form>
           </div>
+          */}
         </div>
       </div>
     </section>;
