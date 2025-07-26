@@ -586,22 +586,28 @@ export const certificates: Certificate[] = [
   },
   {
     id: 4,
-    title: "ISO 41001:2018",
+    title: "ISO 39001:2012",
     subtitle: {
-      en: "Facility Management System",
-      ar: "نظام إدارة المرافق"
+      en: "Road Traffic Safety Management System",
+      ar: "نظام إدارة سلامة المرور"
     },
     issueDate: "03 July 2025",
     expiryDate: "02 July 2028",
-    registrationNumber: "FQC/Q/3200/AE",
+    registrationNumber: "FQC/ٌRTS/3200/AE",
     scope: {
       en: [
-        "Operation and Maintenance of Infrastructure Facilities",
-        "Facility Services for Roads, Bridges, and Oil/Gas Fields"
+        "Road Maintenance",
+        "Main Roads,Streets and Related Works Contracting",
+        "Onshore And Offshore Oil and Gas Fields and Facilities Services",
+        "Road Painting and Other Marking Works",
+        "Road and Bridges Management and Operation"
       ],
       ar: [
-        "تشغيل وصيانة مرافق البنية التحتية",
-        "خدمات المرافق للطرق والجسور وحقول النفط والغاز"
+        "صيانة الطرق",
+        "مقاولات الطرق الرئيسية والشوارع والأعمال ذات الصلة",
+        "خدمات حقول ومرافق النفط والغاز البرية والبحرية",
+        "أعمال طلاء الطرق والعلامات الأخرى",
+        "إدارة وتشغيل الطرق والجسور"
       ]
     },
     pdfLink: CertificateLinks.iso41001
