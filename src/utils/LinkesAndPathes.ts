@@ -9,13 +9,13 @@ export const LinkesAndPathes = {
   bg5: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/sign/imges/bg-5.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9iNGEyMzBkMi1lM2E2LTQ0OWQtYmRlOS00MzJjOGUyNzk5ZDEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbWdlcy9iZy01LndlYnAiLCJpYXQiOjE3NTIzMjIzODIsImV4cCI6MjQ0NjExNDM4Mn0.yar4JInDinWC6VrvrJEdaCjz-nPXsad_2_TOo1hBGSA",
   
   // Client logos (Cloudinary)
-  clientLogo1: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-6.png",
-  clientLogo2: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-4.jpg",
-  clientLogo3: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-3.png",
-  clientLogo4: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-2_upsy1p.png",
-  clientLogo5: "https://res.cloudinary.com/digkc9b40/image/upload/v1748961437/img-2_ki6i6g.jpg",
-  clientLogo6: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-1.png",
-  clientLogo7: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-5.png",
+  clientLogo1: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-1.png",
+  clientLogo2: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-2.jpg",
+  clientLogo3: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-2.png",
+  clientLogo4: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-4.jpg",
+  clientLogo5: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-5.png",
+  clientLogo6: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-6.png",
+  clientLogo7: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-7png",
   clientLogo8: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-8.png",
   
   
