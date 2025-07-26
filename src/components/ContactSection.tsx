@@ -98,10 +98,10 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            {/* Contact cards */}
+        {/* Contact Info and Map - Side by Side Layout */}
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Contact Information - Left Side */}
             <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <div className="space-y-8 font-poppins">
                 <div className="flex items-start gap-4 group">
@@ -161,61 +161,63 @@ const ContactSection = () => {
               </div>
             </div>
             
-            {/* Google Map */}
-            <div className="w-full h-[300px] cursor-pointer" onClick={() => window.open(LinkesAndPathes.googleMapsUrl, "_blank")}>
-              <GoogleMap />
+            {/* Google Map - Right Side */}
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+              <div className="w-full h-full min-h-[400px] cursor-pointer" onClick={() => window.open(LinkesAndPathes.googleMapsUrl, "_blank")}>
+                <GoogleMap />
+              </div>
             </div>
           </div>
-
-          {/* Contact Form - Send Us a Message */}
-          {/* Temporarily hidden - can be restored anytime without affecting design */}
-          {/* 
-          <div className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300">
-            <h3 className="text-2xl font-bold text-roadpro-black mb-6 leading-tight">
-              {t("contact.form.title")}
-            </h3>
-            <form ref={formRef} className="space-y-7" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="text-sm font-medium text-roadpro-gray font-poppins">
-                    {t("contact.form.name")}
-                  </label>
-                  <Input name="name" value={formData.name} onChange={handleChange} placeholder={language === "en" ? "Enter your name" : "أدخل اسمك"} className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow" required />
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-roadpro-gray font-poppins">
-                    {t("contact.form.email")}
-                  </label>
-                  <Input type="email" name="email" value={formData.email} onChange={handleChange} placeholder={language === "en" ? "Enter your email" : "أدخل بريدك الإلكتروني"} className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow" required />
-                </div>
-              </div>
-              <div>
-                <label className="text-sm font-medium text-roadpro-gray font-poppins">
-                  {t("contact.form.company")}
-                </label>
-                <Input name="company" value={formData.company} onChange={handleChange} placeholder={language === "en" ? "Enter your company" : "أدخل اسم شركتك"} className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow" />
-              </div>
-              <div>
-                <label className="text-sm font-medium text-roadpro-gray font-poppins">
-                  {t("contact.form.phone")}
-                </label>
-                <Input name="phone" value={formData.phone} onChange={handleChange} placeholder={language === "en" ? "Enter your phone" : "أدخل رقم هاتفك"} className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow" />
-              </div>
-              <div>
-                <label className="text-sm font-medium text-roadpro-gray font-poppins">
-                  {t("contact.form.message")}
-                </label>
-                <Textarea name="message" value={formData.message} onChange={handleChange} placeholder={language === "en" ? "Tell us about your requirements" : "أخبرنا عن متطلباتك"} className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow" rows={4} required />
-              </div>
-              <Button type="submit" disabled={isSubmitting} className="w-full mt-6 bg-roadpro-yellow text-roadpro-black hover:bg-roadpro-black hover:text-roadpro-yellow
-                  transition-all hover:scale-105 shadow-lg rounded-xl text-lg py-6 hover-glow">
-                {isSubmitting ? language === "en" ? "Sending..." : "جاري الإرسال..." : t("contact.form.button")}
-              </Button>
-            </form>
-          </div>
-          */}
         </div>
+
+        {/* Contact Form - Send Us a Message */}
+        {/* Temporarily hidden - can be restored anytime without affecting design */}
+        {/* 
+        <div className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300">
+          <h3 className="text-2xl font-bold text-roadpro-black mb-6 leading-tight">
+            {t("contact.form.title")}
+          </h3>
+          <form ref={formRef} className="space-y-7" onSubmit={handleSubmit}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="text-sm font-medium text-roadpro-gray font-poppins">
+                  {t("contact.form.name")}
+                </label>
+                <Input name="name" value={formData.name} onChange={handleChange} placeholder={language === "en" ? "Enter your name" : "أدخل اسمك"} className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow" required />
+              </div>
+              <div>
+                <label className="text-sm font-medium text-roadpro-gray font-poppins">
+                  {t("contact.form.email")}
+                </label>
+                <Input type="email" name="email" value={formData.email} onChange={handleChange} placeholder={language === "en" ? "Enter your email" : "أدخل بريدك الإلكتروني"} className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow" required />
+              </div>
+            </div>
+            <div>
+              <label className="text-sm font-medium text-roadpro-gray font-poppins">
+                {t("contact.form.company")}
+              </label>
+              <Input name="company" value={formData.company} onChange={handleChange} placeholder={language === "en" ? "Enter your company" : "أدخل اسم شركتك"} className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow" />
+            </div>
+            <div>
+              <label className="text-sm font-medium text-roadpro-gray font-poppins">
+                {t("contact.form.phone")}
+              </label>
+              <Input name="phone" value={formData.phone} onChange={handleChange} placeholder={language === "en" ? "Enter your phone" : "أدخل رقم هاتفك"} className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow" />
+            </div>
+            <div>
+              <label className="text-sm font-medium text-roadpro-gray font-poppins">
+                {t("contact.form.message")}
+              </label>
+              <Textarea name="message" value={formData.message} onChange={handleChange} placeholder={language === "en" ? "Tell us about your requirements" : "أخبرنا عن متطلباتك"} className="mt-1 bg-roadpro-lightgray border-transparent focus:border-roadpro-yellow focus:ring-2 focus:ring-roadpro-yellow/60 rounded-lg transition-all animate-input-glow" rows={4} required />
+            </div>
+            <Button type="submit" disabled={isSubmitting} className="w-full mt-6 bg-roadpro-yellow text-roadpro-black hover:bg-roadpro-black hover:text-roadpro-yellow
+                transition-all hover:scale-105 shadow-lg rounded-xl text-lg py-6 hover-glow">
+              {isSubmitting ? language === "en" ? "Sending..." : "جاري الإرسال..." : t("contact.form.button")}
+            </Button>
+          </form>
+        </div>
+        */}
       </div>
-    </section>;
+    </section>
 };
 export default ContactSection;
