@@ -21,8 +21,8 @@ declare global {
 }
 
 const GoogleMap = ({ 
-  apiKey = "YOUR_API_KEY", // Replace with your Google Maps API key
-  location = { lat: 24.4539, lng: 54.3773 }, // Default: Abu Dhabi coordinates
+  apiKey = "AIzaSyBK8zEiYnUvStanJpqf8PIDyl5RWFewSG8",
+  location = { lat: 24.484583, lng: 54.382694 }, // RoadPro Abu Dhabi coordinates
   zoom = 15,
   height = "400px"
 }: GoogleMapProps) => {
