@@ -163,7 +163,7 @@ const ContactSection = () => {
             
             {/* Google Map */}
             <div className="w-full h-[300px] cursor-pointer" onClick={() => window.open(LinkesAndPathes.googleMapsUrl, "_blank")}>
-              <GoogleMap location={officeLocation} height="300px" />
+              <GoogleMap />
             </div>
           </div>
 

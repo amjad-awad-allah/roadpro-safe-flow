@@ -1,5 +1,13 @@
 import { useEffect, useRef } from "react";
 
+// Extend Window interface for Google Maps
+declare global {
+  interface Window {
+    google: any;
+    initMap: () => void;
+  }
+}
+
 const GoogleMap = () => {
   const mapRef = useRef<HTMLDivElement>(null);
 
@@ -46,25 +54,10 @@ const GoogleMap = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        position: "relative",
-        width: "100%",
-        height: "400px",          // اضبط الارتفاع حسب ما بدك
-        overflow: "hidden",
-        borderRadius: "16px",
-        boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)"
-      }}
-    >
+    <div className="w-full h-full relative overflow-hidden rounded-2xl shadow-lg">
       <div
         ref={mapRef}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0
-        }}
+        className="absolute inset-0 w-full h-full"
       />
     </div>
   );
