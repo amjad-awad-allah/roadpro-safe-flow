@@ -58,13 +58,21 @@ const GoogleMap = () => {
     };
   }, []);
 
-  return (
-    <div
-      ref={mapRef}
-      className="w-full rounded-xl overflow-hidden shadow-lg"
-      style={{ height }}
-    ></div>
-  );
+return (
+  <div
+    ref={mapRef}
+    style={{
+      width: "100%",
+      height: height,
+      maxHeight: height,
+      minHeight: height,
+      overflow: "hidden",
+      borderRadius: "12px", // للتجميل
+      boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)" // ظل خفيف
+    }}
+  />
+);
+
 };
 
 export default GoogleMap;
