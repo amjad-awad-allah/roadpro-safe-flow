@@ -11,7 +11,7 @@ export const LinkesAndPathes = {
   // Client logos (local)
   clientLogo1: "/uploads/cleintsLogo/img-1.png",
   clientLogo2: "/uploads/cleintsLogo/img-2.jpg",
-  clientLogo3: "/uploads/cleintsLogo/img-2.png",
+  clientLogo3: "/uploads/cleintsLogo/img-3.png",
   clientLogo4: "/uploads/cleintsLogo/img-4.jpg",
   clientLogo5: "/uploads/cleintsLogo/img-5.png",
   clientLogo6: "/uploads/cleintsLogo/img-6.png",
