@@ -1,22 +1,22 @@
 
 export const LinkesAndPathes = {
   // Video assets
-  videoHome: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/video//home--v.mp4",
+  videoHome: "/uploads/home--v.mp4",
   
-  // Background images
-  bg1: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/imges//bg-1.webp",
-  bg3: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/imges//bg-3.webp",
-  bg5: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/imges//bg-5.webp",
+  // Background images (local)
+  bg1: "/uploads/bg-1.webp",
+  bg3: "/uploads/bg-3.webp",
+  bg5: "/uploads/bg-5.webp",
   
-  // Client logos (Cloudinary)
-  clientLogo1: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-1.png",
-  clientLogo2: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-2.jpg",
-  clientLogo3: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-2.png",
-  clientLogo4: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-4.jpg",
-  clientLogo5: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-5.png",
-  clientLogo6: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-6.png",
-  clientLogo7: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-7png",
-  clientLogo8: "https://pvwrtzsebysbidqijglv.supabase.co/storage/v1/object/public/client-logo//img-8.png",
+  // Client logos (local)
+  clientLogo1: "/uploads/img-1.png",
+  clientLogo2: "/uploads/img-2.jpg",
+  clientLogo3: "/uploads/img-2.png",
+  clientLogo4: "/uploads/img-4.jpg",
+  clientLogo5: "/uploads/img-5.png",
+  clientLogo6: "/uploads/img-6.png",
+  clientLogo7: "/uploads/img-7.png",
+  clientLogo8: "/uploads/img-8.png",
   
   
   // Google Maps
