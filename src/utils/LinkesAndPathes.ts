@@ -1,23 +1,23 @@
 
 export const LinkesAndPathes = {
   // Video assets
-  videoHome: "/uploads/home--v.mp4",
+  videoHome: "/uploads/videoHome/home--v.mp4",
   
   // Background images (local)
-  bg1: "/uploads/bg-1.webp",
-  bg3: "/uploads/bg-3.webp",
-  bg5: "/uploads/bg-5.webp",
+  bg1: "/uploads/imges/bg-1.webp",
+  bg3: "/uploads/imges/bg-3.webp",
+  bg5: "/uploads/imges/bg-5.webp",
   
   // Client logos (local)
-  clientLogo1: "/uploads/img-1.png",
-  clientLogo2: "/uploads/img-2.jpg",
-  clientLogo3: "/uploads/img-2.png",
-  clientLogo4: "/uploads/img-4.jpg",
-  clientLogo5: "/uploads/img-5.png",
-  clientLogo6: "/uploads/img-6.png",
-  clientLogo7: "/uploads/img-7.png",
-  clientLogo8: "/uploads/img-8.png",
-  
+  clientLogo1: "/uploads/cleintsLogo/img-1.png",
+  clientLogo2: "/uploads/cleintsLogo/img-2.jpg",
+  clientLogo3: "/uploads/cleintsLogo/img-2.png",
+  clientLogo4: "/uploads/cleintsLogo/img-4.jpg",
+  clientLogo5: "/uploads/cleintsLogo/img-5.png",
+  clientLogo6: "/uploads/cleintsLogo/img-6.png",
+  clientLogo7: "/uploads/cleintsLogo/img-7.png",
+  clientLogo8: "/uploads/cleintsLogo/img-8.png",
+
   
   // Google Maps
   googleMapsUrl: "https://maps.google.com/?q=24.48475442926147,54.38270741104361",
